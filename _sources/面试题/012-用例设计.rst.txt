@@ -1,6 +1,0 @@
-12 用例设计
-===========
-
-|image1|
-
-.. |image1| image:: ../wanggang.png
