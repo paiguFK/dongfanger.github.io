@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1 搭建类似pytest的Java环境把Java搞起来 &mdash; dongfanger 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="JMeter" href="../chapters/JMeter.html" />
+    <link rel="prev" title="Java入门" href="../chapters/Java%E5%85%A5%E9%97%A8.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> dongfanger
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%E5%85%A5%E9%97%A8.html">Python入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%E8%BF%9B%E9%98%B6.html">Python进阶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6.html">pytest原生框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">tep开源测试工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0.html">teprunner开源测试平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/Java%E5%85%A5%E9%97%A8.html">Java入门</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1 搭建类似pytest的Java环境把Java搞起来</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#java">安装Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#intellij-idea">安装IntelliJ IDEA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">新建项目</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testng">添加TestNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">其他设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">小结</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C.html">实战经验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4.html">成长小说</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93.html">年度总结</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E9%9D%A2%E8%AF%95%E9%A2%98.html">面试题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">关于作者</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dongfanger</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/Java%E5%85%A5%E9%97%A8.html">Java入门</a> &raquo;</li>
+        
+      <li>1 搭建类似pytest的Java环境把Java搞起来</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Java入门/001-搭建类似pytest的Java环境把Java搞起来.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pytestjavajava">
+<h1>1 搭建类似pytest的Java环境把Java搞起来<a class="headerlink" href="#pytestjavajava" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang3.png" /></p>
+<p>每次想写Java都被环境折腾困扰，不如写Python这般顺畅。为了解决这个问题，我写下这篇文章，归档到在线电子书，以备不时查看之需。</p>
+<div class="section" id="java">
+<h2>安装Java<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h2>
+<p>Python安装包是个<code class="docutils literal notranslate"><span class="pre">.exe</span></code>文件，比如<code class="docutils literal notranslate"><span class="pre">python-3.8.3.exe</span></code>。Java也是如此，区别在于文件名不是<code class="docutils literal notranslate"><span class="pre">java-xxx.exe</span></code>而是<code class="docutils literal notranslate"><span class="pre">jdk-xxx.exe</span></code>，比如<code class="docutils literal notranslate"><span class="pre">jdk-8u281-windows-x64.exe</span></code>，<code class="docutils literal notranslate"><span class="pre">jdk</span></code>是<code class="docutils literal notranslate"><span class="pre">Java</span> <span class="pre">Development</span> <span class="pre">Kit</span></code>的缩写，指Java开发工具包，包括以下内容：</p>
+<p><img alt="image2" src="../_images/image-20210304120129576.png" /></p>
+<p>JDK的最新版本为15，但是国内大多数公司仍然使用的是JDK8，这是因为JDK8是各方面都很成熟稳定的版本，并且基于JDK8开发的业务系统已经具有一定规模，新版本JDK并不能完全无感知的迁移，需要做代码修改和测试，会是一笔巨大开销，为了降低成本和规避兼容问题风险，JDK8沿用到了至今。JDK8的下载地址如下：</p>
+<p><a class="reference external" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a></p>
+<p>选择相应的版本下载：</p>
+<p><img alt="image3" src="../_images/image-20210304120845992.png" /></p>
+<p>比如我的电脑是Windows
+64位的系统，就选择了<code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">x64</span></code>这个版本，会下载到一个<code class="docutils literal notranslate"><span class="pre">jdk-8u281-windows-x64.exe</span></code>文件。Java已经被Oracle收购了，需要登录Oracle账号后才能下载，没有账号注册一个也很方便：</p>
+<p><img alt="image4" src="../_images/image-20210304125340691.png" /></p>
+<p>下载后可以开始安装了：</p>
+<p><img alt="image5" src="../_images/image-20210304130050808.png" /></p>
+<p>安装到默认位置即可，直接下一步。中途会让选择JRE（Java Runtime
+Environment，Java运行环境）的目标文件夹：</p>
+<p><img alt="image6" src="../_images/image-20210304130213386.png" /></p>
+<p>依然保持默认即可。安装结束后就能看到两个新文件夹了：</p>
+<p><img alt="image7" src="../_images/image-20210304130520551.png" /></p>
+<p>以前，还需要配置系统环境变量，设置<code class="docutils literal notranslate"><span class="pre">JAVA_HOME</span></code>和<code class="docutils literal notranslate"><span class="pre">CLASSPATH</span></code>才能使用Java。现在，安装完成即可用。打开<code class="docutils literal notranslate"><span class="pre">cmd</span></code>输入<code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-version</span></code>，命令能执行成功就表示Java已经安装好了：</p>
+<p><img alt="image8" src="../_images/image-20210304130822257.png" /></p>
+</div>
+<div class="section" id="intellij-idea">
+<h2>安装IntelliJ IDEA<a class="headerlink" href="#intellij-idea" title="Permalink to this headline">¶</a></h2>
+<p>JetBrains全家桶中也有专门用来写Java的，叫做<code class="docutils literal notranslate"><span class="pre">IntelliJ</span> <span class="pre">IDEA</span></code>，一般只说后面一个单词“哎迪儿”就知道是这个东西了。下载地址为：</p>
+<p><a class="reference external" href="https://www.jetbrains.com/idea/download/#section=windows">https://www.jetbrains.com/idea/download/#section=windows</a></p>
+<p><img alt="image9" src="../_images/image-20210304144542218.png" /></p>
+<p>个人建议选择旗舰版，看着齐全。下载后双击<code class="docutils literal notranslate"><span class="pre">ideaIU-2020.3.2.exe</span></code>安装，先别忙着打开。</p>
+<p><strong>Maven仓库</strong></p>
+<p>Python第三方库通过<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>命令来运行安装，可以在pypi网站上检索：</p>
+<p><a class="reference external" href="https://pypi.org/">https://pypi.org/</a></p>
+<p>Java第三方包通过<code class="docutils literal notranslate"><span class="pre">pom.xml</span></code>文件来配置安装，可以在mvnrepository网站上检索：</p>
+<p><a class="reference external" href="https://mvnrepository.com/">https://mvnrepository.com/</a></p>
+<p>官方仓库有时候下载速度很慢，可以找国内镜像替代，我们先把Maven中央仓库从Apache替换成阿里云。先打开本地目录<code class="docutils literal notranslate"><span class="pre">D:\Program</span> <span class="pre">Files\JetBrains\IntelliJ</span> <span class="pre">IDEA</span> <span class="pre">2020.3.2\plugins\maven\lib\maven3\conf</span></code>：</p>
+<p><img alt="image10" src="../_images/image-20210304134539351.png" /></p>
+<p>编辑<code class="docutils literal notranslate"><span class="pre">settings.xml</span></code>文件，找到<code class="docutils literal notranslate"><span class="pre">&lt;mirrors&gt;</span></code>标签，添加代码：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;mirror&gt;</span>
+  <span class="nt">&lt;id&gt;</span>aliyunmaven<span class="nt">&lt;/id&gt;</span>
+  <span class="nt">&lt;mirrorOf&gt;</span>*<span class="nt">&lt;/mirrorOf&gt;</span>
+  <span class="nt">&lt;name&gt;</span>阿里云公共仓库<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;url&gt;</span>https://maven.aliyun.com/repository/public<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;/mirror&gt;</span>
+</pre></div>
+</div>
+<p><img alt="image11" src="../_images/20200919072350460.png" /></p>
+<blockquote>
+<div><p>这是新版写法，官网https://maven.aliyun.com/mvn/guide有说明。</p>
+</div></blockquote>
+<p>接着可以打开IDEA了，欢迎界面映入眼帘：</p>
+<p><img alt="image12" src="../_images/image-20210304131305663.png" /></p>
+</div>
+<div class="section" id="id1">
+<h2>新建项目<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>选择新建Maven项目：</p>
+<p><img alt="image13" src="../_images/image-20210304135115646.png" /></p>
+<p>填写项目名和存放位置：</p>
+<p><img alt="image14" src="../_images/image-20210304135234060.png" /></p>
+<p>在<code class="docutils literal notranslate"><span class="pre">pom.xml</span></code>文件中添加仓库配置：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repositories&gt;</span>
+    <span class="nt">&lt;repository&gt;</span>
+        <span class="nt">&lt;id&gt;</span>public<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://maven.aliyun.com/repository/public<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/repository&gt;</span>
+<span class="nt">&lt;/repositories&gt;</span>
+
+<span class="nt">&lt;pluginRepositories&gt;</span>
+    <span class="nt">&lt;pluginRepository&gt;</span>
+        <span class="nt">&lt;id&gt;</span>public<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://maven.aliyun.com/repository/public<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/pluginRepository&gt;</span>
+<span class="nt">&lt;/pluginRepositories&gt;</span>
+</pre></div>
+</div>
+<p><img alt="image15" src="../_images/image-20210304135603882.png" /></p>
+<p>记得点击右上角的<code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">Maven</span> <span class="pre">Changes</span></code>按钮。至此，以阿里云为Maven中央仓库的项目就创建好了。</p>
+</div>
+<div class="section" id="testng">
+<h2>添加TestNG<a class="headerlink" href="#testng" title="Permalink to this headline">¶</a></h2>
+<p>Python默认测试框架是<code class="docutils literal notranslate"><span class="pre">unittest</span></code>，需要改配置切换到<code class="docutils literal notranslate"><span class="pre">pytest</span></code>。Java默认测试框架是<code class="docutils literal notranslate"><span class="pre">JUnit</span></code>，需要安装新包切换到<code class="docutils literal notranslate"><span class="pre">TestNG</span></code>。打开上文所述的mvnrepository网站，搜索<code class="docutils literal notranslate"><span class="pre">TestNG</span></code>：</p>
+<p><img alt="image16" src="../_images/image-20210304140316374.png" /></p>
+<p>点进去选择某个用的多比较多的版本：</p>
+<p><img alt="image17" src="../_images/image-20210304140421059.png" /></p>
+<p>复制xml配置：</p>
+<p><img alt="image18" src="../_images/image-20210304140503091.png" /></p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- https://mvnrepository.com/artifact/org.testng/testng --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.testng<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>testng<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>6.14.3<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>打开项目的<code class="docutils literal notranslate"><span class="pre">pom.xml</span></code>，添加<code class="docutils literal notranslate"><span class="pre">&lt;dependencies&gt;&lt;/dependencies&gt;</span></code>标签：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencies&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+</pre></div>
+</div>
+<p>再粘贴上刚才复制的<code class="docutils literal notranslate"><span class="pre">TestNG</span></code>配置：</p>
+<p><img alt="image19" src="../_images/image-20210304140818142.png" /></p>
+<p>同样的别忘了点击右上角的<code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">Maven</span> <span class="pre">Changes</span></code>按钮。这行代码<code class="docutils literal notranslate"><span class="pre">&lt;scope&gt;test&lt;/scope&gt;</span></code>需要特别注意，它表示<code class="docutils literal notranslate"><span class="pre">TestNG</span></code>的作用范围是<code class="docutils literal notranslate"><span class="pre">test</span></code>：</p>
+<p><img alt="image20" src="../_images/image-20210304141037952.png" /></p>
+<p>如果此时在<code class="docutils literal notranslate"><span class="pre">src\main\java</span></code>写<code class="docutils literal notranslate"><span class="pre">TestNG</span></code>的代码是会报错的：</p>
+<p><img alt="image21" src="../_images/image-20210304141948439.png" /></p>
+<p>在<code class="docutils literal notranslate"><span class="pre">src\test\java</span></code>不会：</p>
+<p><img alt="image22" src="../_images/image-20210304142011378.png" /></p>
+<p>要么去掉<code class="docutils literal notranslate"><span class="pre">&lt;scope&gt;</span></code>，要么就只在<code class="docutils literal notranslate"><span class="pre">test\java</span></code>目录下写测试代码。代码写好了，最后执行一下，点击绿色箭头：</p>
+<p><img alt="image23" src="../_images/image-20210304142213878.png" /></p>
+<p>运行成功。至此，整个项目环境就搞好了，可以开始顺畅地写Java代码了。相关测试代码如下：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.testng.annotations.Test</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestTest</span> <span class="p">{</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hello</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello Main Test&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>其他设置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>UTF-8</strong></p>
+<p><img alt="image24" src="../_images/image-20210304144349602.png" /></p>
+<p><strong>网络自动代理</strong></p>
+<p><img alt="image25" src="../_images/image-20210304144746134.png" /></p>
+<p><img alt="image26" src="../_images/image-20210304144806837.png" /></p>
+</div>
+<div class="section" id="id3">
+<h2>小结<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>本文介绍了如何从0开始搭建类似pytest的Java环境，整个过程和搭建pytest环境大同小异，理解起来比较容易。从过程中可以看出，Java确实比Python繁琐一些，好在现在已经做了些优化，相对来说化繁为简了。</p>
+<blockquote>
+<div><p>参考资料：</p>
+<p><a class="reference external" href="https://zh.wikipedia.org/zh-hans/JDK">https://zh.wikipedia.org/zh-hans/JDK</a></p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/JMeter.html" class="btn btn-neutral float-right" title="JMeter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../chapters/Java%E5%85%A5%E9%97%A8.html" class="btn btn-neutral float-left" title="Java入门" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright dongfanger
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1 12张图打开JMeter体系结构全局视角 &mdash; dongfanger 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="实战经验" href="../chapters/%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C.html" />
+    <link rel="prev" title="JMeter" href="../chapters/JMeter.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> dongfanger
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%E5%85%A5%E9%97%A8.html">Python入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%E8%BF%9B%E9%98%B6.html">Python进阶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6.html">pytest原生框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">tep开源测试工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0.html">teprunner开源测试平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Java%E5%85%A5%E9%97%A8.html">Java入门</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1 12张图打开JMeter体系结构全局视角</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#x1">X1【取样器】</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">X1【断言】</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">X1【监听器】</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#x2">X2【前置处理器】</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">X2【配置元件】</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">X2【后置处理器】</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#x3">X3【逻辑控制器】</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#x4">X4【定时器】</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#x5">X5【线程组】</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-fragment">Test Fragment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">小结</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C.html">实战经验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4.html">成长小说</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93.html">年度总结</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E9%9D%A2%E8%AF%95%E9%A2%98.html">面试题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">关于作者</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dongfanger</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/JMeter.html">JMeter</a> &raquo;</li>
+        
+      <li>1 12张图打开JMeter体系结构全局视角</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/JMeter/001-12张图打开JMeter体系结构全局视角.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jmeter">
+<h1>1 12张图打开JMeter体系结构全局视角<a class="headerlink" href="#jmeter" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang2.png" /></p>
+<p>JMeter是Java技术栈工具，在软件测试领域应用非常广泛，无论是性能测试还是接口测试，技术都很成熟和稳定。它有一个突出特点：开源，适合做二次开发，以阿里为代表的Java技术栈公司都对它青睐有加。在JMeter之前，我最早接触的工具是LoadRunner，毕业后还买过一本《精通软件性能测试与LoadRunner最佳实战》的书，但是它的时代已经过去：</p>
+<p><img alt="image2" src="../_images/image-20210303090628041.png" /></p>
+<blockquote>
+<div><p>截图为测试开发社区TesterHome讨论帖。</p>
+</div></blockquote>
+<p>这是JMeter的时代，JMeter系列文章将根据《全栈性能测试修炼宝典JMeter实战》这本书来编写。本文介绍JMeter的组成结构，阅读后对JMeter形成整体认知和初步印象。为了便于后续讲解，先明确下2个术语：</p>
+<ul class="simple">
+<li><p>元件：如HTTP请求、事务控制器、响应断言，就是一个元件。</p></li>
+<li><p>组件：如逻辑控制器，就是组件。组件中包含一个或多个元件。</p></li>
+</ul>
+<p>大的叫组件，小的叫元件，也没那么严谨，你想叫控件都行！先以组件的维度，看一下JMeter结构图：</p>
+<p><img alt="image3" src="../_images/体系结构.png" /></p>
+<p>X、Y、Z形成了一个三维立体空间。</p>
+<p>X1~X5表示的是：5个模拟过程。</p>
+<p>Y1表示的是：用户请求。</p>
+<p>Y2表示的是：结果验证。</p>
+<p>Z表示的是：结果收集。</p>
+<div class="section" id="x1">
+<h2>X1【取样器】<a class="headerlink" href="#x1" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image4" src="../_images/取样器.png" /></p>
+<p>通过访问 测试计划|线程组|取样器 添加<code class="docutils literal notranslate"><span class="pre">Sampler</span></code>。</p>
+<p>可以把它看做是一个没有界面的浏览器，可以发送请求，接收响应。支持HTTP请求、WebService请求（SOAP/XML-RPC）、Java请求等。涵盖了协议包括HTTP、FTP、JAVA、LDAP、MAIL、MongoDB、SMTP、SOAP、TCP、Junit等。还能写BeanShell脚本，一种类似Java的脚本开发语言。</p>
+</div>
+<div class="section" id="id1">
+<h2>X1【断言】<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image5" src="../_images/断言.png" /></p>
+<p>通过 测试计划|断言 添加<code class="docutils literal notranslate"><span class="pre">Assertions</span></code>。线程组也能添加断言。</p>
+<p>一般用响应断言（Response
+Assertion）比较多。可以写BeanShell实现自定义复杂断言。</p>
+</div>
+<div class="section" id="id2">
+<h2>X1【监听器】<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image6" src="../_images/监听器.png" /></p>
+<p>通过 测试计划|监听器 添加<code class="docutils literal notranslate"><span class="pre">Listener</span></code>。线程组也可以添加监听器。</p>
+<p>可以用于展示结果。如察看结果树（View Results
+True），查看每次请求和响应。聚合报告（Aggregate Report），类似测试报告。</p>
+<p>另外，也可以把测试结果数据保存到文件，供再次分析使用。</p>
+</div>
+<div class="section" id="x2">
+<h2>X2【前置处理器】<a class="headerlink" href="#x2" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image7" src="../_images/前置处理器.png" /></p>
+<p>通过 测试计划|前置处理器
+添加<code class="docutils literal notranslate"><span class="pre">Pre</span> <span class="pre">Processors</span></code>。线程组也可以添加前置处理器。</p>
+<p>在发送请求前，需要做一些环境或数据准备，就需要用前置处理器。比如对数据库操作前，需要先建立数据库连接。</p>
+</div>
+<div class="section" id="id3">
+<h2>X2【配置元件】<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image8" src="../_images/配置元件.png" /></p>
+<p>可以通过 测试计划|配置元件
+添加<code class="docutils literal notranslate"><span class="pre">Config</span> <span class="pre">Element</span></code>。线程组也可以添加配置元件。</p>
+<p>它的作用是，为取样器提供配置数据。比如使用<code class="docutils literal notranslate"><span class="pre">CSV</span> <span class="pre">Data</span> <span class="pre">Set</span> <span class="pre">Config</span></code>，从文件中读取测试数据。比如使用函数（函数助手）生成动态数据。比如使用<code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">Cookie</span> <span class="pre">Manager</span></code>，自动记录服务器返回的Cookie信息。比如使用<code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">Defined</span> <span class="pre">Variables</span></code>，预置一些初始化变量。</p>
+</div>
+<div class="section" id="id4">
+<h2>X2【后置处理器】<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image9" src="../_images/后置处理器.png" /></p>
+<p>可以通过 测试计划|后置处理器
+添加<code class="docutils literal notranslate"><span class="pre">Post</span> <span class="pre">Processors</span></code>。线程组也可以添加后置处理器。</p>
+<p>它的作用是处理响应数据。比如正则表达式提取器（Regular Expression
+Extractor），使用正则表达式来匹配响应结果，提取部分数据。</p>
+</div>
+<div class="section" id="x3">
+<h2>X3【逻辑控制器】<a class="headerlink" href="#x3" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image10" src="../_images/逻辑处理器.png" /></p>
+<p>可以通过 测试计划|线程组|逻辑控制器 添加<code class="docutils literal notranslate"><span class="pre">Logic</span> <span class="pre">Controller</span></code>。</p>
+<p>它用来对处理逻辑进行控制。比如只登陆一次，可以用 Once Only Controller
+来实现。</p>
+</div>
+<div class="section" id="x4">
+<h2>X4【定时器】<a class="headerlink" href="#x4" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image11" src="../_images/定时器.png" /></p>
+<p>可以通过 测试计划|线程组|定时器 添加<code class="docutils literal notranslate"><span class="pre">Timer</span></code>。</p>
+<p>它用来设定等待时间。比如等待5秒后再发送请求。比如让多个请求等待到同一时刻发送。</p>
+<p>不同定时器有不同功能。</p>
+</div>
+<div class="section" id="x5">
+<h2>X5【线程组】<a class="headerlink" href="#x5" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image12" src="../_images/线程组.png" /></p>
+<p>可以通过 测试计划|线程组 添加<code class="docutils literal notranslate"><span class="pre">Threads(Users)</span></code>。</p>
+<p>Threads(Users)，既是Thread，也是User。JMeter一个线程模拟一个用户。</p>
+</div>
+<div class="section" id="test-fragment">
+<h2>Test Fragment<a class="headerlink" href="#test-fragment" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image13" src="../_images/TestFrag.png" /></p>
+<p>可以通过 测试计划|Test Fragment 添加。线程组也可以添加。</p>
+<p>可用于临时备份元件，Test
+Fragment下的元件不会被运行。封装后可被模块控制器调用，就像编程一样。</p>
+</div>
+<div class="section" id="id5">
+<h2>小结<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>本文从JMeter结构图展开讲解，通过组件截图描绘出了JMeter体系结构。取样器、断言、监听器组合在一起就可以完成发送请求、验证结果和记录结果。前置处理器、配置元件、后置处理器都是为取样器提供数据支持的。逻辑控制器可以实现各种需求。定时器可以设置集合点和等待时间等。JMeter是用线程组来模拟的，一个线程就是一个用户。Test
+Fragment可以用来备份元件，底下的元件不会被运行。</p>
+<blockquote>
+<div><p>参考资料：</p>
+<p>《全栈性能测试修炼宝典JMeter实战》</p>
+<p><a class="reference external" href="https://testerhome.com/topics/8599">https://testerhome.com/topics/8599</a></p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C.html" class="btn btn-neutral float-right" title="实战经验" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../chapters/JMeter.html" class="btn btn-neutral float-left" title="JMeter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright dongfanger
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

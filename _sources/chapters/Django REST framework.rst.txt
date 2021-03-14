@@ -1,0 +1,17 @@
+=============================
+Django REST framework
+=============================
+
+用来构建RESTful API的Django延伸框架。
+
+---------------------------
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   ../Django REST framework/*
+
+--------------
+
+.. figure:: ../../README/qrcode.jpg
