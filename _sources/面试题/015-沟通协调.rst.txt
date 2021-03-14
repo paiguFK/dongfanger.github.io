@@ -1,6 +1,0 @@
-15 沟通协调
-===========
-
-|image1|
-
-.. |image1| image:: ../wanggang.png
