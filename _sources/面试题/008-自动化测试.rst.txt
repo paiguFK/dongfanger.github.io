@@ -1,0 +1,6 @@
+8 自动化测试
+============
+
+|image1|
+
+.. |image1| image:: ../wanggang.png
