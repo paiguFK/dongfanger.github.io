@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python进阶 &mdash; dongfanger 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+        <script src="../_static/js/valine.js"></script>
+        <script src="../_static/js/Valine.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1 魔法方法推开Python进阶学习大门" href="../Python%E8%BF%9B%E9%98%B6/001-%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95%E6%8E%A8%E5%BC%80Python%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E5%A4%A7%E9%97%A8.html" />
+    <link rel="prev" title="7 从函数到包的Python代码层次" href="../Python%E5%85%A5%E9%97%A8/007-%E4%BB%8E%E5%87%BD%E6%95%B0%E5%88%B0%E5%8C%85%E7%9A%84Python%E4%BB%A3%E7%A0%81%E5%B1%82%E6%AC%A1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> dongfanger
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python%E5%85%A5%E9%97%A8.html">Python入门</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python进阶</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Python%E8%BF%9B%E9%98%B6/001-%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95%E6%8E%A8%E5%BC%80Python%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E5%A4%A7%E9%97%A8.html">1 魔法方法推开Python进阶学习大门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Python%E8%BF%9B%E9%98%B6/002-Python%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E4%B8%8EPython%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B.html">2 Python数据模型与Python对象模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Python%E8%BF%9B%E9%98%B6/003-Python%E5%85%83%E7%BB%84%E6%8B%86%E5%8C%85%E6%8D%A1%E5%88%B08%E5%80%8D%E9%95%9C%E5%BF%AB%E5%87%86%E7%8B%A0.html">3 Python元组拆包捡到8倍镜快准狠</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Python%E8%BF%9B%E9%98%B6/004-%E8%83%BD%E5%8F%96%E5%80%BC%E4%BA%A6%E8%83%BD%E8%B5%8B%E5%80%BC%E7%9A%84Python%E5%88%87%E7%89%87.html">4 能取值亦能赋值的Python切片</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Python%E8%BF%9B%E9%98%B6/005-%E5%BA%8F%E5%88%97%E8%B5%8B%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84Python%E5%88%97%E8%A1%A8%E9%99%B7%E8%BF%9B.html">5 序列赋值引发的Python列表陷进</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Python%E8%BF%9B%E9%98%B6/999-%E6%B5%81%E7%95%85%E7%9A%84python%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html">999 流畅的python读书笔记</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pytest%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6.html">pytest原生框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tep%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">tep开源测试工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teprunner%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0.html">teprunner开源测试平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java%E5%85%A5%E9%97%A8.html">Java入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C.html">实战经验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4.html">成长小说</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93.html">年度总结</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E9%9D%A2%E8%AF%95%E9%A2%98.html">面试题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">关于作者</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dongfanger</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Python进阶</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/chapters/Python进阶.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python">
+<h1>Python进阶<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<p>知其然，知其所以然。</p>
+<hr class="docutils" />
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Python%E8%BF%9B%E9%98%B6/001-%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95%E6%8E%A8%E5%BC%80Python%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E5%A4%A7%E9%97%A8.html">1 魔法方法推开Python进阶学习大门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Python%E8%BF%9B%E9%98%B6/002-Python%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E4%B8%8EPython%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B.html">2 Python数据模型与Python对象模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Python%E8%BF%9B%E9%98%B6/003-Python%E5%85%83%E7%BB%84%E6%8B%86%E5%8C%85%E6%8D%A1%E5%88%B08%E5%80%8D%E9%95%9C%E5%BF%AB%E5%87%86%E7%8B%A0.html">3 Python元组拆包捡到8倍镜快准狠</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Python%E8%BF%9B%E9%98%B6/004-%E8%83%BD%E5%8F%96%E5%80%BC%E4%BA%A6%E8%83%BD%E8%B5%8B%E5%80%BC%E7%9A%84Python%E5%88%87%E7%89%87.html">4 能取值亦能赋值的Python切片</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Python%E8%BF%9B%E9%98%B6/005-%E5%BA%8F%E5%88%97%E8%B5%8B%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84Python%E5%88%97%E8%A1%A8%E9%99%B7%E8%BF%9B.html">5 序列赋值引发的Python列表陷进</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Python%E8%BF%9B%E9%98%B6/999-%E6%B5%81%E7%95%85%E7%9A%84python%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html">999 流畅的python读书笔记</a></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="figure align-default">
+<img alt="../_images/qrcode1.jpg" src="../_images/qrcode1.jpg" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Python%E8%BF%9B%E9%98%B6/001-%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95%E6%8E%A8%E5%BC%80Python%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E5%A4%A7%E9%97%A8.html" class="btn btn-neutral float-right" title="1 魔法方法推开Python进阶学习大门" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Python%E5%85%A5%E9%97%A8/007-%E4%BB%8E%E5%87%BD%E6%95%B0%E5%88%B0%E5%8C%85%E7%9A%84Python%E4%BB%A3%E7%A0%81%E5%B1%82%E6%AC%A1.html" class="btn btn-neutral float-left" title="7 从函数到包的Python代码层次" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright dongfanger
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

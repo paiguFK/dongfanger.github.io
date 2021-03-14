@@ -1,0 +1,17 @@
+==============
+关于作者
+==============
+
+* 姓名：王刚
+* 公众号：dongfanger
+* GitHub：https://github.com/dongfanger
+* 毕业于：北京理工大学 计算机科学与技术专业
+* 技术栈：第一语言Python，第二语言Java
+* 简介：阿里本地生活专利、腾讯云+社区2020年度最佳作者奖TOP150、tep开源测试工具作者、teprunner开源测试平台作者
+
+.. image:: ./dongfanger_award.png
+
+--------------------------------------------
+
+.. image:: ../README/qrcode.jpg
+

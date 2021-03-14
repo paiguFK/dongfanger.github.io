@@ -1,0 +1,26 @@
+7 Web开发
+=========
+
+|image1|
+
+**浏览器同源策略包括哪几项？**
+
+::
+
+   域名 端口 协议
+
+**跨域header里需要加什么？**
+
+::
+
+   请求header
+   //跨域的浏览器会让请求带Origin头，表明来自哪里的跨域请求
+   Origin: http://foo.example
+
+   响应header
+   Access-Control-Allow-Origin:上面origin的地址
+   Access-Control-Allow-Methods:POST,GET
+   Access-Control-Allow-Credentials:true
+   Access-Control-Allow-Headers:Origin,Content-Type,Accept,token,X-Requested-With
+
+.. |image1| image:: ../wanggang.png
