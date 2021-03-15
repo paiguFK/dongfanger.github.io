@@ -39,8 +39,8 @@ var setIdTimer = setInterval(function () {
             btw.init({
                 id: id,
                 blogId: '26021-1615627409260-510',
-                name: 'dongfanger',
-                qrcode: '../_images/qrcode.jpg',
+                name: 'dongfanger或dongfangsan',
+                qrcode: '../_images/vip.jpg',
                 keyword: '电子书'
             });
         }

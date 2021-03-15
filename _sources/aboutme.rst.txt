@@ -3,7 +3,8 @@
 ==============
 
 * 姓名：王刚
-* 公众号：dongfanger
+* Python公众号：dongfanger
+* Java公众号：dongfangsan
 * GitHub：https://github.com/dongfanger
 * 毕业于：北京理工大学 计算机科学与技术专业
 * 技术栈：第一语言Python，第二语言Java
@@ -14,4 +15,3 @@
 --------------------------------------------
 
 .. image:: ../README/qrcode.jpg
-
