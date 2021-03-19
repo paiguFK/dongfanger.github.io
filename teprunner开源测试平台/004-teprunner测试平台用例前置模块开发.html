@@ -35,7 +35,6 @@
         <script src="../_static/js/baidutongji.js"></script>
         <script src="../_static/js/valine.js"></script>
         <script src="../_static/js/Valine.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -273,7 +272,7 @@ Storage检查是否有数据：</p>
 <p><img alt="image17" src="../_images/image-20210319112019574.png" /></p>
 <p>数据写入的地方稍后会讲到，先接着讲ProjectEnv.vue文件：</p>
 <p><img alt="image18" src="../_images/image-20210319112202866.png" /></p>
-<p>切换项目会更新环境列表和当前环境数据，这样就把这两个下拉框关联了起来。切换环境会更新当前环境数据。图中框起来的this.<span class="math notranslate nohighlight">\(emit是个重要知识点。ProjectEnv.vue是个子组件，它是要嵌套到其他组件去的，比如EnvVar.vue，它们是父子组件的关系。有这么个需求，切换项目时，执行一次查询操作，把查询结果更新一下。切换项目的代码是ProjectEnv.vue子组件提供的，执行查询操作的代码是EnvVar.vue父组件提供的，子组件就是通过this.\)</span>emit把这个消息通知给父组件的。</p>
+<p>切换项目会更新环境列表和当前环境数据，这样就把这两个下拉框关联了起来。切换环境会更新当前环境数据。图中框起来的<code class="docutils literal notranslate"><span class="pre">this.$emit</span></code>是个重要知识点。ProjectEnv.vue是个子组件，它是要嵌套到其他组件去的，比如EnvVar.vue，它们是父子组件的关系。有这么个需求，切换项目时，执行一次查询操作，把查询结果更新一下。切换项目的代码是ProjectEnv.vue子组件提供的，执行查询操作的代码是EnvVar.vue父组件提供的，子组件就是通过<code class="docutils literal notranslate"><span class="pre">this.$emit</span></code>把这个消息通知给父组件的。</p>
 <p>新建views/teprunner/index.vue文件，添加接口自动化菜单：</p>
 <p><img alt="image19" src="../_images/image-20210319113008688.png" /></p>
 <p>刚才说的项目环境数据的写入就是在这里进行的：</p>
