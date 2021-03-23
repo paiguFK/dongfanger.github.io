@@ -1,6 +1,0 @@
-11 测试理论
-===========
-
-|image1|
-
-.. |image1| image:: ../wanggang.png

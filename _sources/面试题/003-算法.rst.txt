@@ -17,9 +17,9 @@
            if a[j] > a[j + 1]:
                a[j], a[j + 1] = a[j + 1], a[j]
 
-**string = “192.0.0.1?!289.0.0.1!0.0.0.0!192.163.10.28?192.0.0.1”**
-**要求：返回一个IP数组，并且按IP最后一位排序返回。**
-**P.S.语言随意，只需要能够正确排序返回接口。（Java、Python、Shell均可）**
+**string = “192.0.0.1?!289.0.0.1!0.0.0.0!192.163.10.28?192.0.0.1”
+要求：返回一个IP数组，并且按IP最后一位排序返回。
+P.S.语言随意，只需要能够正确排序返回接口。（Java、Python、Shell均可）**
 
 .. code:: python
 
@@ -36,9 +36,9 @@
    ips.sort(key=lastOne)
    print(ips)
 
-**全排列，是把一堆字符按照一定的顺序排列起来，所有可能的组合。**
-**比如，“123”的全排列为“123”、“132”、“213”、“231”、“312”、“321”。**
-**请用Python实现全排列。**
+**全排列，是把一堆字符按照一定的顺序排列起来，所有可能的组合。
+比如，“123”的全排列为“123”、“132”、“213”、“231”、“312”、“321”。
+请用Python实现全排列。**
 
 .. code:: python
 
@@ -56,5 +56,61 @@
 
 
    permutations(test_list, 0)
+
+**给定一个不确定的Json对象，求Json子节点的最大深度。**
+
+.. code:: java
+
+   package test;
+
+   import net.sf.json.JSONObject;
+
+   import java.util.Iterator;
+
+   public class AProblemDiGui {
+       static int count = 0;
+
+       public static void main(String[] args) {
+           String param = "{\"ext_meta\":{\"id\":4332021940090402,\"uid\":0,\"similarity\":1,\"blockOid\":{\"id\":4332021940090402,\"uid\":0,\"similarity\":\"1239545\",\"blockOid\":null,\"blockTopicMd5\":null},\"blockTopicMd5\":{\"id\":4332021940090402,\"uid\":0,\"similarity\":\"1239545\",\"blockOid\":{\"id\":4332021940090402,\"uid\":0,\"similarity\":\"1239545\",\"blockOid\":null,\"blockTopicMd5\":null},\"blockTopicMd5\":null}}, \"msg\":\"found\",\"ext_meta1\":{\"id\":4332021940090402,\"uid\":0,\"similarity\":\"1239545\",\"blockOid\":null,\"blockTopicMd5\":null}}";
+           System.out.println(getLength(param));
+       }
+
+       static public int getLength(String temp) {
+           Boolean flag = true;
+           JSONObject jsonObject = JSONObject.fromObject(temp);
+           Iterator iteratorValue = jsonObject.values().iterator();
+           Iterator iteratorKey = jsonObject.keySet().iterator();
+           while (iteratorValue.hasNext()) {
+               String value = iteratorValue.next().toString();
+               System.out.println(iteratorKey.next() + ":" + value);
+               if (value.startsWith("{")) {
+                   if (flag) {  //单层只记录一次
+                       count++;
+                       flag = false;
+                   }
+                   int tmp = getLength(value);
+                   if (tmp > count)
+                       count = tmp;
+               }
+           }
+           return count;
+       }
+   }
+
+**算法性能主要受哪些因素影响？**
+
+::
+
+   编程语言；数据结构；数据类型；数据规模；运行环境。
+
+**两个乒乓球队进行比赛，各出三人。甲队为a,b,c三人，乙队为x,y,z三人。已抽签决定比赛名单。有人向队员打听比赛的名单。a说他不和x比，c说他不和x,z比。请编程序找出三队赛手的名单。**
+
+.. code:: python
+
+   import itertools
+
+   for i in itertools.permutations('xyz'):
+     if i[0] != 'x' and i[2] != 'x' and i[2] != 'z':
+         print('a vs %s, b vs %s, c vs %s' % (i[0], i[1], i[2]))
 
 .. |image1| image:: ../wanggang.png

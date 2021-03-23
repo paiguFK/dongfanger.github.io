@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>11 测试理论 &mdash; dongfanger latest documentation</title>
+  <title>11 移动端 &mdash; dongfanger latest documentation</title>
   
 
   
@@ -115,11 +115,13 @@
 <li class="toctree-l2"><a class="reference internal" href="008-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95.html">8 自动化测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="009-%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">9 测试工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="010-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html">10 性能测试</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">11 测试理论</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">11 移动端</a></li>
 <li class="toctree-l2"><a class="reference internal" href="012-%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html">12 用例设计</a></li>
 <li class="toctree-l2"><a class="reference internal" href="013-%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B.html">13 测试流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="014-%E9%A1%B9%E7%9B%AE%E7%BB%8F%E9%AA%8C.html">14 项目经验</a></li>
-<li class="toctree-l2"><a class="reference internal" href="015-%E6%B2%9F%E9%80%9A%E5%8D%8F%E8%B0%83.html">15 沟通协调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="014-%E7%8E%AF%E5%A2%83%E8%BF%90%E7%BB%B4.html">14 环境运维</a></li>
+<li class="toctree-l2"><a class="reference internal" href="015-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95.html">15 接口测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="016-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">16 单元测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="017-%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA.html">16 测试理论</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4%E7%8B%AC%E5%AE%B6%E8%BF%9E%E8%BD%BD.html">成长小说独家连载</a></li>
@@ -172,13 +174,13 @@
         
           <li><a href="../chapters/%E9%9D%A2%E8%AF%95%E9%A2%98.html">面试题</a> &raquo;</li>
         
-      <li>11 测试理论</li>
+      <li>11 移动端</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/面试题/011-测试理论.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/面试题/011-移动端.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -192,8 +194,107 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>11 测试理论<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>11 移动端<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p><img alt="image1" src="../_images/wanggang12.png" /></p>
+<p><strong>android怎么抓取闪退日志的？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adb</span> <span class="n">logcat</span> <span class="o">-</span><span class="n">v</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="n">logcat</span><span class="o">.</span><span class="n">log</span>
+<span class="n">抓取日志到当前路径下logcat</span><span class="o">.</span><span class="n">log文件</span>
+</pre></div>
+</div>
+<p><strong>App应用启动和使用过程中有哪些测试点？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>启动应用，预加载应用，重启应用，静置应用，进入页面，来回滑动页面。
+</pre></div>
+</div>
+<p><strong>用户体感时长有哪些？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>渲染时长、可交互时长、可流畅交互时长。
+</pre></div>
+</div>
+<p><strong>0点后会发生什么？0点用户的真实体验如何？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>氛围能否正确切换；隐藏的价格是否会出现；定时的模块能否透出。
+在各种大图片，会场，动画，动效，游戏中徜徉的用户，内存还好吗？手机滚烫吗？会崩溃吗？
+</pre></div>
+</div>
+<p><strong>移动应用在升级安装时候应该考虑的场景？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>APP有新版本时，打开APP是否有更新提示。
+当版本为非强制升级版时，用户可以取消更新，老版本能正常使用。用户在下次启动app时，仍能出现更新提示。
+当版本为强制升级版时，当给出强制更新后用户没有做更新时，退出APP。下次启动app时，仍出现强制升级提示。
+不删除APP直接更新，检查是否能正常更新，更新后能否正常工作。
+删除老的APP，重新下载APP，能不能正常工作。
+检查更新后的APP和新安装的APP提供的功能一样。
+检查在线跨版本升级能否成功，版本过老是否提示用户重装。
+更新成功后，用户数据有没有丢失，各个配置项是否还原。
+</pre></div>
+</div>
+<p><strong>应用的闪退通常是什么原因造成的？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">缓存垃圾过多</span>
+<span class="n">内存不足</span>
+<span class="n">版本兼容问题</span>
+</pre></div>
+</div>
+<p><strong>移动应用的灰度是怎么做的？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>先对部分用户推送升级。
+一般选取Android作为灰度平台，appstore不支持灰度。
+做好数据打点。
+做好版本控制。
+灰度回收能力。
+</pre></div>
+</div>
+<p><strong>你是如何做App应用的兼容性测试的？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>各个机型
+各个系统、各个系统版本
+手机、平板
+云测平台
+云测服务
+</pre></div>
+</div>
+<p><strong>如何判断 Android 手机上是否安装了某个应用包？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">packageManager</span><span class="o">.</span><span class="n">getInstalledPackages</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>  <span class="o">//</span> <span class="n">获取所有已安装程序</span>
+</pre></div>
+</div>
+<p><strong>UI自动化用例中如何切换Android原生页面和H5页面？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">switch_to</span><span class="o">.</span><span class="n">context</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>移动端稳定性测试方法？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">单线程</span>
+<span class="n">多线程</span>
+<span class="n">前台</span><span class="o">/</span><span class="n">后台频繁调用</span>
+<span class="n">持续批量压力测试</span>
+<span class="n">随机接口并发组合</span>
+<span class="n">接口异常数据注入</span>
+</pre></div>
+</div>
+<p><strong>adb命令？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>adb devices  查看目前连接电脑的Android设备
+adb reboot  重启手机
+adb uninstall com.example.myapp  卸载手机已安装的应用
+adb install gen.apk  安装应用
+adb pull /sdcard/gen.apk  将手机文件“/sdcard/gen.apk”拉到电脑，存放位置在adb工具目录下
+adb push gen.apk /sdcard/ 将adb工具目录下电脑文件“gen.apk”推到手机，存放位置sdcard根目录下
+adb shell cat /proc/cpuinfo  获取CPU型号等信息
+adb shell screencap /sdcard/screen.png  屏幕截图
+adb shell screenrecord /sdcard/demo.mp4  录制屏幕
+</pre></div>
+</div>
+<p><strong>App测试和Web测试有什么区别?</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>性能测试，App测试中还需要考虑耗电量测试。
+兼容性测试，WEB端是兼容浏览器，App端兼容的是手机设备。
+安装测试，App测试是存在客户端层面的安装测试。
+App测试有一些手机设备的专项测试。如交叉事件测试，操作类型测试，网络测试（弱网测试，网络切换）。
+如果APP测试修改了服务器端，意味着客户端用户所使用的核心版本都需要进行回归测试一遍。
+升级测试，升级测试的提醒机制，升级取消是否会影响原有功能的使用，升级后用户数据是否被清除了。
+
+延伸：
+交叉事件测试，就是在操作某个软件的时候，来电话、来短信、电量不足提示等外部事件。
+操作类型测试，如横屏测试、手势测试。
+网络测试，包含弱网和网络切换测试。需要测试弱网所造成的用户体验，重点要考虑回退和刷新是否会造成二次提交。
+</pre></div>
+</div>
+<p><strong>冷热启动的区别？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>冷启动：在个人电脑中，冷启动是切断电源后重新启动。App类似，就是完全退出（不在后台运行）后重启启动。
+热启动：非冷启动情况都可以称为热启动。热启动比冷启动多了一个触发点，那就是在后台启动App，比如双击苹果的HOME键，进行App的热启动。同时热启动通常会有一个计时器，特别是一些理财和银行的类的App会做此处理，当你间隔一段时间触发了热启动后，会让你再次登录（通过密码/手势/指纹）。也有比如网易新闻客户端这样的，当你间隔一段时间后触发热启动，会弹出广告页。
+</pre></div>
+</div>
 </div>
 
 

@@ -1,6 +1,0 @@
-14 项目经验
-===========
-
-|image1|
-
-.. |image1| image:: ../wanggang.png

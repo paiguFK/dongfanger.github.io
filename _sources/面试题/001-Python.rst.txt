@@ -1,2 +1,109 @@
 1 Python
 ========
+
+|image1|
+
+**Python如何创建虚拟环境？**
+
+::
+
+   # 创建文件夹
+   python -m venv my_venv
+   # 激活
+   Linux:
+   source bin/activate
+   Windows:
+   activate.bat
+
+**python计算次方？**
+
+::
+
+   pow(x, y)
+   x ** y
+
+**super是什么？有什么作用？**
+
+::
+
+   super是对父类的引用.
+   可以提高代码复用性、可维护性.
+
+**L = [1, 2, 3, 11, 2, 5, 3, 2, 5, 3] 一行代码得出 [1, 2, 3, 5, 11]**
+
+::
+
+   list(set(L))  # set去重
+
+**L = [1, 2, 3, 4, 5] L[10:]的结果是？**
+
+::
+
+   空列表
+
+**L = [1, 2, 3, 5, 6] 如何得出 ‘12356’？**
+
+::
+
+   ''.join([str(i) for i in L])  # int不能直接join
+
+**计算1-100的和？**
+
+.. code:: python
+
+   from functools import reduce
+
+   result = reduce(lambda x, y: x + y, range(1, 101))
+   print(result)
+
+**1-10，对每个数字的平方？**
+
+.. code:: python
+
+   result = map(lambda x:x**2,range(1,11))
+
+   for n in result:
+       print(n)
+
+**{“a”,”ab”,”abc”,”bc”,”cd”}输出含有c字符的元素？**
+
+.. code:: python
+
+   result = filter(lambda x: "c" in x, {"a", "ab", "abc", "bc", "cd"})
+
+   for n in result:
+     print(n)
+
+**Python如何释放内存？**
+
+::
+
+   当一个对象的引用计数变为0时，python就会调用它的析构函数。
+
+**Python正则中search和match？**
+
+::
+
+   match() 只有在0位置匹配成功的话才有返回
+   search() 扫描整个string查找匹配
+
+**求两个列表的交集、差集、并集？**
+
+::
+
+   # 交集
+   list(set(a) & set(b))
+   # 差集
+   list(set(a) ^ set(b))
+   # 并集
+   list(set(a) | set(b))
+
+**Python传参数是传值还是传址？**
+
+::
+
+   实际都是传的引用。
+   如果是不可变对象（比如数字、字符或者元组），相对于传值。
+   如果是可变对象（比如字典或者列表），相当于传址。
+
+.. |image1| image:: ../wanggang.png

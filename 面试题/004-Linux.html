@@ -115,11 +115,13 @@
 <li class="toctree-l2"><a class="reference internal" href="008-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95.html">8 自动化测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="009-%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">9 测试工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="010-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html">10 性能测试</a></li>
-<li class="toctree-l2"><a class="reference internal" href="011-%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA.html">11 测试理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011-%E7%A7%BB%E5%8A%A8%E7%AB%AF.html">11 移动端</a></li>
 <li class="toctree-l2"><a class="reference internal" href="012-%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html">12 用例设计</a></li>
 <li class="toctree-l2"><a class="reference internal" href="013-%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B.html">13 测试流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="014-%E9%A1%B9%E7%9B%AE%E7%BB%8F%E9%AA%8C.html">14 项目经验</a></li>
-<li class="toctree-l2"><a class="reference internal" href="015-%E6%B2%9F%E9%80%9A%E5%8D%8F%E8%B0%83.html">15 沟通协调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="014-%E7%8E%AF%E5%A2%83%E8%BF%90%E7%BB%B4.html">14 环境运维</a></li>
+<li class="toctree-l2"><a class="reference internal" href="015-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95.html">15 接口测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="016-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">16 单元测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="017-%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA.html">16 测试理论</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4%E7%8B%AC%E5%AE%B6%E8%BF%9E%E8%BD%BD.html">成长小说独家连载</a></li>
@@ -202,6 +204,68 @@ q 不保存直接退出 wq 保存后退出 q! 强制退出
 <p><strong>linux查看文本最后几行的命令？</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>tail -f 默认最后10行，有新增会继续显示
 tail -n 显示最后n行
+</pre></div>
+</div>
+<p><strong>tree命令怎么用？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># 显示所有目录和文件
+tree
+# 只显示2层
+tree –L 2
+# 过滤
+tree -P *.py
+</pre></div>
+</div>
+<p><strong>Linux压缩包加压和解压命令？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">加压</span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">cvf</span>
+<span class="n">解压</span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span>
+</pre></div>
+</div>
+<p><strong>查看CPU、内存和磁盘信息？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># cpu</span>
+<span class="n">iostat</span> <span class="o">-</span><span class="n">c</span>
+<span class="c1"># 磁盘</span>
+<span class="n">iostat</span> <span class="o">-</span><span class="n">d</span>
+<span class="c1"># 内存</span>
+<span class="n">free</span>
+<span class="n">free</span> <span class="o">-</span><span class="n">m</span>  <span class="c1"># 以M为单位</span>
+</pre></div>
+</div>
+<p><strong>查看进程的命令？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">top</span>
+<span class="n">top</span> <span class="o">-</span><span class="n">p</span> <span class="n">pid</span>  <span class="c1"># 某个进程</span>
+</pre></div>
+</div>
+<p><strong>find命令的使用？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 当前目录及其子目录*.c的文件</span>
+<span class="n">find</span> <span class="o">.</span> <span class="o">-</span><span class="n">name</span> <span class="s2">&quot;*.c&quot;</span>
+<span class="o">-</span><span class="n">iname</span> <span class="n">会忽略大小写</span>
+</pre></div>
+</div>
+<p><strong>修改权限的命令？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">chmod</span> <span class="mi">777</span> <span class="n">某一文件</span>
+<span class="n">sudo</span> <span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="mi">777</span> <span class="n">某一目录</span>
+</pre></div>
+</div>
+<p><strong>Linux任务调度工具cron用过么？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* * * * *
+分 时 日 月 星期几
+*/X 间隔X
+M-N 指定范围
+M-N/X 指定范围内间隔X
+
+例子：
+【每天早上6点】
+0 6 * * *
+【每两个小时】
+0 */2 * * *
+【晚上11点到早上8点之间每两个小时，早上八点】
+0 23-7/2，8 * * *
+【每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点】
+0 11 4 * 1-3
+【1月1日早上4点】
+0 4 1 1 *
 </pre></div>
 </div>
 </div>

@@ -115,11 +115,13 @@
 <li class="toctree-l2"><a class="reference internal" href="008-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95.html">8 自动化测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="009-%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">9 测试工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="010-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html">10 性能测试</a></li>
-<li class="toctree-l2"><a class="reference internal" href="011-%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA.html">11 测试理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011-%E7%A7%BB%E5%8A%A8%E7%AB%AF.html">11 移动端</a></li>
 <li class="toctree-l2"><a class="reference internal" href="012-%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html">12 用例设计</a></li>
 <li class="toctree-l2"><a class="reference internal" href="013-%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B.html">13 测试流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="014-%E9%A1%B9%E7%9B%AE%E7%BB%8F%E9%AA%8C.html">14 项目经验</a></li>
-<li class="toctree-l2"><a class="reference internal" href="015-%E6%B2%9F%E9%80%9A%E5%8D%8F%E8%B0%83.html">15 沟通协调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="014-%E7%8E%AF%E5%A2%83%E8%BF%90%E7%BB%B4.html">14 环境运维</a></li>
+<li class="toctree-l2"><a class="reference internal" href="015-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95.html">15 接口测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="016-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">16 单元测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="017-%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA.html">16 测试理论</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4%E7%8B%AC%E5%AE%B6%E8%BF%9E%E8%BD%BD.html">成长小说独家连载</a></li>
@@ -194,14 +196,20 @@
   <div class="section" id="id1">
 <h1>6 网络<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p><img alt="image1" src="../_images/wanggang12.png" /></p>
-<p><strong>HTTP和HTTPS端口分别是什么？</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HTTP</span> <span class="mi">80</span>
-<span class="n">HTTPS</span> <span class="mi">443</span>
+<p><strong>http和https的区别？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http是明文传输，https是ssl加密传输，比http更安全。
+http默认端口是80，https默认端口是443。
+http连接是无状态的，https是需要身份认证的。
+https需要到ca申请证书。
 </pre></div>
 </div>
-<p><strong>HTTPS的原理？</strong></p>
-<p><img alt="image2" src="../_images/627325-dc83fef6ac2e6c88.png" /></p>
-<p><img alt="image3" src="../_images/image-20200905222833997.png" /></p>
+<p><strong>如何理解HTTP无状态无连接？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>无状态：当客户端发送请求给服务器的时候，服务器并不知道是谁发的。
+无连接：每个请求/应答，客户端和服务器都要新建一个连接，完成之后立即断开连接。
+
+延伸：Cookie/Session用来保存状态。Keep-Alive用来保持连接。
+</pre></div>
+</div>
 <p><strong>TCP/IP五层协议和OSI七层协议？</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TCP/IP五层协议：物理层、数据链路层、网络层、传输层、应用层。
 OSI七层协议：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。
@@ -228,6 +236,50 @@ OSI七层协议：物理层、数据链路层、网络层、传输层、会话�
 <span class="n">服务器返回响应头信息和响应数据</span>
 <span class="n">关闭TCP连接</span>
 <span class="n">浏览器收到响应数据</span>
+</pre></div>
+</div>
+<p><strong>HTTPS的原理？</strong></p>
+<p><img alt="image2" src="../_images/627325-dc83fef6ac2e6c88.png" /></p>
+<p><img alt="image3" src="../_images/image-20200905222833997.png" /></p>
+<p><strong>路由器，集线器，交换机的区别？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>路由器 用于连接不同网段并且找到网络中数据传输最合适的路径。
+集线器 将一些pc机连起来组成一个局域网。
+交换机 与集线器相似，区别在于集线器共享带宽，交换机独享带宽。
+</pre></div>
+</div>
+<p><strong>Internet物理地址和IP地址转换采用什么协议？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ARP</span> <span class="p">(</span><span class="n">Address</span> <span class="n">Resolution</span> <span class="n">Protocol</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>常见协议位于哪一层？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>应用层（http协议）
+传输层（tcp或udp协议）
+网络层（ip协议）
+数据链路层（网卡、路由器等）
+dns解析
+</pre></div>
+</div>
+<p><strong>HTTP xxx状态码代表什么？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>状态码  说明
+1xx     信息，服务器收到请求，需要请求者继续执行操作
+2xx     成功，操作被成功接收并处理
+3xx     重定向，需要进一步的操作以完成请求
+4x      客户端错误，请求包含语法错误或无法完成请求
+5xx     服务器错误，服务器在处理请求的过程中发生了错误
+</pre></div>
+</div>
+<p><strong>get和post请求有什么区别？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>get传输数据量小，但是效率更高。
+post可以传输更多数据，一般来说是会更安全，不过现在很多抓包的，也不一定安全。
+get只支持ASCII字符，post支持标准字符集。
+</pre></div>
+</div>
+<p><strong>TCP UDP协议区别？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TCP面向连接，UDP是无连接的。
+TCP提供可靠的服务，UDP尽最大努力交付，即不保证可靠交付。
+UDP具有较好的实时性，工作效率比TCP高。
+TCP连接只能是点到点的，UDP支持一对一，一对多，多对一和多对多。
+TCP对系统资源要求较多，UDP对系统资源要求较少。
 </pre></div>
 </div>
 </div>

@@ -3,4 +3,104 @@
 
 |image1|
 
+**Java的socket的server和client怎么实现，怎么互相发消息？**
+
+::
+
+   // server
+   ServerSocket server = new ServerSocket(port);
+   Socket socket = server.accept();
+   InputStream in = socket.getInputStream();
+
+
+   // client
+   Socket socket = new Socket(host, port);
+   out = socket.getOutputStream();
+   out.write()
+   out.flush()
+
+**JVM中程序计数器区会不会报OOM异常？**
+
+::
+
+   不会。程序计数器存储的内容仅仅就是下一条待执行的命令的地址。
+
+**说说乐观锁和悲观锁？**
+
+::
+
+   乐观锁，乐观的，假设别人不会修改数据，不会上锁。适用于写比较少的情况下（多读场景）。可以省去锁的开销，加大系统的吞吐量。
+   悲观锁，悲观的，假设每次拿数据别人都会修改，上锁。适用于多写的场景，因为多写冲突会比较多，上层应用会不断的进行retry，这样反倒是降低了性能。
+
+   延伸：
+   Java中的乐观锁
+   java.util.concurrent.atomic
+   Java中的悲观锁
+   synchronized和ReentrantLock
+
+   乐观锁一般会使用版本号机制或CAS算法实现。
+
+**线程sleep和wait的区别？**
+
+::
+
+   sleep是让线程休眠，wait是将调用者的线程挂起等待。
+   sleep是Thread的静态方法，wait是Object的方法。
+   sleep不会释放同步锁，wait会释放同步锁。
+
+**Spring定时任务@Scheduled注解？**
+
+::
+
+   * * * * * * *
+   1 秒（0~59）
+   2 分钟（0~59）
+   3 小时（0~23）
+   4 天（0~31）
+   5 月（0~11）
+   6 星期（1~7 1=SUN 或 SUN，MON，TUE，WED，THU，FRI，SAT）
+   7 年份（1970－2099）  // 可能没有
+
+   由于"月份中的日期"和"星期中的日期"这两个元素互斥的,必须要对其中一个设置?，表示不指定值
+   “L” 字符仅被用于天（月）和天（星期）两个子表达式，它是单词“last”的缩写。如果在“L”前有具体的内容，它就具有其他的含义了。例如：“6L”表示这个月的倒数第６天
+
+   例子：
+   "0 0 12 * * ?" 每天中午12点触发
+   "0 0-5 14 * * ?" 在每天下午2点到下午2:05期间的每1分钟触发
+   "0 0/5 14 * * ?" 在每天下午2点到下午2:55期间的每5分钟触发
+   “0/5”表示从第0分钟开始，每15分钟
+   "0 15 10 L * ?" 每月最后一日的上午10:15触发
+   "0 15 10 ? * 6L" 每月的最后一个星期五上午10:15触发
+
+**Java方法参数匹配顺序？**
+
+::
+
+   1）精确匹配
+   2）基本数据类型（自动转换成更大范围）
+   3）封装类（自动拆箱与装箱）
+   4）子类向上转型依次匹配
+   5）可变参数匹配
+
+**Tomcat三种运行模式？**
+
+::
+
+   BIO，一个线程处理一个请求。
+   NIO，利用Java的异步IO处理，可以通过少量的线程处理大量的请求。
+   APR，即Apache Portable Runtime，从操作系统层面解决io阻塞问题。
+
+   延伸：
+   Tomcat单进程多线程。
+   Nginx多进程，一个主进程管理多个worker子进程。
+
+**ArrayList和LinkedList区别？**
+
+::
+
+   ArrayList基于数组实现。LinkedList基于双向链表实现。
+   随机访问，ArrayList优于LinkedList。
+   插入和删除，LinkedList优于ArrayList。
+   LinkedList比ArrayList更占内存，因为LinkedList的节点除了存储数据，还存储了两个引用，一个指向前一个元素，一个指向后一个元素。
+
 .. |image1| image:: ../wanggang.png

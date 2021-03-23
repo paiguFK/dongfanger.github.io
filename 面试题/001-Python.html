@@ -115,11 +115,13 @@
 <li class="toctree-l2"><a class="reference internal" href="008-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95.html">8 自动化测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="009-%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">9 测试工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="010-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html">10 性能测试</a></li>
-<li class="toctree-l2"><a class="reference internal" href="011-%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA.html">11 测试理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011-%E7%A7%BB%E5%8A%A8%E7%AB%AF.html">11 移动端</a></li>
 <li class="toctree-l2"><a class="reference internal" href="012-%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html">12 用例设计</a></li>
 <li class="toctree-l2"><a class="reference internal" href="013-%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B.html">13 测试流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="014-%E9%A1%B9%E7%9B%AE%E7%BB%8F%E9%AA%8C.html">14 项目经验</a></li>
-<li class="toctree-l2"><a class="reference internal" href="015-%E6%B2%9F%E9%80%9A%E5%8D%8F%E8%B0%83.html">15 沟通协调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="014-%E7%8E%AF%E5%A2%83%E8%BF%90%E7%BB%B4.html">14 环境运维</a></li>
+<li class="toctree-l2"><a class="reference internal" href="015-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95.html">15 接口测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="016-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">16 单元测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="017-%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA.html">16 测试理论</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4%E7%8B%AC%E5%AE%B6%E8%BF%9E%E8%BD%BD.html">成长小说独家连载</a></li>
@@ -193,6 +195,84 @@
             
   <div class="section" id="python">
 <h1>1 Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang12.png" /></p>
+<p><strong>Python如何创建虚拟环境？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 创建文件夹</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">my_venv</span>
+<span class="c1"># 激活</span>
+<span class="n">Linux</span><span class="p">:</span>
+<span class="n">source</span> <span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">Windows</span><span class="p">:</span>
+<span class="n">activate</span><span class="o">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p><strong>python计算次方？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">**</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p><strong>super是什么？有什么作用？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>super是对父类的引用.
+可以提高代码复用性、可维护性.
+</pre></div>
+</div>
+<p><strong>L = [1, 2, 3, 11, 2, 5, 3, 2, 5, 3] 一行代码得出 [1, 2, 3, 5, 11]</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>  <span class="c1"># set去重</span>
+</pre></div>
+</div>
+<p><strong>L = [1, 2, 3, 4, 5] L[10:]的结果是？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">空列表</span>
+</pre></div>
+</div>
+<p><strong>L = [1, 2, 3, 5, 6] 如何得出 ‘12356’？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">L</span><span class="p">])</span>  <span class="c1"># int不能直接join</span>
+</pre></div>
+</div>
+<p><strong>计算1-100的和？</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>1-10，对每个数字的平方？</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>{“a”,”ab”,”abc”,”bc”,”cd”}输出含有c字符的元素？</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;c&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;bc&quot;</span><span class="p">,</span> <span class="s2">&quot;cd&quot;</span><span class="p">})</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Python如何释放内存？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>当一个对象的引用计数变为0时，python就会调用它的析构函数。
+</pre></div>
+</div>
+<p><strong>Python正则中search和match？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">match</span><span class="p">()</span> <span class="n">只有在0位置匹配成功的话才有返回</span>
+<span class="n">search</span><span class="p">()</span> <span class="n">扫描整个string查找匹配</span>
+</pre></div>
+</div>
+<p><strong>求两个列表的交集、差集、并集？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 交集</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="c1"># 差集</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">^</span> <span class="nb">set</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="c1"># 并集</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Python传参数是传值还是传址？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>实际都是传的引用。
+如果是不可变对象（比如数字、字符或者元组），相对于传值。
+如果是可变对象（比如字典或者列表），相当于传址。
+</pre></div>
+</div>
 </div>
 
 

@@ -115,11 +115,13 @@
 <li class="toctree-l2"><a class="reference internal" href="008-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95.html">8 自动化测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="009-%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">9 测试工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="010-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html">10 性能测试</a></li>
-<li class="toctree-l2"><a class="reference internal" href="011-%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA.html">11 测试理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011-%E7%A7%BB%E5%8A%A8%E7%AB%AF.html">11 移动端</a></li>
 <li class="toctree-l2"><a class="reference internal" href="012-%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html">12 用例设计</a></li>
 <li class="toctree-l2"><a class="reference internal" href="013-%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B.html">13 测试流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="014-%E9%A1%B9%E7%9B%AE%E7%BB%8F%E9%AA%8C.html">14 项目经验</a></li>
-<li class="toctree-l2"><a class="reference internal" href="015-%E6%B2%9F%E9%80%9A%E5%8D%8F%E8%B0%83.html">15 沟通协调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="014-%E7%8E%AF%E5%A2%83%E8%BF%90%E7%BB%B4.html">14 环境运维</a></li>
+<li class="toctree-l2"><a class="reference internal" href="015-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95.html">15 接口测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="016-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">16 单元测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="017-%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA.html">16 测试理论</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4%E7%8B%AC%E5%AE%B6%E8%BF%9E%E8%BD%BD.html">成长小说独家连载</a></li>
@@ -214,6 +216,77 @@ right join
 <p><strong>mysql分表的方式？</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>垂直分表：将部分字段分离出来，设计成分表，根据主表的主键关联。
 水平分表：将相同字段表中的记录按照某种Hash算法进行拆分多个分表。
+</pre></div>
+</div>
+<p><strong>衡量SQL的性能好坏的标准？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>执行耗时短
+资源开销小
+执行计划好（调用&amp;解析次数）
+</pre></div>
+</div>
+<p><strong>什么时候做读写分离？什么时候做分库分表？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">访问量大的做读写分离</span>
+<span class="n">数量大的做分库分表</span>
+</pre></div>
+</div>
+<p><strong>``count(*)``和``count(1)``和``count(列名)``区别？执行效率上？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>执行效果上：
+count(*)包括了所有的列，相当于行数，在统计结果的时候，不会忽略列值为NULL
+count(1)包括了忽略所有列，用1代表代码行，在统计结果的时候，不会忽略列值为NULL
+count(列名)只包括列名那一列，在统计结果的时候，会忽略列值为空
+
+执行效率上：
+列名为主键，count(列名)会比count(1)快
+列名不为主键，count(1)会比count(列名)快
+如果表多个列并且没有主键，则count(1)的执行效率优于count(*)
+如果有主键，则 select count(主键)的执行效率是最优的
+如果表只有一个字段，则 select count(*)最优
+</pre></div>
+</div>
+<p><strong>某个表格中有10条一模一样的数据，现在要删掉其中的9条，请你写一下sql语句。</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">delete</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">table_name</span> <span class="n">limit</span> <span class="mi">9</span>
+</pre></div>
+</div>
+<p><strong>MySQL中char和varchar的区别？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>char：定长，范围是0～255，效率高
+varchar：不定长，最长是64k，效率偏低
+
+延伸：
+char和varchar可以有默认值，text不能指定默认值。
+</pre></div>
+</div>
+<p><strong>数据库连接泄露的含义？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>没有正确地关闭Connection、Statement和ResultSet资源，连接得不到释放，可用连接越来越少。
+</pre></div>
+</div>
+<p><strong>索引的优点与不足?</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>优点：
+提高数据的检索速度；
+加快表与表之间的连接；
+减少服务器需要扫描的数据量；
+唯一性索引可以保证表中数据的唯一性。
+缺点：
+创建索引需要时间；
+索引需要占用物理空间；
+修改数据时，索引也需要动态维护。
+</pre></div>
+</div>
+<p><strong>mysql日期获取？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 当前时间</span>
+<span class="n">select</span> <span class="n">now</span><span class="p">()</span>
+<span class="c1"># 格式化，H24小时制，h12小时制</span>
+<span class="n">select</span> <span class="n">date_format</span><span class="p">(</span><span class="n">now</span><span class="p">(),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:</span><span class="si">%i</span><span class="s1">:</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1"># 字符串转日期</span>
+<span class="n">select</span> <span class="n">str_to_date</span><span class="p">(</span><span class="s1">&#39;2020-04-18 21:42:23&#39;</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:</span><span class="si">%i</span><span class="s1">:</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>主键、外键的作用？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>主键：表记录的唯一标识，保证数据的唯一性。
+外键：用于与另一张表关联，保证了数据的完整性。
+</pre></div>
+</div>
+<p><strong>索引的数据结构是什么？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>B+树。
 </pre></div>
 </div>
 </div>
