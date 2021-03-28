@@ -122,6 +122,7 @@
 <li class="toctree-l2"><a class="reference internal" href="015-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95.html">15 接口测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="016-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">16 单元测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="017-%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA.html">16 测试理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="018-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html">18 操作系统</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4%E7%8B%AC%E5%AE%B6%E8%BF%9E%E8%BD%BD.html">成长小说独家连载</a></li>
@@ -287,6 +288,15 @@ char和varchar可以有默认值，text不能指定默认值。
 </div>
 <p><strong>索引的数据结构是什么？</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>B+树。
+</pre></div>
+</div>
+<p><strong>数据库事务四大特性？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>原子性、一致性、隔离性、持久性。
+</pre></div>
+</div>
+<p><strong>脏读和幻读？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>脏读。B事务修改了一个数据并未提交，A事务读取了这个数据，然后B事务回滚了，最后A又读取了一次，两次读取的数据不一致。
+幻读。A事务更新了某个字段，B事务又插入了一条新的记录，导致A事务认为自己没有完全更新过来，就像出现幻觉一样。
 </pre></div>
 </div>
 </div>

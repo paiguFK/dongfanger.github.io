@@ -122,6 +122,7 @@
 <li class="toctree-l2"><a class="reference internal" href="015-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95.html">15 接口测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="016-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">16 单元测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="017-%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA.html">16 测试理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="018-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html">18 操作系统</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4%E7%8B%AC%E5%AE%B6%E8%BF%9E%E8%BD%BD.html">成长小说独家连载</a></li>
@@ -282,6 +283,33 @@ sendKeys()  输入到警告框中
 </div>
 <p><strong>WebDriver定位元素方式有哪些？</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ID</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">CSS</span><span class="p">,</span> <span class="n">XPath</span><span class="p">,</span> <span class="n">ClassName</span><span class="p">,</span> <span class="n">TagName</span><span class="p">,</span> <span class="n">LinkText</span><span class="p">,</span> <span class="n">PartialLinkText</span>
+</pre></div>
+</div>
+<p><strong>什么是分层自动化？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>金字塔结构：
+UI自动化
+接口自动化
+单元测试
+</pre></div>
+</div>
+<p><strong>用例失败截图？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>WebDriver有提供用于截图的TakesScreenshot类。
+</pre></div>
+</div>
+<p>如何在脚本中执行 JavaScript 代码？</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># python</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">execute_script</span><span class="p">()</span>
+
+<span class="o">//</span> <span class="n">java</span>
+<span class="n">JavascriptExecutor</span> <span class="n">jse</span><span class="o">=</span><span class="p">(</span><span class="n">JavascriptExecutor</span><span class="p">)</span><span class="n">driver</span><span class="p">;</span>
+<span class="n">jse</span><span class="o">.</span><span class="n">executeScript</span><span class="p">(</span><span class="n">js</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>Appium的原理？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>API接口调用Selenium的接口，Appium Server接收WebDriver标准请求，解析请求内容，调用对应的框架相应操作。
+代码将DesiredCapability中的键值对组合成一个JSON，然后通过HTTP协议发送到Appium服务器创建一个session。代码与Appium的所有交互都是围绕着这个session进行的。
+session创建成功后，Appium再通过USB接口与手机之间创建TCP连接，先安装一些服务端App，比如Android API 4.2+是uiautomator，Android 2.3+是Instrumentation，iOS则是UiAutomation。
+手机的操作都是有Appium发送指令到uiautomator，然后再由uiautomator进行控制的。
 </pre></div>
 </div>
 </div>

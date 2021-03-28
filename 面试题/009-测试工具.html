@@ -122,6 +122,7 @@
 <li class="toctree-l2"><a class="reference internal" href="015-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95.html">15 接口测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="016-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">16 单元测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="017-%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA.html">16 测试理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="018-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html">18 操作系统</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4%E7%8B%AC%E5%AE%B6%E8%BF%9E%E8%BD%BD.html">成长小说独家连载</a></li>
@@ -219,6 +220,18 @@ Function Helper
 断言验证测试结果。
 监听器收集显示结果数据。
 逻辑控制器来控制业务。
+</pre></div>
+</div>
+<p><strong>假设系统A调用系统B，我把B的接口都mock了，进行性能测试，这样有什么好处和坏处？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>好处：防止系统B出错引起测试错误；不会因系统B的开发进度影响测试；mock后可以快速返回结果，提高测试效率。
+
+坏处：很多情况下无法完全模拟出服务器的所有可能的返回情况，另外，mock掉了关联方之后，整个环境的连通性可能测试的不到位。
+</pre></div>
+</div>
+<p><strong>有没有用过Monkey？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Monkey程序由Android系统自带，使用Java语言写成，可以通过在CMD窗口中执行: adb shell monkey ｛+命令参数｝来进行Monkey测试。
+优点：简单、方便。
+缺点：bug不好复现。因为是随机的，冗余操作比较多。
 </pre></div>
 </div>
 </div>

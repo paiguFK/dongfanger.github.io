@@ -94,4 +94,40 @@
 
    四种状态：运行、已暂停、重新启动、已退出。
 
+**Nginx怎么获取请求的真实ip？**
+
+::
+
+   location 中配置 proxy_set_header X-Forwarded-For 然后服务端代码 request.getHeader 就可以获得真实ip。
+     server {
+         listen       80;
+         server_name  www.dongfanger.info;
+         charset utf8;
+         location / {
+             proxy_pass       http://server;
+             proxy_set_header Host      $host;
+             proxy_set_header X-Real-IP $remote_addr;
+             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+         }
+     }
+
+**Docker的镜像、容器、仓库分别是干什么的？**
+
+::
+
+   镜像是为了创建容器的只读模板。
+   容器是镜像的一个可运行实例。
+   仓库是用来存储镜像的。
+
+**描述下Docker制作镜像推送到仓库的过程？**
+
+::
+
+   从仓库pull一个镜像
+   docker执行run方法得到一个容器
+   用户在容器里执行各种操作
+   docker执行build将容器转换为镜像
+   docker执行push等命令将镜像 push到仓库
+   别人就可以用这个新的镜像了
+
 .. |image1| image:: ../wanggang.png

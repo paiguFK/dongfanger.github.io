@@ -125,4 +125,39 @@
 
    ID, Name, CSS, XPath, ClassName, TagName, LinkText, PartialLinkText
 
+**什么是分层自动化？**
+
+::
+
+   金字塔结构：
+   UI自动化
+   接口自动化
+   单元测试
+
+**用例失败截图？**
+
+::
+
+   WebDriver有提供用于截图的TakesScreenshot类。
+
+如何在脚本中执行 JavaScript 代码？
+
+::
+
+   # python
+   driver.execute_script()
+
+   // java
+   JavascriptExecutor jse=(JavascriptExecutor)driver;
+   jse.executeScript(js);
+
+**Appium的原理？**
+
+::
+
+   API接口调用Selenium的接口，Appium Server接收WebDriver标准请求，解析请求内容，调用对应的框架相应操作。
+   代码将DesiredCapability中的键值对组合成一个JSON，然后通过HTTP协议发送到Appium服务器创建一个session。代码与Appium的所有交互都是围绕着这个session进行的。
+   session创建成功后，Appium再通过USB接口与手机之间创建TCP连接，先安装一些服务端App，比如Android API 4.2+是uiautomator，Android 2.3+是Instrumentation，iOS则是UiAutomation。
+   手机的操作都是有Appium发送指令到uiautomator，然后再由uiautomator进行控制的。
+
 .. |image1| image:: ../wanggang.png

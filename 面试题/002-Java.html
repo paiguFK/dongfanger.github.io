@@ -122,6 +122,7 @@
 <li class="toctree-l2"><a class="reference internal" href="015-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95.html">15 接口测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="016-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">16 单元测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="017-%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA.html">16 测试理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="018-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html">18 操作系统</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4%E7%8B%AC%E5%AE%B6%E8%BF%9E%E8%BD%BD.html">成长小说独家连载</a></li>
@@ -278,6 +279,53 @@ Nginx多进程，一个主进程管理多个worker子进程。
 随机访问，ArrayList优于LinkedList。
 插入和删除，LinkedList优于ArrayList。
 LinkedList比ArrayList更占内存，因为LinkedList的节点除了存储数据，还存储了两个引用，一个指向前一个元素，一个指向后一个元素。
+</pre></div>
+</div>
+<p><strong>将两个升序链表合并为一个新的升序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。手写代码？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>示例：
+输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4
+输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4
+
+两个链表头部较小的一个与剩下元素的 merge 操作结果合并。
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        }
+        else if (l2 == null) {
+            return l1;
+        }
+        else if (l1.val &lt; l2.val) {
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+        }
+        else {
+            l2.next = mergeTwoLists(l1, l2.next);
+            return l2;
+        }
+
+    }
+}
+</pre></div>
+</div>
+<p><strong>Java接口与抽象类的区别？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>从设计层面来说，抽象类是对类的抽象，是一种模板设计，接口是行为的抽象，是一种行为的规范。
+【方法】接口只能有抽象方法，抽象类可以有抽象方法和非抽象方法。Java8以后，接口可以直接定义default和static方法了。抽象类可以有protect和private方法。
+【成员变量】接口中的成员变量默认是static和final的，抽象类可以像常规的对象一样定义各种成员变量。可以是非static和final的。
+【实现】接口不能实现其他的接口，只能继承一个其它的接口。抽象类可以实现多个接口。
+【构造器】抽象类可以有构造器，接口不能有构造器。
+【main方法】抽象类可以有main方法，并且我们可以运行它。接口不能有main方法。
+【速度】抽象类速度更快一些，接口需要时间寻找类中的实现方法。
 </pre></div>
 </div>
 </div>

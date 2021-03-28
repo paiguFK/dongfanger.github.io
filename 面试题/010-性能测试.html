@@ -122,6 +122,7 @@
 <li class="toctree-l2"><a class="reference internal" href="015-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95.html">15 接口测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="016-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">16 单元测试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="017-%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA.html">16 测试理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="018-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html">18 操作系统</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4%E7%8B%AC%E5%AE%B6%E8%BF%9E%E8%BD%BD.html">成长小说独家连载</a></li>
@@ -343,6 +344,16 @@ T是Transaction，Q是Query。
 <span class="n">压测脚本</span>
 <span class="n">业务逻辑</span>
 <span class="n">系统架构</span>
+</pre></div>
+</div>
+<p><strong>响应时间和吞吐量直接的关系是什么？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>平均响应时间越短，系统吞吐量越大。平均响应时间越长，系统吞吐量越小。
+</pre></div>
+</div>
+<p><strong>有一天早上打车高峰，滴滴服务端挂了大概30分钟，工程师抢修之后，马上上线，之后又挂了，请问有哪些原因会造成这个情况？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>上线后，积压的请求一下又全部打过来，瞬间并发量非常大，超出负载。
+服务器内存不够。
+被恶意攻击。
 </pre></div>
 </div>
 </div>
