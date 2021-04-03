@@ -269,6 +269,218 @@ M-N/X 指定范围内间隔X
 0 4 1 1 *
 </pre></div>
 </div>
+<p><strong>如何查找一个文件大小超过5M，不超过10M的文件？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">find</span> <span class="o">./</span> <span class="o">-</span><span class="nb">type</span> <span class="n">f</span> <span class="o">-</span><span class="n">size</span> <span class="o">+</span><span class="mi">5</span><span class="n">M</span> <span class="o">-</span><span class="n">size</span> <span class="o">-</span><span class="mi">10</span><span class="n">M</span>
+</pre></div>
+</div>
+<p><strong>linux 如何查看进程？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ps  进程状态
+ps a 显示现行终端机下的所有程序，包括其他用户的程序
+ps -A 显示所有进程
+
+a——和终端有关的进程
+x——和终端无关的进程
+u——显示进程的执行者
+</pre></div>
+</div>
+<p><strong>Linux 中查找某个文件并删除它？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>find 对应目录 -mtime +天数 -name &quot;文件名&quot; -exec rm -rf {} \;
+
+示例，将/usr/local/backups目录下所有10天前带&quot;.&quot;的文件删除：
+find /usr/local/backups -mtime +10 -name &quot;*.*&quot; -exec rm -rf {} \;
+</pre></div>
+</div>
+<p><strong>使用shell获取Nginx
+log中接口包含topic且状态码为200的接口平均响应时间，越严谨越好？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">nginx</span><span class="o">.</span><span class="n">log</span> <span class="o">|</span><span class="n">grep</span> <span class="s1">&#39;topic&#39;</span> <span class="o">|</span><span class="n">grep</span> <span class="s1">&#39;200&#39;</span><span class="o">|</span><span class="n">awk</span> <span class="o">-</span><span class="n">F</span> <span class="s1">&#39;&#39;</span> <span class="s1">&#39;{sum=sum+$1} END {print &quot;sum=&quot;,sum}&#39;</span>
+</pre></div>
+</div>
+<p><strong>每隔2s获取某个进程的CPU和mem数据并保存到csv数据文件？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>pid=1
+while true
+  do
+    top -bn1 -n 1 -p $pid | tail -1 | awk &#39;{ print $9,$10 }&#39; | sed &#39;s/ /,/&#39; &gt;&gt; cpu_test.csv
+    sleep 2
+done
+</pre></div>
+</div>
+<p><strong>linux中如何查看死锁进程状态？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pstack</span>
+<span class="n">pstack</span> <span class="n">进程号</span> <span class="n">查看各个线程的堆栈信息</span>
+
+<span class="n">gdb</span>
+<span class="n">gdb</span> <span class="n">attach</span> <span class="n">进程号</span> <span class="n">进入gdb调试终端</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">info</span> <span class="n">thread</span>
+</pre></div>
+</div>
+<p><strong>ps查看系统进程时，有一列为STAT， 如果当前进程的stat为Ss
+表示什么含义？如果为Z表示什么含义？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>S表示正在休眠；s表示主进程；Z表示僵尸进程。
+</pre></div>
+</div>
+<p><strong>使用top查看系统资源占用情况时，哪一列表示内存占用呢？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VIRT</span> <span class="n">虚拟内存用量</span>
+<span class="n">RES</span> <span class="n">物理内存用量</span>
+<span class="n">SHR</span> <span class="n">共享内存用量</span>
+<span class="o">%</span><span class="n">MEM</span> <span class="n">内存用量</span>
+</pre></div>
+</div>
+<p><strong>linux buffer和cache如何区分？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>buffer是写数据到磁盘时的缓存区。
+cache是从磁盘读数据时的缓存区。
+</pre></div>
+</div>
+<p><strong>以下列分别表示什么？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@centos6</span> <span class="o">~</span> <span class="mi">10</span><span class="p">:</span><span class="mi">57</span> <span class="c1">#39]# vmstat`</span>
+<span class="n">procs</span> <span class="o">-----------</span><span class="n">memory</span><span class="o">----------</span> <span class="o">---</span><span class="n">swap</span><span class="o">--</span> <span class="o">-----</span><span class="n">io</span><span class="o">----</span> <span class="o">--</span><span class="n">system</span><span class="o">--</span> <span class="o">-----</span><span class="n">cpu</span><span class="o">-----</span>
+
+<span class="n">r</span>  <span class="n">b</span>   <span class="n">swpd</span>   <span class="n">free</span>   <span class="n">buff</span>  <span class="n">cache</span>   <span class="n">si</span>   <span class="n">so</span>    <span class="n">bi</span>    <span class="n">bo</span>   <span class="ow">in</span>   <span class="n">cs</span> <span class="n">us</span> <span class="n">sy</span> <span class="nb">id</span> <span class="n">wa</span> <span class="n">st</span>
+
+<span class="mi">0</span>  <span class="mi">0</span>      <span class="mi">0</span> <span class="mi">1783964</span>  <span class="mi">13172</span> <span class="mi">106056</span>    <span class="mi">0</span>    <span class="mi">0</span>    <span class="mi">29</span>     <span class="mi">7</span>   <span class="mi">15</span>   <span class="mi">11</span>  <span class="mi">0</span>  <span class="mi">0</span> <span class="mi">99</span>  <span class="mi">0</span>  <span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>r即running，表示正在跑的任务数
+b即blocked，表示被阻塞的任务数
+si表示有多少数据从交换分区读入内存
+so表示有多少数据从内存写入交换分区
+bi表示有多少数据从磁盘读入内存
+bo表示有多少数据从内存写入磁盘
+
+简记：
+i --input，进入内存
+o --output，从内存出去
+s --swap，交换分区
+b --block，块设备，磁盘
+
+单位都是KB
+</pre></div>
+</div>
+<p><strong>如何看当前Linux系统有几颗物理CPU和每颗CPU的核数？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">cpuinfo</span><span class="o">|</span><span class="n">grep</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;physical id&#39;</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">cpuinfo</span><span class="o">|</span><span class="n">grep</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;processor&#39;</span>
+</pre></div>
+</div>
+<p><strong>使用什么命令查看用过的命令列表？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">history</span>
+</pre></div>
+</div>
+<p><strong>查找自己所在的终端信息？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">who</span> <span class="n">am</span> <span class="n">i</span>
+</pre></div>
+</div>
+<p><strong>查看当前谁在使用该主机？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">who</span>
+</pre></div>
+</div>
+<p><strong>搜索文件用什么命令？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">find</span>
+<span class="n">whereis</span>
+<span class="n">locate</span>
+</pre></div>
+</div>
+<p><strong>Linux哪个命令专门用来查看后台任务？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span> <span class="o">-</span><span class="n">l</span>
+</pre></div>
+</div>
+<p><strong>grep命令是什么？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。
+</pre></div>
+</div>
+<p><strong>用什么命令对一个文件的内容进行统计？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>wc 命令 - c 统计字节数 - l 统计行数 - w 统计字数。
+</pre></div>
+</div>
+<p><strong>复制文件cp？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">复制文件夹</span> <span class="n">cp</span> <span class="o">-</span><span class="n">r</span>
+</pre></div>
+</div>
+<p><strong>怎么向屏幕输出带空格的字符串，比如”hello world”?</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo hello world
+
+扩展：
+清屏 clear
+</pre></div>
+</div>
+<p><strong>查看文件内容有哪些命令可以使用？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>vi
+cat
+more  分页
+less  往前翻页
+tail
+head
+
+扩展：
+touch也可以创建文件
+</pre></div>
+</div>
+<p><strong>ls参数？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-a  所有文件
+-l  详细信息，包括大小字节数，可读可写可执行的权限等
+</pre></div>
+</div>
+<p><strong>如何查看所有java进程？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ps</span> <span class="o">-</span><span class="n">ef</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">java</span>
+<span class="o">-</span><span class="n">aux</span> <span class="n">显示所有状态</span>
+<span class="n">ps</span> <span class="o">-</span><span class="n">aux</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">java</span>
+</pre></div>
+</div>
+<p><strong>如何查看linux端口号被占用？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">netstat</span> <span class="o">-</span><span class="n">a</span> <span class="n">查看端口状态</span>
+<span class="n">netstat</span> <span class="o">-</span><span class="n">anp</span><span class="o">|</span><span class="n">grep</span> <span class="n">端口号</span> <span class="n">查看端口运行</span>
+</pre></div>
+</div>
+<p><strong>怎样一页一页地查看一个大文件的内容呢?</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">通过管道命令和more实现</span>
+<span class="n">cat</span> <span class="n">filename</span><span class="o">.</span><span class="n">txt</span> <span class="o">|</span> <span class="n">more</span>
+</pre></div>
+</div>
+<p><strong>shell命令，怎么看到行号？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grep</span> <span class="o">-</span><span class="n">n</span> <span class="s2">&quot;xxx&quot;</span> <span class="n">a</span><span class="o">.</span><span class="n">txt</span> <span class="o">|</span> <span class="n">cut</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;:&quot;</span> <span class="o">-</span><span class="n">f</span> <span class="mi">1</span>
+<span class="n">sed</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">e</span> <span class="s1">&#39;/xxx/=&#39;</span> <span class="n">a</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p><strong>shell获取进程ID的方法？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1、ps -A |grep &quot;cmdname&quot;| awk &#39;{print $1}&#39;
+2、pidof &quot;cmdname&quot;
+3、pgrep &quot;cmdname&quot;
+</pre></div>
+</div>
+<p><strong>netstat里面一般服务器启动后的端口状态是什么？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">listening</span>
+</pre></div>
+</div>
+<p><strong>Linux命令重定向&gt;和&gt;&gt;的区别是什么？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; 是定向输出到文件，如果文件不存在，就创建文件；如果文件存在，就将其清空。
+&gt;&gt; 这个是将输出内容追加到目标文件中。
+</pre></div>
+</div>
+<p><strong>vi字符串替换命令？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[range]s/s1/s2/[option]`
+
+将第10~22行的printf标识符替换为PRINT
+10,22s/printf/PRINT/g
+
+替换当前行第一个vivian为sky
+s/vivian/sky/
+
+替换当前行所有vivian为sky
+s/vivian/sky/g
+
+n,$s/vivian/sky/
+替换第n行开始到最后一行中每一行的第一个vivian为sky
+
+替换第n行开始到最后一行中每一行所有vivian为sky
+n,$s/vivian/sky/g
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p>vi查找</p>
+<p>在命令模式下敲斜杆(/)这时在状态栏（也就是屏幕左下脚）就出现了
+“/”然后输入你要查找的关键字敲回车就可以了。</p>
+<p>如果你要继续查找此关键字，敲字符n就可以继续查找了。</p>
+<p>“/”是向下查找 “?”是向上查找</p>
+</li>
+</ol>
 </div>
 
 

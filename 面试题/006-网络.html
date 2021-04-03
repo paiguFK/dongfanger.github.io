@@ -287,6 +287,94 @@ TCP对系统资源要求较多，UDP对系统资源要求较少。
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>检验和、序列号、确认应答ACK机制、超时重传机制、连接管理机制、流量控制、拥塞控制。
 </pre></div>
 </div>
+<p><strong>请你说一说PC网络故障，以及如何排除障碍？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ping远程</span>
+<span class="n">无线信号</span><span class="o">/</span><span class="n">有线连接</span>
+<span class="n">IP</span> <span class="n">DNS</span> <span class="n">网关</span> <span class="n">设置</span>
+<span class="n">ping本机IP检查驱动</span>
+<span class="n">ping网关检查网关设备</span>
+</pre></div>
+</div>
+<p><strong>请问你怎么测试网络协议？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1、一致性测试：检测协议实现本身与协议规范的符合程度
+2、互操作性测试：基于某一协议检测不同协议实现间互操作互通信的能力
+3、性能测试：检测协议实现的性能指标，比如数据传输速度，连接时间，执行速度，吞吐量，并发度
+4、健壮性测试：检测协议是现在各种恶劣环境下运行的能力，比如注入干扰报文，通信故障，信道被切断
+</pre></div>
+</div>
+<p><strong>怎么理解IP、TCP、UDP、HTTP、FTP？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>把IP想像成一种高速公路，它允许其它协议在上面行驶并找到其它电脑的出口。TCP和UDP是高速公路上的“卡车”，它们携带的货物就是像HTTP，FTP。
+</pre></div>
+</div>
+<p><strong>Postman授权方式？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">Inherit</span> <span class="n">auth</span> <span class="kn">from</span> <span class="nn">parent</span>
+<span class="o">-</span> <span class="n">No</span> <span class="n">Auth</span>
+<span class="o">-</span> <span class="n">Bearer</span> <span class="n">Token</span>
+<span class="o">-</span> <span class="n">Basic</span> <span class="n">auth</span>
+<span class="o">-</span> <span class="n">Digest</span> <span class="n">Auth</span>
+<span class="o">-</span> <span class="n">OAuth</span> <span class="mf">1.0</span>
+<span class="o">-</span> <span class="n">OAuth</span> <span class="mf">2.0</span>
+<span class="o">-</span> <span class="n">Hawk</span> <span class="n">Authentication</span>
+<span class="o">-</span> <span class="n">AWS</span> <span class="n">Signature</span>
+<span class="o">-</span> <span class="n">NTLM</span> <span class="n">Authentication</span> <span class="p">[</span><span class="n">Beta</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>默认端口？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FTP默认端口 21
+SSH（安全登录）、SCP（文件传输）、端口号重定向，默认的端口号为22
+</pre></div>
+</div>
+<p><strong>HTTP的报文段是什么样的？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>起始行（start line）：描述请求或响应的状态
+头部字段（header）：以 key:value 的形式展示
+空行（CRLF）：区分两者的边界
+数据实体（entity/ body）：实际要传输的数据，可以是文本，也可以是图片、文件、视频等二进制数据
+</pre></div>
+</div>
+<p>TCP拥塞控制方法？</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>慢启动（slow-start）、拥塞避免（congestion avoidance）、快速重传（fast retransmission）和快速恢复（fastrecover）。
+</pre></div>
+</div>
+<p><strong>TCP流量控制方法？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">滑动窗口协议</span>
+</pre></div>
+</div>
+<p><strong>DNS解析过程？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1 浏览器先检查自身缓存中有没有被解析过的这个域名对应的ip地址，如果有，解析结束。
+2 如果浏览器缓存中没有，浏览器会检查操作系统缓存中有没有对应的已解析过的结果。
+3 如果至此还没有命中域名，才会真正的请求本地域名服务器（LDNS）来解析这个域名。
+4 如果LDNS仍然没有命中，就直接跳到Root Server 域名服务器请求解析。
+5 Root Server域名服务器返回给LDNS一个所查询域的主域名服务器地址（gTLD Server，国际顶尖域名服务器，如.com .cn .org等）。
+6 此时LDNS再发送请求给上一步返回的gTLD。
+7 接受请求的gTLD查找并返回这个域名对应的Name Server的地址。
+8 Name Server根据映射关系表找到目标ip，返回给LDNS。
+9 LDNS缓存这个域名和对应的ip。
+10 LDNS把解析的结果返回给用户，缓存到本地系统缓存中。
+</pre></div>
+</div>
+<p><strong>TCP和UDP用一个端口发送信息是否冲突？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>不冲突。因为数据接收时根据五元组(传输协议，源IP，目的IP，源端口，目的端口)判断接受者的。
+</pre></div>
+</div>
+<p><strong>HTTP最常见的请求头？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span>
+<span class="n">Cookie</span>
+<span class="n">User</span><span class="o">-</span><span class="n">Agent</span>
+<span class="n">Referer</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Length</span>
+<span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span>
+<span class="n">Authorization</span>
+</pre></div>
+</div>
+<p><strong>HTTP最常见的响应头？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Allow</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Length</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Encoding</span>
+<span class="n">Date</span>
+<span class="n">Last</span><span class="o">-</span><span class="n">Modified</span>
+</pre></div>
+</div>
 </div>
 
 

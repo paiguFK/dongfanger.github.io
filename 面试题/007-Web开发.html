@@ -233,6 +233,28 @@ Session是在服务端保存的一个数据结构，用来跟踪用户的状态�
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>一般这种情况下，会使用一种叫做URL重写的技术来进行会话跟踪，即每次HTTP交互，URL后面都会被附加上一个诸如sid=xxxxx这样的参数，服务端据此来识别用户。
 </pre></div>
 </div>
+<p><strong>描述下应用架构？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>从下往上是基础组件、领域服务、应用服务、业务支撑。
+客户端，包括POS、移动端、第三方平台通过网关认证后，接入到应用层。
+应用层包括根据业务拆分的很多个微服务。
+下层是领域服务，包括数据同步下行、事件消费、全域订单查询、核心操作等。
+底层是一些基础组件，包括分布式job、异步文件队列、db sharding路由配置、断路器、缓存、推送、补偿、轨迹埋点、业务监控等。
+
+延伸：
+埋点是通过植入代码，对用户行为数据进行采集，统计，分析。
+</pre></div>
+</div>
+<p><strong>正则匹配的问号是什么意思？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符。
+?是指非贪婪。
+</pre></div>
+</div>
+<p><strong>ORM和DB如何对应？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">类</span> <span class="o">--</span> <span class="n">表</span>
+<span class="n">对象</span> <span class="o">--</span> <span class="n">行</span>
+<span class="n">属性</span> <span class="o">--</span> <span class="n">字段</span>
+</pre></div>
+</div>
 </div>
 
 

@@ -312,6 +312,25 @@ session创建成功后，Appium再通过USB接口与手机之间创建TCP连接�
 手机的操作都是有Appium发送指令到uiautomator，然后再由uiautomator进行控制的。
 </pre></div>
 </div>
+<p><strong>Selenium/WebDriver工作原理？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.selenium client(python等语言编写的自动化测试脚本)初始化一个service服务，通过Webdriver启动浏览器驱动程序chromedriver.exe
+2.通过RemoteWebDriver向浏览器驱动程序发送HTTP请求，浏览器驱动程序解析请求，打开浏览器，并获得sessionid，如果再次对浏览器操作需携带此id
+3.打开浏览器，绑定特定的端口，把启动后的浏览器作为webdriver的remote server
+4.打开浏览器后，所有的selenium的操作(访问地址，查找元素等)均通过RemoteConnection链接到remote server，然后使用execute方法调用_request方法通过urlib3向remote server发送请求
+5.浏览器通过请求的内容执行对应动作
+6.浏览器再把执行的动作结果通过浏览器驱动程序返回给测试脚本
+</pre></div>
+</div>
+<p><strong>全新项目交给你，如何展开你的自动化测试工作？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>分析业务特点。
+选择合适的工具或平台。
+确认自动化测试范围。
+编写自动化用例。
+定时执行，输出测试报告。
+接入CI/CD流程。
+冒烟/回归。
+</pre></div>
+</div>
 </div>
 
 

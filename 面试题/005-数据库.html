@@ -197,6 +197,15 @@
   <div class="section" id="id1">
 <h1>5 数据库<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p><img alt="image1" src="../_images/wanggang12.png" /></p>
+<p><strong>什么是NoSQL数据库？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>泛指非关系型数据库。
+Not Only SQL
+</pre></div>
+</div>
+<p><strong>什么是关系型数据库？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>用行列表格的形式存储数据，表之间能相互连接的数据库。
+</pre></div>
+</div>
 <p><strong>MySQL join、left join、right join区别。</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>join
 只显示完全匹配on条件的数据
@@ -297,6 +306,274 @@ char和varchar可以有默认值，text不能指定默认值。
 <p><strong>脏读和幻读？</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>脏读。B事务修改了一个数据并未提交，A事务读取了这个数据，然后B事务回滚了，最后A又读取了一次，两次读取的数据不一致。
 幻读。A事务更新了某个字段，B事务又插入了一条新的记录，导致A事务认为自己没有完全更新过来，就像出现幻觉一样。
+</pre></div>
+</div>
+<p><strong>索引是什么？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>索引是由表或者视图中的一列或多列生成的键。
+</pre></div>
+</div>
+<p><strong>mysql4大特性？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ACID  原子性、一致性、隔离性、持久性
+</pre></div>
+</div>
+<p><strong>mysql4大隔离级别？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>读未提交、读已提交、可重复读、可串行化
+</pre></div>
+</div>
+<p><strong>非聚集索引和聚集索引？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>非聚集索引。B+树的数据结构中存储的内容实际上是实际数据的地址值。也就是说它的索引和实际数据是分开的，只不过使用索引指向了实际数据。
+聚集索引。B+树的数据结构中存储的是实际的数据。
+</pre></div>
+</div>
+<p><strong>Redis事务功能是如何实现的？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Redis事务功能是通过MULTI、EXEC、DISCARD和WATCH 四个原语实现的。
+
+Redis会将一个事务中的所有命令序列化，然后按顺序执行。redis在事务失败时不支持回滚。事务中的命令出现错误，那么所有的命令都不会执行。事务中出现运行错误，那么正确的命令会被执行。
+
+MULTI命令用于开启一个事务，它总是返回OK。
+当EXEC命令被调用时，所有队列中的命令才会被执行。
+调用DISCARD，客户端可以清空事务队列，并放弃执行事务，并且客户端会从事务状态中退出。
+WATCH命令可以为Redis事务提供check-and-set（CAS）行为。可以监控一个或多个键。
+</pre></div>
+</div>
+<p><strong>Redis的操作为什么是原子性的？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>因为Redis是单线程的。
+单线程容易实现，避免了不必要的上下文切换，CPU也不会成为瓶颈。
+</pre></div>
+</div>
+<p><strong>Redis的API是原子性的操作，那么多个命令在并发中也是原子性的吗？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>不一定。多个命令组合起来就不具备原子性了。
+</pre></div>
+</div>
+<p>Redis常见性能问题？</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Master写内存快照，save命令调度rdbSave函数，会阻塞主线程的工作。
+AOF文件会不断增大，会影响Master重启的恢复速度。
+AOF在重写的时候会占大量的CPU和内存资源，导致服务load过高，出现短暂服务暂停现象。
+主从复制。
+单点故障。
+</pre></div>
+</div>
+<p><strong>为什么Redis速度快？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1、纯内存操作。
+2、单线程操作，避免了频繁的上下文切换。
+3、采用了非阻塞I/O多路复用机制。
+</pre></div>
+</div>
+<p><strong>redis的过期策略？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>定期删除+惰性删除。
+</pre></div>
+</div>
+<p><strong>为什么redis不采用定时删除？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>定时删除，不同于定期删除，而是用一个定时器来负责监视key，过期则自动删除。虽然内存及时释放，但是十分消耗CPU资源。
+</pre></div>
+</div>
+<p><strong>什么是惰性删除？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>redis不是每个100ms将所有的key检查一次，而是随机抽取进行检查(如果每隔100ms,全部key进行检查，redis岂不是卡死)。
+惰性删除，在你获取某个key的时候，redis会检查一下，这个key如果设置了过期时间是否过期了？如果过期了此时就会删除。
+</pre></div>
+</div>
+<p><strong>采用定期删除+惰性删除就没其他问题了么？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>不是的，如果定期删除没删除key。然后你也没即时去请求key，也就是说惰性删除也没生效。这样，redis的内存会越来越高。那么就应该采用内存淘汰机制。
+</pre></div>
+</div>
+<p><strong>阻塞I/O、非阻塞IO、I/O多路复用分别指什么？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. 通常IO操作都是阻塞I/O的。就是等着数据过来，才进行读写操作。
+2. 非阻塞IO，如果没有数据收到，就立刻返回一个错误。这样是不会阻塞线程了，但是你还是要不断的轮询来读取或写入。
+3. I/O多路复用，是指使用一个线程来检查多个文件描述符的就绪状态，如果有一个文件描述符就绪，则返回，否则阻塞直到超时。
+</pre></div>
+</div>
+<p><strong>redis的数据类型？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>五种，string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。
+</pre></div>
+</div>
+<p><strong>Memecache和Redis区别？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Memecache把数据全部存在内存之中，断电后会挂掉，数据不能超过内存大小。
+Redis有部分存在硬盘上，Redis可以持久化数据。
+Redis的速度比memcached快很多。
+Redis支持数据的备份，即master-slave模式的数据备份。
+</pre></div>
+</div>
+<p><strong>热点数据和冷数据是什么？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>热点数据，是指读取很频繁的数据，适合做缓存。
+冷数据，是指读取少，不适合做缓存。可能还没有再次访问到就已经被挤出内存，占用内存。
+</pre></div>
+</div>
+<p><strong>缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>缓存雪崩。由于原有缓存失效，新缓存未到期间 (例如：我们设置缓存时采用了相同的过期时间，在同一时刻出现大面积的缓存过期)，所有原本应该访问缓存的请求都去查询数据库了，而对数据库CPU和内存造成巨大压力，严重的会造成数据库宕机。从而形成一系列连锁反应，造成整个系统崩溃。
+
+缓存穿透。用户查询数据，在数据库没有，自然在缓存中也不会有。这样就导致用户查询的时候，在缓存中找不到，每次都要去数据库再查询一遍，然后返回空（相当于进行了两次无用的查询）。这样请求就绕过缓存直接查数据库，这也是经常提的缓存命中率问题。
+
+缓存预热。系统上线后，将相关的缓存数据直接加载到缓存系统。
+
+缓存更新。自定义清理缓存后，更新。
+
+缓存降级。当访问量剧增、服务出现问题（如响应时间慢或不响应）或非核心服务影响到核心流程的性能时，仍然需要保证服务还是可用的，即使是有损服务。对于不重要的缓存数据，可以采取服务降级策略，例如一个比较常见的做法就是，Redis出现问题，不去数据库查询，而是直接返回默认值给用户。
+
+服务降级的目的，是为了防止Redis服务故障，导致数据库跟着一起发生雪崩问题。
+</pre></div>
+</div>
+<p><strong>Redis持久化机制？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>通过持久化机制把内存中的数据同步到硬盘文件来保证数据持久化。
+当Redis重启后通过把硬盘文件重新加载到内存，就能达到恢复数据的目的。
+
+延伸：
+Redis将内存中的数据利用RDB和AOF的形式保存到硬盘中。
+AOF：Redis会将每一个收到的写命令都通过Write函数追加到文件最后，类似于MySQL的binlog。当Redis重启是会通过重新执行文件中保存的写命令来在内存中重建整个数据库的内容。
+RDB是Redis默认的持久化方式。按照一定的时间周期策略把内存的数据以快照的形式保存到硬盘的二 进制文件。即Snapshot快照存储。
+</pre></div>
+</div>
+<p><strong>Redis持久化实现？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>单独创建fork()一个子进程，将当前父进程的数据库数据复制到子进程的内存中，然后由子进程写入到临时文件中，持久化的过程结束了，再用这个临时文件替换上次的快照文件，然后子进程退出，内存释放。
+</pre></div>
+</div>
+<p><strong>说一下分布式和集群联系和区别？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>一个业务拆分为多个子业务，部署在不同的服务器上实现相同的业务就是分布式。
+
+将多台服务器集中在一起，就可以叫做集群。
+一般用于解决访问量大、并发量高、海量数据、分布式的问题。
+
+集群是个物理形态，分布式是个工作方式。
+
+集群可能运行着一个或多个分布式系统，也可能根本没有运行分布式系统。
+分布式系统可能运行在一个集群上，也可能运行在不属于一个集群的多台（2台也算多台）机器上。
+</pre></div>
+</div>
+<p><strong>redis集群方式？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">主从复制</span>
+<span class="n">哨兵模式</span>
+<span class="n">Redis</span><span class="o">-</span><span class="n">Cluster集群</span>
+</pre></div>
+</div>
+<p><strong>为什么一般集群都要用3台服务器来组建？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>为了保证选举过程最后能选出leader，就一定不能出现两台机器得票相同，所以就是2n+1，至少3台。
+
+延伸：
+LOOKING：当前Server不知道leader是谁，正在搜寻。
+LEADING：当前Server即为选举出来的leader。
+FOLLOWING：leader已经选举出来，当前Server与之同步。
+</pre></div>
+</div>
+<p><strong>什么是池化技术？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>池化技术就是提前保存大量的资源，通过复用来提升性能。
+池化技术主要有线程池，内存池，连接池，对象池等。
+</pre></div>
+</div>
+<p><strong>Redis+Cookie如何实现购物车？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>当点击“加入购物车”按钮时，先获取用户登录凭证，如果没有登录，就将商品的id保存在Redis未登录购物车中，当拦截器拦截到用户登录时，把购物车的内容合并到数据库中登录后购物车里，通过json解析商品id查到商品信息，所以购物车中的商品信息是可以变化的。
+</pre></div>
+</div>
+<p><strong>请你谈谈单点登录的实现方案？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>单点登录使用了Redis+Cookie实现。
+把用户信息放在Redis中。Key作为用户凭证存放在Cookie中放在客户端。
+通过获取Cookie凭证判断用户是否有登录。
+
+延伸：
+单点登录SSO（Single Sign On）。
+单点登录，在一个多系统共存的环境下，用户在一处登录后，就不用在其他系统中登录。
+</pre></div>
+</div>
+<p><strong>redis应用场景？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">缓存数据服务器</span> <span class="n">SSO单点登录</span>
+<span class="n">高速读写</span> <span class="n">秒杀高可用</span>
+<span class="n">分布式锁</span> <span class="n">秒杀数据一致性</span>
+<span class="n">数据共享</span> <span class="n">库存数据</span>
+</pre></div>
+</div>
+<p><strong>redis空间不够，怎么保证经常访问的数据？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>淘汰策略：在redis.conf里面配置，来保证热点数据保存在reids里面。
+</pre></div>
+</div>
+<p><strong>Mongo
+如果在一个分片（shard）停止或者很慢的时候，我发起一个查询会怎样？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>停止。除非查询设置了“Partial”选项，否则查询会返回一个错误。
+很慢。MongoDB会等待它的响应。
+
+延伸：
+MongoDB分片是基于区域（range）的。
+</pre></div>
+</div>
+<p><strong>Mongo数据文件为什么很大？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>MongoDB会积极的预分配预留空间来防止文件系统碎片。
+
+延伸：
+MongoDB没有使用传统的锁或者复杂的带回滚的事务。
+MongoDB用户不能添加null，只能添加空对象{}。但是Mongo是有空值null的。
+</pre></div>
+</div>
+<p><strong>Mongo常用语法？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>查看Mongo正在使用的连接：
+db._adminCommand(&quot;connPoolStats&quot;);
+
+可以使用 pretty() 方法，以易读的方式来读取数据：
+&gt;db.COLLECTION_NAME.find().pretty()
+
+AND条件：
+&gt;db.COLLECTION_NAME.find({key1:value1, key2:value2}).pretty()
+
+OR条件：
+&gt;db.COLLECTION_NAME.find(
+   {
+      $or: [
+         {key1: value1}, {key2:value2}
+      ]
+   }
+).pretty()
+
+Limit条数：
+&gt;db.COLLECTION_NAME.find().limit(NUMBER)
+
+排序：
+&gt;db.COLLECTION_NAME.find().sort({KEY:1})  # 1为升序，2为降序
+
+
+聚合：
+&gt;db.COLLECTION_NAME.aggregate(AGGREGATE_OPERATION)
+
+延伸：
+MySql：table row column
+Mongo：collection document field
+</pre></div>
+</div>
+<p><strong>MongoDB成为最好NoSQL数据库的原因是什么？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>面向文件的、高性能、高可用性、易扩展性、丰富的查询语言。
+</pre></div>
+</div>
+<p><strong>Redis和MongoDB的区别？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.Redis数据全部存在内存，定期写入磁盘。MongoDB数据存在内存，当内存不够时，只将热点数据放入内存，其他数据存在磁盘。
+
+2. Redis支持的数据结构丰富。MongoDB 数据结构比较单一。
+
+3.当物理内存不够用的时候，redis和mongodb都会使用虚拟内存。
+
+4.mongodb依赖内存，TPS较高；Redis依赖内存，TPS非常高。性能上Redis优于MongoDB。
+
+5.Redis事务支持比较弱，只能保证事务中的每个操作连续执行；mongodb不支持事务。
+
+扩展：
+关系型数据库与NoSQL的区别：数据存储结构的不同。
+</pre></div>
+</div>
+<p><strong>为什么有NoSQL?</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">增加字段需要</span><span class="o">--&gt;</span><span class="n">无格式</span>
+<span class="n">高并发需要</span><span class="o">--&gt;</span><span class="n">转向内存</span>
+<span class="n">水平拓展需要</span><span class="o">--&gt;</span><span class="n">以前是分库分表</span>
+</pre></div>
+</div>
+<p><strong>索引设计的时候要注意什么？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">索引字段长度不能太长</span>
+<span class="n">索引的个数不能太多</span>
+</pre></div>
+</div>
+<p><strong>哪些方法可以提高数据库查询效率？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>建立索引，利用索引
+只查询必要的字段
+合理的处理NULL字段
+慎用like等通配符
+</pre></div>
+</div>
+<p><strong>MySQL存储引擎？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">InnoDB</span>
+<span class="n">MyISAM</span>
 </pre></div>
 </div>
 </div>

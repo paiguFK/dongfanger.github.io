@@ -106,4 +106,363 @@
    如果是不可变对象（比如数字、字符或者元组），相对于传值。
    如果是可变对象（比如字典或者列表），相当于传址。
 
+**1~9999数列中数字3出现的次数。用递推方法解出。**
+
+::
+
+   def count_digit(number):
+       return len(str(number))
+
+   def countThree(digit):
+       if not isinstance(digit,int):
+           raise TypeError('number is not int')
+       # digit = len(str(number))
+       if(digit <=0):
+           return 0
+       if(digit ==1):
+           return 1
+       return 10*countThree(digit-1) + 10 **(digit-1)
+
+   print(countThree(count_digit(9999)))
+
+**从一个数组中找出前4个最大的数，用最优解。**
+
+::
+
+   #快速排序：最快的n*logN
+   def qiuckSort(list):
+       if len(list)<2:
+           return list
+       mid = list[0]
+       left = [i for i in list[1:] if i <= mid]
+       right = [i for i in list[1:] if i  mid]
+       finallyList = qiuckSort(left)+[mid] + qiuckSort(right)
+       return finallyList
+   array = [3, 0, 1, 832,23,45, 5, 5, 6,46, 9, 56, 897]
+   print(qiuckSort(array)[-4:])
+
+**写一段程序，删除字符串a中包含的字符串b，举例 输入a = “asdw”,b = “sd”
+返回 字符串 “aw”，并且测试这个程序。**
+
+::
+
+   def delBString(a,b):
+       if not isinstance(a,str):
+           raise TypeError("a is not str")
+       if not isinstance(b,str):
+           raise TypeError("b is not str")
+       if len(a) < len(b):
+           raise Exception('a length must large to b length')
+       result = []
+       flag = False
+       i=0
+       la = len(a)
+       lb = len(b)
+       while i <la:
+           j = 0
+           while j < lb:
+               if i+j < la and a[i+j] == b[j]:
+                   j += 1
+               else :
+                   j += 1
+                   flag = False
+                   break
+               flag = True
+           if flag:
+               i += lb
+           else:
+               result.append(a[i])
+               i += 1
+       return "".join(result)
+      
+   测试用例：
+   class TestdelInnerStringFunctions():
+       def setUp(self):
+           pass
+       def tearDown(self):
+           pass
+       def test_nomorl1(self):
+           assert delBString('asdqwe','we') == 'asdq'
+       def test_nomorl2(self):
+           assert delBString('asdqwe','0') == 'asdqwe'
+       def test_nomorl3(self):
+           assert delBString('测试asdqwe','we') == '测试asdq'
+       def test_nomorl4(self):
+           assert delBString('测试asdqwe','测试') == 'asdqwe'
+       def test_nomorl5(self):
+           assert delBString('asdqwe','') == 'asdqwe'
+       def test_nomorl6(self):
+           with pytest.raises(TypeError):
+               delBString('', 0)
+       def test_nomorl7(self):
+           with pytest.raises(TypeError):
+               delBString(0, 'as')
+       def test_nomorl8(self):
+           with pytest.raises(TypeError):
+               delBString(True)
+       def test_nomorl9(self):
+          with pytest.raises(Exception) as excinfo:
+              delBString('acd','acde')
+          assert "a length must large to b length" in str(excinfo.value)
+          assert excinfo.type == Exception
+
+**写一个方法，把字符串转为数字，比如 str=“1234”，变成 int
+1234。并且测试这个程序。**
+
+::
+
+   def StrToInt(a):
+       res ,mult,flag = 0,1,1
+       if not isinstance(a,str):
+           raise TypeError("a is not str")
+       if a[0] =='-' or a[0] == '+':
+           if a[0] == '-':
+               flag = -1
+           a = a[1:]
+       for i in range(len(a)-1,-1,-1):
+           if '9' =a[i] = '0':
+               res +=(ord(a[i]) -48) * mult
+               mult = mult *10
+           else :
+               return 0
+       return res * flag
+
+   def test_strToInt2(self):
+       with pytest.raises(TypeError):
+           StrToInt(34)
+      
+   测试用例：
+   def test_strToInt3(self):
+       assert StrToInt('测试赛') == 0
+
+   def test_strToInt4(self):
+       assert StrToInt('+2147689') == 2147689
+
+   def test_strToInt5(self):
+       assert StrToInt('45') == 45
+
+   def test_strToInt6(self):
+       assert StrToInt('1a33') == 0
+
+   def test_strToInt7(self):
+       assert StrToInt('-5') == -5
+
+**dict的items和iteritems的区别？**
+
+::
+
+   items，以列表方式返回，返回时没有特殊顺序。
+   iteritems，返回方式类似，返回的是一个迭代器对象。
+
+**Python内存管理？**
+
+::
+
+   内存池(memory pool)机制。预先在内存中申请一定数量的，大小相等的内存块留作备用，当有新的内存需求时，就先从内存池中分配内存给这个需求，不够了之后再申请新的内存。
+   Pymalloc
+   在析构时，也采用了内存池机制，从内存池来的内存会被归还到内存池中，以避免频繁地释放动作。
+
+**Python多进程间如何共享数据？**
+
+::
+
+   可以使用 multiprocessing.Value 和 multiprocessing.Array。
+
+**全局解释器锁？**
+
+::
+
+   python多线程有个全局解释器锁（global interpreter lock），这个锁的意思是任一时间只能有一个线程使用解释器，跟单cpu跑多个程序一个意思，大家都是轮着用的，这叫“并发”，不是“并行”。虽然看起来程序被多线程并行执行，但它们实际上只是轮流使用相同的CPU核心。
+
+**Python中读取Excel文件？**
+
+::
+
+   import xlrd
+
+   data = xlrd.open_workbook('excelFile.xls')
+   table = data.sheets()[0]  # 通过索引顺序获取
+   table = data.sheet_by_index(0)  # 通过索引顺序获取 
+   table = data.sheet_by_name(u'Sheet1')  # 通过名称获取
+
+**文件打开模式？**
+
+::
+
+   r 读
+   w 写
+   a 追加
+   b 二进制
+   \+  文件指针在最开头
+
+**正则匹配中文？**
+
+::
+
+   re.compile(r'[\u4e00-\u9fa5]+')
+
+**``int(“1.4”)``\ 和\ ``int(1.4)``\ 分别输出什么？**
+
+::
+
+   int(“1.4”) 输出ValueError
+   int(1.4) 输出1
+
+**Python垃圾回收机制有哪几种方式？**
+
+::
+
+   引用计数 
+   标记清除
+   分代回收
+
+**不是以4、7结尾的手机号码(11位)？**
+
+::
+
+   tels = ["13100001234", "18912344321", "10086", "18800007777"]
+   re.match("1\d{9}[0-35-68-9]", tel)
+
+**提取区号和电话号码？**
+
+::
+
+   >>> ret = re.match("([^-]*)-(\d+)","010-12345678")
+   >>> ret.group()
+   '010-12345678'
+   >>> ret.group(1)
+   '010'
+   >>> ret.group(2)
+   '12345678'
+
+**用两种方法去空格？**
+
+::
+
+   replace 
+   split + join
+
+**统计字符串中某字符出现次数？**
+
+::
+
+   s.count()
+
+**根据键对字典排序？**
+
+::
+
+   方法一，zip函数
+   dict(sorted(zip(dic.keys(), dic.values()), key=lambda x:x[0]))
+
+   方法二,不用zip
+   dict(sorted(dic.items(), key=lambda x:x[0]))
+
+**Python内建数据类型？**
+
+::
+
+   int
+   bool
+   str
+   list
+   tuple
+   dict
+
+**如何将字符串的第一个字母大写？**
+
+::
+
+   capitalize()函数。
+
+**什么是pickling和unpickling？**
+
+::
+
+   pickle模块接受任何Python对象并将其转换为字符串表示形式，并使用dump函数将其转储到文件中，此过程称为pickling。从存储的字符串中检索原始Python对象的过程称为unpickling。
+
+**range＆xrange有什么区别？**
+
+::
+
+   xrange 生成器
+
+**什么是Python迭代器？**
+
+::
+
+   迭代器是可以遍历或迭代的对象。
+
+**深拷贝和浅拷贝的区别是什么？**
+
+::
+
+   深拷贝是将对象本身复制给另一个对象。
+   浅拷贝是将对象的引用复制给另一个对象。
+
+**当退出Python时是否释放所有内存分配？**
+
+::
+
+   具有对象循环引用或者全局命名空间引用的变量，在Python退出是往往不会被释放。
+
+**什么是猴子补丁？**
+
+::
+
+   在运行时动态修改类和模块。
+
+**什么是负索引？**
+
+::
+
+   负索引是从右边开始检索。
+
+**如何随机打乱列表中元素，要求不引用额外的内存空间？**
+
+::
+
+   radom.shuffle()
+
+**请解释Python中的闭包？**
+
+::
+
+   如果在一个内部函数里。对外部作用域（但不是全局作用域）的变量进行引用，那么内部函数就是一个闭包。
+
+**Python运算符有哪些？**
+
+::
+
+   算术运算符、关系运算符、赋值运算符、逻辑运算符、位运算符、成员运算符、身份运算符。
+
+   成员运算符  in 和 not in
+   身份运算符  is 和 not is
+
+**Python对象和数据结构存在哪的？**
+
+::
+
+   所有Python对象和数据结构都位于私有堆中。
+   程序员无权访问吗，Python解释器负责处理。
+
+**什么是PYTHONPATH？**
+
+::
+
+   它是导入模块时使用的环境变量。
+   每当导入模块时，会查找PYTHONPATH以检查各个目录中是否存在导入的模块。解释器使用它来确定要加载的模块。
+
+**比较两个json数据是否相等？**
+
+::
+
+   第一步，json数据转换成字典：
+   dict1 = json.load(load_f1)
+   dict2 = json.load(load_f2)
+   第二部将两个字典按key排好序，然后使用zip()函数将两个字典对应的元素打包成元组。比较对应的元素的value是否相等：
+   for src_list, dst_list in zip(sorted(dict1), sorted(dict2)):
+       if str(dict1[src_list]) != str(dict2[dst_list]):
+           print(src_list,dict1[src_list],dst_list,dict2[dst_list])
+
 .. |image1| image:: ../wanggang.png

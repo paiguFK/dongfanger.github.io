@@ -130,4 +130,92 @@
    docker执行push等命令将镜像 push到仓库
    别人就可以用这个新的镜像了
 
+**Nginx应用场景？**
+
+::
+
+   http服务器 
+   location /{ root /home }`
+      
+   虚拟主机，做端口映射 
+   server {port:端口 server_name:域名 … }
+      
+   反向代理，实现负载均衡 
+   tomcatlist { ip1:port [weight=n1]; ip2:port [weight=n2]; } 
+   location { proxy_pass : tomcatlist; } 
+      
+   动静态分离 
+   location ~.(jpg|css|js|png|html|htm)
+
+   延伸：
+   1.动静态分离，对于动态请求交给Tomcat，而其他静态请求，搭建专门的静态资源服务器，使用Nginx进行请求分发。
+   2.分离图片服务器，对于web服务器来说，图片是最消耗资源的。将图片资源和页面资源进行分离，进行不同的配置优化。
+
+**pod和容器区别？**
+
+::
+
+   pod是k8s的最小调度单元，pod是一组容器，而容器单指一个容器。
+   一般说来，一个pod里只放一个容器。如果有多个，那么有一个是主容器，其他都是辅助容器。
+
+**如何监控Docker？**
+
+::
+
+   docker stats和docker事件等工具。
+      
+   Docker统计数据：当我们使用容器ID调用docker stats时，我们获得容器的CPU，内存使用情况等。它类似于Linux中的top命令。
+    
+   Docker事件：Docker事件是一个命令，用于查看Docker守护程序中正在进行的活动流。
+   一些常见的Docker事件是：attach，commit，die，detach，rename，destroy等。
+
+**Docker Swarm是什么？**
+
+::
+
+   Docker Swarm是Docker官方提供的一款集群管理工具，其主要作用是把若干台Docker主机抽象为一个整体，并且通过一个入口统一管理这些Docker主机上的各种Docker资源。
+
+**守护进程是什么？**
+
+::
+
+   守护进程(daemon)是一类在后台运行的特殊进程，用于执行特定的系统任务。
+
+**Dockerfile中ONBUILD指令？**
+
+::
+
+   ONBUILD是一个特殊的指令，它后面跟的是其它指令，比如RUN, COPY等，而这些指令，在当前镜像构建时并不会被执行。只有当以当前镜像为基础镜像，去构建下一级镜像的时候才会被执行。
+
+**容器与主机之间的数据拷贝命令？**
+
+::
+
+   docker cp
+
+**Dockerfile中的命令COPY和ADD命令有什么区别？**
+
+::
+
+   COPY的SRC只能是本地文件，其他用法一致。
+
+**Dockerfile中最常见的指令是什么？**
+
+::
+
+   FROM：指定基础镜像 
+   LABEL：功能是为镜像指定标签 
+   RUN：运行指定的命令 
+   CMD：容器启动时要运行的命令
+
+**Nginx的upstream分配方式？**
+
+::
+
+   轮询
+   weight
+   ip_hash
+   fair
+   url_hash
+
 .. |image1| image:: ../wanggang.png

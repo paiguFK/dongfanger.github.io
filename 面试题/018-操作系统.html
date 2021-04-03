@@ -218,6 +218,12 @@
 对CPU系统的效率使用上线程比进程更占优。
 </pre></div>
 </div>
+<p><strong>常见线程描述？</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>wait on monitor entry：被阻塞的，这种情况是有问题的
+runnable：注意IO线程
+in Object.wait()：注意非线程池等待
+</pre></div>
+</div>
 </div>
 </div>
 

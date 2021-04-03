@@ -120,6 +120,118 @@
 
    检验和、序列号、确认应答ACK机制、超时重传机制、连接管理机制、流量控制、拥塞控制。
 
+**请你说一说PC网络故障，以及如何排除障碍？**
+
+::
+
+   ping远程
+   无线信号/有线连接
+   IP DNS 网关 设置
+   ping本机IP检查驱动
+   ping网关检查网关设备
+
+**请问你怎么测试网络协议？**
+
+::
+
+   1、一致性测试：检测协议实现本身与协议规范的符合程度
+   2、互操作性测试：基于某一协议检测不同协议实现间互操作互通信的能力
+   3、性能测试：检测协议实现的性能指标，比如数据传输速度，连接时间，执行速度，吞吐量，并发度
+   4、健壮性测试：检测协议是现在各种恶劣环境下运行的能力，比如注入干扰报文，通信故障，信道被切断
+
+**怎么理解IP、TCP、UDP、HTTP、FTP？**
+
+::
+
+   把IP想像成一种高速公路，它允许其它协议在上面行驶并找到其它电脑的出口。TCP和UDP是高速公路上的“卡车”，它们携带的货物就是像HTTP，FTP。
+
+**Postman授权方式？**
+
+::
+
+   - Inherit auth from parent
+   - No Auth
+   - Bearer Token
+   - Basic auth
+   - Digest Auth
+   - OAuth 1.0
+   - OAuth 2.0
+   - Hawk Authentication
+   - AWS Signature
+   - NTLM Authentication [Beta]
+
+**默认端口？**
+
+::
+
+   FTP默认端口 21
+   SSH（安全登录）、SCP（文件传输）、端口号重定向，默认的端口号为22
+
+**HTTP的报文段是什么样的？**
+
+::
+
+   起始行（start line）：描述请求或响应的状态
+   头部字段（header）：以 key:value 的形式展示
+   空行（CRLF）：区分两者的边界
+   数据实体（entity/ body）：实际要传输的数据，可以是文本，也可以是图片、文件、视频等二进制数据
+
+TCP拥塞控制方法？
+
+::
+
+   慢启动（slow-start）、拥塞避免（congestion avoidance）、快速重传（fast retransmission）和快速恢复（fastrecover）。
+
+**TCP流量控制方法？**
+
+::
+
+   滑动窗口协议
+
+**DNS解析过程？**
+
+::
+
+   1 浏览器先检查自身缓存中有没有被解析过的这个域名对应的ip地址，如果有，解析结束。
+   2 如果浏览器缓存中没有，浏览器会检查操作系统缓存中有没有对应的已解析过的结果。
+   3 如果至此还没有命中域名，才会真正的请求本地域名服务器（LDNS）来解析这个域名。
+   4 如果LDNS仍然没有命中，就直接跳到Root Server 域名服务器请求解析。
+   5 Root Server域名服务器返回给LDNS一个所查询域的主域名服务器地址（gTLD Server，国际顶尖域名服务器，如.com .cn .org等）。
+   6 此时LDNS再发送请求给上一步返回的gTLD。
+   7 接受请求的gTLD查找并返回这个域名对应的Name Server的地址。
+   8 Name Server根据映射关系表找到目标ip，返回给LDNS。
+   9 LDNS缓存这个域名和对应的ip。
+   10 LDNS把解析的结果返回给用户，缓存到本地系统缓存中。
+
+**TCP和UDP用一个端口发送信息是否冲突？**
+
+::
+
+   不冲突。因为数据接收时根据五元组(传输协议，源IP，目的IP，源端口，目的端口)判断接受者的。
+
+**HTTP最常见的请求头？**
+
+::
+
+   Host
+   Cookie
+   User-Agent
+   Referer
+   Content-Length
+   Accept-Encoding
+   Authorization
+
+**HTTP最常见的响应头？**
+
+::
+
+   Allow
+   Content-Type
+   Content-Length
+   Content-Encoding
+   Date
+   Last-Modified
+
 .. |image1| image:: ../wanggang.png
 .. |image2| image:: 006-网络/627325-dc83fef6ac2e6c88.png
 .. |image3| image:: 006-网络/image-20200905222833997.png

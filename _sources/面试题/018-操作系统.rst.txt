@@ -27,5 +27,13 @@
    需要稳定安全时选择进程。需要速度时选择线程。
    对CPU系统的效率使用上线程比进程更占优。
 
+**常见线程描述？**
+
+::
+
+   wait on monitor entry：被阻塞的，这种情况是有问题的
+   runnable：注意IO线程
+   in Object.wait()：注意非线程池等待
+
 .. |image1| image:: ../wanggang.png
 .. |image2| image:: ../wanggang.png
