@@ -1,0 +1,8 @@
+Python技术栈以上，Java技术栈以下。
+----------------------------------
+
+|image1|
+
+Python技术栈以上，Java技术栈以下。
+
+.. |image1| image:: ../wanggang.png

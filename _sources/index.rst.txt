@@ -21,12 +21,13 @@ Contents:
    chapters/teprunner开源测试平台
    chapters/Django
    chapters/Django REST framework
-   chapters/年度总结
+   chapters/分割线
    chapters/Java入门
    chapters/JMeter
    chapters/实战经验
+   chapters/年度总结
+   chapters/成长小说
    chapters/面试题
-   chapters/成长小说独家连载
    aboutme
 
 --------------
