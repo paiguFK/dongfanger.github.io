@@ -3,13 +3,13 @@
 ==============
 
 * 姓名：王刚
-* Python公众号：dongfanger
-* Java公众号：Java代码美学
-* GitHub：https://github.com/dongfanger
-* 技术栈：第一语言Python，第二语言Java
-* 毕业于：北京理工大学 计算机科学与技术专业
 * 座右铭：活到老学到老
+* 毕业于：北京理工大学 计算机科学与技术专业
 * 简介：阿里本地生活专利、腾讯云+社区2020年度最佳作者奖TOP150、tep开源测试工具作者、teprunner开源测试平台作者
+* B站：`@自动化代码美学 <https://space.bilibili.com/396344573>`__
+* 公众号：`@dongfanger <https://dongfanger.gitee.io/blog/preface.html>`__ `@Java代码美学 <https://dongfanger.gitee.io/blog/preface.html>`__
+* GitHub：https://github.com/dongfanger
+
 
 .. image:: ./dongfanger_award.png
 
