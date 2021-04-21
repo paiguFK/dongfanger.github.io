@@ -23,6 +23,7 @@ Contents:
    chapters/Django REST framework
    chapters/Java入门
    chapters/JMeter
+   chapters/视频教程
    chapters/年度总结
    chapters/成长小说
    aboutme
