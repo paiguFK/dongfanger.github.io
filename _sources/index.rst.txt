@@ -28,6 +28,7 @@ Contents:
    chapters/成长小说
    aboutme
    contact
+   link
    chapters/面试题
 
 --------------
