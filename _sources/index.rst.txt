@@ -21,6 +21,7 @@ Contents:
    chapters/teprunner开源测试平台
    chapters/Django
    chapters/Django REST framework
+   chapters/Locust
    chapters/Java入门
    chapters/JMeter
    chapters/视频教程
