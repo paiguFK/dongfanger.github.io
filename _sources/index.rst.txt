@@ -24,14 +24,14 @@ Contents:
    chapters/Locust
    chapters/Java入门
    chapters/JMeter
-   chapters/未分类
+   chapters/大杂烩
+   chapters/面试题
    chapters/视频教程
    chapters/年度总结
    chapters/成长小说
    aboutme
    contact
    link
-   chapters/面试题
 
 --------------
 
