@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8 JMeter四种参数化方式 &mdash; 自动化代码美学 latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+        <script src="../_static/js/valine.js"></script>
+        <script src="../_static/js/Valine.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="999 JMeter扩展Java请求实现WebRTC本地音视频推流压测脚本" href="999-JMeter%E6%89%A9%E5%B1%95Java%E8%AF%B7%E6%B1%82%E5%AE%9E%E7%8E%B0WebRTC%E6%9C%AC%E5%9C%B0%E9%9F%B3%E8%A7%86%E9%A2%91%E6%8E%A8%E6%B5%81%E5%8E%8B%E6%B5%8B%E8%84%9A%E6%9C%AC.html" />
+    <link rel="prev" title="7 JMeter关联陌生又熟悉" href="007-JMeter%E5%85%B3%E8%81%94%E9%99%8C%E7%94%9F%E5%8F%88%E7%86%9F%E6%82%89.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> 自动化代码美学
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%E5%85%A5%E9%97%A8.html">Python入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%E8%BF%9B%E9%98%B6.html">Python进阶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6.html">pytest原生框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">tep开源测试工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0.html">teprunner开源测试平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Java%E5%85%A5%E9%97%A8.html">Java入门</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-JMeter%E5%85%A8%E9%83%A8%E7%BB%84%E4%BB%B6%E6%A6%82%E8%A7%88.html">1 JMeter全部组件概览</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002-JMeter%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E6%96%BD%E5%8E%8B%E7%9A%84.html">2 JMeter是如何运行施压的</a></li>
+<li class="toctree-l2"><a class="reference internal" href="003-JMeter%E8%8B%B1%E6%96%87%E7%89%88%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D.html">3 JMeter英文版界面介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004-JMeter%E5%85%83%E4%BB%B6%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97.html">4 JMeter元件作用域实践指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005-JMeter%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E9%85%8D%E7%BD%AE%E9%A1%B9%E8%A7%A3%E6%9E%90.html">5 JMeter测试计划配置项解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="006-JMeter%E7%BA%BF%E7%A8%8B%E7%BB%84%E7%BC%96%E8%BE%91%E5%8C%BA%E6%8F%AD%E7%A7%98.html">6 JMeter线程组编辑区揭秘</a></li>
+<li class="toctree-l2"><a class="reference internal" href="007-JMeter%E5%85%B3%E8%81%94%E9%99%8C%E7%94%9F%E5%8F%88%E7%86%9F%E6%82%89.html">7 JMeter关联陌生又熟悉</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8 JMeter四种参数化方式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#csv-data-set-config">CSV Data Set Config</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#name">Name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comments">Comments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-the-csv-data-source">Configure the CSV Data Source</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user-defined-variables">User Defined Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-parameters">User Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Name名字</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Comments注释</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-once-per-iteration">Update Once Per Iteration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#function-helper">Function Helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">小结</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="999-JMeter%E6%89%A9%E5%B1%95Java%E8%AF%B7%E6%B1%82%E5%AE%9E%E7%8E%B0WebRTC%E6%9C%AC%E5%9C%B0%E9%9F%B3%E8%A7%86%E9%A2%91%E6%8E%A8%E6%B5%81%E5%8E%8B%E6%B5%8B%E8%84%9A%E6%9C%AC.html">999 JMeter扩展Java请求实现WebRTC本地音视频推流压测脚本</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%A4%A7%E6%9D%82%E7%83%A9.html">大杂烩</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E9%9D%A2%E8%AF%95%E9%A2%98.html">面试题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93.html">年度总结</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4.html">成长小说</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">关于作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">联系方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../link.html">友情链接</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">自动化代码美学</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/JMeter.html">JMeter</a> &raquo;</li>
+        
+      <li>8 JMeter四种参数化方式</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/JMeter/008-JMeter四种参数化方式.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jmeter">
+<h1>8 JMeter四种参数化方式<a class="headerlink" href="#jmeter" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang2.png" /></p>
+<p>JMeter参数化是指<strong>把固定的数据动态化</strong>，这样更贴合实际的模拟用户请求，比如模拟多个不同账号。JMeter一共有四种参数化方式，分别是：</p>
+<ul class="simple">
+<li><p>CSV Data Set Config</p></li>
+<li><p>Function Helper</p></li>
+<li><p>User Defined Variables</p></li>
+<li><p>User Parameters</p></li>
+</ul>
+<div class="section" id="csv-data-set-config">
+<h2>CSV Data Set Config<a class="headerlink" href="#csv-data-set-config" title="Permalink to this headline">¶</a></h2>
+<p>所属组件：Config Element。</p>
+<p><img alt="image2" src="../_images/image-20210516154859060.png" /></p>
+<div class="section" id="name">
+<h3>Name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h3>
+<p>带业务含义的名字。</p>
+</div>
+<div class="section" id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<p>可以为空的注释。</p>
+</div>
+<div class="section" id="configure-the-csv-data-source">
+<h3>Configure the CSV Data Source<a class="headerlink" href="#configure-the-csv-data-source" title="Permalink to this headline">¶</a></h3>
+<p>【Filename】文件名，可以是相对路径也可以是绝对路径。<strong>推荐使用相对路径</strong>，好处是脚本迁移或者分发到多台远程负载机，不改脚本就能直接复用。相对路径的根节点是<code class="docutils literal notranslate"><span class="pre">%JMETER_HOME%\bin</span></code>，把CSV文件放到这个目录或其子目录下。</p>
+<blockquote>
+<div><p>注意，打开方式选择bin目录下jmeter.bat或快捷方式才会把bin作为相对路径的根节点。如果把bin目录加入系统环境变量后，用cmd执行jmeter命令打开，那么相对路径的根节点是cmd的工作目录，比如<code class="docutils literal notranslate"><span class="pre">C:\Users\dongfanger\Desktop</span></code>。</p>
+</div></blockquote>
+<p>【File encoding】文件编码，推荐用<code class="docutils literal notranslate"><span class="pre">UTF-8</span></code>。</p>
+<p>【Variable Names
+(comma-delimited)】定义的变量名，用逗号隔开，与CSV文件的列一一对应。变量比列多，多余的变量取不到值；变量比列少，多余的列不会被取值。<strong>此选项可以为空。</strong></p>
+<p>【Ignore first line (only used if Variable Names is not
+empty)】<strong>上一个选项的变量名为空时，此选项生效。</strong>它会把CSV文件的第一行的列名作为变量名，并在取值时忽略第一行。</p>
+<p>【Delimiter (use <code class="docutils literal notranslate"><span class="pre">'\t'</span></code> for
+tab)】CSV文件分隔符，默认为逗号，也可以用制表符。</p>
+<p>【Allow quoted
+data】是否允许引用数据，比如双引号<code class="docutils literal notranslate"><span class="pre">&quot;dongfanger,pass&quot;,1111</span></code>，允许后能拆分出<code class="docutils literal notranslate"><span class="pre">dongfanger,pass</span></code>和<code class="docutils literal notranslate"><span class="pre">1111</span></code>。</p>
+<p>【Recycle on EOF】设置为True时，循环遍历CSV文件。</p>
+<p>【Stop thread on EOF】设置为True时，遍历完CSV文件就结束线程。</p>
+<blockquote>
+<div><p>EOF是End Of
+File缩写，文件结束符。JMeter在测试执行过程中<strong>每个线程每次迭代</strong>会从参数文件中新取一行数据，从头遍历到尾。</p>
+</div></blockquote>
+<p>【Sharing mode】有三种共享模式：默认为All
+threads，对所有线程共享；Current thread
+group只对当前线程组中的线程共享；Current thread仅当前线程获取。</p>
+<blockquote>
+<div><p>比如2个线程组，每个线程组2个线程，共享同一个csv文件，那么迭代1次这4个线程会分别取前4条数据，互不重复；迭代2次这4个线程会分别取前8条数据，互不重复。</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="user-defined-variables">
+<h2>User Defined Variables<a class="headerlink" href="#user-defined-variables" title="Permalink to this headline">¶</a></h2>
+<p>所属组件：Config Element。</p>
+<p><img alt="image3" src="../_images/image-20210516155134665.png" /></p>
+<p>JMeter有两个User Defined Variables，它们的区别是：<strong>Test Plan的User
+Defined Variables作用域是全局的，配置元件的User Defined
+Variables作用域可以是全局的也可以是局部的</strong>。</p>
+<p>表格共三列，第一列是Name变量名，第二列是Value变量值，第三列是Description描述。表格下方的功能按钮，用来对表格进行增删改查和上下移动，还能直接从剪贴板添加。</p>
+<p>定义好的变量通过<code class="docutils literal notranslate"><span class="pre">${}</span></code>格式来使用，比如变量a值为1，使用时写作<code class="docutils literal notranslate"><span class="pre">${a}</span></code>。这个地方定义的实际上是字符串常量，比如刚才已经定义了一个变量名a变量值1，再定义变量名b变量值<code class="docutils literal notranslate"><span class="pre">${a}</span> <span class="pre">+</span> <span class="pre">1</span></code>，<strong>b的实际值不是整型2而是字符串</strong><code class="docutils literal notranslate"><span class="pre">&quot;${a}</span> <span class="pre">+</span> <span class="pre">1&quot;</span></code>。</p>
+</div>
+<div class="section" id="user-parameters">
+<h2>User Parameters<a class="headerlink" href="#user-parameters" title="Permalink to this headline">¶</a></h2>
+<p>所属组件：Pre Processors。<strong>由于User
+Parameters属于前置处理器，所以它只会对当前Sampler生效。</strong></p>
+<p><img alt="image4" src="../_images/image-20210516154935673.png" /></p>
+<div class="section" id="id1">
+<h3>Name名字<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>带业务含义的名字。</p>
+</div>
+<div class="section" id="id2">
+<h3>Comments注释<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>可以为空的注释。</p>
+</div>
+<div class="section" id="update-once-per-iteration">
+<h3>Update Once Per Iteration<a class="headerlink" href="#update-once-per-iteration" title="Permalink to this headline">¶</a></h3>
+<p>经过反复多次试验，勾选与否没看出区别。官方解释如下：</p>
+<p>A flag to indicate whether the User Parameters element should update its
+variables only once per iteration. if you embed functions into the UP,
+then you may need greater control over how often the values of the
+variables are updated. Keep this box checked to ensure the values are
+updated each time through the UP’s parent controller. Uncheck the box,
+and the UP will update the parameters for every sample request made
+within its scope.</p>
+<p>从各文章截图总结，一般会勾选上这个选项。</p>
+</div>
+<div class="section" id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<p>表格列Name指变量名，表格列User_x指某个用户的变量值。下方有6个按钮，分别是“添加变量”、“删除变量”、“添加用户”、“删除用户”、“上移”、“下移”。每个线程分配一个变量值；如果线程数大于User_x，那么会循环取值。</p>
+<blockquote>
+<div><p>User Parameters在参数较少的情况下使用。</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="function-helper">
+<h2>Function Helper<a class="headerlink" href="#function-helper" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image5" src="../_images/image-20210516155237460.png" /></p>
+<p>函数除了参数化，还可以用来做运算，字符编码格式转换，获取运行时参数等，下篇文章专门来写。</p>
+</div>
+<div class="section" id="id3">
+<h2>小结<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>本文介绍了配置组件里面的CSV Data Set Config和User Defined
+Variables，作用域可全局可局部。接着介绍了前置处理器User
+Parameters，只对当前Sampler生效。但都有局限性，为了帮助我们更好地进行参数化，JMeter提供了一组函数来帮我们生成需要的数据，这些函数在有个地方能够进行编辑，它就是：Function
+Helper。</p>
+<blockquote>
+<div><p>参考资料：</p>
+<p>《全栈性能测试修炼宝典JMeter实战》</p>
+<p><a class="reference external" href="http://tutorialjmeter.blogspot.com/2017/05/pre-processor-in-jmeter.html">http://tutorialjmeter.blogspot.com/2017/05/pre-processor-in-jmeter.html</a></p>
+<p><a class="reference external" href="https://jmeter.apache.org/usermanual/component_reference.html#User_Parameters">https://jmeter.apache.org/usermanual/component_reference.html#User_Parameters</a></p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="999-JMeter%E6%89%A9%E5%B1%95Java%E8%AF%B7%E6%B1%82%E5%AE%9E%E7%8E%B0WebRTC%E6%9C%AC%E5%9C%B0%E9%9F%B3%E8%A7%86%E9%A2%91%E6%8E%A8%E6%B5%81%E5%8E%8B%E6%B5%8B%E8%84%9A%E6%9C%AC.html" class="btn btn-neutral float-right" title="999 JMeter扩展Java请求实现WebRTC本地音视频推流压测脚本" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="007-JMeter%E5%85%B3%E8%81%94%E9%99%8C%E7%94%9F%E5%8F%88%E7%86%9F%E6%82%89.html" class="btn btn-neutral float-left" title="7 JMeter关联陌生又熟悉" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright dongfanger
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
