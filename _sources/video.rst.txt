@@ -1,0 +1,10 @@
+==============
+视频演示+2
+==============
+
+* pytest快速入门：\ https://www.bilibili.com/video/BV1U54y1L7aQ/
+* tep测试工具快速搭建pytest自动化项目：\ https://www.bilibili.com/video/BV1QU4y1L7fg/
+
+--------------------------------------------
+
+.. image:: ../README/qrcode.jpg
