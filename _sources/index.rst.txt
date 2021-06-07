@@ -26,7 +26,6 @@ Contents:
    chapters/JMeter
    chapters/大杂烩
    chapters/面试题
-   video
    chapters/年度总结
    chapters/成长小说
    aboutme
