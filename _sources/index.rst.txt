@@ -16,6 +16,7 @@ Contents:
    preface
    chapters/Java入门
    chapters/JMeter
+   chapters/juice效率工具平台
    chapters/Python入门
    chapters/Python进阶
    chapters/pytest原生框架
