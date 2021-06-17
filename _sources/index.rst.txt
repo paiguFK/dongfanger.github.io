@@ -14,6 +14,8 @@ Contents:
    :glob:
    
    preface
+   chapters/Java入门
+   chapters/JMeter
    chapters/Python入门
    chapters/Python进阶
    chapters/pytest原生框架
@@ -22,8 +24,6 @@ Contents:
    chapters/Django
    chapters/Django REST framework
    chapters/Locust
-   chapters/Java入门
-   chapters/JMeter
    chapters/大杂烩
    chapters/年度总结
    chapters/成长小说
