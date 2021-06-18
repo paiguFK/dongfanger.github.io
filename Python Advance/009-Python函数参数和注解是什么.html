@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9 Python函数参数和注解是什么 &mdash; 自动化代码美学 latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+        <script src="../_static/js/valine.js"></script>
+        <script src="../_static/js/Valine.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10 Python设计模式知多少" href="010-Python%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9F%A5%E5%A4%9A%E5%B0%91.html" />
+    <link rel="prev" title="8 原来Python函数只是个对象" href="008-%E5%8E%9F%E6%9D%A5Python%E5%87%BD%E6%95%B0%E5%8F%AA%E6%98%AF%E4%B8%AA%E5%AF%B9%E8%B1%A1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> 自动化代码美学
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Java%20Basic.html">Java Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Juice.html">Juice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95%E6%8E%A8%E5%BC%80Python%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E5%A4%A7%E9%97%A8.html">1 魔法方法推开Python进阶学习大门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002-Python%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E4%B8%8EPython%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B.html">2 Python数据模型与Python对象模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="003-Python%E5%85%83%E7%BB%84%E6%8B%86%E5%8C%85%E6%8D%A1%E5%88%B08%E5%80%8D%E9%95%9C%E5%BF%AB%E5%87%86%E7%8B%A0.html">3 Python元组拆包捡到8倍镜快准狠</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004-%E8%83%BD%E5%8F%96%E5%80%BC%E4%BA%A6%E8%83%BD%E8%B5%8B%E5%80%BC%E7%9A%84Python%E5%88%87%E7%89%87.html">4 能取值亦能赋值的Python切片</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005-%E5%BA%8F%E5%88%97%E8%B5%8B%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84Python%E5%88%97%E8%A1%A8%E9%99%B7%E8%BF%9B.html">5 序列赋值引发的Python列表陷进</a></li>
+<li class="toctree-l2"><a class="reference internal" href="006-%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90Python%E5%AD%97%E5%85%B8%E5%92%8C%E9%9B%86%E5%90%88%EF%BC%88%E4%B8%8A%EF%BC%89.html">6 深度剖析Python字典和集合（上）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="007-%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90Python%E5%AD%97%E5%85%B8%E5%92%8C%E9%9B%86%E5%90%88%EF%BC%88%E4%B8%8B%EF%BC%89.html">7 深度剖析Python字典和集合（下）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="008-%E5%8E%9F%E6%9D%A5Python%E5%87%BD%E6%95%B0%E5%8F%AA%E6%98%AF%E4%B8%AA%E5%AF%B9%E8%B1%A1.html">8 原来Python函数只是个对象</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9 Python函数参数和注解是什么</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">四种参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">仅限关键字参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">内省中的函数参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">函数注解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">小结</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="010-Python%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9F%A5%E5%A4%9A%E5%B0%91.html">10 Python设计模式知多少</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011-Python%E5%87%BD%E6%95%B0%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html">11 Python函数装饰器基础知识</a></li>
+<li class="toctree-l2"><a class="reference internal" href="012-%E5%85%B3%E4%BA%8EPython%E9%97%AD%E5%8C%85%E7%9A%84%E4%B8%80%E5%88%87.html">12 关于Python闭包的一切</a></li>
+<li class="toctree-l2"><a class="reference internal" href="013-Python%E5%87%BD%E6%95%B0%E8%A3%85%E9%A5%B0%E5%99%A8%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.html">13 Python函数装饰器高级用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="014-Python%E5%AD%97%E7%AC%A6%E4%B8%8E%E5%AD%97%E8%8A%82%E6%96%B0%E7%BC%96.html">14 Python字符与字节新编</a></li>
+<li class="toctree-l2"><a class="reference internal" href="999-%E6%B5%81%E7%95%85%E7%9A%84python%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html">999 流畅的python读书笔记</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest.html">pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner.html">teprunner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%8D%95%E7%AF%87%E9%9A%8F%E7%AC%94.html">单篇随笔</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93.html">年度总结</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4.html">成长小说</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../question.html">面试题库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">关于作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">联系方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../link.html">友情链接</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">自动化代码美学</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/Python%20Advance.html">Python Advance</a> &raquo;</li>
+        
+      <li>9 Python函数参数和注解是什么</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Python Advance/009-Python函数参数和注解是什么.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python">
+<h1>9 Python函数参数和注解是什么<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang6.png" /></p>
+<div class="section" id="id1">
+<h2>四种参数<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Python函数func定义如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="s2">&quot;Hello World&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">second</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+
+<span class="n">func</span><span class="p">(</span><span class="s2">&quot;dongfanger&quot;</span><span class="p">,</span> <span class="s2">&quot;san&quot;</span><span class="p">,</span> <span class="n">py</span><span class="o">=</span><span class="s2">&quot;good&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>运行后会输出：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dongfanger</span>
+<span class="p">(</span><span class="s1">&#39;san&#39;</span><span class="p">,)</span>
+<span class="n">Hello</span> <span class="n">World</span>
+<span class="p">{</span><span class="s1">&#39;py&#39;</span><span class="p">:</span> <span class="s1">&#39;good&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>它有四种参数：</p>
+<ul class="simple">
+<li><p>first是定位参数，positional parameter，不可省略。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code>是可变参数，arguments，存入元组。</p></li>
+<li><p>second是默认值参数，default argument values，可以省略。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**args</span></code>是关键字参数，keyword arguments，存入字典。</p></li>
+</ul>
+<p>func函数的调用方式有以下这些：</p>
+<p>①传入单个定位参数。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;dongfanger&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dongfanger</span>
+<span class="p">()</span>
+<span class="n">Hello</span> <span class="n">World</span>
+<span class="p">{}</span>
+</pre></div>
+</div>
+<p>②第一个参数后的任意个参数会被<code class="docutils literal notranslate"><span class="pre">*args</span></code>捕获，存入一个元组。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;dongfanger&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dongfanger</span>
+<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">Hello</span> <span class="n">World</span>
+<span class="p">{}</span>
+</pre></div>
+</div>
+<p>③没有明确指定名称的关键字参数会被<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>捕获，存入一个字典。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;dongfanger&quot;</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dongfanger</span>
+<span class="p">()</span>
+<span class="n">Hello</span> <span class="n">World</span>
+<span class="p">{</span><span class="s1">&#39;j&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>④second只能作为关键字参数传入。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;dongfanger&quot;</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="s2">&quot;cool&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dongfanger</span>
+<span class="p">()</span>
+<span class="n">cool</span>
+<span class="p">{}</span>
+</pre></div>
+</div>
+<p>⑤定位函数也能作为关键字参数传入。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">func</span><span class="p">(</span><span class="n">first</span><span class="o">=</span><span class="s2">&quot;san&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">san</span>
+<span class="p">()</span>
+<span class="n">Hello</span> <span class="n">World</span>
+<span class="p">{}</span>
+</pre></div>
+</div>
+<p>⑥字典前加上<code class="docutils literal notranslate"><span class="pre">**</span></code>，其所有元素作为单个参数传入，同名键会绑定到对应具名参数上，余下的被<code class="docutils literal notranslate"><span class="pre">**args</span></code>捕获。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;dongfanger&quot;</span><span class="p">,</span> <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;cd&quot;</span><span class="p">,</span> <span class="s2">&quot;second&quot;</span><span class="p">:</span> <span class="s2">&quot;cool&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="s2">&quot;secret&quot;</span><span class="p">}</span>
+<span class="n">func</span><span class="p">(</span><span class="o">**</span><span class="n">my_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dongfanger</span>
+<span class="p">()</span>
+<span class="n">cool</span>
+<span class="p">{</span><span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="s1">&#39;cd&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="s1">&#39;secret&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>除了这四种参数，还有一种Python3新增加的仅限关键字参数。</p>
+</div>
+<div class="section" id="id2">
+<h2>仅限关键字参数<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>仅限关键字参数（keyword-only
+argument）是Python3的新特性，func函数的second参数就是仅限关键字参数，“仅限”的意思是说，只能通过关键字参数指定，它一定不会捕获未命名的定位参数。</p>
+<p>假如把参数位置调整一下定义another_func函数：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">another_func</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">another_second</span><span class="o">=</span><span class="s2">&quot;Hello World&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span>  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">another_second</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+
+<span class="n">another_func</span><span class="p">(</span><span class="s2">&quot;dongfanger&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输出会变成：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dongfanger</span>
+<span class="n">a</span>  <span class="c1"># 注意这里</span>
+<span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="p">{}</span>
+</pre></div>
+</div>
+<p>another_second不是仅限关键字参数，而只是默认值参数，因为它捕获到了定位参数。</p>
+<p>由此得知，定义仅限关键字参数，必须把它放到<code class="docutils literal notranslate"><span class="pre">*args</span></code>参数后面，就像func函数一样，反例是another_func函数。</p>
+<p>还有第二个方法定义仅限关键字参数，在签名中放一个<code class="docutils literal notranslate"><span class="pre">*</span></code>：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>  <span class="c1"># b是仅限关键字参数</span>
+<span class="gp">... </span>   <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># 只能传关键字参数</span>
+<span class="go">(1, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 不能传定位参数</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;input&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">f() takes 1 positional argument but 2 were given</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># 不能传定位参数</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;input&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">f() takes 1 positional argument but 3 were given</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>仅限关键字参数不一定要有默认值，就像b一样，强制必须传入实参。</p>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>内省中的函数参数<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>函数内省的意思是说，当你拿到一个“函数对象”的时候，你可以继续知道，它的名字，参数定义等信息。这些信息可以通过函数对象的属性（一些双下划线的魔法方法）得到。</p>
+<p>对于func函数：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="s2">&quot;Hello World&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">second</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>和another_func函数：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">another_func</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">another_second</span><span class="o">=</span><span class="s2">&quot;Hello World&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span>  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">another_second</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>``__defaults__``属性</strong></p>
+<p>元组，保存着定位参数和关键字参数的默认值。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="vm">__defaults__</span><span class="p">)</span>  <span class="c1"># None</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">another_func</span><span class="o">.</span><span class="vm">__defaults__</span><span class="p">)</span>  <span class="c1"># (&#39;Hello World&#39;,)</span>
+</pre></div>
+</div>
+<p><strong>``__kwdefaults__``属性</strong></p>
+<p>字典，保存仅限关键字参数。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="vm">__kwdefaults__</span><span class="p">)</span>  <span class="c1"># {&#39;second&#39;: &#39;Hello World&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">another_func</span><span class="o">.</span><span class="vm">__kwdefaults__</span><span class="p">)</span>  <span class="c1"># None</span>
+</pre></div>
+</div>
+<p><strong>``__code__``属性</strong></p>
+<p>code对象引用，code对象自身有很多属性，其中包括参数名称。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">)</span>  <span class="c1"># (&#39;first&#39;, &#39;second&#39;, &#39;args&#39;, &#39;kwargs&#39;)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">another_func</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">)</span>  <span class="c1"># (&#39;first&#39;, &#39;another_second&#39;, &#39;args&#39;, &#39;kwargs&#39;)</span>
+</pre></div>
+</div>
+<p>另外还可以使用inspect库的signature方法来查看内省中的函数参数：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">signature</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">signature</span><span class="p">(</span><span class="n">func</span><span class="p">))</span>
+<span class="c1">## (first, *args, second=&#39;Hello World&#39;, **kwargs)</span>
+</pre></div>
+</div>
+<p>框架和IDE等工具可以使用这些信息验证代码。</p>
+</div>
+<div class="section" id="id4">
+<h2>函数注解<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>如果刷过力扣算法题，那么对函数注解就不会陌生。比如：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clip</span><span class="p">(</span><span class="n">text</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">max_len</span><span class="p">:</span><span class="s1">&#39;int &gt; 0&#39;</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>参数<code class="docutils literal notranslate"><span class="pre">:</span></code>后面是注解表达式，可以用来注解参数类型和约束。如果参数有默认值，注解放在参数名和=号之间。</p>
+<p>可以在函数末尾的<code class="docutils literal notranslate"><span class="pre">)</span></code>和<code class="docutils literal notranslate"><span class="pre">:</span></code>之间添加<code class="docutils literal notranslate"><span class="pre">-&gt;</span></code>和注解表达式，来对返回值添加注解。</p>
+<p>注解表达式可以是任何类型，最常用的类型是类（如str或int）和字符串（如<code class="docutils literal notranslate"><span class="pre">'int</span> <span class="pre">&gt;</span> <span class="pre">0'</span></code>）。</p>
+<p>函数注解只是个注解，Python对注解所做的唯一的事情是，把它们存入函数的<code class="docutils literal notranslate"><span class="pre">__annotations__</span></code>属性中：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">clip</span><span class="o">.</span><span class="vm">__annotations__</span><span class="p">)</span>
+<span class="c1">#{&#39;text&#39;: &lt;class &#39;str&#39;&gt;, &#39;max_len&#39;: &#39;int &gt; 0&#39;, &#39;return&#39;: &lt;class &#39;str&#39;&gt;}</span>
+</pre></div>
+</div>
+<p>Python不做检查，不做强制，不做验证，什么操作都不做！注解只是元数据，可以供框架和IDE等工具使用。</p>
+</div>
+<div class="section" id="id5">
+<h2>小结<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>本文介绍了Python函数的四种参数：定位参数、可变参数、默认值参数、关键字参数，和第五种Python3新特性参数：仅限关键字参数。拿到一个函数对象后，可以通过函数属性（一些双下划线的魔法方法）查看内省中的参数信息。函数注解是一种元数据，存在<code class="docutils literal notranslate"><span class="pre">__annotations__</span></code>属性中，备注函数的参数和返回值的类型，它只是个注解，Python不会做任何强制检查。</p>
+<blockquote>
+<div><p>参考资料：</p>
+<p>《流畅的Python》</p>
+<p><a class="reference external" href="https://blog.csdn.net/cadi2011/article/details/86641811">https://blog.csdn.net/cadi2011/article/details/86641811</a></p>
+<p><a class="reference external" href="https://segmentfault.com/q/1010000012595419">https://segmentfault.com/q/1010000012595419</a></p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="010-Python%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9F%A5%E5%A4%9A%E5%B0%91.html" class="btn btn-neutral float-right" title="10 Python设计模式知多少" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="008-%E5%8E%9F%E6%9D%A5Python%E5%87%BD%E6%95%B0%E5%8F%AA%E6%98%AF%E4%B8%AA%E5%AF%B9%E8%B1%A1.html" class="btn btn-neutral float-left" title="8 原来Python函数只是个对象" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright dongfanger
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

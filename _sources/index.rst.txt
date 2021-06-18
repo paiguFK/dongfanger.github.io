@@ -14,18 +14,18 @@ Contents:
    :glob:
    
    preface
-   chapters/Java入门
+   chapters/Java Basic
    chapters/JMeter
-   chapters/juice效率工具平台
-   chapters/Python入门
-   chapters/Python进阶
-   chapters/pytest原生框架
-   chapters/tep开源测试工具
-   chapters/teprunner开源测试平台
+   chapters/Juice
+   chapters/Python Basic
+   chapters/Python Advance
+   chapters/pytest
+   chapters/tep
+   chapters/teprunner
    chapters/Django
    chapters/Django REST framework
    chapters/Locust
-   chapters/大杂烩
+   chapters/单篇随笔
    chapters/年度总结
    chapters/成长小说
    question

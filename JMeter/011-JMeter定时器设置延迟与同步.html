@@ -41,7 +41,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="juice效率工具平台" href="../chapters/juice%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0.html" />
+    <link rel="next" title="12 JMeter响应断言够用了" href="012-JMeter%E5%93%8D%E5%BA%94%E6%96%AD%E8%A8%80%E5%A4%9F%E7%94%A8%E4%BA%86.html" />
     <link rel="prev" title="10 JMeter逻辑控制器完整介绍" href="010-JMeter%E9%80%BB%E8%BE%91%E6%8E%A7%E5%88%B6%E5%99%A8%E5%AE%8C%E6%95%B4%E4%BB%8B%E7%BB%8D.html" /> 
 </head>
 
@@ -92,8 +92,8 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../preface.html">前言</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/Java%E5%85%A5%E9%97%A8.html">Java入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Java%20Basic.html">Java Basic</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="001-JMeter%E5%85%A8%E9%83%A8%E7%BB%84%E4%BB%B6%E6%A6%82%E8%A7%88.html">1 JMeter全部组件概览</a></li>
 <li class="toctree-l2"><a class="reference internal" href="002-JMeter%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E6%96%BD%E5%8E%8B%E7%9A%84.html">2 JMeter是如何运行施压的</a></li>
@@ -118,18 +118,19 @@
 <li class="toctree-l3"><a class="reference internal" href="#id1">小结</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="012-JMeter%E5%93%8D%E5%BA%94%E6%96%AD%E8%A8%80%E5%A4%9F%E7%94%A8%E4%BA%86.html">12 JMeter响应断言够用了</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/juice%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0.html">juice效率工具平台</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%E5%85%A5%E9%97%A8.html">Python入门</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%E8%BF%9B%E9%98%B6.html">Python进阶</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6.html">pytest原生框架</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/tep%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">tep开源测试工具</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0.html">teprunner开源测试平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Juice.html">Juice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest.html">pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner.html">teprunner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%A4%A7%E6%9D%82%E7%83%A9.html">大杂烩</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%8D%95%E7%AF%87%E9%9A%8F%E7%AC%94.html">单篇随笔</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93.html">年度总结</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4.html">成长小说</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../question.html">面试题库</a></li>
@@ -323,7 +324,7 @@ Interpreter：是否每次迭代重置解释器，默认False。官方建议在�
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../chapters/juice%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0.html" class="btn btn-neutral float-right" title="juice效率工具平台" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="012-JMeter%E5%93%8D%E5%BA%94%E6%96%AD%E8%A8%80%E5%A4%9F%E7%94%A8%E4%BA%86.html" class="btn btn-neutral float-right" title="12 JMeter响应断言够用了" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="010-JMeter%E9%80%BB%E8%BE%91%E6%8E%A7%E5%88%B6%E5%99%A8%E5%AE%8C%E6%95%B4%E4%BB%8B%E7%BB%8D.html" class="btn btn-neutral float-left" title="10 JMeter逻辑控制器完整介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
