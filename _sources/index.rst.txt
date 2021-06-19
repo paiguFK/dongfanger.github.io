@@ -17,6 +17,9 @@ Contents:
    chapters/Java Basic
    chapters/JMeter
    chapters/MyBatis
+   chapters/Message Queue
+   chapters/Nginx
+   chapters/DevOps
    chapters/Juice
    chapters/Python Basic
    chapters/Python Advance

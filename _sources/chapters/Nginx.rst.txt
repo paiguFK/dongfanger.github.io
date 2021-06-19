@@ -1,0 +1,17 @@
+=============================
+Nginx
+=============================
+
+Nginx是一个免费的、开源的HTTP web server和mail proxy server，也能用于HTTP、TCP和UDP通信的反向代理和负载均衡。
+
+---------------------------
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   ../Nginx/*
+
+--------------
+
+.. figure:: ../../README/qrcode.jpg
