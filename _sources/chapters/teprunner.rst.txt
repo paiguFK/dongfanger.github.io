@@ -2,7 +2,7 @@
 teprunner
 =============================
 
-开源学习版pytest内核测试平台，底层是pytest，用到了tep，故名曰teprunner。
+pytest内核测试平台，pytest脚本在线管理，底层是pytest，用到了tep，故名曰teprunner。
 
 ---------------------------
 
