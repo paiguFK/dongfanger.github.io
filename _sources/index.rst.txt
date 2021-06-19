@@ -16,6 +16,7 @@ Contents:
    preface
    chapters/Java Basic
    chapters/JMeter
+   chapters/MyBatis
    chapters/Juice
    chapters/Python Basic
    chapters/Python Advance
@@ -25,10 +26,10 @@ Contents:
    chapters/Django
    chapters/Django REST framework
    chapters/Locust
-   chapters/单篇随笔
-   chapters/年度总结
-   chapters/成长小说
-   question
+   chapters/Single Article
+   chapters/Annual Summary
+   chapters/Bildungsroman
+   interview
    aboutme
    contact
    link

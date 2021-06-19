@@ -95,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Intro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Java%20Basic.html">Java Basic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Juice.html">Juice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a></li>
@@ -122,13 +123,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%8D%95%E7%AF%87%E9%9A%8F%E7%AC%94.html">单篇随笔</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93.html">年度总结</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4.html">成长小说</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../question.html">面试题库</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">关于作者</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../contact.html">联系方式</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../link.html">友情链接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview.html">Interview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../link.html">Link</a></li>
 </ul>
 
             
@@ -198,7 +199,7 @@
             
   <div class="section" id="teprunner">
 <h1>4 teprunner测试平台用例前置模块开发<a class="headerlink" href="#teprunner" title="Permalink to this headline">¶</a></h1>
-<p><img alt="image1" src="../_images/wanggang10.png" /></p>
+<p><img alt="image1" src="../_images/wanggang14.png" /></p>
 <div class="section" id="id1">
 <h2>本文开发内容<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>现在正式进入测试相关功能开发。teprunner测试平台底层是pytest，中间层是tep，还没了解的朋友可以先看看tep的文章，整个平台的设计思路和后面用例的执行都会基于这个工具。tep的测试用例是放在.py文件里面的，全局变量或者说环境变量是引用的env_vars，公共函数和复用接口是引用的fixtures，在做成平台后，需要把这两个部分独立为两个功能模块。多个项目的接口自动化数据需要隔离开来，要有个项目管理功能。本文将开发四个用例前置模块：</p>

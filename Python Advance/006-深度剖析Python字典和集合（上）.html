@@ -95,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Intro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Java%20Basic.html">Java Basic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Juice.html">Juice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a><ul class="current">
@@ -129,6 +130,7 @@
 <li class="toctree-l2"><a class="reference internal" href="012-%E5%85%B3%E4%BA%8EPython%E9%97%AD%E5%8C%85%E7%9A%84%E4%B8%80%E5%88%87.html">12 关于Python闭包的一切</a></li>
 <li class="toctree-l2"><a class="reference internal" href="013-Python%E5%87%BD%E6%95%B0%E8%A3%85%E9%A5%B0%E5%99%A8%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.html">13 Python函数装饰器高级用法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="014-Python%E5%AD%97%E7%AC%A6%E4%B8%8E%E5%AD%97%E8%8A%82%E6%96%B0%E7%BC%96.html">14 Python字符与字节新编</a></li>
+<li class="toctree-l2"><a class="reference internal" href="015-Python%E7%BC%96%E8%A7%A3%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86.html">15 Python编解码问题与文本文件处理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="999-%E6%B5%81%E7%95%85%E7%9A%84python%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html">999 流畅的python读书笔记</a></li>
 </ul>
 </li>
@@ -138,13 +140,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%8D%95%E7%AF%87%E9%9A%8F%E7%AC%94.html">单篇随笔</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93.html">年度总结</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%88%90%E9%95%BF%E5%B0%8F%E8%AF%B4.html">成长小说</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../question.html">面试题库</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">关于作者</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../contact.html">联系方式</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../link.html">友情链接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview.html">Interview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../link.html">Link</a></li>
 </ul>
 
             
@@ -214,7 +216,7 @@
             
   <div class="section" id="python">
 <h1>6 深度剖析Python字典和集合（上）<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
-<p><img alt="image1" src="../_images/wanggang6.png" /></p>
+<p><img alt="image1" src="../_images/wanggang9.png" /></p>
 <p>“字典这个数据结构活跃在所有Python程序的背后，即便你的源码里并没有直接用到它”，摘抄自《代码之美》第18章Python的字典类：如何打造全能战士。字典是Python语言的基石！在函数的关键字参数、实例的属性和模块的命名空间都能够看到它的身影，我们自己写代码时也经常会用到。</p>
 <p>“集合”这个概念在Python中算是比较年轻的，使用率也比较低，我只在元素去重和求差集并集时使用过。</p>
 <p>字典和集合有个共同点，它们都是基于同一种数据结构实现的：散列表，又叫做哈希表，Hash
