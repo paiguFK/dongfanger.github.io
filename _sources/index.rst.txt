@@ -16,6 +16,8 @@ Contents:
    preface
    chapters/Java Basic
    chapters/JMeter
+   chapters/Spring Boot
+   chapters/Maven
    chapters/MyBatis
    chapters/Message Queue
    chapters/Nginx
