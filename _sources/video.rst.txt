@@ -4,6 +4,11 @@ Video
 
 告别晦涩难懂，拥抱形象生动。
 
+视频 | teprunner | teprunner的model&serializer&view设计说明
+-----------------------------------------------------------------
+
+`https://www.bilibili.com/video/BV1W64y197mf <https://www.bilibili.com/video/BV1W64y197mf>`__
+
 视频 | 接口自动化 | requests的get post put delete参数用法
 -----------------------------------------------------------------
 
