@@ -1,0 +1,54 @@
+==============
+Video
+==============
+
+告别晦涩难懂，拥抱形象生动。
+
+接口自动化 | requests的get post put delete参数用法
+-----------------------------------------------------------------
+
+`https://www.bilibili.com/video/BV1tB4y1M73k <https://www.bilibili.com/video/BV1tB4y1M73k>`__
+
+接口自动化 | 接口自动化参数如何传递
+--------------------------------------------------
+
+`https://www.bilibili.com/video/BV1764y1r7z3 <https://www.bilibili.com/video/BV1764y1r7z3>`__
+
+个人随想 | 7年测试经历回顾
+---------------------------------------
+
+`https://www.bilibili.com/video/BV1pU4y1575M <https://www.bilibili.com/video/BV1pU4y1575M>`__
+
+个人随想 | 教练我想学Java
+----------------------------------
+
+`https://www.bilibili.com/video/BV1KB4y1M77i <https://www.bilibili.com/video/BV1KB4y1M77i>`__
+
+接口自动化 | 接口自动化项目用例组织设计
+--------------------------------------------------
+
+`https://www.bilibili.com/video/BV1hv411V7yJ <https://www.bilibili.com/video/BV1hv411V7yJ>`__
+
+teprunner | teprunner测试平台视频演示及未来规划
+-------------------------------------------------------
+
+`https://www.bilibili.com/video/BV1c44y167Dk <https://www.bilibili.com/video/BV1c44y167Dk>`__
+
+接口自动化 | pytest单接口多个不同参数的用例编写
+--------------------------------------------------------
+
+`https://www.bilibili.com/video/BV1Ky4y137JP <https://www.bilibili.com/video/BV1Ky4y137JP>`__
+
+tep | tep测试工具快速搭建pytest自动化项目
+-----------------------------------------------------
+
+`https://www.bilibili.com/video/BV1QU4y1L7fg <https://www.bilibili.com/video/BV1QU4y1L7fg>`__
+
+pytest | pytest快速入门
+-----------------------
+
+`https://www.bilibili.com/video/BV1U54y1L7aQ <https://www.bilibili.com/video/BV1U54y1L7aQ>`__
+
+--------------------------------------------
+
+.. image:: ../README/qrcode.jpg
