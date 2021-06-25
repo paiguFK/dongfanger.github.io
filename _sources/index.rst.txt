@@ -17,6 +17,7 @@ Contents:
    video
    chapters/Java Basic
    chapters/JMeter
+   chapters/JUnit
    chapters/Spring Boot
    chapters/Maven
    chapters/MyBatis
@@ -31,6 +32,7 @@ Contents:
    chapters/teprunner
    chapters/Django
    chapters/Django REST framework
+   chapters/Flask
    chapters/Locust
    chapters/Single Article
    chapters/Annual Summary

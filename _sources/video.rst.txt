@@ -4,6 +4,11 @@ Video
 
 告别晦涩难懂，拥抱形象生动。
 
+视频 | Juice | Java技术栈效率工具平台开讲啦
+----------------------------------------------------------------
+
+`https://www.bilibili.com/video/BV1Bw411o7MZ <https://www.bilibili.com/video/BV1Bw411o7MZ>`__
+
 视频 | teprunner | teprunner的model&serializer&view设计说明
 -----------------------------------------------------------------
 
