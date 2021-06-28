@@ -1,4 +1,4 @@
-1 Jave新一代单元测试框架JUnit5速览
+1 Java新一代单元测试框架JUnit5速览
 ==================================
 
 |image1|
@@ -109,5 +109,5 @@ Platform Test Kit等，这些会在之后的文章逐一进行介绍。
    https://blog.csdn.net/weixin_45876795/article/details/111059031
 
 .. |image1| image:: ../wanggang.png
-.. |image2| image:: 001-Jave新一代单元测试框架JUnit5速览/image-20210626192355994.png
-.. |image3| image:: 001-Jave新一代单元测试框架JUnit5速览/image-20210626192417669.png
+.. |image2| image:: 001-Java新一代单元测试框架JUnit5速览/image-20210626192355994.png
+.. |image3| image:: 001-Java新一代单元测试框架JUnit5速览/image-20210626192417669.png

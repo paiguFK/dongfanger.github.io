@@ -1,0 +1,14 @@
+学习视频
+========
+
+|image1|
+
+视频地址：
+
+https://space.bilibili.com/396344573/channel/detail?cid=187829&ctype=0
+
+项目源码：
+
+https://github.com/dongfanger/juice
+
+.. |image1| image:: ../wanggang.png
