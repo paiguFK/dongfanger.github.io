@@ -4,6 +4,11 @@ Video
 
 告别晦涩难懂，拥抱形象生动。
 
+视频 | Juice | Juice平台MyBatis代码生成器
+----------------------------------------------------------------
+
+`https://www.bilibili.com/video/BV1rK4y1g7Ub <https://www.bilibili.com/video/BV1rK4y1g7Ub>`__
+
 视频 | pytest | pytest的fixture3种定义位置3种使用方式
 ----------------------------------------------------------------
 
