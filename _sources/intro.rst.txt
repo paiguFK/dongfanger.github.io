@@ -1,0 +1,27 @@
+==================================
+Intro
+==================================
+
+努力突破测试的界限。
+
+* 姓名：王刚
+* 座右铭：活到老学到老
+* 毕业于：北京理工大学 计算机科学与技术专业
+* 编程语言：主Java 副Python
+* 简介：京东测试开发工程师、阿里本地生活专利、腾讯云+社区2020年度最佳作者奖TOP150、Juice效率工具平台作者、tep测试工具作者、teprunner测试平台作者
+* B站：`@dongfanger <https://space.bilibili.com/396344573>`__
+* 公众号：`@Java代码美学 <https://dongfanger.gitee.io/blog/preface.html>`__ `@dongfanger <https://dongfanger.gitee.io/blog/preface.html>`__
+* GitHub：https://github.com/dongfanger
+
+.. image:: ./dongfangpy.png
+
+* 添加个人微信。
+* 备注【python】，加入Python测试交流群。
+* 备注【java】，加入Java测试交流群。
+
+.. image:: ./dongfanger_award.png
+
+------------------------------
+
+.. figure:: ../README/qrcode.jpg
+

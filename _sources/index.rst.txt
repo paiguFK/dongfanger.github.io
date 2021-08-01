@@ -13,7 +13,7 @@ Contents:
    :maxdepth: 2
    :glob:
    
-   preface
+   intro
    chapters/Java Basic
    chapters/JMeter
    chapters/JUnit
@@ -24,7 +24,6 @@ Contents:
    chapters/Message Queue
    chapters/Nginx
    chapters/DevOps
-   chapters/Juice
    chapters/Python Basic
    chapters/Python Advance
    chapters/pytest
@@ -37,9 +36,6 @@ Contents:
    chapters/Single Article
    chapters/Annual Summary
    chapters/Bildungsroman
-   video
-   aboutme
-   contact
    link
 
 --------------
