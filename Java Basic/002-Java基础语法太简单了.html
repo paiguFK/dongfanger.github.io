@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2 Java基础语法太简单了 &mdash; dongfanger latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+        <script src="../_static/js/valine.js"></script>
+        <script src="../_static/js/Valine.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3 要学Java理解对象和类是关键" href="003-%E8%A6%81%E5%AD%A6Java%E7%90%86%E8%A7%A3%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E6%98%AF%E5%85%B3%E9%94%AE.html" />
+    <link rel="prev" title="1 2021年搭建Java环境最快办法" href="001-2021%E5%B9%B4%E6%90%AD%E5%BB%BAJava%E7%8E%AF%E5%A2%83%E6%9C%80%E5%BF%AB%E5%8A%9E%E6%B3%95.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> dongfanger
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Intro</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/Java%20Basic.html">Java Basic</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-2021%E5%B9%B4%E6%90%AD%E5%BB%BAJava%E7%8E%AF%E5%A2%83%E6%9C%80%E5%BF%AB%E5%8A%9E%E6%B3%95.html">1 2021年搭建Java环境最快办法</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2 Java基础语法太简单了</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">4个概念</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hello-world">Hello World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">基本语法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">标识符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">修饰符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">变量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">注释</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">八种基本类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">小结</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="003-%E8%A6%81%E5%AD%A6Java%E7%90%86%E8%A7%A3%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E6%98%AF%E5%85%B3%E9%94%AE.html">3 要学Java理解对象和类是关键</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JUnit.html">JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Mockito.html">Mockito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Spring%20Boot.html">Spring Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Maven.html">Maven</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Message%20Queue.html">Message Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/DevOps.html">DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Juice.html">Juice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest.html">pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner.html">teprunner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Flask.html">Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video.html">Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../link.html">Link</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dongfanger</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/Java%20Basic.html">Java Basic</a> &raquo;</li>
+        
+      <li>2 Java基础语法太简单了</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Java Basic/002-Java基础语法太简单了.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="java">
+<h1>2 Java基础语法太简单了<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang7.png" /></p>
+<p>Java虽然学习门槛有点高，但是如果熟悉Python以后，再看Java基础语法，其实是非常简单的。本文是开篇，将参考菜鸟教程，展开对Java入门知识的学习。</p>
+<div class="section" id="id1">
+<h2>4个概念<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>对象：Java是纯面向对象编程语言，对象的概念有点抽象，具体来说可以是一条狗，也可以是某个人。</p></li>
+<li><p>类：类是对象的模板，有点像克隆的母体。</p></li>
+<li><p>属性：属性就是状态，相当于变量。</p></li>
+<li><p>方法：方法就是行为，跟函数类似，完成某个特定功能。</p></li>
+</ul>
+</div>
+<div class="section" id="hello-world">
+<h2>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h2>
+<p>Java的Hello
+World经常拿来和其他语言比较，嫌它啰嗦，然而啰嗦的背后是严谨：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><img alt="image2" src="../_images/image-20210720104718356.png" /></p>
+<p><strong>Java把每个语法都显式的表达了出来，阅读代码就能知道是什么意思，不会产生额外的意想不到的结果。</strong></p>
+</div>
+<div class="section" id="id2">
+<h2>基本语法<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">void</span> <span class="pre">main(String[]</span> <span class="pre">args)</span></code>，是所有Java程序的执行入口。</p></li>
+<li><p>源文件后缀是<code class="docutils literal notranslate"><span class="pre">.java</span></code>，源文件名称必须和类名一致。</p></li>
+<li><p>源文件编译后的文件后缀是<code class="docutils literal notranslate"><span class="pre">.class</span></code>。</p></li>
+<li><p>Java是大小写敏感的，类名首字母应该大写，方法名首字母小写，也就是驼峰命名法。</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>标识符<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>类名、属性名和方法名都被称为标识符，Java标识符规则如下：</p>
+<ul class="simple">
+<li><p>标识符是大小写敏感的</p></li>
+<li><p>所有的标识符都应该以字母（<code class="docutils literal notranslate"><span class="pre">A-Z</span></code>或者<code class="docutils literal notranslate"><span class="pre">a-z</span></code>）、美元符（<code class="docutils literal notranslate"><span class="pre">$</span></code>）、或者下划线（<code class="docutils literal notranslate"><span class="pre">_</span></code>）开始</p></li>
+<li><p>首字符之后可以是字母（<code class="docutils literal notranslate"><span class="pre">A-Z</span></code>或者<code class="docutils literal notranslate"><span class="pre">a-z</span></code>）,美元符（<code class="docutils literal notranslate"><span class="pre">$</span></code>）、下划线（<code class="docutils literal notranslate"><span class="pre">_</span></code>）或<strong>数字</strong>的任何字符组合</p></li>
+<li><p>关键字不能用作标识符</p></li>
+</ul>
+<p>比如合法的标识符：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>age、$salary、_value、__1_value
+</pre></div>
+</div>
+<p>非法的标识符：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>123abc、-salary
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>修饰符<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>访问控制修饰符 : default, public, protected, private</p></li>
+<li><p>非访问控制修饰符 : final, abstract, static, synchronized</p></li>
+</ul>
+<p>Java的修饰符极大的提高了代码可阅读性。</p>
+</div>
+<div class="section" id="id5">
+<h2>变量<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>因为Java的代码都必须写到类里面，所以就只有以下三种变量：</p>
+<ul class="simple">
+<li><p>类变量（静态变量），相当于全局变量</p></li>
+<li><p>成员变量（非静态变量）</p></li>
+<li><p>局部变量</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>注释<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="p">{</span>
+   <span class="cm">/* 这是第一个Java程序</span>
+<span class="cm">    * 它将输出 Hello World</span>
+<span class="cm">    * 这是一个多行注释的示例</span>
+<span class="cm">    */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">){</span>
+       <span class="c1">// 这是单行注释的示例</span>
+       <span class="cm">/* 这个也是单行注释的示例 */</span>
+       <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>八种基本类型<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>boolean 布尔型 1个字节 8bit（8位）</p>
+<p>byte 字节类型 1个字节</p>
+<p>char 字符类型 2个字节</p>
+<p>short 短整型 2个字节</p>
+<p>int 整型 4个字节</p>
+<p>long 长整型 8个字节</p>
+<p>double 双精度类型 8个字节</p>
+<p>float 浮点型（单精度）4个字节</p>
+<p>默认的整数类型是int，如果要定义为long
+，则要在数值后加上<code class="docutils literal notranslate"><span class="pre">L</span></code>或者<code class="docutils literal notranslate"><span class="pre">l</span></code>。</p>
+<p>默认的浮点型是double，如果要定义float，则要在数值后面加上<code class="docutils literal notranslate"><span class="pre">F</span></code>或者<code class="docutils literal notranslate"><span class="pre">f</span></code>。</p>
+</div>
+<div class="section" id="id8">
+<h2>小结<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>本文作为开篇，介绍了Java的基础语法，还是很简单的，它的啰嗦其实提高了代码可阅读性，编写也更为严谨。如果要理解Java编程，那么就必须先理解面向对象。</p>
+<blockquote>
+<div><p>参考资料：</p>
+<p><a class="reference external" href="https://www.runoob.com/java/java-basic-syntax.html">https://www.runoob.com/java/java-basic-syntax.html</a></p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="003-%E8%A6%81%E5%AD%A6Java%E7%90%86%E8%A7%A3%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E6%98%AF%E5%85%B3%E9%94%AE.html" class="btn btn-neutral float-right" title="3 要学Java理解对象和类是关键" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="001-2021%E5%B9%B4%E6%90%AD%E5%BB%BAJava%E7%8E%AF%E5%A2%83%E6%9C%80%E5%BF%AB%E5%8A%9E%E6%B3%95.html" class="btn btn-neutral float-left" title="1 2021年搭建Java环境最快办法" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright dongfanger
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

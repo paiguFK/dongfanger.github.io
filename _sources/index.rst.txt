@@ -14,7 +14,6 @@ Contents:
    :glob:
    
    preface
-   video
    chapters/Java Basic
    chapters/JMeter
    chapters/JUnit
@@ -38,7 +37,7 @@ Contents:
    chapters/Single Article
    chapters/Annual Summary
    chapters/Bildungsroman
-   interview
+   video
    aboutme
    contact
    link
