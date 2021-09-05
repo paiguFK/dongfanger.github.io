@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5 Java修饰符是最直白的表述 &mdash; dongfanger latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+        <script src="../_static/js/valine.js"></script>
+        <script src="../_static/js/Valine.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="JMeter" href="../chapters/JMeter.html" />
+    <link rel="prev" title="4 Java八大基本数据类型与三大变量类型" href="004-Java%E5%85%AB%E5%A4%A7%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E4%B8%89%E5%A4%A7%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> dongfanger
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Intro</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/Java%20Basic.html">Java Basic</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-2021%E5%B9%B4%E6%90%AD%E5%BB%BAJava%E7%8E%AF%E5%A2%83%E6%9C%80%E5%BF%AB%E5%8A%9E%E6%B3%95.html">1 2021年搭建Java环境最快办法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002-Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%A4%AA%E7%AE%80%E5%8D%95%E4%BA%86.html">2 Java基础语法太简单了</a></li>
+<li class="toctree-l2"><a class="reference internal" href="003-%E8%A6%81%E5%AD%A6Java%E7%90%86%E8%A7%A3%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E6%98%AF%E5%85%B3%E9%94%AE.html">3 要学Java理解对象和类是关键</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004-Java%E5%85%AB%E5%A4%A7%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E4%B8%89%E5%A4%A7%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B.html">4 Java八大基本数据类型与三大变量类型</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5 Java修饰符是最直白的表述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">修饰符概览</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">访问控制修饰符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">非访问控制修饰符</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JUnit.html">JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Mockito.html">Mockito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Spring%20Boot.html">Spring Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Maven.html">Maven</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Message%20Queue.html">Message Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/DevOps.html">DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest.html">pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner.html">teprunner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Flask.html">Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../link.html">Link</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dongfanger</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/Java%20Basic.html">Java Basic</a> &raquo;</li>
+        
+      <li>5 Java修饰符是最直白的表述</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Java Basic/005-Java修饰符是最直白的表述.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="java">
+<h1>5 Java修饰符是最直白的表述<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang7.png" /></p>
+<p><strong>Java修饰符</strong>是让Java变得啰嗦的罪魁祸首之一。其他很多语言并没有这么多修饰符，取而代之的是语法规则，比如Python下划线开头的变量是私有变量，Golang小写字母开头的变量是私有变量。但是，正因为Java有着明确的修饰符，所以Java代码看起来是最直白的表述。</p>
+<div class="section" id="id1">
+<h2>修饰符概览<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Java修饰符有两大类，它们分别如下：</p>
+<p><strong>访问控制修饰符</strong></p>
+<ul class="simple">
+<li><p>default（什么都不写）</p></li>
+<li><p>private</p></li>
+<li><p>public</p></li>
+<li><p>protected</p></li>
+</ul>
+<p><strong>非访问控制修饰符</strong></p>
+<ul class="simple">
+<li><p>static</p></li>
+<li><p>final</p></li>
+<li><p>abstract</p></li>
+<li><p>synchronized</p></li>
+<li><p>transient</p></li>
+<li><p>volatile</p></li>
+</ul>
+<p><strong>修饰符通常是放在一行代码最前面的，起到修饰作用</strong>，比如：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClassName</span> <span class="p">{</span>
+   <span class="c1">// ...</span>
+<span class="p">}</span>
+<span class="kd">private</span> <span class="kt">boolean</span> <span class="n">myFlag</span><span class="p">;</span>
+<span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">weeks</span> <span class="o">=</span> <span class="mf">9.5</span><span class="p">;</span>
+<span class="kd">protected</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">BOXWIDTH</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arguments</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// 方法体</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>访问控制修饰符<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>访问控制，指的是对Java类、接口、变量、方法的访问权限的控制。</strong>我们知道Java每个文件是一个类（Class），每个文件夹是一个包（Package），它们彼此之间能不能相互访问，就是通过修饰符决定的。</p>
+<p>访问控制修饰符一览表，从上往下，访问权限越来越小：</p>
+<p><img alt="image2" src="../_images/image-20210828224707518.png" /></p>
+<p><strong>default</strong></p>
+<p>什么都不写，不使用任何修饰符，默认为包访问权限，即<strong>同一个包内都是可以访问的</strong>。</p>
+<blockquote>
+<div><p>Java有个很棒的设计：同一个包里面的类不需要import就能直接使用。</p>
+</div></blockquote>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.5.1&quot;</span><span class="p">;</span>
+<span class="kt">boolean</span> <span class="nf">processOrder</span><span class="p">()</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>private</strong></p>
+<p>意思就像它的名字一样，私有的，<strong>只有当前类的内部才可以访问</strong>。private用来保护类的隐私，如果外部类想访问private的变量，那么只能通过public的getter方法暴露出去。需要注意的是，private可以用到变量、方法上，但是不能用到类和接口上（这么做没有意义，类总是要被外部调用的，接口总是要被外部实现的）。</p>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Logger</span> <span class="p">{</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">format</span><span class="p">;</span>
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getFormat</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">format</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFormat</span><span class="p">(</span><span class="n">String</span> <span class="n">format</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">format</span> <span class="o">=</span> <span class="n">format</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>public</strong></p>
+<p>公开的，<strong>所有都能访问，没有任何限制</strong>。</p>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arguments</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>protected</strong></p>
+<p>当前类可以访问，子类<strong>有可能</strong>可以访问。子类有两种情况：</p>
+<ul class="simple">
+<li><p>子类与父类在同一个包中：子类可以访问父类的protected。</p></li>
+<li><p>子类与父类在不同的包中：子类可以访问，非子类内部的子类实例不能访问。</p></li>
+</ul>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">test1</span><span class="p">;</span>
+
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Base</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">defaultInt</span><span class="p">;</span>
+    <span class="kd">protected</span> <span class="kt">int</span> <span class="n">protectedInt</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 不同的包</span>
+<span class="kn">package</span> <span class="nn">test2</span><span class="p">;</span>
+
+
+<span class="c1">// 子类</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="kd">extends</span> <span class="n">Base</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="p">(){</span>
+         <span class="n">Test</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Test</span><span class="p">();</span>
+         <span class="c1">//t.defaultInt = 2; 不可见</span>
+         <span class="n">t</span><span class="p">.</span><span class="na">protectedInt</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="c1">// 非子类</span>
+<span class="kd">class</span> <span class="nc">TestNotSub</span><span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="p">(){</span>
+          <span class="n">Test</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Test</span><span class="p">();</span>
+          <span class="c1">//t.defaultInt = 2; 不可见</span>
+          <span class="c1">//t.protectedInt = 3; 不可见</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>需要注意的是，protected可以用到变量、方法上，但是不能用到类（<strong>内部类除外</strong>）和接口上。</p>
+</div>
+<div class="section" id="id3">
+<h2>非访问控制修饰符<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><strong>static</strong></p>
+<p>static用来修饰<strong>变量和方法</strong>。修饰的变量叫做静态变量/类变量，修饰的方法叫做静态方法或/类方法。</p>
+<p>静态的含义是，无论实例化多少个对象，静态变量或静态方法只有一份。作为类变量或类方法，static的用法是可以直接通过<code class="docutils literal notranslate"><span class="pre">ClassName.varName</span></code>访问类变量，或直接通过<code class="docutils literal notranslate"><span class="pre">ClassName.methodName()</span></code>访问类方法，无需实例化对象。</p>
+<p>需要注意的是，静态方法里面不能使用类的非静态变量。</p>
+<blockquote>
+<div><p>我以Python举例可以更好说明这一点，Python的类方法第一个入参是cls，如果想访问非类变量，那么入参必须是self。</p>
+</div></blockquote>
+<p><strong>final</strong></p>
+<ul class="simple">
+<li><p>final修饰<strong>变量</strong>：通常和static一起用来声明常量，比如<code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">final</span> <span class="pre">String</span> <span class="pre">TITLE</span> <span class="pre">=</span> <span class="pre">&quot;Manager&quot;;</span></code></p></li>
+<li><p>final修饰<strong>方法</strong>：父类的final方法可以被子类继承，但是不能被重写，防止该方法的内容被篡改。</p></li>
+<li><p>final修饰<strong>类</strong>：final类不能被继承。</p></li>
+</ul>
+<p><strong>abstract</strong></p>
+<ul class="simple">
+<li><p>abstract修饰<strong>类</strong>：抽象类。</p></li>
+<li><p>abstract修饰<strong>方法</strong>：抽象方法。</p></li>
+</ul>
+<p>抽象意味着它们只定义了一个形式，没有具体内容，一定会由其他的类或方法进行具体实现。如果类中有抽象方法，那么这个类必须要定义为抽象类，否则会编译报错。</p>
+<p><strong>synchronized</strong></p>
+<p>用于修饰<strong>方法</strong>，这个方法同一时间只能被一个线程访问。</p>
+<p><strong>transient</strong></p>
+<p>修饰<strong>变量</strong>，用的很少，我也看不懂。</p>
+<p><strong>volatile</strong></p>
+<p>修饰变量，变量每次被线程访问时，都强制从共享内存中重新读取值，当变量发生变化时，会强制线程将变化值写入共享内存。这样两个线程在任何时候都能看到变量的同一个值。</p>
+<blockquote>
+<div><p>参考资料：</p>
+<p><a class="reference external" href="https://www.runoob.com/java/java-modifier-types.html">https://www.runoob.com/java/java-modifier-types.html</a></p>
+<p><a class="reference external" href="https://blog.csdn.net/qq_32635069/article/details/79837059">https://blog.csdn.net/qq_32635069/article/details/79837059</a></p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/JMeter.html" class="btn btn-neutral float-right" title="JMeter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="004-Java%E5%85%AB%E5%A4%A7%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E4%B8%89%E5%A4%A7%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B.html" class="btn btn-neutral float-left" title="4 Java八大基本数据类型与三大变量类型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright dongfanger
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
