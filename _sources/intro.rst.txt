@@ -19,6 +19,8 @@ Intro
 * 备注【python】，加入Python测试交流群。
 * 备注【java】，加入Java测试交流群。
 
+.. image:: ./dongfangjd.png
+
 .. image:: ./dongfanger_award.png
 
 ------------------------------
