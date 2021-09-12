@@ -14,6 +14,15 @@ Contents:
    :glob:
    
    intro
+   chapters/Python Basic
+   chapters/Python Advance
+   chapters/pytest
+   chapters/tep
+   chapters/teprunner
+   chapters/Django
+   chapters/Django REST framework
+   chapters/Flask
+   chapters/Locust
    chapters/Java Basic
    chapters/JMeter
    chapters/JUnit
@@ -24,15 +33,6 @@ Contents:
    chapters/Message Queue
    chapters/Nginx
    chapters/DevOps
-   chapters/Python Basic
-   chapters/Python Advance
-   chapters/pytest
-   chapters/tep
-   chapters/teprunner
-   chapters/Django
-   chapters/Django REST framework
-   chapters/Flask
-   chapters/Locust
    chapters/Single Article
    chapters/Annual Summary
    chapters/Bildungsroman

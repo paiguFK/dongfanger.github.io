@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6 Java运算符 &mdash; dongfanger latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="JMeter" href="../chapters/JMeter.html" />
+    <link rel="prev" title="5 Java修饰符是最直白的表述" href="005-Java%E4%BF%AE%E9%A5%B0%E7%AC%A6%E6%98%AF%E6%9C%80%E7%9B%B4%E7%99%BD%E7%9A%84%E8%A1%A8%E8%BF%B0.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> dongfanger
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest.html">pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner.html">teprunner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Flask.html">Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/Java%20Basic.html">Java Basic</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-2021%E5%B9%B4%E6%90%AD%E5%BB%BAJava%E7%8E%AF%E5%A2%83%E6%9C%80%E5%BF%AB%E5%8A%9E%E6%B3%95.html">1 2021年搭建Java环境最快办法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002-Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%A4%AA%E7%AE%80%E5%8D%95%E4%BA%86.html">2 Java基础语法太简单了</a></li>
+<li class="toctree-l2"><a class="reference internal" href="003-%E8%A6%81%E5%AD%A6Java%E7%90%86%E8%A7%A3%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E6%98%AF%E5%85%B3%E9%94%AE.html">3 要学Java理解对象和类是关键</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004-Java%E5%85%AB%E5%A4%A7%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E4%B8%89%E5%A4%A7%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B.html">4 Java八大基本数据类型与三大变量类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005-Java%E4%BF%AE%E9%A5%B0%E7%AC%A6%E6%98%AF%E6%9C%80%E7%9B%B4%E7%99%BD%E7%9A%84%E8%A1%A8%E8%BF%B0.html">5 Java修饰符是最直白的表述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6 Java运算符</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">算术运算符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">关系运算符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">位运算符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">逻辑运算符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">赋值运算符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">其他运算符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Java运算符优先级</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JUnit.html">JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Mockito.html">Mockito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Spring%20Boot.html">Spring Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Maven.html">Maven</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Message%20Queue.html">Message Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/DevOps.html">DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../link.html">Link</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dongfanger</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/Java%20Basic.html">Java Basic</a> &raquo;</li>
+        
+      <li>6 Java运算符</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Java Basic/006-Java运算符.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="java">
+<h1>6 Java运算符<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang7.png" /></p>
+<p>Java一共有以下几类运算符：</p>
+<ul class="simple">
+<li><p>算术运算符</p></li>
+<li><p>关系运算符</p></li>
+<li><p>位运算符</p></li>
+<li><p>逻辑运算符</p></li>
+<li><p>赋值运算符</p></li>
+<li><p>其他运算符</p></li>
+</ul>
+<p>总的来说，Java运算符跟其他编程语言的运算符大同小异，可以快速浏览一下。</p>
+<div class="section" id="id1">
+<h2>算术运算符<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>假设整数变量A的值为10，整数变量B的值为20：</p>
+<p><img alt="image2" src="../_images/image-20210912075905559.png" /></p>
+<p><strong>特别的是</strong>，前缀自增自减法（<code class="docutils literal notranslate"><span class="pre">++a</span></code>
+<code class="docutils literal notranslate"><span class="pre">--a</span></code>）和后缀自增自减法（<code class="docutils literal notranslate"><span class="pre">a++</span></code> <code class="docutils literal notranslate"><span class="pre">a--</span></code>）：</p>
+<p>前缀自增自减法（<code class="docutils literal notranslate"><span class="pre">++a</span></code>
+<code class="docutils literal notranslate"><span class="pre">--a</span></code>）：先进行自增自减，再进行表达式运算。</p>
+<p>后缀自增自减法（<code class="docutils literal notranslate"><span class="pre">a++</span></code>
+<code class="docutils literal notranslate"><span class="pre">a--</span></code>）：先进行表达式运算，再进行自增自减。</p>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+        <span class="c1">// 查看  d++ 与 ++d 的不同</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;d++   = &quot;</span> <span class="o">+</span>  <span class="p">(</span><span class="n">d</span><span class="o">++</span><span class="p">)</span> <span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;++d   = &quot;</span> <span class="o">+</span>  <span class="p">(</span><span class="o">++</span><span class="n">d</span><span class="p">)</span> <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>结果为：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">++</span>   <span class="o">=</span> <span class="mi">25</span>
+<span class="o">++</span><span class="n">d</span>   <span class="o">=</span> <span class="mi">27</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>关系运算符<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>假设整数变量A的值为10，整数变量B的值为20：</p>
+<p><img alt="image3" src="../_images/image-20210912081100302.png" /></p>
+</div>
+<div class="section" id="id3">
+<h2>位运算符<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>假设整数变量A的值为60，整数变量B的值为13：</p>
+<p><img alt="image4" src="../_images/image-20210912081218762.png" /></p>
+</div>
+<div class="section" id="id4">
+<h2>逻辑运算符<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>假设布尔变量A为真，布尔变量B为假：</p>
+<p><img alt="image5" src="../_images/image-20210912081456704.png" /></p>
+<p><strong>需要注意的是，如果第一个操作数已经能判断结果了，那么就不会执行下一个操作数</strong>，比如：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">boolean</span> <span class="n">a</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="kt">boolean</span> <span class="n">b</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+        <span class="kt">boolean</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="p">;</span>  <span class="c1">// a已经能判断结果为false，不再执行b</span>
+
+        <span class="kt">boolean</span> <span class="n">d</span> <span class="o">=</span> <span class="n">b</span> <span class="o">||</span> <span class="n">a</span><span class="p">;</span>  <span class="c1">// b已经能判断结果为true，不再执行a</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>赋值运算符<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image6" src="../_images/image-20210912090833320.png" /></p>
+</div>
+<div class="section" id="id6">
+<h2>其他运算符<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p><strong>条件运算符</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>variable x = (expression) ? value if true : value if false
+</pre></div>
+</div>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">){</span>
+      <span class="kt">int</span> <span class="n">a</span> <span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+      <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+      <span class="c1">// 如果 a 等于 1 成立，则设置 b 为 20，否则为 30</span>
+      <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">?</span> <span class="mi">20</span> <span class="p">:</span> <span class="mi">30</span><span class="p">;</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span> <span class="s">&quot;Value of b is : &quot;</span> <span class="o">+</span>  <span class="n">b</span> <span class="p">);</span>  <span class="c1">// 30</span>
+
+      <span class="c1">// 如果 a 等于 10 成立，则设置 b 为 20，否则为 30</span>
+      <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="mi">20</span> <span class="p">:</span> <span class="mi">30</span><span class="p">;</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span> <span class="s">&quot;Value of b is : &quot;</span> <span class="o">+</span> <span class="n">b</span> <span class="p">);</span>  <span class="c1">// 20</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>条件运算符也叫做三元运算符，三元场景可以多用这个运算符简写代码。</p>
+<p><strong>instanceof 运算符</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="n">Object</span> <span class="n">reference</span> <span class="n">variable</span> <span class="p">)</span> <span class="n">instanceof</span>  <span class="p">(</span><span class="n">class</span><span class="o">/</span><span class="n">interface</span> <span class="nb">type</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>用来判断对象是否为类的实例。比如：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;James&quot;</span><span class="p">;</span>
+<span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="n">name</span> <span class="k">instanceof</span> <span class="n">String</span><span class="p">;</span> <span class="c1">// 由于 name 是 String 类型，所以返回真</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>Java运算符优先级<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image7" src="../_images/image-20210912091529895.png" /></p>
+<p>在编写代码的时候，多用小括号把优先计算的表达式框起来，才不容易出错。</p>
+<blockquote>
+<div><p>参考资料：</p>
+<p><a class="reference external" href="https://www.runoob.com/java/java-operators.html">https://www.runoob.com/java/java-operators.html</a></p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/JMeter.html" class="btn btn-neutral float-right" title="JMeter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="005-Java%E4%BF%AE%E9%A5%B0%E7%AC%A6%E6%98%AF%E6%9C%80%E7%9B%B4%E7%99%BD%E7%9A%84%E8%A1%A8%E8%BF%B0.html" class="btn btn-neutral float-left" title="5 Java修饰符是最直白的表述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright dongfanger
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
