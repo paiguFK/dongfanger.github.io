@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>15 Python编解码问题与文本文件处理 &mdash; dongfanger latest documentation</title>
+  <title>19 Python中的接口协议和抽象基类 &mdash; dongfanger latest documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="16 Python变量小秘密" href="016-Python%E5%8F%98%E9%87%8F%E5%B0%8F%E7%A7%98%E5%AF%86.html" />
-    <link rel="prev" title="14 Python字符与字节新编" href="014-Python%E5%AD%97%E7%AC%A6%E4%B8%8E%E5%AD%97%E8%8A%82%E6%96%B0%E7%BC%96.html" /> 
+    <link rel="next" title="20 Python抽象基类的定义与使用" href="020-Python%E6%8A%BD%E8%B1%A1%E5%9F%BA%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E4%BD%BF%E7%94%A8.html" />
+    <link rel="prev" title="18 Python如何设计面向对象的类（下）" href="018-Python%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%B1%BB%EF%BC%88%E4%B8%8B%EF%BC%89.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -107,20 +107,17 @@
 <li class="toctree-l2"><a class="reference internal" href="012-%E5%85%B3%E4%BA%8EPython%E9%97%AD%E5%8C%85%E7%9A%84%E4%B8%80%E5%88%87.html">12 关于Python闭包的一切</a></li>
 <li class="toctree-l2"><a class="reference internal" href="013-Python%E5%87%BD%E6%95%B0%E8%A3%85%E9%A5%B0%E5%99%A8%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.html">13 Python函数装饰器高级用法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="014-Python%E5%AD%97%E7%AC%A6%E4%B8%8E%E5%AD%97%E8%8A%82%E6%96%B0%E7%BC%96.html">14 Python字符与字节新编</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">15 Python编解码问题与文本文件处理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">编解码器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unicodeencodeerror">UnicodeEncodeError</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unicodedecodeerror">UnicodeDecodeError</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#syntaxerror">SyntaxError</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">处理文本文件</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">文件乱码</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">小结</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="015-Python%E7%BC%96%E8%A7%A3%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86.html">15 Python编解码问题与文本文件处理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="016-Python%E5%8F%98%E9%87%8F%E5%B0%8F%E7%A7%98%E5%AF%86.html">16 Python变量小秘密</a></li>
 <li class="toctree-l2"><a class="reference internal" href="017-Python%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%B1%BB%EF%BC%88%E4%B8%8A%EF%BC%89.html">17 Python如何设计面向对象的类（上）</a></li>
 <li class="toctree-l2"><a class="reference internal" href="018-Python%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%B1%BB%EF%BC%88%E4%B8%8B%EF%BC%89.html">18 Python如何设计面向对象的类（下）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="019-Python%E4%B8%AD%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8D%8F%E8%AE%AE%E5%92%8C%E6%8A%BD%E8%B1%A1%E5%9F%BA%E7%B1%BB.html">19 Python中的接口协议和抽象基类</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">19 Python中的接口协议和抽象基类</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Python接口与协议</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">猴子补丁</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">抽象基类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">鸭子类型和白鹅类型</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="020-Python%E6%8A%BD%E8%B1%A1%E5%9F%BA%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E4%BD%BF%E7%94%A8.html">20 Python抽象基类的定义与使用</a></li>
 <li class="toctree-l2"><a class="reference internal" href="999-%E6%B5%81%E7%95%85%E7%9A%84python%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html">999 流畅的python读书笔记</a></li>
 </ul>
@@ -194,13 +191,13 @@
         
           <li><a href="../chapters/Python%20Advance.html">Python Advance</a> &raquo;</li>
         
-      <li>15 Python编解码问题与文本文件处理</li>
+      <li>19 Python中的接口协议和抽象基类</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Python Advance/015-Python编解码问题与文本文件处理.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Python Advance/019-Python中的接口协议和抽象基类.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -214,102 +211,78 @@
            <div itemprop="articleBody">
             
   <div class="section" id="python">
-<h1>15 Python编解码问题与文本文件处理<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<h1>19 Python中的接口协议和抽象基类<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
 <p><img alt="image1" src="../_images/wanggang12.png" /></p>
 <div class="section" id="id1">
-<h2>编解码器<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>在字符与字节之间的转换过程称为编解码，Python自带了超过100种编解码器，比如：</p>
-<ul class="simple">
-<li><p>ascii（英文体系）</p></li>
-<li><p>gb2312（中文体系）</p></li>
-<li><p>utf-8（全球通用）</p></li>
-<li><p>latin1</p></li>
-<li><p>utf-16</p></li>
-</ul>
-<blockquote>
-<div><p>编解码器一般有多个别名，比如<code class="docutils literal notranslate"><span class="pre">utf8</span></code>、<code class="docutils literal notranslate"><span class="pre">utf-8</span></code>、<code class="docutils literal notranslate"><span class="pre">U8</span></code>。</p>
-</div></blockquote>
-<p>这些编解码器可以传给open()、str.encode()、bytes.decode()等函数的encoding参数。</p>
-</div>
-<div class="section" id="unicodeencodeerror">
-<h2>UnicodeEncodeError<a class="headerlink" href="#unicodeencodeerror" title="Permalink to this headline">¶</a></h2>
-<p>多数非UTF编解码器（比如cp437）只能处理Unicode字符的一小部分子集。把字符转换成字节时，如果目标编码中没有定义这个字符，那么就会抛出UnicodeEncodeError异常。</p>
-<p>处理方式一：使用utf8编码。</p>
-<p>处理方式二：添加errors参数：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## 忽略 如b&#39;So Paulo&#39;</span>
-<span class="n">city</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;cp437&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
-<span class="c1">## 替换为? 如b&#39;S?o Paulo&#39;</span>
-<span class="n">city</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;cp437&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">)</span>
-<span class="c1">## 替换为XML实体 如b&#39;S&amp;#227;o Paulo&#39;</span>
-<span class="n">city</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;cp437&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;xmlcharrefreplace&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="unicodedecodeerror">
-<h2>UnicodeDecodeError<a class="headerlink" href="#unicodedecodeerror" title="Permalink to this headline">¶</a></h2>
-<p>把字节转换为字符时，遇到无法转换的字节时会抛出UnicodeDecodeError异常。这是因为不是每个字节都包含有效的ASCII字符，也不是每个字符都是有效的UTF-8。</p>
-<p>处理方式也有两种，跟上面一样。</p>
-</div>
-<div class="section" id="syntaxerror">
-<h2>SyntaxError<a class="headerlink" href="#syntaxerror" title="Permalink to this headline">¶</a></h2>
-<p>Python3默认使用UTF-8编码源码。如果加载的.py模块中包含UTF-8之外的数据，而且没有声明编码，就会抛出SyntaxError异常。</p>
-<p>处理方式是在文件顶部添加coding注释：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## coding: cp1252</span>
-</pre></div>
-</div>
-<p>但是这个办法并不好，最好还是找到这些报错字符，把它们转换为UTF-8。</p>
-<blockquote>
-<div><p>从网上直接复制代码到IDE中执行经常会报这个错。</p>
-</div></blockquote>
+<h2>Python接口与协议<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><strong>Python语言是没有interface关键字的</strong>，这也是动态类型语言的特点之一。Python的接口指的是类实现或继承的公开属性，包括数据或方法。比如Sequence的正式接口如下图所示：</p>
+<p><img alt="image2" src="../_images/image-20210924224332346.png" /></p>
+<p>这些都叫做Python接口。事实上，Python每个类都有接口，<strong>除了抽象基类</strong>。</p>
+<p><strong>接口是正式的</strong>，它定义了类具有哪些属性，<strong>协议是非正式的接口</strong>，只由文档和约定定义。比如只要类实现了<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>方法，按照序列协议的约定，Python就会支持这个类完成访问元素、迭代和使用in运算符等一系列操作。</p>
 </div>
 <div class="section" id="id2">
-<h2>处理文本文件<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Unicode三明治：</p>
-<p><img alt="image2" src="../_images/image-20210616093403143.png" /></p>
-<p>在程序中尽量少接触二进制，把字节解码为字符，只处理字符串对象。比如在Django中，view应该输出Unicode字符串，Django会负责把响应数据编码成字节序列，而且默认使用UTF-8编码。</p>
-<p>Python内置的open函数就是采用了这个原则，在读取文件时会做必要的解码，以文本模式写入文件时会做必要的编码。</p>
+<h2>猴子补丁<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>我们可以通过猴子补丁来进一步认识，Python中协议的约定是怎么回事。猴子补丁是这样一种技术：<strong>在运行时修改类或模块，而不改动源码</strong>。还是以序列协议来举例，比如：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">frenchdeck</span> <span class="kn">import</span> <span class="n">FrenchDeck</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">deck</span> <span class="o">=</span> <span class="n">FrenchDeck</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shuffle</span><span class="p">(</span><span class="n">deck</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>假设运行报错了：<code class="docutils literal notranslate"><span class="pre">TypeError:</span> <span class="pre">'FrenchDeck'</span> <span class="pre">object</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">support</span> <span class="pre">item</span> <span class="pre">assignment</span></code>，因为FrenchDeck类只有<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>方法，只实现了<strong>不可变的序列协议</strong>。为了解决这个报错，需要通过<code class="docutils literal notranslate"><span class="pre">__setitem__</span></code>方法实现<strong>可变的序列协议</strong>。</p>
+<p>代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_card</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">card</span><span class="p">):</span>
+    <span class="n">deck</span><span class="o">.</span><span class="n">_cards</span><span class="p">[</span><span class="n">position</span><span class="p">]</span> <span class="o">=</span> <span class="n">card</span>
+
+<span class="n">FrenchDeck</span><span class="o">.</span><span class="fm">__setitem__</span> <span class="o">=</span> <span class="n">set_card</span>
+<span class="n">shuffle</span><span class="p">(</span><span class="n">deck</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这就是一段猴子补丁技术的实现代码，没有修改FrenchDeck类的源码，而是在运行时动态修改。</p>
 </div>
 <div class="section" id="id3">
-<h2>文件乱码<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>Windows更容易遇到这个问题，因为Windows并不是统一的UTF-8编码，比如在Windows10中：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;cafe.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;café&quot;</span><span class="p">)</span>
-<span class="go">4</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;cafe.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="go">&#39;caf茅&#39;</span>
-</pre></div>
-</div>
-<p>写入文件时指定了utf8，但是读取文件没有指定，Python就会使用系统默认编码：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">locale</span>
-<span class="go">## 打开文件用这个</span>
-<span class="go">## 如果没有设置PYTHONENCODING环境变量，sys.stdout/stdin/stderr也用这个</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">locale</span><span class="o">.</span><span class="n">getpreferredencoding</span><span class="p">()</span>
-<span class="go">&#39;cp936&#39;</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">cp936</span></code>把最后一个字节解码成了<code class="docutils literal notranslate"><span class="pre">茅</span></code>而不是<code class="docutils literal notranslate"><span class="pre">é</span></code>。</p>
-<blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="go"># 二进制数据和字符串之间转换用这个</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">getdefaultencoding</span><span class="p">()</span>
-<span class="go">&#39;utf-8&#39;</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="go"># 文件名（不是文件内容）用这个</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">getfilesystemencoding</span><span class="p">()</span>
-<span class="go">&#39;utf-8&#39;</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p>GNU/Linux或Mac OS X不会遇到这个问题，因为多年来它们的默认编码都是UTF-8。</p>
-<p>解决办法是一定不能依赖系统默认编码，<strong>打开文件时始终应该明确传入encoding=参数</strong>，因为不同的设备使用的默认编码可能不同，有时隔一天也会发生变化。</p>
+<h2>抽象基类<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Python的抽象基类是指<strong>必须让继承它的子类去实现它所要求的方法</strong>的类。Python的collections.abc模块中就定义了很多抽象基类：</p>
+<p><img alt="image3" src="../_images/image-20210925110158314.png" /></p>
+<p>虽然我们在实际编程中并不会自己编写抽象基类（一般也不建议这样做，因为可能会导致意想不到的问题），但是了解抽象基类，可以帮助我们更好理解Python面向对象的继承等概念。</p>
+<p><strong>抛开枯燥的理论知识，我在书中找到了一处具有实践价值的片段：</strong></p>
+<p><strong>「在一连串if/elif/elif中使用isinstance做检查，然后根据对象的类型执行不同的操作，通常是不好的做法；此时应该使用多态，即采用一定的方式定义类，让解释器把调用分派给正确的方法，而不使用if/elif/elif块硬编码分派逻辑。」</strong></p>
+<p>交流群和公司都有人问过我这个问题，写了太多的ifelse有没有更好的实现方式，我想这里已经给出了答案。</p>
 </div>
 <div class="section" id="id4">
-<h2>小结<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p>本文介绍了Python的编解码器，以及可能出现的UnicodeEncodeError、UnicodeDecodeError、SyntaxError问题，然后给出了Python的open函数处理文本文件的原则，最后对Windows容易出现的文件乱码问题进行了说明。</p>
+<h2>鸭子类型和白鹅类型<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Python鸭子类型是指对象的类型无关紧要，只要实现了特定的协议即可。它的好处是避免过多的isinstance，如果遵守既定协议，能增加利用现有的标准库和第三方代码的可能性。示例：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The animal is running...&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The dog is running...&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Cat</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The cat is running...&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">make_run</span><span class="p">(</span><span class="n">animal</span><span class="p">):</span>
+    <span class="n">animal</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+<span class="n">dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="n">cat</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">()</span>
+<span class="n">make_run</span><span class="p">(</span><span class="n">dog</span><span class="p">)</span>
+<span class="n">make_run</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>对于 <code class="docutils literal notranslate"><span class="pre">make_run()</span></code> 函数来说，传入的参数并不一定需要是 <code class="docutils literal notranslate"><span class="pre">Animal</span></code>
+类型的，只需要保证传入的对象有一个 <code class="docutils literal notranslate"><span class="pre">run()</span></code> 方法即可。</p>
+<p>白鹅类型是指只要cls是抽象基类（即cls的元类是abc.ABCMeta），就可以使用isinstance(obj,
+cls)。它的基本特性是，即便不继承，也有办法把一个类注册为抽象基类的虚拟子类。Python不会检查虚拟子类是否实现了抽象基类要求实现的方法，而是由我们自己保证，并捕获异常。具体会在下篇文章《Python抽象基类的定义与使用》进行介绍。</p>
 <blockquote>
 <div><p>参考资料：</p>
-<p>《流畅的Python》</p>
+<p>《流畅的Python》第11章 接口：从协议到抽象基类</p>
 </div></blockquote>
 </div>
 </div>
@@ -322,10 +295,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="016-Python%E5%8F%98%E9%87%8F%E5%B0%8F%E7%A7%98%E5%AF%86.html" class="btn btn-neutral float-right" title="16 Python变量小秘密" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="020-Python%E6%8A%BD%E8%B1%A1%E5%9F%BA%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E4%BD%BF%E7%94%A8.html" class="btn btn-neutral float-right" title="20 Python抽象基类的定义与使用" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="014-Python%E5%AD%97%E7%AC%A6%E4%B8%8E%E5%AD%97%E8%8A%82%E6%96%B0%E7%BC%96.html" class="btn btn-neutral float-left" title="14 Python字符与字节新编" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="018-Python%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%B1%BB%EF%BC%88%E4%B8%8B%EF%BC%89.html" class="btn btn-neutral float-left" title="18 Python如何设计面向对象的类（下）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
