@@ -16,7 +16,7 @@
 
 |image3|
 
-**原汁原味还原了\ **\ `《tep用户手册帮你从unittest过渡到pytest》 <https://dongfanger.gitee.io/blog/tep/002-tep%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C%E5%B8%AE%E4%BD%A0%E4%BB%8Eunittest%E8%BF%87%E6%B8%A1%E5%88%B0pytest.html>`__\ **\ 这篇文件提到的内容。**\ 相比于用户手册，最新的0.9.1版本还做了两点增强：
+**原汁原味还原了《tep用户手册帮你从unittest过渡到pytest》这篇文件提到的内容。**\ 相比于用户手册，最新的0.9.1版本还做了两点增强：
 
 1. 把\ ``fixture_env_vars.py``\ 和\ ``fixture_login.py``\ 从\ ``fixture_admin.py``\ 中拆了出来，解耦后，文件层次更清晰。
 
