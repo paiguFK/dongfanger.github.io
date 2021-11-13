@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6 原创pytest辅助工具tep0.9.1版本恢复项目初始化文件 &mdash; dongfanger latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="teprunner" href="../chapters/teprunner.html" />
+    <link rel="prev" title="5 tep环境变量、fixtures、用例三者之间的关系" href="005-tep%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E3%80%81fixtures%E3%80%81%E7%94%A8%E4%BE%8B%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> dongfanger
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest.html">pytest</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/tep.html">tep</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-tep%E9%A6%96%E6%AC%A1%E5%BC%80%E6%BA%90V0.2.3%E4%BB%8B%E7%BB%8D.html">1 tep首次开源V0.2.3介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002-tep%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C%E5%B8%AE%E4%BD%A0%E4%BB%8Eunittest%E8%BF%87%E6%B8%A1%E5%88%B0pytest.html">2 tep用户手册帮你从unittest过渡到pytest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="003-%E5%A6%82%E4%BD%95%E7%94%A8tep%E5%AE%8C%E6%88%90%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96.html">3 如何用tep完成增删改查接口自动化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004-tep0.6.0%E6%9B%B4%E6%96%B0%E8%81%8A%E8%81%8Apytest%E5%8F%98%E9%87%8F%E6%8E%A5%E5%8F%A3%E7%94%A8%E4%BE%8B3%E4%B8%AA%E7%BA%A7%E5%88%AB%E5%A4%8D%E7%94%A8.html">4 tep0.6.0更新聊聊pytest变量接口用例3个级别复用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005-tep%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E3%80%81fixtures%E3%80%81%E7%94%A8%E4%BE%8B%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB.html">5 tep环境变量、fixtures、用例三者之间的关系</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6 原创pytest辅助工具tep0.9.1版本恢复项目初始化文件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">恢复项目初始化文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">初始化时创建虚拟环境</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner.html">teprunner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Flask.html">Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Java%20Basic.html">Java Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JUnit.html">JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Mockito.html">Mockito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Spring%20Boot.html">Spring Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Maven.html">Maven</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Message%20Queue.html">Message Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/DevOps.html">DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../link.html">Link</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dongfanger</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/tep.html">tep</a> &raquo;</li>
+        
+      <li>6 原创pytest辅助工具tep0.9.1版本恢复项目初始化文件</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tep/006-原创pytest辅助工具tep0.9.1版本恢复项目初始化文件.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pytesttep0-9-1">
+<h1>6 原创pytest辅助工具tep0.9.1版本恢复项目初始化文件<a class="headerlink" href="#pytesttep0-9-1" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang17.png" /></p>
+<p>最近几个月时间有些小伙伴问到为什么tep项目初始化文件没有了？</p>
+<p><img alt="image2" src="../_images/微信图片_20211113173636_副本.png" /></p>
+<p>造成这种困扰，实在是抱歉，确实在删掉项目初始化文件时欠考虑了。我当时的想法是让tep像flask那样，只保留最核心的能力，其他能力自由扩展。但是好像tep并没有flask那么强（这是一句正确的废话），大家在用tep时也是<strong>复用了项目初始化文件，在此基础上实践自己的自动化项目</strong>。</p>
+<div class="section" id="id1">
+<h2>恢复项目初始化文件<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>于是我决定在最新的0.9.1版本中恢复这些初始化文件：</p>
+<p><img alt="image3" src="../_images/image-20211113181812987.png" /></p>
+<p><strong>原汁原味还原了**`《tep用户手册帮你从unittest过渡到pytest》 &lt;https://dongfanger.gitee.io/blog/tep/002-tep%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C%E5%B8%AE%E4%BD%A0%E4%BB%8Eunittest%E8%BF%87%E6%B8%A1%E5%88%B0pytest.html&gt;`__**这篇文件提到的内容。</strong>相比于用户手册，最新的0.9.1版本还做了两点增强：</p>
+<ol class="arabic">
+<li><p>把<code class="docutils literal notranslate"><span class="pre">fixture_env_vars.py</span></code>和<code class="docutils literal notranslate"><span class="pre">fixture_login.py</span></code>从<code class="docutils literal notranslate"><span class="pre">fixture_admin.py</span></code>中拆了出来，解耦后，文件层次更清晰。</p></li>
+<li><p>添加了<code class="docutils literal notranslate"><span class="pre">test_request.py</span></code>文件，request的常见用法可以从这里找到：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tep.client</span> <span class="kn">import</span> <span class="n">request</span>
+
+<span class="n">request</span><span class="p">(</span><span class="s2">&quot;get&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{},</span> <span class="n">json</span><span class="o">=</span><span class="p">{})</span>
+<span class="n">request</span><span class="p">(</span><span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{},</span> <span class="n">params</span><span class="o">=</span><span class="p">{})</span>
+<span class="n">request</span><span class="p">(</span><span class="s2">&quot;put&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{},</span> <span class="n">json</span><span class="o">=</span><span class="p">{})</span>
+<span class="n">request</span><span class="p">(</span><span class="s2">&quot;delete&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{})</span>
+
+<span class="c1"># upload excel</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">request</span><span class="p">(</span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
+        <span class="n">url</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{},</span>
+        <span class="n">files</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="n">file_name</span><span class="p">,</span>
+                <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;</span>
+            <span class="p">)</span>
+        <span class="p">},</span>
+        <span class="n">verify</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>初始化时创建虚拟环境<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>还有就是提供了<code class="docutils literal notranslate"><span class="pre">-venv</span></code>参数，在项目初始化时，可以同时创建一个虚拟环境，像这样：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tep startproject demo091venv -venv
+</pre></div>
+</div>
+<p><img alt="image4" src="../_images/image-20211113182418178.png" /></p>
+<p><strong>并自动安装了最新版本的tep。</strong></p>
+<p><img alt="image5" src="../_images/image-20211113182538284.png" /></p>
+<p>最后感谢小伙伴们对tep工具的支持，我会继续完善它的，一起加油！</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/teprunner.html" class="btn btn-neutral float-right" title="teprunner" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="005-tep%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E3%80%81fixtures%E3%80%81%E7%94%A8%E4%BE%8B%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB.html" class="btn btn-neutral float-left" title="5 tep环境变量、fixtures、用例三者之间的关系" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright dongfanger
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
