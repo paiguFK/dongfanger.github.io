@@ -13,9 +13,9 @@ Intro
 .. image:: ./dongfangpy.png
 
 * 添加个人微信。
-* 备注【python】，加入Python测试开发交流群。
-* 备注【java】，加入Java测试开发交流群。
-* 备注【交流】，加入测试开发交流群。
+* 备注【Python】，加入Python测试开发交流群。
+* 备注【Java】，加入Java测试开发交流群。
+* 备注【测开】，加入测试开发交流群。
 
 .. image:: ./dongfangjd.png
 

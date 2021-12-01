@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>15 Python编解码问题与文本文件处理 &mdash; dongfanger latest documentation</title>
+  <title>21 Python可迭代的对象与迭代器的对比 &mdash; dongfanger latest documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="16 Python变量小秘密" href="016-Python%E5%8F%98%E9%87%8F%E5%B0%8F%E7%A7%98%E5%AF%86.html" />
-    <link rel="prev" title="14 Python字符与字节新编" href="014-Python%E5%AD%97%E7%AC%A6%E4%B8%8E%E5%AD%97%E8%8A%82%E6%96%B0%E7%BC%96.html" /> 
+    <link rel="next" title="999 流畅的python读书笔记" href="999-%E6%B5%81%E7%95%85%E7%9A%84python%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html" />
+    <link rel="prev" title="20 Python抽象基类的定义与使用" href="020-Python%E6%8A%BD%E8%B1%A1%E5%9F%BA%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E4%BD%BF%E7%94%A8.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -107,22 +107,17 @@
 <li class="toctree-l2"><a class="reference internal" href="012-%E5%85%B3%E4%BA%8EPython%E9%97%AD%E5%8C%85%E7%9A%84%E4%B8%80%E5%88%87.html">12 关于Python闭包的一切</a></li>
 <li class="toctree-l2"><a class="reference internal" href="013-Python%E5%87%BD%E6%95%B0%E8%A3%85%E9%A5%B0%E5%99%A8%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.html">13 Python函数装饰器高级用法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="014-Python%E5%AD%97%E7%AC%A6%E4%B8%8E%E5%AD%97%E8%8A%82%E6%96%B0%E7%BC%96.html">14 Python字符与字节新编</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">15 Python编解码问题与文本文件处理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">编解码器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unicodeencodeerror">UnicodeEncodeError</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unicodedecodeerror">UnicodeDecodeError</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#syntaxerror">SyntaxError</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">处理文本文件</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">文件乱码</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">小结</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="015-Python%E7%BC%96%E8%A7%A3%E7%A0%81%E9%97%AE%E9%A2%98%E4%B8%8E%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86.html">15 Python编解码问题与文本文件处理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="016-Python%E5%8F%98%E9%87%8F%E5%B0%8F%E7%A7%98%E5%AF%86.html">16 Python变量小秘密</a></li>
 <li class="toctree-l2"><a class="reference internal" href="017-Python%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%B1%BB%EF%BC%88%E4%B8%8A%EF%BC%89.html">17 Python如何设计面向对象的类（上）</a></li>
 <li class="toctree-l2"><a class="reference internal" href="018-Python%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%B1%BB%EF%BC%88%E4%B8%8B%EF%BC%89.html">18 Python如何设计面向对象的类（下）</a></li>
 <li class="toctree-l2"><a class="reference internal" href="019-Python%E4%B8%AD%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8D%8F%E8%AE%AE%E5%92%8C%E6%8A%BD%E8%B1%A1%E5%9F%BA%E7%B1%BB.html">19 Python中的接口协议和抽象基类</a></li>
 <li class="toctree-l2"><a class="reference internal" href="020-Python%E6%8A%BD%E8%B1%A1%E5%9F%BA%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E4%BD%BF%E7%94%A8.html">20 Python抽象基类的定义与使用</a></li>
-<li class="toctree-l2"><a class="reference internal" href="021-Python%E5%8F%AF%E8%BF%AD%E4%BB%A3%E7%9A%84%E5%AF%B9%E8%B1%A1%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9A%84%E5%AF%B9%E6%AF%94.html">21 Python可迭代的对象与迭代器的对比</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">21 Python可迭代的对象与迭代器的对比</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">可迭代的对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">迭代器</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="999-%E6%B5%81%E7%95%85%E7%9A%84python%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html">999 流畅的python读书笔记</a></li>
 </ul>
 </li>
@@ -195,13 +190,13 @@
         
           <li><a href="../chapters/Python%20Advance.html">Python Advance</a> &raquo;</li>
         
-      <li>15 Python编解码问题与文本文件处理</li>
+      <li>21 Python可迭代的对象与迭代器的对比</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Python Advance/015-Python编解码问题与文本文件处理.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Python Advance/021-Python可迭代的对象与迭代器的对比.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -215,102 +210,89 @@
            <div itemprop="articleBody">
             
   <div class="section" id="python">
-<h1>15 Python编解码问题与文本文件处理<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<h1>21 Python可迭代的对象与迭代器的对比<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
 <p><img alt="image1" src="../_images/wanggang12.png" /></p>
+<p>什么是迭代？迭代是指按需一次获取一个数据。是否可以迭代，可以通过是否可以使用for循环取值来进行简单的判断。更准确的判断是使用<code class="docutils literal notranslate"><span class="pre">iter()</span></code>函数，这是一个Python内置函数。</p>
 <div class="section" id="id1">
-<h2>编解码器<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>在字符与字节之间的转换过程称为编解码，Python自带了超过100种编解码器，比如：</p>
-<ul class="simple">
-<li><p>ascii（英文体系）</p></li>
-<li><p>gb2312（中文体系）</p></li>
-<li><p>utf-8（全球通用）</p></li>
-<li><p>latin1</p></li>
-<li><p>utf-16</p></li>
-</ul>
-<blockquote>
-<div><p>编解码器一般有多个别名，比如<code class="docutils literal notranslate"><span class="pre">utf8</span></code>、<code class="docutils literal notranslate"><span class="pre">utf-8</span></code>、<code class="docutils literal notranslate"><span class="pre">U8</span></code>。</p>
-</div></blockquote>
-<p>这些编解码器可以传给open()、str.encode()、bytes.decode()等函数的encoding参数。</p>
-</div>
-<div class="section" id="unicodeencodeerror">
-<h2>UnicodeEncodeError<a class="headerlink" href="#unicodeencodeerror" title="Permalink to this headline">¶</a></h2>
-<p>多数非UTF编解码器（比如cp437）只能处理Unicode字符的一小部分子集。把字符转换成字节时，如果目标编码中没有定义这个字符，那么就会抛出UnicodeEncodeError异常。</p>
-<p>处理方式一：使用utf8编码。</p>
-<p>处理方式二：添加errors参数：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## 忽略 如b&#39;So Paulo&#39;</span>
-<span class="n">city</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;cp437&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
-<span class="c1">## 替换为? 如b&#39;S?o Paulo&#39;</span>
-<span class="n">city</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;cp437&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">)</span>
-<span class="c1">## 替换为XML实体 如b&#39;S&amp;#227;o Paulo&#39;</span>
-<span class="n">city</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;cp437&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;xmlcharrefreplace&quot;</span><span class="p">)</span>
+<h2>可迭代的对象<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">iter()</span></code>函数的作用如下：</p>
+<ol class="arabic">
+<li><p>如果对象实现了<code class="docutils literal notranslate"><span class="pre">__iter__</span></code>方法，那么就调用它，<strong>获取一个迭代器</strong>。比如：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">SentenceIterator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">words</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="unicodedecodeerror">
-<h2>UnicodeDecodeError<a class="headerlink" href="#unicodedecodeerror" title="Permalink to this headline">¶</a></h2>
-<p>把字节转换为字符时，遇到无法转换的字节时会抛出UnicodeDecodeError异常。这是因为不是每个字节都包含有效的ASCII字符，也不是每个字符都是有效的UTF-8。</p>
-<p>处理方式也有两种，跟上面一样。</p>
-</div>
-<div class="section" id="syntaxerror">
-<h2>SyntaxError<a class="headerlink" href="#syntaxerror" title="Permalink to this headline">¶</a></h2>
-<p>Python3默认使用UTF-8编码源码。如果加载的.py模块中包含UTF-8之外的数据，而且没有声明编码，就会抛出SyntaxError异常。</p>
-<p>处理方式是在文件顶部添加coding注释：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## coding: cp1252</span>
-</pre></div>
-</div>
-<p>但是这个办法并不好，最好还是找到这些报错字符，把它们转换为UTF-8。</p>
-<blockquote>
-<div><p>从网上直接复制代码到IDE中执行经常会报这个错。</p>
-</div></blockquote>
+</li>
+<li><p>如果对象没有实现<code class="docutils literal notranslate"><span class="pre">__iter__</span></code>但是实现了<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>方法，那么就<strong>创建一个迭代器</strong>，尝试从索引0开始获取元素。</p></li>
+<li><p>如果尝试获取元素失败，就会抛出TypeError异常。</p></li>
+</ol>
+<p>可迭代的对象，就是使用<code class="docutils literal notranslate"><span class="pre">iter()</span></code>函数判断，满足前面2点的对象。</p>
+<p>任何Python序列都是可以迭代的，因为它们都实现了<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>方法。</p>
 </div>
 <div class="section" id="id2">
-<h2>处理文本文件<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Unicode三明治：</p>
-<p><img alt="image2" src="../_images/image-20210616093403143.png" /></p>
-<p>在程序中尽量少接触二进制，把字节解码为字符，只处理字符串对象。比如在Django中，view应该输出Unicode字符串，Django会负责把响应数据编码成字节序列，而且默认使用UTF-8编码。</p>
-<p>Python内置的open函数就是采用了这个原则，在读取文件时会做必要的解码，以文本模式写入文件时会做必要的编码。</p>
-</div>
-<div class="section" id="id3">
-<h2>文件乱码<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>Windows更容易遇到这个问题，因为Windows并不是统一的UTF-8编码，比如在Windows10中：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;cafe.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;café&quot;</span><span class="p">)</span>
-<span class="go">4</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;cafe.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="go">&#39;caf茅&#39;</span>
+<h2>迭代器<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>从前面<code class="docutils literal notranslate"><span class="pre">iter()</span></code>函数的作用可以发现，<strong>迭代器是从可迭代的对象中获取的</strong>。</p>
+<ol class="arabic simple">
+<li><p>如果对象本身是可迭代的，就调用<code class="docutils literal notranslate"><span class="pre">__iter__</span></code>方法获取一个迭代器。</p></li>
+<li><p>如果对象不可迭代但是实现了<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>方法，那么就会创建一个迭代器。</p></li>
+</ol>
+<p>比如可以使用<code class="docutils literal notranslate"><span class="pre">iter()</span></code>函数把列表转换为迭代器：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">test_list</span><span class="p">))</span>
+<span class="go">&lt;class &#39;list&#39;&gt;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_iter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">test_list</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">test_iter</span><span class="p">))</span>
+<span class="go">&lt;class &#39;list_iterator&#39;&gt;</span>
 </pre></div>
 </div>
-<p>写入文件时指定了utf8，但是读取文件没有指定，Python就会使用系统默认编码：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">locale</span>
-<span class="go">## 打开文件用这个</span>
-<span class="go">## 如果没有设置PYTHONENCODING环境变量，sys.stdout/stdin/stderr也用这个</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">locale</span><span class="o">.</span><span class="n">getpreferredencoding</span><span class="p">()</span>
-<span class="go">&#39;cp936&#39;</span>
+<p>迭代器可以使用for循环遍历：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">test_iter</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">cp936</span></code>把最后一个字节解码成了<code class="docutils literal notranslate"><span class="pre">茅</span></code>而不是<code class="docutils literal notranslate"><span class="pre">é</span></code>。</p>
-<blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="go"># 二进制数据和字符串之间转换用这个</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">getdefaultencoding</span><span class="p">()</span>
-<span class="go">&#39;utf-8&#39;</span>
+<p>也可以使用while循环遍历：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">test_iter</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">test_iter</span>
+        <span class="k">break</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="go"># 文件名（不是文件内容）用这个</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">getfilesystemencoding</span><span class="p">()</span>
-<span class="go">&#39;utf-8&#39;</span>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">next()</span></code>函数用于获取迭代器下一个元素。</p></li>
+<li><p>没有元素了，迭代器会抛出StopIteration异常。</p></li>
+</ul>
+<p>标准的迭代器接口有两个方法：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">__next__</span></code>返回下一个元素。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__iter__</span></code>返回self，以便在应该使用可迭代对象的地方使用迭代器，比如for循环中。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span>
 </pre></div>
 </div>
-</div></blockquote>
-<p>GNU/Linux或Mac OS X不会遇到这个问题，因为多年来它们的默认编码都是UTF-8。</p>
-<p>解决办法是一定不能依赖系统默认编码，<strong>打开文件时始终应该明确传入encoding=参数</strong>，因为不同的设备使用的默认编码可能不同，有时隔一天也会发生变化。</p>
+</li>
+</ul>
+<p><strong>迭代器的准确定义是</strong>：迭代器是这样的对象，它实现了无参数的<code class="docutils literal notranslate"><span class="pre">__next__</span></code>方法，返回序列中的下一个元素；如果没有元素了，那么抛出StopIteration异常。Python中的迭代器还实现了<code class="docutils literal notranslate"><span class="pre">__iter__</span></code>方法，因此迭代器也是可以迭代的。</p>
+<p>最后，通过对比可以发现，<strong>可迭代对象</strong>的<code class="docutils literal notranslate"><span class="pre">__iter__</span></code>返回的是迭代器：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">SentenceIterator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">words</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="id4">
-<h2>小结<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p>本文介绍了Python的编解码器，以及可能出现的UnicodeEncodeError、UnicodeDecodeError、SyntaxError问题，然后给出了Python的open函数处理文本文件的原则，最后对Windows容易出现的文件乱码问题进行了说明。</p>
+<p><strong>迭代器</strong>的<code class="docutils literal notranslate"><span class="pre">__iter__</span></code>返回的是self：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SentenceIterator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+</pre></div>
+</div>
+<p>而且迭代器还需要有<code class="docutils literal notranslate"><span class="pre">__next__</span></code>方法。</p>
+<p><strong>从这一点就能清楚看出它们的区别了。</strong></p>
+<p>需要特别注意的是，可迭代的对象一定不能是自身的迭代器，也就是说，可迭代对象必须实现<code class="docutils literal notranslate"><span class="pre">__iter__</span></code>方法，但是不能实现<code class="docutils literal notranslate"><span class="pre">__next__</span></code>方法。否则会让设计模式变得混乱不堪。</p>
 <blockquote>
 <div><p>参考资料：</p>
-<p>《流畅的Python》</p>
+<p>《流畅的Python》第14章 可迭代的对象、迭代器和生成器</p>
+<p><a class="reference external" href="https://www.runoob.com/python3/python3-iterator-generator.html">https://www.runoob.com/python3/python3-iterator-generator.html</a></p>
 </div></blockquote>
 </div>
 </div>
@@ -323,10 +305,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="016-Python%E5%8F%98%E9%87%8F%E5%B0%8F%E7%A7%98%E5%AF%86.html" class="btn btn-neutral float-right" title="16 Python变量小秘密" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="999-%E6%B5%81%E7%95%85%E7%9A%84python%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html" class="btn btn-neutral float-right" title="999 流畅的python读书笔记" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="014-Python%E5%AD%97%E7%AC%A6%E4%B8%8E%E5%AD%97%E8%8A%82%E6%96%B0%E7%BC%96.html" class="btn btn-neutral float-left" title="14 Python字符与字节新编" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="020-Python%E6%8A%BD%E8%B1%A1%E5%9F%BA%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E4%BD%BF%E7%94%A8.html" class="btn btn-neutral float-left" title="20 Python抽象基类的定义与使用" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
