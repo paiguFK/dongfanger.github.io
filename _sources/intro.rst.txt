@@ -4,22 +4,18 @@ Intro
 
 * 姓名：王刚
 * 座右铭：活到老学到老
+* 目标： 成为一名测试架构师
 * 毕业于：北京理工大学 计算机科学与技术专业
 * 简介：京东测试开发工程师、阿里本地生活专利、腾讯云+社区2020年度最佳作者奖TOP150
-* 公众号：`@dongfanger <https://dongfanger.gitee.io/blog/preface.html>`__ `@JavaTesting <https://dongfanger.gitee.io/blog/preface.html>`__
 * B站：`@dongfanger <https://space.bilibili.com/396344573>`__
 * GitHub：https://github.com/dongfanger
 
 .. image:: ./dongfangpy.png
 
 * 添加个人微信。
-* 备注【Python】，加入Python测试开发交流群。
-* 备注【Java】，加入Java测试开发交流群。
 * 备注【测开】，加入测试开发交流群。
-
-.. image:: ./dongfangjd.png
-
-.. image:: ./dongfanger_award.png
+* 备注【Java】，加入Java测试开发交流群。
+* 备注【Python】，加入Python测试开发交流群。
 
 ------------------------------
 

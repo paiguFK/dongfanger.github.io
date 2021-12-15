@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3 要学Java理解对象和类是关键 &mdash; dongfanger latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4 Java八大基本数据类型与三大变量类型" href="004-Java%E5%85%AB%E5%A4%A7%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E4%B8%89%E5%A4%A7%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B.html" />
+    <link rel="prev" title="2 Java基础语法太简单了" href="002-Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%A4%AA%E7%AE%80%E5%8D%95%E4%BA%86.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> dongfanger
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Intro</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/Java.html">Java</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-2021%E5%B9%B4%E6%90%AD%E5%BB%BAJava%E7%8E%AF%E5%A2%83%E6%9C%80%E5%BF%AB%E5%8A%9E%E6%B3%95.html">1 2021年搭建Java环境最快办法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002-Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%A4%AA%E7%AE%80%E5%8D%95%E4%BA%86.html">2 Java基础语法太简单了</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3 要学Java理解对象和类是关键</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">序言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">类和对象的关系</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">状态和行为</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">构造方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">创建对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">访问对象属性和方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">类存放规则</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">小结</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="004-Java%E5%85%AB%E5%A4%A7%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E4%B8%89%E5%A4%A7%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B.html">4 Java八大基本数据类型与三大变量类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005-Java%E4%BF%AE%E9%A5%B0%E7%AC%A6%E6%98%AF%E6%9C%80%E7%9B%B4%E7%99%BD%E7%9A%84%E8%A1%A8%E8%BF%B0.html">5 Java修饰符是最直白的表述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="006-Java%E8%BF%90%E7%AE%97%E7%AC%A6.html">6 Java运算符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="007-Java%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E4%B8%8E%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.html">7 Java循环结构与条件语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="008-Java%E6%95%B0%E5%AD%97%E7%B1%BBNumber%E5%92%8CMath.html">8 Java数字类Number和Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="009-Java%E5%AD%97%E7%AC%A6%E7%B1%BBCharacter%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BBString%E5%92%8CStringBuffer.html">9 Java字符类Character字符串类String和StringBuffer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Spring%20Boot.html">Spring Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Maven.html">Maven</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JUnit.html">JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Mockito.html">Mockito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Message%20Queue.html">Message Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/DevOps.html">DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest.html">pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner.html">teprunner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Flask.html">Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../link.html">Link</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dongfanger</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/Java.html">Java</a> &raquo;</li>
+        
+      <li>3 要学Java理解对象和类是关键</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Java/003-要学Java理解对象和类是关键.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="java">
+<h1>3 要学Java理解对象和类是关键<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang8.png" /></p>
+<div class="section" id="id1">
+<h2>序言<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>我们都知道Java是纯面向对象编程语言，这个对象是什么，类是什么，它们的关系是怎样呢？</p>
+</div>
+<div class="section" id="id2">
+<h2>类和对象的关系<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>先看一张图：</p>
+<p><img alt="image2" src="../_images/image-20210724204444148.png" /></p>
+<p><strong>类</strong>是girl和boy，<strong>对象</strong>是每个具体的女孩（Lucy、Rose）和男孩（David、Jack）。</p>
+<p>这完美解释了类和对象的关系，即：<strong>类是对象的模板</strong>。</p>
+</div>
+<div class="section" id="id3">
+<h2>状态和行为<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>对象有两个特征，一个是状态（又叫做属性），一个是行为（又叫做方法），我们拿狗来举例，狗的<strong>状态</strong>有品种、大小、颜色、年龄；<strong>行为</strong>有吃、跑、睡觉。如图所示：</p>
+<p><img alt="image3" src="../_images/image-20210731160419612.png" /></p>
+<p>图的左边是3个狗<strong>对象</strong>，右边是1个狗<strong>类</strong>。类定义了对象应该有哪些属性和方法，对象根据类定义好的模板，创建了个性化的实例。</p>
+<p>代码实现如下：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dog</span> <span class="p">{</span>
+    <span class="c1">// 属性</span>
+    <span class="n">String</span> <span class="n">breed</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">colour</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+
+    <span class="c1">// 方法</span>
+    <span class="kt">void</span> <span class="nf">eat</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">sleep</span><span class="p">(){</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>构造方法<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>在通过类创建对象时，构造方法提供了如何创建对象的细节。Java会给类一个默认的构造方法，你也可以自定义一个或多个构造方法，<strong>构造方法命名必须和类名相同</strong>，比如：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dog</span><span class="p">{</span>
+    <span class="kd">public</span> <span class="nf">Dog</span><span class="p">(</span><span class="n">String</span> <span class="n">breed</span><span class="p">){</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>代码中定义了2个构造方法，根据参数不同，在构造时会调用相应的构造方法。</p>
+</div>
+<div class="section" id="id5">
+<h2>创建对象<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p><strong>如果没有对象，那么就new一个。</strong>Java是通过new关键字来创建对象的。比如使用默认构造方法创建对象：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Dog</span> <span class="n">myDog</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Dog</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>或者使用自定义构造方法创建对象：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Dog</span> <span class="n">myDog</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Dog</span><span class="p">(</span><span class="s">&quot;Bulldog&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>访问对象属性和方法<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Java和大多数语言一样，采用<code class="docutils literal notranslate"><span class="pre">.</span></code>运算符访问对象属性和方法，比如：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dog</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAge</span><span class="p">(</span><span class="kt">int</span> <span class="n">age</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 创建对象</span>
+        <span class="n">Dog</span> <span class="n">myDog</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Dog</span><span class="p">();</span>
+        <span class="c1">// 通过方法来设定age</span>
+        <span class="n">myDog</span><span class="p">.</span><span class="na">setAge</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+        <span class="c1">// 调用另一个方法获取age</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">myDog</span><span class="p">.</span><span class="na">getAge</span><span class="p">());</span>
+        <span class="c1">// 也可以像下面这样访问成员变量</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">myDog</span><span class="p">.</span><span class="na">age</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>类存放规则<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>Java源文件是用类来组织的，存放在源文件中的类遵循下面几项规则：</p>
+<ul class="simple">
+<li><p>一个源文件只能有一个public类，可以有多个非public类。</p></li>
+<li><p>源文件名必须与public类名一致。</p></li>
+<li><p>package语句在首行，其次是import语句，最后是类。</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>小结<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>本文介绍了对象与类的关系，即：类是对象的模板，根据类创建个性化的对象实例。对象有状态和行为，也叫做属性和方法。类创建对象时会使用构造方法，可以通过<code class="docutils literal notranslate"><span class="pre">.</span></code>运算符来访问对象属性和方法。文章最后列举了类存放的几条规则，这是Java语法的约束。</p>
+<blockquote>
+<div><p>参考资料：</p>
+<p><a class="reference external" href="https://www.runoob.com/java/java-object-classes.html">https://www.runoob.com/java/java-object-classes.html</a></p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="004-Java%E5%85%AB%E5%A4%A7%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E4%B8%89%E5%A4%A7%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B.html" class="btn btn-neutral float-right" title="4 Java八大基本数据类型与三大变量类型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="002-Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%A4%AA%E7%AE%80%E5%8D%95%E4%BA%86.html" class="btn btn-neutral float-left" title="2 Java基础语法太简单了" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright dongfanger
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

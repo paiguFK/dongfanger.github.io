@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9 Java字符类Character字符串类String和StringBuffer &mdash; dongfanger latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Spring Boot" href="../chapters/Spring%20Boot.html" />
+    <link rel="prev" title="8 Java数字类Number和Math" href="008-Java%E6%95%B0%E5%AD%97%E7%B1%BBNumber%E5%92%8CMath.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> dongfanger
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Intro</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/Java.html">Java</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-2021%E5%B9%B4%E6%90%AD%E5%BB%BAJava%E7%8E%AF%E5%A2%83%E6%9C%80%E5%BF%AB%E5%8A%9E%E6%B3%95.html">1 2021年搭建Java环境最快办法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002-Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%A4%AA%E7%AE%80%E5%8D%95%E4%BA%86.html">2 Java基础语法太简单了</a></li>
+<li class="toctree-l2"><a class="reference internal" href="003-%E8%A6%81%E5%AD%A6Java%E7%90%86%E8%A7%A3%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E6%98%AF%E5%85%B3%E9%94%AE.html">3 要学Java理解对象和类是关键</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004-Java%E5%85%AB%E5%A4%A7%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E4%B8%89%E5%A4%A7%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B.html">4 Java八大基本数据类型与三大变量类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005-Java%E4%BF%AE%E9%A5%B0%E7%AC%A6%E6%98%AF%E6%9C%80%E7%9B%B4%E7%99%BD%E7%9A%84%E8%A1%A8%E8%BF%B0.html">5 Java修饰符是最直白的表述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="006-Java%E8%BF%90%E7%AE%97%E7%AC%A6.html">6 Java运算符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="007-Java%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E4%B8%8E%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.html">7 Java循环结构与条件语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="008-Java%E6%95%B0%E5%AD%97%E7%B1%BBNumber%E5%92%8CMath.html">8 Java数字类Number和Math</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9 Java字符类Character字符串类String和StringBuffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#character">字符类Character</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string">字符串类String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stringbufferstringbuilder">StringBuffer和StringBuilder类</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Spring%20Boot.html">Spring Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Maven.html">Maven</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JUnit.html">JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Mockito.html">Mockito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Message%20Queue.html">Message Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/DevOps.html">DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest.html">pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner.html">teprunner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Flask.html">Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../link.html">Link</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dongfanger</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/Java.html">Java</a> &raquo;</li>
+        
+      <li>9 Java字符类Character字符串类String和StringBuffer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Java/009-Java字符类Character字符串类String和StringBuffer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="javacharacterstringstringbuffer">
+<h1>9 Java字符类Character字符串类String和StringBuffer<a class="headerlink" href="#javacharacterstringstringbuffer" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang8.png" /></p>
+<div class="section" id="character">
+<h2>字符类Character<a class="headerlink" href="#character" title="Permalink to this headline">¶</a></h2>
+<p>Character用于对单个字符进行操作。</p>
+<p>我们知道Java内置了数据类型char，但面向对象的Java在实际处理过程中需要的是<strong>对象</strong>，于是包装类Character就被设计了出来。</p>
+<p>创建对象代码如下：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Character</span> <span class="n">ch</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Character</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>也可以利用<strong>装箱</strong>简写代码：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Character</span> <span class="n">ch</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Character类具有以下方法：</p>
+<p><img alt="image2" src="../_images/image-20211017112802228.png" /></p>
+</div>
+<div class="section" id="string">
+<h2>字符串类String<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h2>
+<p>字符串在任何编程语言都是应用非常多的，Java提供了String类来对字符串进行操作。</p>
+<p>创建字符串有两种方式：</p>
+<p><strong>简单方式</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;Runoob&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>new关键字</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str2</span><span class="o">=</span><span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;Runoob&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>它们的区别在于，前者创建的字符串存放在公共池中，后者存放在堆上：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 简单方式 公共池</span>
+<span class="n">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;Runoob&quot;</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&quot;Runoob&quot;</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="n">s1</span><span class="p">;</span>
+
+<span class="c1">// new关键字 堆</span>
+<span class="n">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;Runoob&quot;</span><span class="p">);</span>
+<span class="n">String</span> <span class="n">s5</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;Runoob&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>如下图所示：</p>
+<p><img alt="image3" src="../_images/image-20211017125250652.png" /></p>
+<p>String有3个常用方法：</p>
+<p><strong>获取长度</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">site</span> <span class="o">=</span> <span class="s">&quot;www.runoob.com&quot;</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">site</span><span class="p">.</span><span class="na">length</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><strong>连接字符串</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 调用方法</span>
+<span class="s">&quot;我的名字是 &quot;</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="s">&quot;Runoob&quot;</span><span class="p">);</span>
+<span class="c1">// “+”操作符</span>
+<span class="s">&quot;Hello,&quot;</span> <span class="o">+</span> <span class="s">&quot; runoob&quot;</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span>
+</pre></div>
+</div>
+<p><strong>创建格式化字符串</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">fs</span><span class="p">;</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;浮点型变量的值为 &quot;</span> <span class="o">+</span>
+                   <span class="s">&quot;%f, 整型变量的值为 &quot;</span> <span class="o">+</span>
+                   <span class="s">&quot; %d, 字符串变量的值为 &quot;</span> <span class="o">+</span>
+                   <span class="s">&quot; %s&quot;</span><span class="p">,</span> <span class="n">floatVar</span><span class="p">,</span> <span class="n">intVar</span><span class="p">,</span> <span class="n">stringVar</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>String类的更多方法如下图所示：</p>
+<p><img alt="image4" src="../_images/image-20211017113049060.png" /></p>
+<p><img alt="image5" src="../_images/image-20211017113121992.png" /></p>
+<p><img alt="image6" src="../_images/image-20211017113155762.png" /></p>
+<p><img alt="image7" src="../_images/image-20211017113225678.png" /></p>
+<p><img alt="image8" src="../_images/image-20211017113252389.png" /></p>
+<p><img alt="image9" src="../_images/image-20211017113323421.png" /></p>
+</div>
+<div class="section" id="stringbufferstringbuilder">
+<h2>StringBuffer和StringBuilder类<a class="headerlink" href="#stringbufferstringbuilder" title="Permalink to this headline">¶</a></h2>
+<p>String创建的字符串对象是不能修改的，如果想修改，那么需要用到StringBuffer和StringBuilder类。</p>
+<p><strong>StringBuilder相对于StringBuffer来说有速度优秀，所以大多数时候使用StringBuilder即可。如果想要保证线程安全，那么只能使用StringBuffer。</strong></p>
+<p>StringBuilder示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RunoobTest</span><span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">){</span>
+        <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+        <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;Runoob..&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb</span><span class="p">);</span>
+        <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb</span><span class="p">);</span>
+        <span class="n">sb</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s">&quot;Java&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb</span><span class="p">);</span>
+        <span class="n">sb</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>StringBuffer示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span><span class="p">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">){</span>
+    <span class="n">StringBuffer</span> <span class="n">sBuffer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="p">(</span><span class="s">&quot;菜鸟教程官网：&quot;</span><span class="p">);</span>
+    <span class="n">sBuffer</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;www&quot;</span><span class="p">);</span>
+    <span class="n">sBuffer</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;.runoob&quot;</span><span class="p">);</span>
+    <span class="n">sBuffer</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;.com&quot;</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sBuffer</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>StringBuffer类的主要方法如下图所示：</p>
+<p><img alt="image10" src="../_images/image-20211017152418156.png" /></p>
+<blockquote>
+<div><p>参考资料：</p>
+<p><a class="reference external" href="https://www.runoob.com/java/java-character.html">https://www.runoob.com/java/java-character.html</a></p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/Spring%20Boot.html" class="btn btn-neutral float-right" title="Spring Boot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="008-Java%E6%95%B0%E5%AD%97%E7%B1%BBNumber%E5%92%8CMath.html" class="btn btn-neutral float-left" title="8 Java数字类Number和Math" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright dongfanger
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

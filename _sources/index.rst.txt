@@ -14,6 +14,16 @@ Contents:
    :glob:
    
    intro
+   chapters/Java
+   chapters/Spring Boot
+   chapters/Maven
+   chapters/JMeter
+   chapters/JUnit
+   chapters/Mockito
+   chapters/MyBatis
+   chapters/Message Queue
+   chapters/Nginx
+   chapters/DevOps
    chapters/Python Basic
    chapters/Python Advance
    chapters/pytest
@@ -23,16 +33,6 @@ Contents:
    chapters/Django REST framework
    chapters/Flask
    chapters/Locust
-   chapters/Java Basic
-   chapters/JMeter
-   chapters/JUnit
-   chapters/Mockito
-   chapters/Spring Boot
-   chapters/Maven
-   chapters/MyBatis
-   chapters/Message Queue
-   chapters/Nginx
-   chapters/DevOps
    chapters/Single Article
    chapters/Annual Summary
    chapters/Bildungsroman

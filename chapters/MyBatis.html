@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1 Java持久层框架Mybatis入门" href="../MyBatis/001-Java%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6Mybatis%E5%85%A5%E9%97%A8.html" />
-    <link rel="prev" title="1 跟着官方文档学Maven构建生命周期" href="../Maven/001-%E8%B7%9F%E7%9D%80%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E5%AD%A6Maven%E6%9E%84%E5%BB%BA%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.html" /> 
+    <link rel="prev" title="1 Java单元测试Mock框架Mockito入门介绍" href="../Mockito/001-Java%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95Mock%E6%A1%86%E6%9E%B6Mockito%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,6 +91,19 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spring%20Boot.html">Spring Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Maven.html">Maven</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JUnit.html">JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Mockito.html">Mockito</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MyBatis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MyBatis/001-Java%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6Mybatis%E5%85%A5%E9%97%A8.html">1 Java持久层框架Mybatis入门</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Message%20Queue.html">Message Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DevOps.html">DevOps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Python%20Basic.html">Python Basic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Python%20Advance.html">Python Advance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pytest.html">pytest</a></li>
@@ -100,19 +113,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Django%20REST%20framework.html">Django REST framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Flask.html">Flask</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Locust.html">Locust</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Java%20Basic.html">Java Basic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="JMeter.html">JMeter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="JUnit.html">JUnit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Mockito.html">Mockito</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Spring%20Boot.html">Spring Boot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Maven.html">Maven</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">MyBatis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MyBatis/001-Java%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6Mybatis%E5%85%A5%E9%97%A8.html">1 Java持久层框架Mybatis入门</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Message%20Queue.html">Message Queue</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Nginx.html">Nginx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="DevOps.html">DevOps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Single%20Article.html">Single Article</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Annual%20Summary.html">Annual Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Bildungsroman.html">Bildungsroman</a></li>
@@ -208,7 +208,7 @@
         <a href="../MyBatis/001-Java%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6Mybatis%E5%85%A5%E9%97%A8.html" class="btn btn-neutral float-right" title="1 Java持久层框架Mybatis入门" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../Maven/001-%E8%B7%9F%E7%9D%80%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E5%AD%A6Maven%E6%9E%84%E5%BB%BA%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.html" class="btn btn-neutral float-left" title="1 跟着官方文档学Maven构建生命周期" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../Mockito/001-Java%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95Mock%E6%A1%86%E6%9E%B6Mockito%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D.html" class="btn btn-neutral float-left" title="1 Java单元测试Mock框架Mockito入门介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

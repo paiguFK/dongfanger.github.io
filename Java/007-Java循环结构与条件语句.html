@@ -1,0 +1,551 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7 Java循环结构与条件语句 &mdash; dongfanger latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8 Java数字类Number和Math" href="008-Java%E6%95%B0%E5%AD%97%E7%B1%BBNumber%E5%92%8CMath.html" />
+    <link rel="prev" title="6 Java运算符" href="006-Java%E8%BF%90%E7%AE%97%E7%AC%A6.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> dongfanger
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Intro</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/Java.html">Java</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-2021%E5%B9%B4%E6%90%AD%E5%BB%BAJava%E7%8E%AF%E5%A2%83%E6%9C%80%E5%BF%AB%E5%8A%9E%E6%B3%95.html">1 2021年搭建Java环境最快办法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002-Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%A4%AA%E7%AE%80%E5%8D%95%E4%BA%86.html">2 Java基础语法太简单了</a></li>
+<li class="toctree-l2"><a class="reference internal" href="003-%E8%A6%81%E5%AD%A6Java%E7%90%86%E8%A7%A3%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E6%98%AF%E5%85%B3%E9%94%AE.html">3 要学Java理解对象和类是关键</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004-Java%E5%85%AB%E5%A4%A7%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E4%B8%89%E5%A4%A7%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B.html">4 Java八大基本数据类型与三大变量类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005-Java%E4%BF%AE%E9%A5%B0%E7%AC%A6%E6%98%AF%E6%9C%80%E7%9B%B4%E7%99%BD%E7%9A%84%E8%A1%A8%E8%BF%B0.html">5 Java修饰符是最直白的表述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="006-Java%E8%BF%90%E7%AE%97%E7%AC%A6.html">6 Java运算符</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7 Java循环结构与条件语句</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">循环结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">条件语句</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#switch-case">switch case</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="008-Java%E6%95%B0%E5%AD%97%E7%B1%BBNumber%E5%92%8CMath.html">8 Java数字类Number和Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="009-Java%E5%AD%97%E7%AC%A6%E7%B1%BBCharacter%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BBString%E5%92%8CStringBuffer.html">9 Java字符类Character字符串类String和StringBuffer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Spring%20Boot.html">Spring Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Maven.html">Maven</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JUnit.html">JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Mockito.html">Mockito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Message%20Queue.html">Message Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/DevOps.html">DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest.html">pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner.html">teprunner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Flask.html">Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../link.html">Link</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dongfanger</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/Java.html">Java</a> &raquo;</li>
+        
+      <li>7 Java循环结构与条件语句</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Java/007-Java循环结构与条件语句.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="java">
+<h1>7 Java循环结构与条件语句<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang8.png" /></p>
+<div class="section" id="id1">
+<h2>循环结构<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><strong>while</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="p">(</span> <span class="n">布尔表达式</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="o">//</span> <span class="n">循环体</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>只要布尔表达式为True，就会一直反复执行循环体。</p>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+      <span class="k">while</span><span class="p">(</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">20</span> <span class="p">)</span> <span class="p">{</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;value of x : &quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="p">);</span>
+         <span class="n">x</span><span class="o">++</span><span class="p">;</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>do while</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">do</span> <span class="p">{</span>
+       <span class="o">//</span> <span class="n">循环体</span>
+<span class="p">}</span><span class="k">while</span><span class="p">(</span> <span class="n">布尔表达式</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>无论表达式是否为True，都先执行一次循环体，然后就跟while一样先判断布尔表达式，如果为True再继续执行循环，为False就退出循环。</p>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">){</span>
+      <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+      <span class="k">do</span><span class="p">{</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;value of x : &quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="p">);</span>
+         <span class="n">x</span><span class="o">++</span><span class="p">;</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+      <span class="p">}</span><span class="k">while</span><span class="p">(</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">20</span> <span class="p">);</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>for</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="n">初始化</span><span class="p">;</span> <span class="n">布尔表达式</span><span class="p">;</span> <span class="n">更新</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">循环体</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>初始化：定义一个或多个循环控制变量，也可以为空语句。</p></li>
+<li><p>布尔表达式：根据True或False决定是否继续执行循环。</p></li>
+<li><p>更新：更新循环控制变量。</p></li>
+</ul>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;value of x : &quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="p">);</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Java也有更方便从数组遍历元素的for循环：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="n">声明语句</span> <span class="p">:</span> <span class="n">表达式</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="o">//</span> <span class="n">循环体</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>声明语句：跟数组元素类型匹配的局部变量。</p></li>
+<li><p>表达式：数组或返回数组的方法。</p></li>
+</ul>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">){</span>
+      <span class="kt">int</span> <span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">};</span>
+
+      <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="p">:</span> <span class="n">numbers</span> <span class="p">){</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span> <span class="n">x</span> <span class="p">);</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+      <span class="n">String</span> <span class="o">[]</span> <span class="n">names</span> <span class="o">=</span><span class="p">{</span><span class="s">&quot;James&quot;</span><span class="p">,</span> <span class="s">&quot;Larry&quot;</span><span class="p">,</span> <span class="s">&quot;Tom&quot;</span><span class="p">,</span> <span class="s">&quot;Lacy&quot;</span><span class="p">};</span>
+      <span class="k">for</span><span class="p">(</span> <span class="n">String</span> <span class="n">name</span> <span class="p">:</span> <span class="n">names</span> <span class="p">)</span> <span class="p">{</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span> <span class="n">name</span> <span class="p">);</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>break</strong></p>
+<p>跳出整个循环。</p>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kt">int</span> <span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">};</span>
+
+      <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="p">:</span> <span class="n">numbers</span> <span class="p">)</span> <span class="p">{</span>
+         <span class="k">if</span><span class="p">(</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">30</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="k">break</span><span class="p">;</span>  <span class="c1">// x等于30时跳出循环，后面都不打印了</span>
+         <span class="p">}</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span> <span class="n">x</span> <span class="p">);</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>continue</strong></p>
+<p>跳过当前这次循环，执行下一次循环。</p>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kt">int</span> <span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">};</span>
+
+      <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="p">:</span> <span class="n">numbers</span> <span class="p">)</span> <span class="p">{</span>
+         <span class="k">if</span><span class="p">(</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">30</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="k">continue</span><span class="p">;</span>  <span class="c1">// 不会打印30，但是会继续打印后面元素</span>
+         <span class="p">}</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span> <span class="n">x</span> <span class="p">);</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>break和continue可以从字面意思来区分，break<strong>中断</strong>循环，continue<strong>继续</strong>下次循环。</p>
+</div>
+<div class="section" id="id2">
+<h2>条件语句<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>if</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">布尔表达式</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="o">//</span><span class="n">如果布尔表达式为true将执行的语句</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">){</span>
+      <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+      <span class="k">if</span><span class="p">(</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">20</span> <span class="p">){</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;这是 if 语句&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>if else</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">布尔表达式</span><span class="p">){</span>
+   <span class="o">//</span><span class="n">如果布尔表达式的值为true</span>
+<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+   <span class="o">//</span><span class="n">如果布尔表达式的值为false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">){</span>
+      <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+
+      <span class="k">if</span><span class="p">(</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">20</span> <span class="p">){</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;这是 if 语句&quot;</span><span class="p">);</span>
+      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;这是 else 语句&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>也可以跟多个if else：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">布尔表达式</span> <span class="mi">1</span><span class="p">){</span>
+   <span class="o">//</span><span class="n">如果布尔表达式</span> <span class="mi">1</span><span class="n">的值为true执行代码</span>
+<span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">布尔表达式</span> <span class="mi">2</span><span class="p">){</span>
+   <span class="o">//</span><span class="n">如果布尔表达式</span> <span class="mi">2</span><span class="n">的值为true执行代码</span>
+<span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">布尔表达式</span> <span class="mi">3</span><span class="p">){</span>
+   <span class="o">//</span><span class="n">如果布尔表达式</span> <span class="mi">3</span><span class="n">的值为true执行代码</span>
+<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+   <span class="o">//</span><span class="n">如果以上布尔表达式都不为true执行代码</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">){</span>
+      <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+
+      <span class="k">if</span><span class="p">(</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">10</span> <span class="p">){</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Value of X is 10&quot;</span><span class="p">);</span>
+      <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">20</span> <span class="p">){</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Value of X is 20&quot;</span><span class="p">);</span>
+      <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">30</span> <span class="p">){</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Value of X is 30&quot;</span><span class="p">);</span>
+      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;这是 else 语句&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>嵌套的if else</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">布尔表达式</span> <span class="mi">1</span><span class="p">){</span>
+   <span class="o">////</span><span class="n">如果布尔表达式</span> <span class="mi">1</span><span class="n">的值为true执行代码</span>
+   <span class="k">if</span><span class="p">(</span><span class="n">布尔表达式</span> <span class="mi">2</span><span class="p">){</span>
+      <span class="o">////</span><span class="n">如果布尔表达式</span> <span class="mi">2</span><span class="n">的值为true执行代码</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">){</span>
+      <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+      <span class="k">if</span><span class="p">(</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">30</span> <span class="p">){</span>
+         <span class="k">if</span><span class="p">(</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">10</span> <span class="p">){</span>
+             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;X = 30 and Y = 10&quot;</span><span class="p">);</span>
+          <span class="p">}</span>
+       <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="switch-case">
+<h2>switch case<a class="headerlink" href="#switch-case" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">switch</span><span class="p">(</span><span class="n">expression</span><span class="p">){</span>
+    <span class="n">case</span> <span class="n">value</span> <span class="p">:</span>
+       <span class="o">//</span><span class="n">语句</span>
+       <span class="k">break</span><span class="p">;</span> <span class="o">//</span><span class="n">可选</span>
+    <span class="n">case</span> <span class="n">value</span> <span class="p">:</span>
+       <span class="o">//</span><span class="n">语句</span>
+       <span class="k">break</span><span class="p">;</span> <span class="o">//</span><span class="n">可选</span>
+    <span class="o">//</span><span class="n">你可以有任意数量的case语句</span>
+    <span class="n">default</span> <span class="p">:</span> <span class="o">//</span><span class="n">可选</span>
+       <span class="o">//</span><span class="n">语句</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>expression：变量或返回变量的方法，变量类型可以是byte、short、int或char，以及String类型。</p></li>
+<li><p>value：字符串常量或字面量，且与表达式的变量类型相同。</p></li>
+<li><p>break：可选，有break时会中断后续匹配跳出switch语句，没有break时会继续执行后面的case。</p></li>
+<li><p>default：当所有case都没有匹配到时，会执行default语句，一般放在最后的位置。</p></li>
+</ul>
+<p>示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">){</span>
+      <span class="c1">//char grade = args[0].charAt(0);</span>
+      <span class="kt">char</span> <span class="n">grade</span> <span class="o">=</span> <span class="sc">&#39;C&#39;</span><span class="p">;</span>
+
+      <span class="k">switch</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>
+      <span class="p">{</span>
+         <span class="k">case</span> <span class="sc">&#39;A&#39;</span> <span class="p">:</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;优秀&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+         <span class="k">case</span> <span class="sc">&#39;B&#39;</span> <span class="p">:</span>
+         <span class="k">case</span> <span class="sc">&#39;C&#39;</span> <span class="p">:</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;良好&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+         <span class="k">case</span> <span class="sc">&#39;D&#39;</span> <span class="p">:</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;及格&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+         <span class="k">case</span> <span class="sc">&#39;F&#39;</span> <span class="p">:</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;你需要再努力努力&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+         <span class="k">default</span> <span class="p">:</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;未知等级&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;你的等级是 &quot;</span> <span class="o">+</span> <span class="n">grade</span><span class="p">);</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>参考资料：</p>
+<p><a class="reference external" href="https://www.runoob.com/java/java-loop.html">https://www.runoob.com/java/java-loop.html</a></p>
+<p><a class="reference external" href="https://www.runoob.com/java/java-if-else-switch.html">https://www.runoob.com/java/java-if-else-switch.html</a></p>
+<p><a class="reference external" href="https://www.runoob.com/java/java-switch-case.html">https://www.runoob.com/java/java-switch-case.html</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="008-Java%E6%95%B0%E5%AD%97%E7%B1%BBNumber%E5%92%8CMath.html" class="btn btn-neutral float-right" title="8 Java数字类Number和Math" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="006-Java%E8%BF%90%E7%AE%97%E7%AC%A6.html" class="btn btn-neutral float-left" title="6 Java运算符" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright dongfanger
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

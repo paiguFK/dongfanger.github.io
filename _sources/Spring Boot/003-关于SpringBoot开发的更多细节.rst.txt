@@ -1,0 +1,35 @@
+在上篇文章《开发你的第一个SpringBoot应用》已经对SpringBoot基本开发流程有了大体了解，本文将继续对SpringBoot官网进行学习，发现关于SpringBoot开发的更多细节。
+
+代码目录
+========
+
+官方推荐的代码目录是这样：
+
+::
+
+   com
+    +- example
+        +- myapplication
+            +- MyApplication.java
+            |
+            +- customer
+            |   +- Customer.java
+            |   +- CustomerController.java
+            |   +- CustomerService.java
+            |   +- CustomerRepository.java
+            |
+            +- order
+                +- Order.java
+                +- OrderController.java
+                +- OrderService.java
+                +- OrderRepository.java
+
+-  包名采用\ ``com.example.project``\ 这种方式。
+-  main启动入口类放在根目录。
+-  其他模块跟main启动入口类并列。
+
+..
+
+   参考资料：
+
+   https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using
