@@ -4,6 +4,12 @@ Link
 
 `测试游记 <http://www.zhongxin.website/>`__
 
+照片墙：
+
+.. image:: ./dongfangjd.png
+
+.. image:: ./dongfanger_award.png
+
 --------------------------------------------
 
 .. image:: ../README/qrcode.jpg
