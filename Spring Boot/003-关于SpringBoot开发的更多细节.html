@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>代码目录 &mdash; dongfanger latest documentation</title>
+  <title>3 关于SpringBoot开发的更多细节 &mdash; dongfanger latest documentation</title>
   
 
   
@@ -97,7 +97,15 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../chapters/Spring%20Boot.html">Spring Boot</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="001-SpringBoot%E7%AE%80%E4%BB%8B%E4%B8%8E%E5%AE%89%E8%A3%85.html">1 SpringBoot简介与安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="002-%E5%BC%80%E5%8F%91%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AASpringBoot%E5%BA%94%E7%94%A8.html">2 开发你的第一个SpringBoot应用</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">代码目录</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3 关于SpringBoot开发的更多细节</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">依赖管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">代码目录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">依赖注入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#springbootapplication">&#64;SpringBootApplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">启动方式</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Maven.html">Maven</a></li>
@@ -168,7 +176,7 @@
         
           <li><a href="../chapters/Spring%20Boot.html">Spring Boot</a> &raquo;</li>
         
-      <li>代码目录</li>
+      <li>3 关于SpringBoot开发的更多细节</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -187,9 +195,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>在上篇文章《开发你的第一个SpringBoot应用》已经对SpringBoot基本开发流程有了大体了解，本文将继续对SpringBoot官网进行学习，发现关于SpringBoot开发的更多细节。</p>
+  <div class="section" id="springboot">
+<h1>3 关于SpringBoot开发的更多细节<a class="headerlink" href="#springboot" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang17.png" /></p>
+<p>在上篇文章《开发你的第一个SpringBoot应用》已经对SpringBoot基本开发流程有了大体了解，本文将继续对SpringBoot官网进行学习，发现关于SpringBoot开发的更多细节。</p>
 <div class="section" id="id1">
-<h1>代码目录<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h2>依赖管理<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>推荐使用Maven或者Gradle进行依赖管理，其他工具比如Ant，SpringBoot对它们的支持不是很好。</p>
+<p>SpringBoot提供了很多starter来批量添加依赖，比如<code class="docutils literal notranslate"><span class="pre">spring-boot-starter-web</span></code>。官方定义的starter都是<code class="docutils literal notranslate"><span class="pre">spring-boot-starter-*</span></code>这种命名方式，由<code class="docutils literal notranslate"><span class="pre">org.springframework.boot</span></code>提供：</p>
+<p><a class="reference external" href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using.build-systems.starters">https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using.build-systems.starters</a></p>
+<p>而自定义的第三方starter命名方式往往会把名字放在前面，像这样：<code class="docutils literal notranslate"><span class="pre">thirdpartyproject-spring-boot-starter</span></code>。</p>
+</div>
+<div class="section" id="id2">
+<h2>代码目录<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>官方推荐的代码目录是这样：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">com</span>
  <span class="o">+-</span> <span class="n">example</span>
@@ -210,14 +228,125 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>包名采用<code class="docutils literal notranslate"><span class="pre">com.example.project</span></code>这种方式。</p></li>
-<li><p>main启动入口类放在根目录。</p></li>
-<li><p>其他模块跟main启动入口类并列。</p></li>
+<li><p>包名采用<code class="docutils literal notranslate"><span class="pre">com.example.myapplication</span></code>这种方式。</p></li>
+<li><p>main启动入口类<code class="docutils literal notranslate"><span class="pre">MyApplication.java</span></code>放在根目录，便于查找其他文件。</p></li>
+<li><p>其他模块跟<code class="docutils literal notranslate"><span class="pre">MyApplication.java</span></code>并列。</p></li>
 </ul>
+</div>
+<div class="section" id="id3">
+<h2>配置<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><strong>尽量不使用xml进行配置</strong>，而是定义一个配置类加上<code class="docutils literal notranslate"><span class="pre">&#64;Configuration</span></code>注解。如果非得用xml，那么可以用<code class="docutils literal notranslate"><span class="pre">&#64;ImportResource</span></code>进行导入。配置类也不用写成一个，多个配置类可以使用多个<code class="docutils literal notranslate"><span class="pre">&#64;Configuration</span></code>，也可以拆成多个使用<code class="docutils literal notranslate"><span class="pre">&#64;Import</span></code>相互导入。</p>
+<blockquote>
+<div><p>xml一直被很多人吐槽，其实SpringBoot也是反对使用xml的。</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;SpringBootApplication</span></code>注解已经包含了<code class="docutils literal notranslate"><span class="pre">&#64;EnableAutoConfiguration</span></code>注解，会对配置进行<strong>自动导入</strong>，比如在classpath中有一个<code class="docutils literal notranslate"><span class="pre">HSQLDB</span></code>，如果没有手动配置数据库连接，那么SpringBoot会自动进行配置。一般只添加<code class="docutils literal notranslate"><span class="pre">&#64;SpringBootApplication</span></code>就可以了，不需要再重复添加<code class="docutils literal notranslate"><span class="pre">&#64;EnableAutoConfiguration</span></code>。</p>
+<p>通过启动应用时加上<code class="docutils literal notranslate"><span class="pre">--debug</span></code>可以查看有哪些自动配置类，也可以对自动配置类进行移除，比如：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@SpringBootApplication</span><span class="p">(</span><span class="n">exclude</span> <span class="o">=</span> <span class="p">{</span> <span class="n">DataSourceAutoConfiguration</span><span class="p">.</span><span class="na">class</span> <span class="p">})</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyApplication</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>还可以使用<code class="docutils literal notranslate"><span class="pre">excludeName</span></code>或<code class="docutils literal notranslate"><span class="pre">spring.autoconfigure.exclude</span></code>属性来指定要移除的自动配置类。</p>
+</div>
+<div class="section" id="id4">
+<h2>依赖注入<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>SpringBoot可以添加<code class="docutils literal notranslate"><span class="pre">&#64;ComponentScan</span></code>来自动查找bean，比如<code class="docutils literal notranslate"><span class="pre">&#64;Component</span></code>、<code class="docutils literal notranslate"><span class="pre">&#64;Service</span></code>、<code class="docutils literal notranslate"><span class="pre">&#64;Repository</span></code>、<code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code>会被自动注册为Spring
+Beans。<code class="docutils literal notranslate"><span class="pre">&#64;SpringBootApplication</span></code>已经包含了<code class="docutils literal notranslate"><span class="pre">&#64;ComponentScan</span></code>，所以不需要重复添加。</p>
+<p>比如<code class="docutils literal notranslate"><span class="pre">&#64;Service</span></code>使用构造器来包含一个bean：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyAccountService</span> <span class="kd">implements</span> <span class="n">AccountService</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">RiskAssessor</span> <span class="n">riskAssessor</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyAccountService</span><span class="p">(</span><span class="n">RiskAssessor</span> <span class="n">riskAssessor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">riskAssessor</span> <span class="o">=</span> <span class="n">riskAssessor</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>如果有多个构造器，那么可以使用<code class="docutils literal notranslate"><span class="pre">&#64;Autowired</span></code>让Spring来自动注入：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyAccountService</span> <span class="kd">implements</span> <span class="n">AccountService</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">RiskAssessor</span> <span class="n">riskAssessor</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">PrintStream</span> <span class="n">out</span><span class="p">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="nf">MyAccountService</span><span class="p">(</span><span class="n">RiskAssessor</span> <span class="n">riskAssessor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">riskAssessor</span> <span class="o">=</span> <span class="n">riskAssessor</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">out</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">MyAccountService</span><span class="p">(</span><span class="n">RiskAssessor</span> <span class="n">riskAssessor</span><span class="p">,</span> <span class="n">PrintStream</span> <span class="n">out</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">riskAssessor</span> <span class="o">=</span> <span class="n">riskAssessor</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">out</span> <span class="o">=</span> <span class="n">out</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="springbootapplication">
+<h2>&#64;SpringBootApplication<a class="headerlink" href="#springbootapplication" title="Permalink to this headline">¶</a></h2>
+<p>一般在main方法上面会有这个注解，它实际上包含了3个注解：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;EnableAutoConfiguration</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ComponentScan</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;SpringBootConfiguration</span></code></p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@SpringBootApplication</span> <span class="c1">// same as @SpringBootConfiguration @EnableAutoConfiguration</span>
+                        <span class="c1">// @ComponentScan</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyApplication</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">MyApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>如果只想包含其中部分注解，那么可以不用<code class="docutils literal notranslate"><span class="pre">&#64;SpringBootApplication</span></code>：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@SpringBootConfiguration</span><span class="p">(</span><span class="n">proxyBeanMethods</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
+<span class="nd">@EnableAutoConfiguration</span>
+<span class="nd">@Import</span><span class="p">({</span> <span class="n">SomeConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">AnotherConfiguration</span><span class="p">.</span><span class="na">class</span> <span class="p">})</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyApplication</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">MyApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>启动方式<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>①IDEA使用Run as Java Application。</p>
+<p>②命令行启动jar包。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ java -jar target/myapplication-0.0.1-SNAPSHOT.jar
+</pre></div>
+</div>
+<p>开启远程调式</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8000,suspend=n \
+       -jar target/myapplication-0.0.1-SNAPSHOT.jar
+</pre></div>
+</div>
+<p>③maven</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mvn spring-boot:run
+</pre></div>
+</div>
 <blockquote>
 <div><p>参考资料：</p>
 <p><a class="reference external" href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using">https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using</a></p>
 </div></blockquote>
+</div>
 </div>
 
 
