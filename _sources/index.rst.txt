@@ -15,9 +15,10 @@ Contents:
    
    intro
    chapters/Java
+   chapters/TestNG
+   chapters/JMeter
    chapters/Spring Boot
    chapters/Maven
-   chapters/JMeter
    chapters/JUnit
    chapters/Mockito
    chapters/MyBatis
