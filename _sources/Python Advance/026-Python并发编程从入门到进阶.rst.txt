@@ -1,4 +1,4 @@
-25 Python并发编程从入门到进阶
+26 Python并发编程从入门到进阶
 =============================
 
 |image1|
@@ -112,4 +112,4 @@ from语法，语义更简洁更明确了。并且从Python3.7开始引入了\ **
    https://www.jianshu.com/p/6872bf356af7
 
 .. |image1| image:: ../wanggang.png
-.. |image2| image:: 025-Python并发编程从入门到进阶/image-20211212113759963.png
+.. |image2| image:: 026-Python并发编程从入门到进阶/image-20211212113759963.png

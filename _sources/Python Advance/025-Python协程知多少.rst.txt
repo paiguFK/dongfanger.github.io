@@ -1,4 +1,4 @@
-26 Python协程知多少
+25 Python协程知多少
 ===================
 
 |image1|
@@ -257,4 +257,4 @@ https://github.com/fluentpython/example-code/blob/master/16-coroutine/taxi_sim.p
    https://zhuanlan.zhihu.com/p/104918655
 
 .. |image1| image:: ../wanggang.png
-.. |image2| image:: 026-Python协程知多少/微信图片_20211208230007_副本.png
+.. |image2| image:: 025-Python协程知多少/微信图片_20211208230007_副本.png

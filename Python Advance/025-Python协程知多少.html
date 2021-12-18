@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>26 Python协程知多少 &mdash; dongfanger latest documentation</title>
+  <title>25 Python协程知多少 &mdash; dongfanger latest documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="999 流畅的python读书笔记" href="999-%E6%B5%81%E7%95%85%E7%9A%84python%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html" />
-    <link rel="prev" title="25 Python并发编程从入门到进阶" href="025-Python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%BF%9B%E9%98%B6.html" /> 
+    <link rel="next" title="26 Python并发编程从入门到进阶" href="026-Python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%BF%9B%E9%98%B6.html" />
+    <link rel="prev" title="24 Python上下文管理器" href="024-Python%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86%E5%99%A8.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -128,8 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="022-Python%E5%8F%AF%E8%BF%AD%E4%BB%A3%E7%9A%84%E5%AF%B9%E8%B1%A1%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9A%84%E5%AF%B9%E6%AF%94.html">21 Python可迭代的对象与迭代器的对比</a></li>
 <li class="toctree-l2"><a class="reference internal" href="023-%E9%95%BF%E7%AF%87%E5%A4%A7%E8%AE%BAPython%E7%94%9F%E6%88%90%E5%99%A8.html">22 长篇大论Python生成器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="024-Python%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86%E5%99%A8.html">24 Python上下文管理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="025-Python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%BF%9B%E9%98%B6.html">25 Python并发编程从入门到进阶</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">26 Python协程知多少</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">25 Python协程知多少</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">从生成器到协程</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">预激协程</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#yield-from">yield from</a></li>
@@ -137,6 +136,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#id4">协程实现并发</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="026-Python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%BF%9B%E9%98%B6.html">26 Python并发编程从入门到进阶</a></li>
 <li class="toctree-l2"><a class="reference internal" href="999-%E6%B5%81%E7%95%85%E7%9A%84python%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html">999 流畅的python读书笔记</a></li>
 </ul>
 </li>
@@ -199,13 +199,13 @@
         
           <li><a href="../chapters/Python%20Advance.html">Python Advance</a> &raquo;</li>
         
-      <li>26 Python协程知多少</li>
+      <li>25 Python协程知多少</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Python Advance/026-Python协程知多少.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Python Advance/025-Python协程知多少.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -219,7 +219,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="python">
-<h1>26 Python协程知多少<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<h1>25 Python协程知多少<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
 <p><img alt="image1" src="../_images/wanggang13.png" /></p>
 <p>从概念上来说，我们都知道多进程和多线程，而协程其实是<strong>在单线程中实现多并发</strong>。从句法上看，协程与生成器类似，都是定义体中包含yield关键字的函数。区别在于协程的yield通常出现在表达式的右边：<code class="docutils literal notranslate"><span class="pre">datum</span> <span class="pre">=</span> <span class="pre">yield</span></code>。这一下就让初学者瞬间觉得yield关键字不香了，本来以为yield就是简简单单的暂停执行顺手返回个值，结果还能放右边？</p>
 <div class="section" id="id1">
@@ -445,10 +445,10 @@ from经常与Python3.4标准库里的<code class="docutils literal notranslate">
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="999-%E6%B5%81%E7%95%85%E7%9A%84python%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html" class="btn btn-neutral float-right" title="999 流畅的python读书笔记" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="026-Python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%BF%9B%E9%98%B6.html" class="btn btn-neutral float-right" title="26 Python并发编程从入门到进阶" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="025-Python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%BF%9B%E9%98%B6.html" class="btn btn-neutral float-left" title="25 Python并发编程从入门到进阶" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="024-Python%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86%E5%99%A8.html" class="btn btn-neutral float-left" title="24 Python上下文管理器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
