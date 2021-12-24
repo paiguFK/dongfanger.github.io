@@ -8,7 +8,7 @@ Intro
 
 .. image:: ./dongfangpy.png
 
-* 添加个人微信。
+* 添加个人微信：dongfangpy。
 * 备注【B站】，加入测试开发刚哥B站交流群。
 * 备注【Java】，加入测试开发刚哥Java交流群。
 * 备注【Python】，加入测试开发刚哥Python交流群。
