@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1 JaCoCo代码覆盖率从0到100的入门实践 &mdash; 测试开发刚哥 latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="JUnit" href="../chapters/JUnit.html" />
+    <link rel="prev" title="JaCoCo" href="../chapters/JaCoCo.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> 测试开发刚哥
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/TestNG.html">TestNG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Spring%20Boot.html">Spring Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Maven.html">Maven</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/JaCoCo.html">JaCoCo</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1 JaCoCo代码覆盖率从0到100的入门实践</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JUnit.html">JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Mockito.html">Mockito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Message%20Queue.html">Message Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/DevOps.html">DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest.html">pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner.html">teprunner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Flask.html">Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../link.html">Link</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">测试开发刚哥</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/JaCoCo.html">JaCoCo</a> &raquo;</li>
+        
+      <li>1 JaCoCo代码覆盖率从0到100的入门实践</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/JaCoCo/001-JaCoCo代码覆盖率从0到100的入门实践.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jacoco0100">
+<h1>1 JaCoCo代码覆盖率从0到100的入门实践<a class="headerlink" href="#jacoco0100" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang8.png" /></p>
+<p>JaCoCo全称是<strong>Ja</strong>va <strong>Co</strong>de
+<strong>Co</strong>verage，Java代码覆盖率，广泛运用于各种测试平台对Java代码的全量覆盖率和增量覆盖率进行统计，分析代码行差异，度量单元测试效果。Jacoco也是精准测试的技术实现手段之一。</p>
+<p>入门实践的目标是写点简单代码，再加点单元测试，把JaCoCo跑起来，输出测试报告，看代码覆盖率是怎么回事，了解基本的运行流程。</p>
+<p>先写点简单代码：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Add</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>再加点单元测试，这里先加一个什么都不做的单元测试，按理说代码覆盖率会是0：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AddTest</span> <span class="p">{</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">notCovered</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>如何把Jacoco跑起来呢？我先尝试了Maven插件的方式，在pom.xml中引入依赖和添加配置：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>4.12<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.jacoco<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>jacoco-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>0.8.7<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;/dependencies&gt;</span>
+
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;maven.compiler.source&gt;</span>8<span class="nt">&lt;/maven.compiler.source&gt;</span>
+        <span class="nt">&lt;maven.compiler.target&gt;</span>8<span class="nt">&lt;/maven.compiler.target&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+
+    <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.jacoco<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>jacoco-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>0.8.7<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;id&gt;</span>default-prepare-agent<span class="nt">&lt;/id&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>prepare-agent<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;id&gt;</span>default-report<span class="nt">&lt;/id&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>report<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>引入了junit和jacoco-maven-plugin两个依赖。</p></li>
+<li><p>插件中配置了两个execution，并指定了两个goal，prepare-agent（插桩）和report（报告）。</p></li>
+</ul>
+<p>然后执行maven的install，如果是在IDEA中可以直接点击按钮：</p>
+<p><img alt="image2" src="../_images/image-20211219180021163.png" /></p>
+<p>在target下就能看到html报告了：</p>
+<p><img alt="image3" src="../_images/image-20211219180057788.png" /></p>
+<p>打开看果然代码覆盖率是0：</p>
+<p><img alt="image4" src="../_images/image-20211219180142193.png" /></p>
+<p>修改一下单元测试：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AddTest</span> <span class="p">{</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">covered</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Add</span> <span class="n">addDemo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Add</span><span class="p">();</span>
+        <span class="n">addDemo</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="n">addDemo</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+        <span class="n">addDemo</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">notCovered</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>先<strong>maven clean</strong>以后再install，就能看到：</p>
+<p><img alt="image5" src="../_images/image-20211219180317366.png" /></p>
+<p>覆盖率100%了。一共有4行需要覆盖的代码行：</p>
+<p><img alt="image6" src="../_images/image-20211219180347302.png" /></p>
+<p>至于为什么需要4行，以及我添加的单元测试为什么能够100%覆盖，文字描述有点说不清楚。可以关注我的B站，搜索dongfanger关注，我会进行相关的演示和说明。</p>
+<blockquote>
+<div><p>参考资料：</p>
+<p>Jacoco官网Maven示例
+<a class="reference external" href="https://www.jacoco.org/jacoco/trunk/doc/maven.html">https://www.jacoco.org/jacoco/trunk/doc/maven.html</a></p>
+<p>Jacoco报告详解
+<a class="reference external" href="https://blog.csdn.net/sayoko06/article/details/99312875">https://blog.csdn.net/sayoko06/article/details/99312875</a></p>
+</div></blockquote>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/JUnit.html" class="btn btn-neutral float-right" title="JUnit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../chapters/JaCoCo.html" class="btn btn-neutral float-left" title="JaCoCo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 测试开发刚哥
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

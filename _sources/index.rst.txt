@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 ================================================
-dongfanger
+测试开发刚哥
 ================================================
 
 Contents:
@@ -19,6 +19,7 @@ Contents:
    chapters/JMeter
    chapters/Spring Boot
    chapters/Maven
+   chapters/JaCoCo
    chapters/JUnit
    chapters/Mockito
    chapters/MyBatis
