@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>12 如何使用teprunner测试平台编写从登录到下单的大流程接口自动化用例 &mdash; 测试开发刚哥 latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Django" href="../chapters/Django.html" />
+    <link rel="prev" title="11 teprunner测试平台入门级部署手册发布啦" href="011-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E5%85%A5%E9%97%A8%E7%BA%A7%E9%83%A8%E7%BD%B2%E6%89%8B%E5%86%8C%E5%8F%91%E5%B8%83%E5%95%A6.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> 测试开发刚哥
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/TestNG.html">TestNG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Spring%20Boot.html">Spring Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Maven.html">Maven</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JaCoCo.html">JaCoCo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JUnit.html">JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Mockito.html">Mockito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Message%20Queue.html">Message Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/DevOps.html">DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest.html">pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/teprunner.html">teprunner</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-pytest%E5%86%85%E6%A0%B8%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E8%90%BD%E5%9C%B0%E5%88%9D%E4%BD%93%E9%AA%8C.html">1 pytest内核测试平台落地初体验</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002-%E5%AD%A6%E4%B9%A0%E7%89%88pytest%E5%86%85%E6%A0%B8%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E4%B8%87%E5%AD%97%E9%95%BF%E6%96%87%E5%85%A5%E9%97%A8%E7%AF%87.html">2 学习版pytest内核测试平台开发万字长文入门篇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="003-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E9%83%A8%E7%BD%B2%E5%88%B0Linux%E7%B3%BB%E7%BB%9FDocker.html">3 teprunner测试平台部署到Linux系统Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E7%94%A8%E4%BE%8B%E5%89%8D%E7%BD%AE%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91.html">4 teprunner测试平台用例前置模块开发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E7%94%A8%E4%BE%8B%E7%AE%A1%E7%90%86%E4%B8%8D%E5%8F%AA%E6%9C%89%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5.html">5 teprunner测试平台开发用例管理不只有增删改查</a></li>
+<li class="toctree-l2"><a class="reference internal" href="006-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0Django%E5%BC%95%E5%85%A5pytest%E5%AE%8C%E6%95%B4%E6%BA%90%E7%A0%81.html">6 teprunner测试平台Django引入pytest完整源码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="007-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%89%B9%E9%87%8F%E8%BF%90%E8%A1%8C%E7%94%A8%E4%BE%8B.html">7 teprunner测试平台测试计划批量运行用例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="008-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E7%94%A8%E4%BE%8B%E7%BC%96%E5%86%99%E7%AD%89%E4%BD%93%E9%AA%8C%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8D%87%E7%BA%A7.html">8 teprunner测试平台用例编写等体验响应式升级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="009-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E8%BF%99%E6%AC%A1%E7%BB%88%E4%BA%8E%E7%A8%B3%E4%BA%86.html">9 teprunner测试平台定时任务这次终于稳了</a></li>
+<li class="toctree-l2"><a class="reference internal" href="010-teprunner%E9%87%8D%E7%A3%85%E6%9B%B4%E6%96%B0Git%E6%89%93%E9%80%9APyCharm%E4%B8%8E%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0.html">10 teprunner重磅更新Git打通PyCharm与测试平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E5%85%A5%E9%97%A8%E7%BA%A7%E9%83%A8%E7%BD%B2%E6%89%8B%E5%86%8C%E5%8F%91%E5%B8%83%E5%95%A6.html">11 teprunner测试平台入门级部署手册发布啦</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">12 如何使用teprunner测试平台编写从登录到下单的大流程接口自动化用例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Flask.html">Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../link.html">Link</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">测试开发刚哥</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/teprunner.html">teprunner</a> &raquo;</li>
+        
+      <li>12 如何使用teprunner测试平台编写从登录到下单的大流程接口自动化用例</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/teprunner/012-如何使用teprunner测试平台编写从登录到下单的大流程接口自动化用例.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="teprunner">
+<h1>12 如何使用teprunner测试平台编写从登录到下单的大流程接口自动化用例<a class="headerlink" href="#teprunner" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang22.png" /></p>
+<p>大家好，我是刚哥。</p>
+<p>对于<strong>登录→搜索商品→添加购物车→下单→支付</strong>这样的大流程，使用teprunner测试平台该如何编写接口自动化用例呢？</p>
+<p>假设这几个节点的接口和参数如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## 登录
+url：/login
+method: post
+body: {&quot;username&quot;: &quot;dongfanger&quot;, &quot;password&quot;: &quot;123456&quot;}
+response: {&quot;token&quot;: &quot;de2e3ffu29&quot;}
+
+## 搜索商品
+url：/searchSku
+method: get
+headers: {&quot;token&quot;: &quot;de2e3ffu29&quot;}
+body: {&quot;skuName&quot;: &quot;电子书&quot;}
+response: {&quot;skuId&quot;: &quot;222&quot;, &quot;price&quot;: &quot;2.3&quot;}
+
+## 添加购物车
+url：/addCart
+method: post
+headers: {&quot;token&quot;: &quot;de2e3ffu29&quot;}
+body: {&quot;skuId&quot;: &quot;222&quot;, &quot;skuNum&quot;: &quot;3&quot;}
+response: {&quot;skuId&quot;: &quot;222&quot;, &quot;price&quot;: &quot;2.3&quot;, &quot;skuNum&quot;: &quot;3&quot;, &quot;totalPrice&quot;: &quot;6.9&quot;}
+
+## 下单
+url：/order
+method: post
+headers: {&quot;token&quot;: &quot;de2e3ffu29&quot;}
+body: {&quot;skuId&quot;: &quot;222&quot;, &quot;price&quot;: &quot;2.3&quot;, &quot;skuNum&quot;: &quot;3&quot;, &quot;totalPrice&quot;: &quot;6.9&quot;}
+response: {&quot;orderId&quot;: &quot;333&quot;}
+
+## 支付
+url：/pay
+method: post
+headers: {&quot;token&quot;: &quot;de2e3ffu29&quot;}
+body: {&quot;orderId&quot;: &quot;333&quot;, &quot;payAmount&quot;: &quot;6.9&quot;}
+response: {&quot;success&quot;: &quot;true&quot;}
+</pre></div>
+</div>
+<p>我不会直接在teprunner测试平台的界面上直接写新用例的代码，而是先在PyCharm中把代码写好调通，再手动复制粘贴或者经过Git同步到平台上。本文就来介绍下怎么在PyCharm中借助tep编写这个大流程的接口自动化用例。</p>
+<p>先使用命令检查tep已经是0.9.1以上版本：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ tep -V
+<span class="m">0</span>.9.1
+</pre></div>
+</div>
+<p>然后初始化项目：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ tep startproject login-pay-big-process
+<span class="m">2021</span>-12-27 <span class="m">12</span>:41:26.721 <span class="p">|</span> INFO     <span class="p">|</span> tep.scaffold:create_scaffold:53 - Create new project: login-pay-big-process
+Project root dir: /Users/dongfanger/PycharmProjects/login-pay-big-process
+
+Created folder: login-pay-big-process
+Created folder: login-pay-big-process/fixtures
+Created folder: login-pay-big-process/tests
+Created folder: login-pay-big-process/files
+Created folder: login-pay-big-process/reports
+Created file: login-pay-big-process/.gitignore
+Created file: login-pay-big-process/conf.yaml
+Created file: login-pay-big-process/conftest.py
+Created file: login-pay-big-process/pytest.ini
+Created file: login-pay-big-process/requirements.txt
+Created file: login-pay-big-process/fixtures/__init__.py
+Created file: login-pay-big-process/fixtures/fixture_admin.py
+Created file: login-pay-big-process/fixtures/fixture_env_vars.py
+Created file: login-pay-big-process/fixtures/fixture_login.py
+Created file: login-pay-big-process/fixtures/fixture_your_name.py
+Created file: login-pay-big-process/tests/__init__.py
+Created file: login-pay-big-process/tests/test_login.py
+Created file: login-pay-big-process/tests/test_post.py
+Created file: login-pay-big-process/tests/test_mysql.py
+Created file: login-pay-big-process/tests/test_request.py
+</pre></div>
+</div>
+<p>修改fixtures/fixture_env_vars.py环境变量里面的域名：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;qa&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;https://qa.com&quot;</span><span class="p">,</span>  <span class="c1"># 1</span>
+        <span class="s2">&quot;mysql_engine&quot;</span><span class="p">:</span> <span class="n">mysql_engine</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>  <span class="c1"># host</span>
+                                     <span class="s2">&quot;2306&quot;</span><span class="p">,</span>  <span class="c1"># port</span>
+                                     <span class="s2">&quot;root&quot;</span><span class="p">,</span>  <span class="c1"># username</span>
+                                     <span class="s2">&quot;123456&quot;</span><span class="p">,</span>  <span class="c1"># password</span>
+                                     <span class="s2">&quot;qa&quot;</span><span class="p">),</span>  <span class="c1"># db_name</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;release&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;https://release.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mysql_engine&quot;</span><span class="p">:</span> <span class="n">mysql_engine</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;2306&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;root&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;release&quot;</span><span class="p">),</span>
+    <span class="p">}</span>
+    <span class="c1"># Add your environment and variables</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>可以只修改domain，数据库可以先不管。</p></li>
+</ol>
+<p>编辑fixtures/fixture_login.py：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tep.client</span> <span class="kn">import</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">tep.fixture</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="k">def</span> <span class="nf">_jwt_headers</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span> <span class="s2">&quot;authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&quot;session&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">env_vars</span><span class="p">):</span>
+    <span class="c1"># Code your login</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Administrator login&quot;</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span>
+        <span class="s2">&quot;post&quot;</span><span class="p">,</span>
+        <span class="n">url</span><span class="o">=</span><span class="n">env_vars</span><span class="o">.</span><span class="n">domain</span> <span class="o">+</span> <span class="s2">&quot;/login&quot;</span><span class="p">,</span>  <span class="c1"># 1</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">},</span>
+        <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;dongfanger&quot;</span><span class="p">,</span> <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">}</span>  <span class="c1"># 2</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">400</span>
+    <span class="n">response_token</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;token&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+    <span class="k">class</span> <span class="nc">Clazz</span><span class="p">:</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="n">response_token</span>
+        <span class="n">jwt_headers</span> <span class="o">=</span> <span class="n">_jwt_headers</span><span class="p">(</span><span class="n">response_token</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Clazz</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>修改url。</p></li>
+<li><p>修改body。</p></li>
+</ol>
+<p><strong>然后可以跑一下tests/test_login.py看能否登录成功。</strong></p>
+<p>在tests目录下新建test_login_pay.py文件：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tep.client</span> <span class="kn">import</span> <span class="n">request</span>
+
+
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">env_vars</span><span class="p">,</span> <span class="n">login</span><span class="p">):</span>
+    <span class="c1"># 搜索商品</span>
+
+    <span class="c1"># 添加购物车</span>
+
+    <span class="c1"># 下单</span>
+
+    <span class="c1"># 支付</span>
+</pre></div>
+</div>
+<p>先把流程架子备注清楚。再一个接口一个接口添加。</p>
+<p>搜索商品：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## 搜索商品</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span>
+        <span class="s2">&quot;get&quot;</span><span class="p">,</span>
+        <span class="n">url</span><span class="o">=</span><span class="n">env_vars</span><span class="o">.</span><span class="n">domain</span> <span class="o">+</span> <span class="s2">&quot;/searchSku&quot;</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="n">login</span><span class="o">.</span><span class="n">token</span><span class="p">},</span>
+        <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;skuName&quot;</span><span class="p">:</span> <span class="s2">&quot;电子书&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">sku_id</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;skuId&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="n">sku_price</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">400</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>token直接从login fixture中取值。</p></li>
+<li><p>从响应中提取sku_id 和sku_price。</p></li>
+</ol>
+<p>添加购物车：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## 添加购物车</span>
+    <span class="n">sku_num</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span>
+        <span class="s2">&quot;post&quot;</span><span class="p">,</span>
+        <span class="n">url</span><span class="o">=</span><span class="n">env_vars</span><span class="o">.</span><span class="n">domain</span> <span class="o">+</span> <span class="s2">&quot;/addCart&quot;</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="n">login</span><span class="o">.</span><span class="n">token</span><span class="p">},</span>
+        <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;skuId&quot;</span><span class="p">:</span> <span class="n">sku_id</span><span class="p">,</span> <span class="s2">&quot;skuNum&quot;</span><span class="p">:</span> <span class="n">sku_num</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">total_price</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;totalPrice&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">400</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>token直接从login fixture中取值。</p></li>
+<li><p>入参修改为搜索商品提取的变量和自定义的sku_num变量。</p></li>
+<li><p>提取商品总价total_price。</p></li>
+</ol>
+<p>下单：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## 下单</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span>
+        <span class="s2">&quot;post&quot;</span><span class="p">,</span>
+        <span class="n">url</span><span class="o">=</span><span class="n">env_vars</span><span class="o">.</span><span class="n">domain</span> <span class="o">+</span> <span class="s2">&quot;/order&quot;</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="n">login</span><span class="o">.</span><span class="n">token</span><span class="p">},</span>
+        <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;skuId&quot;</span><span class="p">:</span> <span class="n">sku_id</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="n">sku_price</span><span class="p">,</span> <span class="s2">&quot;skuNum&quot;</span><span class="p">:</span> <span class="n">sku_num</span><span class="p">,</span> <span class="s2">&quot;totalPrice&quot;</span><span class="p">:</span> <span class="n">total_price</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">order_id</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;orderId&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">400</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>token直接从login fixture中取值。</p></li>
+<li><p>入参全部使用变量替换。</p></li>
+<li><p>提取订单id。</p></li>
+</ol>
+<p>支付：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 支付</span>
+   <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span>
+       <span class="s2">&quot;post&quot;</span><span class="p">,</span>
+       <span class="n">url</span><span class="o">=</span><span class="n">env_vars</span><span class="o">.</span><span class="n">domain</span> <span class="o">+</span> <span class="s2">&quot;/pay&quot;</span><span class="p">,</span>
+       <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="n">login</span><span class="o">.</span><span class="n">token</span><span class="p">},</span>
+       <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="n">order_id</span><span class="p">,</span> <span class="s2">&quot;payAmount&quot;</span><span class="p">:</span> <span class="s2">&quot;6.9&quot;</span><span class="p">}</span>
+   <span class="p">)</span>
+   <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">400</span>
+   <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;success&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>token直接从login fixture中取值。</p></li>
+<li><p>入参使用下单提取的order_id变量。</p></li>
+<li><p>添加一条支付成功的断言。</p></li>
+</ol>
+<p>这样一个大流程用例就写好了。完整代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jmespath</span>
+<span class="kn">from</span> <span class="nn">tep.client</span> <span class="kn">import</span> <span class="n">request</span>
+
+
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">env_vars</span><span class="p">,</span> <span class="n">login</span><span class="p">):</span>
+    <span class="c1"># 搜索商品</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span>
+        <span class="s2">&quot;get&quot;</span><span class="p">,</span>
+        <span class="n">url</span><span class="o">=</span><span class="n">env_vars</span><span class="o">.</span><span class="n">domain</span> <span class="o">+</span> <span class="s2">&quot;/searchSku&quot;</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="n">login</span><span class="o">.</span><span class="n">token</span><span class="p">},</span>
+        <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;skuName&quot;</span><span class="p">:</span> <span class="s2">&quot;电子书&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">sku_id</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;skuId&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="n">sku_price</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">400</span>
+
+    <span class="c1"># 添加购物车</span>
+    <span class="n">sku_num</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span>
+        <span class="s2">&quot;post&quot;</span><span class="p">,</span>
+        <span class="n">url</span><span class="o">=</span><span class="n">env_vars</span><span class="o">.</span><span class="n">domain</span> <span class="o">+</span> <span class="s2">&quot;/addCart&quot;</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="n">login</span><span class="o">.</span><span class="n">token</span><span class="p">},</span>
+        <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;skuId&quot;</span><span class="p">:</span> <span class="n">sku_id</span><span class="p">,</span> <span class="s2">&quot;skuNum&quot;</span><span class="p">:</span> <span class="n">sku_num</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">total_price</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;totalPrice&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">400</span>
+
+    <span class="c1"># 下单</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span>
+        <span class="s2">&quot;post&quot;</span><span class="p">,</span>
+        <span class="n">url</span><span class="o">=</span><span class="n">env_vars</span><span class="o">.</span><span class="n">domain</span> <span class="o">+</span> <span class="s2">&quot;/order&quot;</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="n">login</span><span class="o">.</span><span class="n">token</span><span class="p">},</span>
+        <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;skuId&quot;</span><span class="p">:</span> <span class="n">sku_id</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="n">sku_price</span><span class="p">,</span> <span class="s2">&quot;skuNum&quot;</span><span class="p">:</span> <span class="n">sku_num</span><span class="p">,</span> <span class="s2">&quot;totalPrice&quot;</span><span class="p">:</span> <span class="n">total_price</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">order_id</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;orderId&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">400</span>
+
+    <span class="c1"># 支付</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span>
+        <span class="s2">&quot;post&quot;</span><span class="p">,</span>
+        <span class="n">url</span><span class="o">=</span><span class="n">env_vars</span><span class="o">.</span><span class="n">domain</span> <span class="o">+</span> <span class="s2">&quot;/pay&quot;</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="n">login</span><span class="o">.</span><span class="n">token</span><span class="p">},</span>
+        <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="n">order_id</span><span class="p">,</span> <span class="s2">&quot;payAmount&quot;</span><span class="p">:</span> <span class="s2">&quot;6.9&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">400</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;success&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span>
+</pre></div>
+</div>
+<p>公众号没有留言功能，有问题的话，请加群交流。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/Django.html" class="btn btn-neutral float-right" title="Django" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="011-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E5%85%A5%E9%97%A8%E7%BA%A7%E9%83%A8%E7%BD%B2%E6%89%8B%E5%86%8C%E5%8F%91%E5%B8%83%E5%95%A6.html" class="btn btn-neutral float-left" title="11 teprunner测试平台入门级部署手册发布啦" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 测试开发刚哥
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

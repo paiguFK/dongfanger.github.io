@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2 如何运行TestNG &mdash; 测试开发刚哥 latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="JMeter" href="../chapters/JMeter.html" />
+    <link rel="prev" title="1 TestNG排名第一的测试框架" href="001-TestNG%E6%8E%92%E5%90%8D%E7%AC%AC%E4%B8%80%E7%9A%84%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> 测试开发刚哥
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Java.html">Java</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/TestNG.html">TestNG</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-TestNG%E6%8E%92%E5%90%8D%E7%AC%AC%E4%B8%80%E7%9A%84%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html">1 TestNG排名第一的测试框架</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2 如何运行TestNG</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#idea">IDEA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">命令行</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Spring%20Boot.html">Spring Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Maven.html">Maven</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JaCoCo.html">JaCoCo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JUnit.html">JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Mockito.html">Mockito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Message%20Queue.html">Message Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/DevOps.html">DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest.html">pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner.html">teprunner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Flask.html">Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../link.html">Link</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">测试开发刚哥</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/TestNG.html">TestNG</a> &raquo;</li>
+        
+      <li>2 如何运行TestNG</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/TestNG/002-如何运行TestNG.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="testng">
+<h1>2 如何运行TestNG<a class="headerlink" href="#testng" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang19.png" /></p>
+<p>大家好，我是刚哥。</p>
+<p>本文将介绍两种运行TestNG的方式：</p>
+<ol class="arabic simple">
+<li><p>IDEA</p></li>
+<li><p>命令行</p></li>
+</ol>
+<div class="section" id="idea">
+<h2>IDEA<a class="headerlink" href="#idea" title="Permalink to this headline">¶</a></h2>
+<p>IDEA配置TestNG可以参考我之前的这篇文章<a class="reference external" href="https://dongfanger.gitee.io/blog/Java/001-2021%E5%B9%B4%E6%90%AD%E5%BB%BAJava%E7%8E%AF%E5%A2%83%E6%9C%80%E5%BF%AB%E5%8A%9E%E6%B3%95.html#testng">《2021年搭建Java环境最快办法》–添加TestNG</a>。</p>
+<p>在IDEA中运行TestNG第①种点击方法或类前面的小箭头：</p>
+<p><img alt="image2" src="../_images/image-20211230205637704.png" /></p>
+<p>第②在方法或类内部点击右键：</p>
+<p><img alt="image3" src="../_images/image-20211230205734837.png" /></p>
+<p><img alt="image4" src="../_images/image-20211230205752151.png" /></p>
+<p>第③种方式是使用testng.xml，IDEA可以右键testng.xml来运行，在文件名和文件内部点击均可：</p>
+<p><img alt="image5" src="../_images/image-20211230212649756.png" /></p>
+<p>testng.xml支持很多种配置，比如配置测试类：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot; &gt;</span>
+
+<span class="nt">&lt;suite</span> <span class="na">name=</span><span class="s">&quot;Suite1&quot;</span> <span class="na">verbose=</span><span class="s">&quot;1&quot;</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&quot;Nopackage&quot;</span> <span class="nt">&gt;</span>
+    <span class="nt">&lt;classes&gt;</span>
+       <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;NoPackageTest&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/classes&gt;</span>
+  <span class="nt">&lt;/test&gt;</span>
+
+  <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&quot;Regression1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;classes&gt;</span>
+      <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;test.sample.ParameterSample&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;test.sample.ParameterTest&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/classes&gt;</span>
+  <span class="nt">&lt;/test&gt;</span>
+<span class="nt">&lt;/suite&gt;</span>
+</pre></div>
+</div>
+<p>配置测试包：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot; &gt;</span>
+
+<span class="nt">&lt;suite</span> <span class="na">name=</span><span class="s">&quot;Suite1&quot;</span> <span class="na">verbose=</span><span class="s">&quot;1&quot;</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&quot;Regression1&quot;</span>   <span class="nt">&gt;</span>
+    <span class="nt">&lt;packages&gt;</span>
+      <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;test.sample&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;/packages&gt;</span>
+ <span class="nt">&lt;/test&gt;</span>
+<span class="nt">&lt;/suite&gt;</span>
+</pre></div>
+</div>
+<p>配置组和方法：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot; &gt;</span>
+
+<span class="nt">&lt;suite</span> <span class="na">name=</span><span class="s">&quot;Suite1&quot;</span> <span class="na">verbose=</span><span class="s">&quot;1&quot;</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&quot;Regression1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;groups&gt;</span>
+      <span class="nt">&lt;run&gt;</span>
+        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&quot;brokenTests&quot;</span>  <span class="nt">/&gt;</span>
+        <span class="nt">&lt;include</span> <span class="na">name=</span><span class="s">&quot;checkinTests&quot;</span>  <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/run&gt;</span>
+    <span class="nt">&lt;/groups&gt;</span>
+
+    <span class="nt">&lt;classes&gt;</span>
+      <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;test.IndividualMethodsTest&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;methods&gt;</span>
+          <span class="nt">&lt;include</span> <span class="na">name=</span><span class="s">&quot;testMethod&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/methods&gt;</span>
+      <span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;/classes&gt;</span>
+  <span class="nt">&lt;/test&gt;</span>
+<span class="nt">&lt;/suite&gt;</span>
+</pre></div>
+</div>
+<p>默认TestNG会按xml顺序执行，可以设置
+<code class="docutils literal notranslate"><span class="pre">preserve-order</span></code>为false变成随机顺序：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot; &gt;</span>
+
+<span class="nt">&lt;suite</span> <span class="na">name=</span><span class="s">&quot;Suite1&quot;</span> <span class="na">verbose=</span><span class="s">&quot;1&quot;</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&quot;Regression1&quot;</span> <span class="na">preserve-order=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;classes&gt;</span>
+
+      <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;test.Test1&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;methods&gt;</span>
+          <span class="nt">&lt;include</span> <span class="na">name=</span><span class="s">&quot;m1&quot;</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;include</span> <span class="na">name=</span><span class="s">&quot;m2&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/methods&gt;</span>
+      <span class="nt">&lt;/class&gt;</span>
+
+      <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;test.Test2&quot;</span> <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;/classes&gt;</span>
+  <span class="nt">&lt;/test&gt;</span>
+<span class="nt">&lt;/suite&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>命令行<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>使用以下命令执行TestNG：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="n">org</span><span class="o">.</span><span class="n">testng</span><span class="o">.</span><span class="n">TestNG</span> <span class="n">testng1</span><span class="o">.</span><span class="n">xml</span> <span class="p">[</span><span class="n">testng2</span><span class="o">.</span><span class="n">xml</span> <span class="n">testng3</span><span class="o">.</span><span class="n">xml</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>这在持续集成中很有用。但这是官方给的命令，<strong>实际调用是调不通的，可以借助Maven来实现</strong>。</p>
+<p>先在pom.xml添加：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+        <span class="nt">&lt;plugin&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.19.1<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+                <span class="nt">&lt;suiteXmlFiles&gt;</span>
+                    <span class="nt">&lt;suiteXmlFile&gt;</span>testng.xml<span class="nt">&lt;/suiteXmlFile&gt;</span>
+                <span class="nt">&lt;/suiteXmlFiles&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+        <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</pre></div>
+</div>
+<p>然后执行<code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">test</span></code>命令就行啦。</p>
+<blockquote>
+<div><p>参考资料：</p>
+<p><a class="reference external" href="https://testng.org/doc/documentation-main.html">https://testng.org/doc/documentation-main.html</a></p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/JMeter.html" class="btn btn-neutral float-right" title="JMeter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="001-TestNG%E6%8E%92%E5%90%8D%E7%AC%AC%E4%B8%80%E7%9A%84%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html" class="btn btn-neutral float-left" title="1 TestNG排名第一的测试框架" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 测试开发刚哥
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
