@@ -1,10 +1,12 @@
 ==============
-Link
+More
 ==============
 
-https://github.com/dongfanger
+* WeChatID：dongfangpy，加入测试开发刚哥交流群。
 
-https://gitee.com/dongfanger
+* GitHub: https://github.com/dongfanger
+
+* Gitee: https://gitee.com/dongfanger
 
 .. image:: ./ocsearch.png
 

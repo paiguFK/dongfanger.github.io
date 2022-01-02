@@ -38,7 +38,7 @@ Contents:
    chapters/Single Article
    chapters/Annual Summary
    chapters/Bildungsroman
-   link
+   more
 
 --------------
 
