@@ -1,0 +1,279 @@
+5 TestNG参数化有何特别之处
+==========================
+
+|image1|
+
+大家好，我是刚哥。
+
+TestNG作为Java技术栈一个极其强大的测试框架，想必在参数化这块也有一定的特别之处，本文就来根据官方文档，对TestNG参数化进行一探究竟。
+
+TestNG参数化有两种方式，第一种是从testng.xml读取数据，第二种是通过代码读取数据。
+
+从testng.xml读取数据
+--------------------
+
+直接看示例：
+
+.. code:: java
+
+   @Parameters({ "first-name" })
+   @Test
+   public void testSingleString(String firstName) {
+     System.out.println("Invoked testString " + firstName);
+     assert "Cedric".equals(firstName);
+   }
+
+::
+
+   <suite name="My suite">
+     <parameter name="first-name"  value="Cedric"/>
+     <test name="Simple example">
+     <-- ... -->
+
+-  @Parameters指定参数化名字。
+
+-  测试方法入参与参数化名字一一对应。
+
+-  testng.xml中\ ``<parameter>``\ 定义参数化的值。
+
+      在testng.xml中，\ ``<parameter>``\ 既可以定义在\ ``<suite>``\ 中也可以定义在\ ``<test>``\ 中，如果有同名的，会以\ ``<test>``\ 的覆盖\ ``<suite>``\ 。
+
+@Parameters既可以作用到\ ``@Test``\ ，也可以作用到
+``@Before/After``\ 和\ ``@Factory``\ ，比如：
+
+.. code:: java
+
+   @Parameters({ "datasource", "jdbcDriver" })
+   @BeforeMethod
+   public void beforeTest(String ds, String driver) {
+     m_dataSource = ...;                              // look up the value of datasource
+     m_jdbcDriver = driver;
+   }
+
+..
+
+   也可以作用到测试类的构造方法中，但是只能最多一个构造方法，这样就能在初始化类的时候，进行参数化赋值，便于测试方法使用
+
+@Optional用于标识参数是否可选，比如：
+
+.. code:: java
+
+   @Parameters("db")
+   @Test
+   public void testNonExistentParameter(@Optional("mysql") String db) { ... }
+
+-  如果db这个参数取不到名字，那么就会取mysql的值。
+
+通过代码读取数据
+----------------
+
+第一种参数化方式其实比较鸡肋，第二种方式才是TestNG参数化的灵魂，用到了@DataProvider，它会返回一个二维数组：
+
+.. code:: java
+
+   import org.testng.annotations.DataProvider;
+   import org.testng.annotations.Test;
+
+   public class DPTest {
+       @DataProvider(name = "test1")
+       public Object[][] createData1() {
+           return new Object[][] {
+                   { "Cedric", 36},
+                   { "Anne", 37},
+           };
+       }
+
+       @Test(dataProvider = "test1")
+       public void verifyData1(String n1, Integer n2) {
+           System.out.println(n1 + " " + n2);
+       }
+   }
+
+-  @DataProvider用于生产数据，name是唯一标识。
+-  在@Test中通过dataProvider属性指定name。
+-  测试方法的入参跟数组中元素一一对应。
+
+默认@DataProvider和@Test是在同一个类中，如果想放在不同的类，那么需要定义为静态方法（或者无参数构造方法的类），比如：
+
+.. code:: java
+
+   import org.testng.annotations.DataProvider;
+
+   public class StaticProvider {
+       @DataProvider(name = "create")
+       public static Object[][] createData() {
+           return new Object[][] {
+                   new Object[] {42}
+           };
+       }
+   }
+
+.. code:: java
+
+   import org.testng.annotations.Test;
+
+   public class DiffClazzTest {
+       @Test(dataProvider = "create", dataProviderClass = StaticProvider.class)
+       public void test(Integer n) {
+           System.out.println(n);
+       }
+   }
+
+-  createData()为static。
+-  需要额外通过@Test的dataProviderClass属性指定@DataProvider所在的类。
+
+@DataProvider的返回值（\ **参数类型**\ ）除了已经提到的\ ``Object[][]``\ ，还可以是\ ``Iterator<Object[]>``\ ，它不会一次性生成所有数据，而是每调用一次生成一次，节约内存，比如：
+
+.. code:: java
+
+   import org.testng.annotations.DataProvider;
+   import org.testng.annotations.Test;
+
+   import java.util.Arrays;
+   import java.util.Iterator;
+
+   public class IterTest {
+       @DataProvider(name = "test1")
+       public Iterator<Object[]> createData1() {
+           Object[][] myObjects = new Object[][]{
+                   {"Cedric", 36},
+                   {"Anne", 37},
+           };
+           return Arrays.asList(myObjects).iterator();
+       }
+
+       @Test(dataProvider = "test1")
+       public void verifyData1(String n1, Integer n2) {
+           System.out.println(n1 + " " + n2);
+       }
+   }
+
+**看到这里，对@DataProvider已经有了足够的认识，它支持两种参数类型**\ ：
+
+-  ``Object[][]``
+-  ``Iterator<Object[]>``
+
+假如测试方法只有一个入参，是不是只能用二维来实现：
+
+.. code:: java
+
+   import org.testng.annotations.DataProvider;
+   import org.testng.annotations.Test;
+
+   import java.util.Arrays;
+   import java.util.Iterator;
+
+   public class IterTest {
+       @DataProvider(name = "test1")
+       public Iterator<Object[]> createData1() {
+           Object[][] myObjects = new Object[][]{
+                   {"x"},
+                   {"y"}
+           };
+           return Arrays.asList(myObjects).iterator();
+       }
+
+       @Test(dataProvider = "test1")
+       public void verifyData1(String n) {
+           System.out.println(n);
+       }
+   }
+
+其实不是，\ **@DataProvider支持一维**\ 数组：
+
+.. code:: java
+
+   import org.testng.annotations.DataProvider;
+   import org.testng.annotations.Test;
+
+   import java.util.Arrays;
+   import java.util.Iterator;
+
+   public class IterTest {
+       @DataProvider(name = "test1")
+       public Object[] createData1() {
+           Object[] myObjects = new Object[]{
+                   "x",
+                   "y"
+           };
+           return myObjects;
+       }
+
+       @Test(dataProvider = "test1")
+       public void verifyData1(String n) {
+           System.out.println(n);
+       }
+   }
+
+以及一维数组的迭代器：
+
+.. code:: java
+
+   import org.testng.annotations.DataProvider;
+   import org.testng.annotations.Test;
+
+   import java.util.Arrays;
+   import java.util.Iterator;
+
+   public class IterTest {
+       @DataProvider(name = "test1")
+       public Iterator<Object> createData1() {
+           Object[] myObjects = new Object[]{
+                   "x",
+                   "y"
+           };
+           return Arrays.asList(myObjects).iterator();
+       }
+
+       @Test(dataProvider = "test1")
+       public void verifyData1(String n) {
+           System.out.println(n);
+       }
+   }
+
+**最精彩的来了，@DataProvider支持反射，也就是反向获取测试方法的信息：**
+
+.. code:: java
+
+   @DataProvider(name = "dp")
+   public Object[][] createData(Method m) {
+     System.out.println(m.getName());  // print test method name
+     return new Object[][] { new Object[] { "Cedric" }};
+   }
+    
+   @Test(dataProvider = "dp")
+   public void test1(String s) {
+   }
+    
+   @Test(dataProvider = "dp")
+   public void test2(String s) {
+   }
+
+-  createData的入参是java.lang.reflect.Method，这样就能获取到测试方法的信息，比如这里的getName()会依次拿到test1、test2。
+
+@DataProvider还支持并发：
+
+.. code:: java
+
+   @DataProvider(parallel = true)
+   // ...
+
+默认是10个线程，可以在testng.xml中修改：
+
+::
+
+   <suite name="Suite1" data-provider-thread-count="20" >
+   ...
+
+一个xml共享一个线程池，如果要用多个线程池，那么需要创建多个testng.xml。
+
+锦上添花的是，TestNG的参数化会打印在测试报告中：
+
+|image2|
+
+   参考资料：
+
+   https://testng.org/doc/documentation-main.html 5.6 - Parameters
+
+.. |image1| image:: ../wanggang.png
+.. |image2| image:: 005-TestNG参数化有何特别之处/parameters.png
