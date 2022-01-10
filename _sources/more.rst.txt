@@ -2,13 +2,9 @@
 More
 ==============
 
-* WeChatID：cekaigang，加入测试开发刚哥交流群。
-
 * GitHub: https://github.com/dongfanger
 
 * Gitee: https://gitee.com/dongfanger
-
-.. image:: ./ocsearch.png
 
 .. image:: ./dongfangjd.png
 
