@@ -15,13 +15,13 @@ Contents:
    
    intro
    chapters/Java
-   chapters/TestNG
    chapters/JMeter
    chapters/Spring Boot
-   chapters/Maven
-   chapters/JaCoCo
+   chapters/TestNG
    chapters/JUnit
    chapters/Mockito
+   chapters/JaCoCo
+   chapters/Maven
    chapters/MyBatis
    chapters/Message Queue
    chapters/Nginx
