@@ -31,6 +31,7 @@ Contents:
    chapters/pytest
    chapters/tep
    chapters/teprunner
+   chapters/HttpRunner
    chapters/Django
    chapters/Django REST framework
    chapters/Flask
