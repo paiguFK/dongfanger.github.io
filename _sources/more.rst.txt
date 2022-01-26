@@ -4,7 +4,7 @@ More
 
 .. image:: ./group.png
 
-* Bilibili https://space.bilibili.com/396344573
+* Bilibili: https://space.bilibili.com/396344573
 
 * GitHub: https://github.com/dongfanger
 

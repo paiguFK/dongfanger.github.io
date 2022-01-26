@@ -36,6 +36,7 @@ Contents:
    chapters/Django REST framework
    chapters/Flask
    chapters/Locust
+   chapters/Allure Report
    chapters/Single Article
    chapters/Annual Summary
    chapters/Bildungsroman

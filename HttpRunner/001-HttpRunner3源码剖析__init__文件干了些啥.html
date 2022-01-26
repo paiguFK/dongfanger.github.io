@@ -111,12 +111,15 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../chapters/HttpRunner.html">HttpRunner</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1 HttpRunner3源码剖析__init__文件干了些啥</a></li>
 <li class="toctree-l2"><a class="reference internal" href="002-HttpRunner3%E7%9A%84HTTP%E8%AF%B7%E6%B1%82%E6%98%AF%E6%80%8E%E4%B9%88%E5%8F%91%E5%87%BA%E5%8E%BB%E7%9A%84.html">2 HttpRunner3的HTTP请求是怎么发出去的</a></li>
+<li class="toctree-l2"><a class="reference internal" href="003-HttpRunner3%E7%9A%84%E7%94%A8%E4%BE%8B%E6%98%AF%E6%80%8E%E4%B9%88%E8%BF%90%E8%A1%8C%E8%B5%B7%E6%9D%A5%E7%9A%84.html">3 HttpRunner3的用例是怎么运行起来的</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004-HttpRunner3%E7%9A%84%E5%8F%98%E9%87%8F%E6%98%AF%E5%A6%82%E4%BD%95%E4%BC%A0%E9%80%92%E7%9A%84.html">4 HttpRunner3的变量是如何传递的</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Flask.html">Flask</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Allure%20Report.html">Allure Report</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
@@ -190,7 +193,7 @@
             
   <div class="section" id="httprunner3-init">
 <h1>1 HttpRunner3源码剖析__init__文件干了些啥<a class="headerlink" href="#httprunner3-init" title="Permalink to this headline">¶</a></h1>
-<p><img alt="image1" src="../_images/wanggang6.png" /></p>
+<p><img alt="image1" src="../_images/wanggang7.png" /></p>
 <p>大家好，我是刚哥。</p>
 <p>从这篇文章开始，将对HttpRunner3的源码进行剖析。</p>
 <p>为什么是HttpRunner3？其实pytest是一个更强大的测试框架，无奈它的源码实在是太复杂了，连学习pytest的使用都要花上很多时间，哪还有那么多精力去看它的源码。而其他很多所谓的测试框架实在是太粗糙了，学不到东西不说，还可能学错。HttpRunner正好介于两者之间，既不复杂，也不简单，刚刚好。</p>
