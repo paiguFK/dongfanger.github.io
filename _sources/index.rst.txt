@@ -40,7 +40,6 @@ Contents:
    chapters/Single Article
    chapters/Annual Summary
    chapters/Bildungsroman
-   more
 
 --------------
 
