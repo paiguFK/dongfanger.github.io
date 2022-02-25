@@ -37,6 +37,7 @@ Contents:
    chapters/Flask
    chapters/Locust
    chapters/Allure Report
+   chapters/Web Proxy
    chapters/Single Article
    chapters/Annual Summary
    chapters/Bildungsroman

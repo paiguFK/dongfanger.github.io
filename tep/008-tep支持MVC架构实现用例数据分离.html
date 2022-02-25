@@ -116,6 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="007-tep%E9%9B%86%E6%88%90HttpRunner%E4%B8%8EFlask%E5%AE%9E%E7%8E%B0%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8.html">7 tep集成HttpRunner与Flask实现开箱即用</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">8 tep支持MVC架构实现用例数据分离</a></li>
 <li class="toctree-l2"><a class="reference internal" href="009-tep0.9.5%E6%94%AF%E6%8C%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%89%A9%E5%B1%95request.html">9 tep0.9.5支持自定义扩展request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="010-tep%E9%9B%86%E6%88%90mitmproxy%E5%BD%95%E5%88%B6%E6%B5%81%E9%87%8F%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%94%A8%E4%BE%8B.html">10 tep集成mitmproxy录制流量自动生成用例</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner.html">teprunner</a></li>
@@ -125,6 +126,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Flask.html">Flask</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Allure%20Report.html">Allure Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Web%20Proxy.html">Web Proxy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
@@ -197,7 +199,7 @@
             
   <div class="section" id="tepmvc">
 <h1>8 tep支持MVC架构实现用例数据分离<a class="headerlink" href="#tepmvc" title="Permalink to this headline">¶</a></h1>
-<p><img alt="image1" src="../_images/wanggang23.png" /></p>
+<p><img alt="image1" src="../_images/wanggang25.png" /></p>
 <p>大家好，我是刚哥。</p>
 <p>tep已经支持了两种开发模式：用例数据一体和HttpRunner（第三版）。HttpRunner已经众所周知，此处不做过多介绍。<strong>用例数据一体</strong>指的是把用例和数据都写在一个test.py文件里面，这样的好处是简单直接明了，特别适合刚开始用pytest写自动化代码的同学，从上往下一气呵成就完成了一个自动化用例，收获成就感的同时，也能很方便的共享给其他人使用，单个文件就能跑起来。</p>
 <p>但是当我在公司用SpringBoot开发了一个后端服务后，尝到了MVC架构所带来的高可维护性，加上在跟各位大佬聊天时，也听说很多公司对接口自动化做了分层设计，于是让tep支持用例数据分离的开发，已经变得很重要了。<strong>用例数据分离</strong>指的是用例只有逻辑没有数据，这样在修改数据的时候，用例基本不需要变化就能适应，用例看起来是非常简洁的，就像这样：</p>
