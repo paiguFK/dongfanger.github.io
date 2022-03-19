@@ -111,6 +111,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#id1">持续维护的教程</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tep">tep是个小工具</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">快速入门</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#python">Python版本</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id3">安装tep</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pytest">新建pytest项目</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#fastapi">启动自带FastAPI应用</a></li>
@@ -121,36 +122,41 @@
 <li class="toctree-l3"><a class="reference internal" href="#id6">使用篇</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id7">用例集</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id8">测试用例</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id9">测试步骤</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id10">语法约定</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id11">接口管理</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id12">接口复用</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id13">接口串联</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id14">全局变量</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id15">局部变量</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id16">环境切换</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id17">数据驱动</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id18">断言</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id19">测试报告</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id20">自定义日志</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">测试标题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">测试步骤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">语法约定</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">接口管理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">接口复用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">接口串联</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">全局变量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">局部变量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">环境切换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">数据驱动</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">断言</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">测试报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">自定义日志</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pairwise">Pairwise算法生成功能用例</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id21">录制流量生成自动化用例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22">录制流量生成自动化用例</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id22">原理篇</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id23">原理篇</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#pypi">pypi库</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id23">集成第三方包</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id24">项目脚手架</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id25">变量池</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id26">环境变量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">集成第三方包</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id25">项目脚手架</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id26">变量池</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id27">环境变量</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#fixture">fixture自动导入</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#requests">requests猴子补丁</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#allure">一键生成Allure测试报告</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id27">附录</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id28">tep相比于pytest优势</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id29">tep测试平台化思路</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">项目篇</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#httpbin">HTTPBin网站</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">附录</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id30">tep相比于pytest优势</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id31">tep测试平台化思路</a></li>
 </ul>
 </li>
 </ul>
@@ -251,9 +257,7 @@
 <p><img alt="image1" src="../_images/wanggang25.png" /></p>
 <div class="section" id="id1">
 <h2>持续维护的教程<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>tep教程会随着版本更新或经验积累，持续维护在电子书中，最新的最全的内容请锁定这篇文章<strong>【最新】000-【最新】tep完整教程帮你突破pytest</strong>：</p>
-<p><a class="reference external" href="https://dongfanger.gitee.io/blog/chapters/tep.html">https://dongfanger.gitee.io/blog/chapters/tep.html</a></p>
-<p><img alt="image2" src="../_images/image-20220312205138970.png" /></p>
+<p>tep教程会随着版本更新或经验积累，持续维护在电子书中，最新的最全的内容尽在于此。</p>
 <p>对教程有任何疑问或建议，可添加微信交流哟：<strong>cekaigang</strong>。</p>
 </div>
 <div class="section" id="tep">
@@ -263,37 +267,45 @@
 </div>
 <div class="section" id="id2">
 <h2>快速入门<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="python">
+<h3>Python版本<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<p>支持Python3.7+版本，因为pytest7.1.1要求必须Python3.7+版本。</p>
+</div>
 <div class="section" id="id3">
 <h3>安装tep<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install tep
 </pre></div>
 </div>
-<p><img alt="image3" src="../_images/image-20220312121613707.png" /></p>
+<p><img alt="image2" src="../_images/image-20220312121613707.png" /></p>
 </div>
 <div class="section" id="pytest">
 <h3>新建pytest项目<a class="headerlink" href="#pytest" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tep startproject demo
 </pre></div>
 </div>
-<p><img alt="image4" src="../_images/image-20220312100414996.png" /></p>
+<p><img alt="image3" src="../_images/image-20220312100414996.png" /></p>
+<p>带上<code class="docutils literal notranslate"><span class="pre">-venv</span></code>参数，会创建Python虚拟环境，并在虚拟环境中安装tep：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tep startproject demo -venv
+</pre></div>
+</div>
 </div>
 <div class="section" id="fastapi">
 <h3>启动自带FastAPI应用<a class="headerlink" href="#fastapi" title="Permalink to this headline">¶</a></h3>
 <p>运行<code class="docutils literal notranslate"><span class="pre">utils/fastapi_mock.py</span></code>脚本。</p>
-<p><img alt="image5" src="../_images/image-20220312121339126.png" /></p>
+<p><img alt="image4" src="../_images/image-20220312121339126.png" /></p>
 </div>
 <div class="section" id="id4">
 <h3>测试<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>运行samples文件夹下<code class="docutils literal notranslate"><span class="pre">login_pay</span></code>脚本。</p>
-<p><img alt="image6" src="../_images/image-20220312122019200.png" /></p>
+<p><img alt="image5" src="../_images/image-20220312122019200.png" /></p>
 </div>
 <div class="section" id="id5">
 <h3>生成报告<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pytest samples/login_pay --tep-reports
 </pre></div>
 </div>
-<p><img alt="image7" src="../_images/image-20220312122403735.png" /></p>
-<p><img alt="image8" src="../_images/image-20220312122511029.png" /></p>
+<p><img alt="image6" src="../_images/image-20220312122403735.png" /></p>
+<p><img alt="image7" src="../_images/image-20220312122511029.png" /></p>
 </div>
 </div>
 <div class="section" id="id6">
@@ -316,11 +328,22 @@
 </div>
 <div class="section" id="id8">
 <h3>测试用例<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
-<p>用例的基本原则是<strong>用例解耦</strong>：每个<code class="docutils literal notranslate"><span class="pre">.py</span></code>文件都是单独的可运行的测试用例。</p>
+<p>用例的基本原则是<strong>用例解耦</strong>：每个<code class="docutils literal notranslate"><span class="pre">.py</span></code>文件都是单独的可运行的测试用例。每条测试用例尽量只包含一个<code class="docutils literal notranslate"><span class="pre">test()</span></code>函数。测试用例由测试标题和测试步骤组成。</p>
 </div>
 <div class="section" id="id9">
-<h3>测试步骤<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
-<p>测试用例由测试步骤组成。步骤由<strong>描述、数据、请求、提取、断言</strong>5个部分组成：</p>
+<h3>测试标题<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>测试标题采用了<code class="docutils literal notranslate"><span class="pre">&#64;allure.title(&quot;&quot;)</span></code>：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">allure</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;用例标题&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">env_vars</span><span class="p">):</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>测试步骤<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>测试步骤由<strong>描述、数据、请求、提取、断言</strong>5个部分组成：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## 描述</span>
 <span class="c1">## 数据</span>
 <span class="c1">## 请求</span>
@@ -337,16 +360,16 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id10">
-<h3>语法约定<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>语法约定<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p>强烈推荐直接编写Python代码。无需额外学习新语法，精通Python语言和Python库用法，让你的代码能力直线上升。tep没有做特殊封装，只做了语法约定。tep编写自动化脚本的方法，<strong>是一种追求效率的极速写法</strong>。</p>
 </div>
-<div class="section" id="id11">
-<h3>接口管理<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>接口管理<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <p>接口写在用例步骤里，不用单独管理，<strong>不为了代码数据分离而分离</strong>。如果想单独管理，可以参考示例代码中的mvc写法，不推荐这种效率偏低的方式。</p>
 </div>
-<div class="section" id="id12">
-<h3>接口复用<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>接口复用<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <p>接口复用的原则是逻辑相对简单，url+入参+出参，比较固定且重复使用次数很多。<strong>符合复用要求的接口可以做成fixture</strong>，供测试用例使用。参考<code class="docutils literal notranslate"><span class="pre">fixtures/fixture_login.py</span></code>脚本：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tep.client</span> <span class="kn">import</span> <span class="n">request</span>
 <span class="kn">from</span> <span class="nn">tep.fixture</span> <span class="kn">import</span> <span class="o">*</span>
@@ -381,12 +404,12 @@
 </div>
 <p><strong>返回值使用类包了一层</strong>，一是为了在写代码时会有语法智能补全，二是方便后续扩展，直接给类添加新的属性即可，不影响其他用例。</p>
 </div>
-<div class="section" id="id13">
-<h3>接口串联<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>接口串联<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>得益于<strong>一个``.py``文件就是一条用例的约定</strong>。接口的串联就能通过变量进行实现，从上个接口响应中取值，存入变量，放到下个接口的入参中，轻松完成。</p>
 </div>
-<div class="section" id="id14">
-<h3>全局变量<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h3>全局变量<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <p><strong>env_vars是全局变量池</strong>，提供了put()和get()方法对变量进行动态存取。在<code class="docutils literal notranslate"><span class="pre">fixtures/fixture_env_vars.py</span></code>可以设置<strong>预设变量</strong>：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="c1">## encoding=utf-8</span>
@@ -430,37 +453,37 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id15">
-<h3>局部变量<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h3>局部变量<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <p>就像<strong>正常的Python变量</strong>一样使用，没有特殊的语法。</p>
 </div>
-<div class="section" id="id16">
-<h3>环境切换<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>环境切换<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <p>在<code class="docutils literal notranslate"><span class="pre">conf.yaml</span></code>中可以切换运行环境：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">env</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">qa</span>
 </pre></div>
 </div>
 <p>环境之间的差别体现在<strong>环境变量</strong>，环境变量也是在<code class="docutils literal notranslate"><span class="pre">fixtures/fixture_env_vars.py</span></code>中进行预设的。默认有<code class="docutils literal notranslate"><span class="pre">qa</span></code>和<code class="docutils literal notranslate"><span class="pre">release</span></code>2个环境。</p>
 </div>
-<div class="section" id="id17">
-<h3>数据驱动<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3>数据驱动<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <p>推荐使用<code class="docutils literal notranslate"><span class="pre">pytest.mark.parametrize</span></code>。</p>
 <p><em>//TODO集成对excel、json、yaml文件读写方法。</em></p>
 </div>
-<div class="section" id="id18">
-<h3>断言<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h3>断言<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <p>采用<strong>Python原生的assert断言</strong>。</p>
 <p><em>//TODO整理assert用法。</em></p>
 </div>
-<div class="section" id="id19">
-<h3>测试报告<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id20">
+<h3>测试报告<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <p>在pytest命令行添加参数<code class="docutils literal notranslate"><span class="pre">--tep-reports</span></code>就能一键生成<strong>Allure测试报告</strong>，并且会把请求入参和响应出参，记录在测试报告中。</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pytest --tep-reports
 </pre></div>
 </div>
 </div>
-<div class="section" id="id20">
-<h3>自定义日志<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id21">
+<h3>自定义日志<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 <p>编辑<code class="docutils literal notranslate"><span class="pre">utils/http_client.py</span></code>对日志进行自定义，用例中<strong>引用新版本request</strong>：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils.http_client</span> <span class="kn">import</span> <span class="n">request</span>
 </pre></div>
@@ -502,20 +525,20 @@ pair total:9
 </pre></div>
 </div>
 </div>
-<div class="section" id="id21">
-<h3>录制流量生成自动化用例<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id22">
+<h3>录制流量生成自动化用例<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
 <p>①手动设置系统代理。</p>
 <p>②命令行cd到<code class="docutils literal notranslate"><span class="pre">utils</span></code>目录下，在mitm.py中设置<strong>过滤域名</strong>。</p>
 <p>③<code class="docutils literal notranslate"><span class="pre">mitmdump</span> <span class="pre">-s</span> <span class="pre">mitm.py</span></code>开始录制。</p>
 <p>用例会自动生成到<code class="docutils literal notranslate"><span class="pre">tests/mitm</span></code>文件夹下。</p>
 </div>
 </div>
-<div class="section" id="id22">
-<h2>原理篇<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id23">
+<h2>原理篇<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
 <p><strong>代码是最好的文档：</strong></p>
 <p><a class="reference external" href="https://github.com/dongfanger/tep">https://github.com/dongfanger/tep</a></p>
 <p><em>//TODO完善代码注释</em></p>
-<p><img alt="image9" src="../_images/image-20220313145244920.png" /></p>
+<p><img alt="image8" src="../_images/image-20220313145244920.png" /></p>
 <div class="section" id="pypi">
 <h3>pypi库<a class="headerlink" href="#pypi" title="Permalink to this headline">¶</a></h3>
 <p>tep可以通过pip直接安装，这是因为源码上传到了pypi官方库。上传借助了poetry来实现：</p>
@@ -526,8 +549,8 @@ pair total:9
 </div>
 <p>执行这3条命令，然后输入pypi注册的用户名和密码即可。</p>
 </div>
-<div class="section" id="id23">
-<h3>集成第三方包<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id24">
+<h3>集成第三方包<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
 <p>poetry包管理器可以通过命令安装包：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">install</span> <span class="n">package</span>
 <span class="n">poetry</span> <span class="n">remove</span> <span class="n">package</span>
@@ -535,8 +558,8 @@ pair total:9
 </div>
 <p>集成以后的包会随着tep一起安装。</p>
 </div>
-<div class="section" id="id24">
-<h3>项目脚手架<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id25">
+<h3>项目脚手架<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
 <p>tep能从系统命令行来调用，也是借助poetry来实现的：</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="c1">##  pyproject.toml</span>
 <span class="k">[tool.poetry.scripts]</span>
@@ -590,8 +613,8 @@ pair total:9
 </div>
 <p>startproject会调用main_scaffold函数，这里面的逻辑很简单，就是创建文件夹和文件，文件内容是已经写好的样板代码。</p>
 </div>
-<div class="section" id="id25">
-<h3>变量池<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id26">
+<h3>变量池<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
 <p>变量池是在<code class="docutils literal notranslate"><span class="pre">tep/fixture.py</span></code>中实现的：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TepVars</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -611,8 +634,8 @@ pair total:9
 </div>
 <p>它就是一个具有get和put方法的类，变量存在<code class="docutils literal notranslate"><span class="pre">self.vars_</span></code>这个全局字典中，所有脚本共享同一个变量池。</p>
 </div>
-<div class="section" id="id26">
-<h3>环境变量<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id27">
+<h3>环境变量<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
 <p>环境配置是通过config来读取的：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&quot;session&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">config</span><span class="p">():</span>
@@ -767,10 +790,18 @@ pair total:9
 <p><em>//TODO其他原理慢慢更新，欢迎提出疑问，不断补充。</em></p>
 </div>
 </div>
-<div class="section" id="id27">
-<h2>附录<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id28">
-<h3>tep相比于pytest优势<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<h2>项目篇<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="httpbin">
+<h3>HTTPBin网站<a class="headerlink" href="#httpbin" title="Permalink to this headline">¶</a></h3>
+<p>源码：<a class="reference external" href="https://github.com/dongfanger/httpbin">https://github.com/dongfanger/httpbin</a></p>
+<p>文章：</p>
+</div>
+</div>
+<div class="section" id="id29">
+<h2>附录<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id30">
+<h3>tep相比于pytest优势<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
 <p>【项目创建】</p>
 <p>项目脚手架快速创建自动化项目；</p>
 <p>良好的项目结构设计；</p>
@@ -784,8 +815,8 @@ pair total:9
 <p>teprunner测试平台在线管理pytest脚本；</p>
 <p>支持Git一键同步至平台；</p>
 </div>
-<div class="section" id="id29">
-<h3>tep测试平台化思路<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id31">
+<h3>tep测试平台化思路<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
 <p><strong>teprunner是基于tep的测试平台</strong>。</p>
 <p>从测试工具转变到测试平台，最重要是要想清楚用例的运行流程。从前端录入用例信息后，通过后端保存到数据库，再把数据组装出来，变成可执行的文件。teprunner的做法是，把pytest作为引擎，用例全部转化为文件，然后使用pytest命令运行用例。</p>
 <p>用例解耦是实现平台化的关键原则。tep是按照一个<code class="docutils literal notranslate"><span class="pre">.py</span></code>文件一条用例的约定来编写脚本的，使得每个文件都是独立的可运行的。这就能很好的对应到，前端测试用例的增删改查。假如用例没有解耦，Python文件之间存在非常多的依赖，那么想做成Web平台是很困难的，在界面上根本无法操作。</p>
