@@ -627,12 +627,12 @@ requests借助于装饰器打了猴子补丁，\ ``tep/client.py``\ ：
 项目篇
 ------
 
+文章：https://dongfanger.gitee.io/blog/chapters/tep%20project.html
+
 HTTPBin网站
 ~~~~~~~~~~~
 
 源码：https://github.com/dongfanger/httpbin
-
-文章：
 
 附录
 ----
