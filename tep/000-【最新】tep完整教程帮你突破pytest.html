@@ -473,8 +473,110 @@
 </div>
 <div class="section" id="id19">
 <h3>断言<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
-<p>采用<strong>Python原生的assert断言</strong>。</p>
-<p><em>//TODO整理assert用法。</em></p>
+<p>采用<strong>Python原生的assert断言</strong>。16种常用断言如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">allure</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;等于&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_equal</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;不等于&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_not_equal</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">1</span> <span class="o">!=</span> <span class="mi">2</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;大于&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_greater_than</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;小于&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_less_than</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;大于等于&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_less_or_equals</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">2</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="mi">2</span> <span class="o">&gt;=</span> <span class="mi">2</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;小于等于&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_greater_or_equals</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span>
+    <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;长度相等&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_length_equal</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;长度大于&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_length_greater_than</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;长度小于&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_length_less_than</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;长度大于等于&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_length_greater_or_equals</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;长度小于等于&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_length_less_or_equals</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;字符串相等&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_string_equals</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="s2">&quot;dongfanger&quot;</span> <span class="o">==</span> <span class="s2">&quot;dongfanger&quot;</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;以...开头&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_startswith</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="s2">&quot;dongfanger&quot;</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;don&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;以...结尾&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_startswith</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="s2">&quot;dongfanger&quot;</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;er&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;正则匹配&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_regex_match</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">re</span>
+    <span class="k">assert</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;don.*er&quot;</span><span class="p">,</span> <span class="s2">&quot;dongfanger&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;包含&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_contains</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="s2">&quot;fang&quot;</span> <span class="ow">in</span> <span class="s2">&quot;dongfanger&quot;</span>
+    <span class="k">assert</span> <span class="mi">2</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="s2">&quot;x&quot;</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">}</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+
+<span class="nd">@allure</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;类型匹配&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_assert_type_match</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="mf">3e+26j</span><span class="p">,</span> <span class="nb">complex</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="nb">list</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">tuple</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">},</span> <span class="nb">set</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">({</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="nb">dict</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="id20">
 <h3>测试报告<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
