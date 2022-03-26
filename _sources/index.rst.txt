@@ -30,7 +30,6 @@ Contents:
    chapters/Python Advance
    chapters/pytest
    chapters/tep
-   chapters/tep project
    chapters/teprunner
    chapters/HttpRunner
    chapters/Django

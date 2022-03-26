@@ -502,18 +502,18 @@ tep共建
    postman https://www.postman.com/postman/workspace/httpbin/collection/
 
 .. |image1| image:: ../wanggang.png
-.. |image2| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-17-43-28-image.png
-.. |image3| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-17-43-51-image.png
-.. |image4| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-17-45-27-image.png
-.. |image5| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-17-46-03-image.png
-.. |image6| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-18-41-03-image.png
-.. |image7| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-18-40-29-image.png
-.. |image8| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-18-39-56-image.png
-.. |image9| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-18-39-17-image.png
-.. |image10| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-18-38-45-image.png
-.. |image11| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-18-37-50-image.png
-.. |image12| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-18-37-12-image.png
-.. |image13| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-18-35-04-image.png
-.. |image14| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-18-34-25-image.png
-.. |image15| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-18-33-27-image.png
-.. |image16| image:: 001-接口自动化项目落地之HTTPBin网站/2022-03-15-18-32-27-image.png
+.. |image2| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-17-43-28-image.png
+.. |image3| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-17-43-51-image.png
+.. |image4| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-17-45-27-image.png
+.. |image5| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-17-46-03-image.png
+.. |image6| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-18-41-03-image.png
+.. |image7| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-18-40-29-image.png
+.. |image8| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-18-39-56-image.png
+.. |image9| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-18-39-17-image.png
+.. |image10| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-18-38-45-image.png
+.. |image11| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-18-37-50-image.png
+.. |image12| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-18-37-12-image.png
+.. |image13| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-18-35-04-image.png
+.. |image14| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-18-34-25-image.png
+.. |image15| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-18-33-27-image.png
+.. |image16| image:: 012-接口自动化项目落地之HTTPBin网站/2022-03-15-18-32-27-image.png
