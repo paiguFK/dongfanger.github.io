@@ -14,6 +14,22 @@ Contents:
    :glob:
    
    intro
+   chapters/Python Basic
+   chapters/Python Advance
+   chapters/pytest
+   chapters/tep
+   chapters/teprunner
+   chapters/Django
+   chapters/Django REST framework
+   chapters/Flask
+   chapters/Locust
+   chapters/HttpRunner
+   chapters/Allure Report
+   chapters/Nginx
+   chapters/Web Proxy
+   chapters/Message Queue
+   chapters/DevOps
+   chapters/Vue
    chapters/Java
    chapters/JMeter
    chapters/Spring Boot
@@ -23,24 +39,8 @@ Contents:
    chapters/JaCoCo
    chapters/Maven
    chapters/MyBatis
-   chapters/Message Queue
-   chapters/Nginx
-   chapters/DevOps
-   chapters/Python Basic
-   chapters/Python Advance
-   chapters/pytest
-   chapters/tep
-   chapters/teprunner
-   chapters/HttpRunner
-   chapters/Django
-   chapters/Django REST framework
-   chapters/Flask
-   chapters/Locust
-   chapters/Allure Report
-   chapters/Web Proxy
    chapters/Single Article
    chapters/Annual Summary
-   chapters/Bildungsroman
 
 --------------
 

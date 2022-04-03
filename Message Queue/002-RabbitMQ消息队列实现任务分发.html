@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2 RabbitMQ消息队列实现任务分发 &mdash; 测试开发刚哥 latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="DevOps" href="../chapters/DevOps.html" />
+    <link rel="prev" title="1 你好RabbitMQ消息队列" href="001-%E4%BD%A0%E5%A5%BDRabbitMQ%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> 测试开发刚哥
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/pytest.html">pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/teprunner.html">teprunner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Flask.html">Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/HttpRunner.html">HttpRunner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Allure%20Report.html">Allure Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Web%20Proxy.html">Web Proxy</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/Message%20Queue.html">Message Queue</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-%E4%BD%A0%E5%A5%BDRabbitMQ%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97.html">1 你好RabbitMQ消息队列</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2 RabbitMQ消息队列实现任务分发</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">任务分发</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">消息确认</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">消息持久化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">均衡调度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">完整代码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/DevOps.html">DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Vue.html">Vue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Spring%20Boot.html">Spring Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/TestNG.html">TestNG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JUnit.html">JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Mockito.html">Mockito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JaCoCo.html">JaCoCo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Maven.html">Maven</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">测试开发刚哥</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/Message%20Queue.html">Message Queue</a> &raquo;</li>
+        
+      <li>2 RabbitMQ消息队列实现任务分发</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Message Queue/002-RabbitMQ消息队列实现任务分发.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rabbitmq">
+<h1>2 RabbitMQ消息队列实现任务分发<a class="headerlink" href="#rabbitmq" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang13.png" /></p>
+<div class="section" id="id1">
+<h2>任务分发<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>任务分发是把多个任务扔进队列，然后分发给多个worker来执行。之所以要用队列来实现，是因为任务处理需要一定时长，如果一直等待会导致阻塞，而异步把任务排到队列里，就能加快分发，在取出任务时，也能根据各个worker负载情况，均衡分配。尤其是在Web应用中，HTTP连接短暂就会断开，异步处理就特别适用。排队比蜂拥而至办事效率更高。</p>
+<p><img alt="image2" src="../_images/2022-03-30-09-06-09-image.png" /></p>
+<p>实现任务分发，新建<code class="docutils literal notranslate"><span class="pre">NewTask.java</span></code>发送消息：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">join</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+
+<span class="n">channel</span><span class="p">.</span><span class="na">basicPublish</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="n">message</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; [x] Sent &#39;&quot;</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="s">&quot;&#39;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>用message来模拟任务。</p>
+<p>新建<code class="docutils literal notranslate"><span class="pre">Worker.java</span></code>接收消息：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DeliverCallback</span> <span class="n">deliverCallback</span> <span class="o">=</span> <span class="p">(</span><span class="n">consumerTag</span><span class="p">,</span> <span class="n">delivery</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">{</span>
+  <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="n">delivery</span><span class="p">.</span><span class="na">getBody</span><span class="p">(),</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+
+  <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; [x] Received &#39;&quot;</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="s">&quot;&#39;&quot;</span><span class="p">);</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="n">doWork</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; [x] Done&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="kt">boolean</span> <span class="n">autoAck</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// acknowledgment is covered below</span>
+<span class="n">channel</span><span class="p">.</span><span class="na">basicConsume</span><span class="p">(</span><span class="n">TASK_QUEUE_NAME</span><span class="p">,</span> <span class="n">autoAck</span><span class="p">,</span> <span class="n">deliverCallback</span><span class="p">,</span> <span class="n">consumerTag</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">doWork</span><span class="p">(</span><span class="n">String</span> <span class="n">task</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="n">ch</span><span class="p">:</span> <span class="n">task</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;.&#39;</span><span class="p">)</span> <span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">doWrok()</span></code>模拟任务处理，用<code class="docutils literal notranslate"><span class="pre">.</span></code>来表示时长，<code class="docutils literal notranslate"><span class="pre">hello...</span></code>就代表要处理3秒。</p>
+<p>然后在2个shell启动2个worker：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">## shell 1</span>
+java -cp <span class="nv">$CP</span> Worker
+<span class="c1">## =&gt; [*] Waiting for messages. To exit press CTRL+C</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">## shell 2</span>
+java -cp <span class="nv">$CP</span> Worker
+<span class="c1">## =&gt; [*] Waiting for messages. To exit press CTRL+C</span>
+</pre></div>
+</div>
+<p>发送5条任务：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">## shell 3</span>
+java -cp <span class="nv">$CP</span> NewTask First message.
+<span class="c1">## =&gt; [x] Sent &#39;First message.&#39;</span>
+java -cp <span class="nv">$CP</span> NewTask Second message..
+<span class="c1">## =&gt; [x] Sent &#39;Second message..&#39;</span>
+java -cp <span class="nv">$CP</span> NewTask Third message...
+<span class="c1">## =&gt; [x] Sent &#39;Third message...&#39;</span>
+java -cp <span class="nv">$CP</span> NewTask Fourth message....
+<span class="c1">## =&gt; [x] Sent &#39;Fourth message....&#39;</span>
+java -cp <span class="nv">$CP</span> NewTask Fifth message.....
+<span class="c1">## =&gt; [x] Sent &#39;Fifth message.....&#39;</span>
+</pre></div>
+</div>
+<p>worker的处理情况如下：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>java -cp <span class="nv">$CP</span> Worker
+<span class="c1">## =&gt; [*] Waiting for messages. To exit press CTRL+C</span>
+<span class="c1">## =&gt; [x] Received &#39;First message.&#39;</span>
+<span class="c1">## =&gt; [x] Received &#39;Third message...&#39;</span>
+<span class="c1">## =&gt; [x] Received &#39;Fifth message.....&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>java -cp <span class="nv">$CP</span> Worker
+<span class="c1">## =&gt; [*] Waiting for messages. To exit press CTRL+C</span>
+<span class="c1">## =&gt; [x] Received &#39;Second message..&#39;</span>
+<span class="c1">## =&gt; [x] Received &#39;Fourth message....&#39;</span>
+</pre></div>
+</div>
+<p>任务是<strong>循环调度</strong>的，worker1总是处理奇数序列的任务，worker2总是处理偶数序列的任务。</p>
+</div>
+<div class="section" id="id2">
+<h2>消息确认<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>RabbitMQ支持消息确认，consumer在<strong>接收到消息并处理</strong>后，会回传一个ack给producer，告诉RabbitMQ这条消息已经接收成功了。它的好处是能防止worker挂掉而丢失消息，因为假如producer没有收到消息确认，它会保留这条消息，重新发送给其他worker。消息确认过程默认有30秒的超时时间，超过30秒没有收到消息确认，就会重试。</p>
+<p>在代码中有个默认设置：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">autoAck</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="n">channel</span><span class="p">.</span><span class="na">basicConsume</span><span class="p">(</span><span class="n">TASK_QUEUE_NAME</span><span class="p">,</span> <span class="n">autoAck</span><span class="p">,</span> <span class="n">deliverCallback</span><span class="p">,</span> <span class="n">consumerTag</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="p">});</span>
+</pre></div>
+</div>
+<p>autoAck表示自动确认，在消息发送出去以后，就自动确认了。这就起不到防止消息丢失的效果，所以通常会设置为：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">autoAck</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>消息持久化<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>RabbitMQ重启以后，所有的队列和消息都会丢失，消息持久化能保留这些数据，在重启后恢复所有的队列和消息。</p>
+<p>队列持久到用到了durable参数：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">durable</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="n">channel</span><span class="p">.</span><span class="na">queueDeclare</span><span class="p">(</span><span class="s">&quot;task_queue&quot;</span><span class="p">,</span> <span class="n">durable</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>需要注意的是，修改队列的参数必须重新命名新的队列，因为RabbitMQ不支持对现有队列的参数进行修改。</strong></p>
+<p>消息持久化用到了MessageProperties：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.rabbitmq.client.MessageProperties</span><span class="p">;</span>
+
+<span class="n">channel</span><span class="p">.</span><span class="na">basicPublish</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="s">&quot;task_queue&quot;</span><span class="p">,</span>
+            <span class="n">MessageProperties</span><span class="p">.</span><span class="na">PERSISTENT_TEXT_PLAIN</span><span class="p">,</span>
+            <span class="n">message</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>均衡调度<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>均衡调度是根据worker负载情况来合理分配任务。前面实现的任务分发是循环调度的，worker1总是处理奇数序列的任务，worker2总是处理偶数序列的任务。假如奇数序列的任务始终比偶数序列的任务繁忙，处理起来耗时长，那么就会导致worker1一直繁忙而worker2处于空闲。这显然不是很合理。</p>
+<p>这是因为RabbitMQ默认只是盲目的将第n个消息发给第n个consumer，而不会去管有多少个未确认的消息数量。</p>
+<p>RabbitMQ提供了prefetchCount参数来实现均衡调度：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">prefetchCount</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">channel</span><span class="p">.</span><span class="na">basicQos</span><span class="p">(</span><span class="n">prefetchCount</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>通过设置prefetchCount为1，RabbitMQ一次只会给一个worker分发一条消息，假如某个worker比较繁忙，那么只会等它处理完成回传消息确认（Message
+acknowledgment）后，才会分发新消息给它。</p>
+<p><img alt="image3" src="../_images/2022-03-30-16-13-46-image.png" /></p>
+</div>
+<div class="section" id="id5">
+<h2>完整代码<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">NewTask.java</span></code></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.rabbitmq.client.Channel</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.rabbitmq.client.Connection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.rabbitmq.client.ConnectionFactory</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.rabbitmq.client.MessageProperties</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NewTask</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TASK_QUEUE_NAME</span> <span class="o">=</span> <span class="s">&quot;task_queue&quot;</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">argv</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+    <span class="n">ConnectionFactory</span> <span class="n">factory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConnectionFactory</span><span class="p">();</span>
+    <span class="n">factory</span><span class="p">.</span><span class="na">setHost</span><span class="p">(</span><span class="s">&quot;localhost&quot;</span><span class="p">);</span>
+    <span class="k">try</span> <span class="p">(</span><span class="n">Connection</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="na">newConnection</span><span class="p">();</span>
+         <span class="n">Channel</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">connection</span><span class="p">.</span><span class="na">createChannel</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">channel</span><span class="p">.</span><span class="na">queueDeclare</span><span class="p">(</span><span class="n">TASK_QUEUE_NAME</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+
+        <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">join</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+
+        <span class="n">channel</span><span class="p">.</span><span class="na">basicPublish</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">TASK_QUEUE_NAME</span><span class="p">,</span>
+                <span class="n">MessageProperties</span><span class="p">.</span><span class="na">PERSISTENT_TEXT_PLAIN</span><span class="p">,</span>
+                <span class="n">message</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; [x] Sent &#39;&quot;</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="s">&quot;&#39;&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Worker.java</span></code></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.rabbitmq.client.Channel</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.rabbitmq.client.Connection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.rabbitmq.client.ConnectionFactory</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.rabbitmq.client.DeliverCallback</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Worker</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TASK_QUEUE_NAME</span> <span class="o">=</span> <span class="s">&quot;task_queue&quot;</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">argv</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+    <span class="n">ConnectionFactory</span> <span class="n">factory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConnectionFactory</span><span class="p">();</span>
+    <span class="n">factory</span><span class="p">.</span><span class="na">setHost</span><span class="p">(</span><span class="s">&quot;localhost&quot;</span><span class="p">);</span>
+    <span class="kd">final</span> <span class="n">Connection</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="na">newConnection</span><span class="p">();</span>
+    <span class="kd">final</span> <span class="n">Channel</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">connection</span><span class="p">.</span><span class="na">createChannel</span><span class="p">();</span>
+
+    <span class="n">channel</span><span class="p">.</span><span class="na">queueDeclare</span><span class="p">(</span><span class="n">TASK_QUEUE_NAME</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; [*] Waiting for messages. To exit press CTRL+C&quot;</span><span class="p">);</span>
+
+    <span class="n">channel</span><span class="p">.</span><span class="na">basicQos</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="n">DeliverCallback</span> <span class="n">deliverCallback</span> <span class="o">=</span> <span class="p">(</span><span class="n">consumerTag</span><span class="p">,</span> <span class="n">delivery</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">{</span>
+        <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="n">delivery</span><span class="p">.</span><span class="na">getBody</span><span class="p">(),</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; [x] Received &#39;&quot;</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="s">&quot;&#39;&quot;</span><span class="p">);</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">doWork</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; [x] Done&quot;</span><span class="p">);</span>
+            <span class="n">channel</span><span class="p">.</span><span class="na">basicAck</span><span class="p">(</span><span class="n">delivery</span><span class="p">.</span><span class="na">getEnvelope</span><span class="p">().</span><span class="na">getDeliveryTag</span><span class="p">(),</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="n">channel</span><span class="p">.</span><span class="na">basicConsume</span><span class="p">(</span><span class="n">TASK_QUEUE_NAME</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="n">deliverCallback</span><span class="p">,</span> <span class="n">consumerTag</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">doWork</span><span class="p">(</span><span class="n">String</span> <span class="n">task</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="n">ch</span> <span class="p">:</span> <span class="n">task</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;.&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">try</span> <span class="p">{</span>
+                <span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InterruptedException</span> <span class="n">_ignored</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">interrupt</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>参考资料：</p>
+<p><a class="reference external" href="https://www.rabbitmq.com/tutorials/tutorial-two-java.html">https://www.rabbitmq.com/tutorials/tutorial-two-java.html</a></p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/DevOps.html" class="btn btn-neutral float-right" title="DevOps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="001-%E4%BD%A0%E5%A5%BDRabbitMQ%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97.html" class="btn btn-neutral float-left" title="1 你好RabbitMQ消息队列" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 测试开发刚哥
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

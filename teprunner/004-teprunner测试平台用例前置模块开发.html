@@ -91,18 +91,6 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Intro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/Java.html">Java</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/Spring%20Boot.html">Spring Boot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/TestNG.html">TestNG</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/JUnit.html">JUnit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/Mockito.html">Mockito</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/JaCoCo.html">JaCoCo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/Maven.html">Maven</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/Message%20Queue.html">Message Queue</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/Nginx.html">Nginx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/DevOps.html">DevOps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Basic.html">Python Basic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Python%20Advance.html">Python Advance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/pytest.html">pytest</a></li>
@@ -127,16 +115,28 @@
 <li class="toctree-l2"><a class="reference internal" href="011-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E5%85%A5%E9%97%A8%E7%BA%A7%E9%83%A8%E7%BD%B2%E6%89%8B%E5%86%8C%E5%8F%91%E5%B8%83%E5%95%A6.html">11 teprunner测试平台入门级部署手册发布啦</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/HttpRunner.html">HttpRunner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Django.html">Django</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Django%20REST%20framework.html">Django REST framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Flask.html">Flask</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Locust.html">Locust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/HttpRunner.html">HttpRunner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Allure%20Report.html">Allure Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Web%20Proxy.html">Web Proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Message%20Queue.html">Message Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/DevOps.html">DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Vue.html">Vue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Spring%20Boot.html">Spring Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/TestNG.html">TestNG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JUnit.html">JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Mockito.html">Mockito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/JaCoCo.html">JaCoCo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Maven.html">Maven</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/MyBatis.html">MyBatis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Single%20Article.html">Single Article</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/Bildungsroman.html">Bildungsroman</a></li>
 </ul>
 
             
@@ -206,7 +206,7 @@
             
   <div class="section" id="teprunner">
 <h1>4 teprunner测试平台用例前置模块开发<a class="headerlink" href="#teprunner" title="Permalink to this headline">¶</a></h1>
-<p><img alt="image1" src="../_images/wanggang28.png" /></p>
+<p><img alt="image1" src="../_images/wanggang27.png" /></p>
 <div class="section" id="id1">
 <h2>本文开发内容<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>现在正式进入测试相关功能开发。teprunner测试平台底层是pytest，中间层是tep，还没了解的朋友可以先看看tep的文章，整个平台的设计思路和后面用例的执行都会基于这个工具。tep的测试用例是放在.py文件里面的，全局变量或者说环境变量是引用的env_vars，公共函数和复用接口是引用的fixtures，在做成平台后，需要把这两个部分独立为两个功能模块。多个项目的接口自动化数据需要隔离开来，要有个项目管理功能。本文将开发四个用例前置模块：</p>
