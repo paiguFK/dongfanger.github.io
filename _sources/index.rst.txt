@@ -14,6 +14,17 @@ Contents:
    :glob:
    
    intro
+   chapters/Java
+   chapters/JMeter
+   chapters/TestNG
+   chapters/Spring Boot
+   chapters/JUnit
+   chapters/JaCoCo
+   chapters/Mockito
+   chapters/Maven
+   chapters/MyBatis
+   chapters/Message Queue
+   chapters/Vue
    chapters/Python Basic
    chapters/Python Advance
    chapters/pytest
@@ -24,21 +35,10 @@ Contents:
    chapters/Flask
    chapters/Locust
    chapters/HttpRunner
-   chapters/Allure Report
+   chapters/DevOps
    chapters/Nginx
    chapters/Web Proxy
-   chapters/Message Queue
-   chapters/DevOps
-   chapters/Vue
-   chapters/Java
-   chapters/JMeter
-   chapters/Spring Boot
-   chapters/TestNG
-   chapters/JUnit
-   chapters/Mockito
-   chapters/JaCoCo
-   chapters/Maven
-   chapters/MyBatis
+   chapters/Allure Report
    chapters/Single Article
    chapters/Annual Summary
 
