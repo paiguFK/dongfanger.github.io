@@ -1,4 +1,4 @@
-5 刷了80道算法题以后
+1 刷了80道算法题以后
 ====================
 
 |image1|
@@ -34,6 +34,6 @@ https://github.com/labuladong/fucking-algorithm
 
 希望这篇文章对正在求职的小伙伴能有所帮助！
 
-.. |image1| image:: 005-刷了80道算法题以后/wanggang.png
-.. |image2| image:: 005-刷了80道算法题以后/image-20220225223357436.png
-.. |image3| image:: 005-刷了80道算法题以后/image-20220225224827259.png
+.. |image1| image:: 001-刷了80道算法题以后/wanggang.png
+.. |image2| image:: 001-刷了80道算法题以后/image-20220225223357436.png
+.. |image3| image:: 001-刷了80道算法题以后/image-20220225224827259.png

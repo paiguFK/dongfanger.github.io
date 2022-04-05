@@ -1,4 +1,4 @@
-4 一文搞懂Cookie,Session,Token,JWT
+1 一文搞懂Cookie,Session,Token,JWT
 ==================================
 
 |image1|
@@ -125,9 +125,9 @@ JWT长相是\ ``xxxxx.yyyyy.zzzzz``\ ，极具艺术感。包括三部分内容
    jwt-handbook-v0_14_1
 
 .. |image1| image:: ../wanggang.png
-.. |image2| image:: 004-一文搞懂Cookie,Session,Token,JWT/1629545-20200920194753257-245725312.png
-.. |image3| image:: 004-一文搞懂Cookie,Session,Token,JWT/1629545-20200920194753712-1249172538.png
-.. |image4| image:: 004-一文搞懂Cookie,Session,Token,JWT/1629545-20200920194754535-541726266.png
-.. |image5| image:: 004-一文搞懂Cookie,Session,Token,JWT/1629545-20200920194754785-1107254577.jpg
-.. |image6| image:: 004-一文搞懂Cookie,Session,Token,JWT/1629545-20200920194755062-1879018607.png
-.. |image7| image:: 004-一文搞懂Cookie,Session,Token,JWT/1629545-20200920194755302-37867992.png
+.. |image2| image:: 001-一文搞懂Cookie,Session,Token,JWT/1629545-20200920194753257-245725312.png
+.. |image3| image:: 001-一文搞懂Cookie,Session,Token,JWT/1629545-20200920194753712-1249172538.png
+.. |image4| image:: 001-一文搞懂Cookie,Session,Token,JWT/1629545-20200920194754535-541726266.png
+.. |image5| image:: 001-一文搞懂Cookie,Session,Token,JWT/1629545-20200920194754785-1107254577.jpg
+.. |image6| image:: 001-一文搞懂Cookie,Session,Token,JWT/1629545-20200920194755062-1879018607.png
+.. |image7| image:: 001-一文搞懂Cookie,Session,Token,JWT/1629545-20200920194755302-37867992.png

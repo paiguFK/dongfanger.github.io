@@ -1,4 +1,4 @@
-3 Postman竟然还能录制流量那岂不是可以
+2 Postman竟然还能录制流量那岂不是可以
 =====================================
 
 |image1|
@@ -87,8 +87,8 @@ Interceptor**\ 插件：
 未来tep和teprunner会支持这个功能。
 
 .. |image1| image:: ../wanggang.png
-.. |image2| image:: 003-Postman竟然还能录制流量那岂不是可以/image-20211223125510054.png
-.. |image3| image:: 003-Postman竟然还能录制流量那岂不是可以/image-20211223125818803.png
-.. |image4| image:: 003-Postman竟然还能录制流量那岂不是可以/image-20211223130017849.png
-.. |image5| image:: 003-Postman竟然还能录制流量那岂不是可以/image-20211223130214667.png
-.. |image6| image:: 003-Postman竟然还能录制流量那岂不是可以/image-20211223130415560.png
+.. |image2| image:: 002-Postman竟然还能录制流量那岂不是可以/image-20211223125510054.png
+.. |image3| image:: 002-Postman竟然还能录制流量那岂不是可以/image-20211223125818803.png
+.. |image4| image:: 002-Postman竟然还能录制流量那岂不是可以/image-20211223130017849.png
+.. |image5| image:: 002-Postman竟然还能录制流量那岂不是可以/image-20211223130214667.png
+.. |image6| image:: 002-Postman竟然还能录制流量那岂不是可以/image-20211223130415560.png

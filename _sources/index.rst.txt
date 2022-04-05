@@ -14,6 +14,8 @@ Contents:
    :glob:
    
    intro
+   chapters/Quality Assurance
+   chapters/Case Design
    chapters/Java
    chapters/JMeter
    chapters/TestNG
@@ -39,7 +41,9 @@ Contents:
    chapters/Nginx
    chapters/Web Proxy
    chapters/Allure Report
-   chapters/Single Article
+   chapters/Security
+   chapters/Regular Expression
+   chapters/Algorithm
    chapters/Annual Summary
 
 --------------
