@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1 大厂是如何保障测试质量的 &mdash; 测试开发刚哥 latest documentation</title>
+  <title>2 简单算法题 &mdash; 测试开发刚哥 latest documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Case Design" href="../chapters/Case%20Design.html" />
-    <link rel="prev" title="Quality Assurance" href="../chapters/Quality%20Assurance.html" /> 
+    <link rel="next" title="Annual Summary" href="../chapters/Annual%20Summary.html" />
+    <link rel="prev" title="1 经典面试题" href="001-%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,10 +91,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Intro</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../chapters/Quality%20Assurance.html">Quality Assurance</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1 大厂是如何保障测试质量的</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/Quality%20Assurance.html">Quality Assurance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Case%20Design.html">Case Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Java.html">Java</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/JMeter.html">JMeter</a></li>
@@ -124,7 +121,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Security.html">Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Regular%20Expression.html">Regular Expression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Algorithm.html">Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/Interview.html">Interview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/Interview.html">Interview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98.html">1 经典面试题</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2 简单算法题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">冒泡排序</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/Annual%20Summary.html">Annual Summary</a></li>
 </ul>
 
@@ -172,15 +176,15 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../chapters/Quality%20Assurance.html">Quality Assurance</a> &raquo;</li>
+          <li><a href="../chapters/Interview.html">Interview</a> &raquo;</li>
         
-      <li>1 大厂是如何保障测试质量的</li>
+      <li>2 简单算法题</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Quality Assurance/001-大厂是如何保障测试质量的.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Interview/002-简单算法题.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -194,9 +198,25 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>1 大厂是如何保障测试质量的<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p><img alt="image1" src="../_images/wanggang21.png" /></p>
-<p>敬请期待</p>
+<h1>2 简单算法题<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang9.png" /></p>
+<p>推荐用Python刷题。</p>
+<div class="section" id="id2">
+<h2>冒泡排序<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_bubble</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;冒泡排序&quot;&quot;&quot;</span>
+    <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+        <span class="c1"># -i 是因为i个元素已经排好序了</span>
+        <span class="c1"># -1 是因为遍历到最后防止数组越界</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="c1"># 把大的放后面，从小到大排序</span>
+            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -207,10 +227,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../chapters/Case%20Design.html" class="btn btn-neutral float-right" title="Case Design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../chapters/Annual%20Summary.html" class="btn btn-neutral float-right" title="Annual Summary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../chapters/Quality%20Assurance.html" class="btn btn-neutral float-left" title="Quality Assurance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="001-%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98.html" class="btn btn-neutral float-left" title="1 经典面试题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
