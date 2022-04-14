@@ -8,6 +8,8 @@ Intro
 
 * Gitee: https://gitee.com/dongfanger
 
+* B站：https://space.bilibili.com/396344573
+
 ------------------------------
 
 .. figure:: ../README/qrcode.jpg
