@@ -13,39 +13,23 @@ Contents:
    :maxdepth: 2
    :glob:
    
-   intro
-   chapters/Quality Assurance
-   chapters/Case Design
-   chapters/Java
-   chapters/JMeter
-   chapters/TestNG
-   chapters/Spring Boot
-   chapters/JUnit
-   chapters/JaCoCo
-   chapters/Mockito
-   chapters/Maven
-   chapters/MyBatis
-   chapters/Message Queue
-   chapters/Vue
-   chapters/Python Basic
-   chapters/Python Advance
-   chapters/pytest
-   chapters/tep
-   chapters/teprunner
-   chapters/Django
-   chapters/Django REST framework
-   chapters/Flask
-   chapters/Locust
-   chapters/HttpRunner
-   chapters/DevOps
-   chapters/Nginx
-   chapters/Web Proxy
-   chapters/Allure Report
-   chapters/Security
-   chapters/Regular Expression
-   chapters/Algorithm
-   chapters/Interview
-   chapters/Annual Summary
+   自我介绍
+   chapters/测试体系
+   chapters/用例设计
+   chapters/编程语言
+   chapters/单元测试
+   chapters/精准测试
+   chapters/测试框架
+   chapters/测试工具
+   chapters/测试平台
+   chapters/测试报告
+   chapters/流量回放
+   chapters/性能测试
+   chapters/开发框架
+   chapters/中间软件
+   chapters/通用技术
+   chapters/面试备战
+   chapters/总结感想
 
 --------------
 
