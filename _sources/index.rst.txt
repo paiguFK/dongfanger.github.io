@@ -18,6 +18,7 @@ Contents:
    chapters/用例设计
    chapters/编程语言
    chapters/接口自动
+   chapters/白盒测试
    chapters/单元测试
    chapters/精准测试
    chapters/测试环境
