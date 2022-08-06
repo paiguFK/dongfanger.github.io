@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>100个测试参与的项目如何高质量完成 &mdash; 测试开发刚哥 latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="用例设计" href="../chapters/%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html" />
+    <link rel="prev" title="【持续更新】大厂是如何保障测试质量的" href="001-%E3%80%90%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E3%80%91%E5%A4%A7%E5%8E%82%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E9%9A%9C%E6%B5%8B%E8%AF%95%E8%B4%A8%E9%87%8F%E7%9A%84.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> 测试开发刚哥
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D.html">自我介绍</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB.html">测试体系</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-%E3%80%90%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E3%80%91%E5%A4%A7%E5%8E%82%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E9%9A%9C%E6%B5%8B%E8%AF%95%E8%B4%A8%E9%87%8F%E7%9A%84.html">【持续更新】大厂是如何保障测试质量的</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">100个测试参与的项目如何高质量完成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">主测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">测试准备阶段</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">测试阶段</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">上线阶段</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">测试日报</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html">用例设计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.html">编程语言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8.html">接口自动</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95.html">白盒测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">单元测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95.html">精准测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83.html">测试环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html">测试框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">测试工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0.html">测试平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A.html">测试报告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%81%E9%87%8F%E5%9B%9E%E6%94%BE.html">流量回放</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html">性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6.html">开发框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E4%B8%AD%E9%97%B4%E8%BD%AF%E4%BB%B6.html">中间软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF.html">通用技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%9F%A5%E8%AF%86%E8%83%BD%E5%8A%9B.html">知识能力</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E9%9D%A2%E8%AF%95%E5%A4%87%E6%88%98.html">面试备战</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%80%BB%E7%BB%93%E6%84%9F%E6%83%B3.html">总结感想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90.html">网站推荐</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">测试开发刚哥</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB.html">测试体系</a> &raquo;</li>
+        
+      <li>100个测试参与的项目如何高质量完成</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/测试体系/002-100个测试参与的项目如何高质量完成.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>100个测试参与的项目如何高质量完成<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang8.png" /></p>
+<p><strong>产品需求文档90份，产研测378人，测试100人，如何才能推动如此大型的项目高质量完成？</strong></p>
+<div class="section" id="id2">
+<h2>主测试<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>主测试，又叫做质量架构师，在大型项目中负责把控整体测试计划、方案设计、用例评审，预判风险，制定问题处理方案，协调跨团队沟通，推动项目高质量完成。</p>
+<p>主测试的沟通对象如下图所示：</p>
+<p><img alt="image2" src="../_images/2022-07-26-10-18-07-image.png" /></p>
+<p>大型项目可能会按团队划分，出多个主测试或者测试接口人：</p>
+<p><img alt="image3" src="../_images/2022-07-26-11-30-47-image.png" /></p>
+<p>主测试跟项目经理有点像，但还是有工作边界：</p>
+<p><img alt="image4" src="../_images/2022-07-26-14-03-36-image.png" /></p>
+</div>
+<div class="section" id="id3">
+<h2>测试准备阶段<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>1、了解项目</p>
+<p>项目背景：为什么要做这个项目，项目上线后能带来什么价值；商业需求文档(BRD)。</p>
+<p>项目里程碑：</p>
+<p><img alt="image5" src="../_images/2022-07-26-16-46-58-image.png" /></p>
+<p>项目被测系统：被测试的系统及模块、配合联调的系统、依赖上下游系统。</p>
+<p>项目人员：产品、架构、研发、测试。</p>
+<p>2、了解上下游系统间交互</p>
+<p>参加PRD评审和设计评审。注意设计、接口、MQ、库表、其他等。</p>
+<p>3、制定测试里程碑</p>
+<p><img alt="image6" src="../_images/2022-07-26-21-49-04-image.png" /></p>
+<p>4、设定测试关键路径</p>
+<p>大模块维度的数据流，设定后需要和主产品、主架构、主研发共同确认。</p>
+<p>正向：大模块A → 大模块B → 大模块C → 大模块D → 大模块E → 大模块F</p>
+<p>逆向：大模块A → 大模块B → 大模块C → 大模块D → 大模块E → 大模块F</p>
+<p>其他：大模块A → 大模块B → 大模块C → 大模块D → 大模块E → 大模块F</p>
+<p>5、制定测试计划</p>
+<p><img alt="image7" src="../_images/2022-07-27-12-40-35-image.png" /></p>
+<p>6、建立测试群</p>
+<p>测试负责人群：沟通每日工作进展，跟进问题，传达事项。</p>
+<p>测试联调群：沟通联调工作。</p>
+<p>群公告内容：项目信息汇总链接，重点事项。</p>
+</div>
+<div class="section" id="id4">
+<h2>测试阶段<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>1、联调用例评审</p>
+<p>联调用例建议采用Excel来编写，一条一条的看着比较清楚，便于上下游核对。</p>
+<p>主测试组织会议评审，评审结束后，发会议纪要，并&#64;跟踪处理人。</p>
+<p>2、物料</p>
+<p>物料建议采用Excel来提前收集各模块物料诉求，在测试过程中及时记录创建的物料。</p>
+<p>主测试需要评估物料完备性，明确物料提供方，并组织会议评审，可以跟联调用例评审一起进行。</p>
+<p>PS：最好能提前清楚物料创建流程，有无需要外部配合；对于缺失物料，评估缺失风险。</p>
+<p>3、跟进事项</p>
+<p>跟进测试进度；风险事项；推动跨部门问题解决；跟进bug解决进度。</p>
+<p>4、工作机制</p>
+<p>例会机制：每日例会，对齐进度、风险、待确认项，并做好记录。紧急风险及时同步项目进行决策。</p>
+<p>问题解决机制：系统内部问题闭环解决；跨部门问题先自行沟通，若推动困难可找主测试。</p>
+<p>跨系统问题沟通机制：找自己的上游，上游继续找上游，以此类推。发现bug后先提给自己研发，确认是上游问题后，由自己研发将bug转给对方研发。</p>
+<p>bug日清机制：研发bug需在24小时内解决，主测试当天跟踪进度。</p>
+<p>物料准备原则：从前端创建物料，不要直接调后端接口创建。</p>
+<p>测试交付机制：各系统测试各自保证质量，上线前邮件发送测试报告。</p>
+</div>
+<div class="section" id="id5">
+<h2>上线阶段<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>上线前确认：测试报告完备性；风险问题核对；上线节奏，切量方案，上线验证；</p>
+</div>
+<div class="section" id="id6">
+<h2>测试日报<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>测试日报内容包括：测试风险及待确认问题，项目背景，测试里程碑，测试日报明细（部门、系统、模块、测试接口人、测试对接人、测试进度、bug概况、预计上线时间、整体情况说明）。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html" class="btn btn-neutral float-right" title="用例设计" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="001-%E3%80%90%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E3%80%91%E5%A4%A7%E5%8E%82%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E9%9A%9C%E6%B5%8B%E8%AF%95%E8%B4%A8%E9%87%8F%E7%9A%84.html" class="btn btn-neutral float-left" title="【持续更新】大厂是如何保障测试质量的" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 测试开发刚哥
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
