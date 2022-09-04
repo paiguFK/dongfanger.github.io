@@ -103,19 +103,21 @@
 <li class="toctree-l4"><a class="reference internal" href="#id9">用例内容</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id10">用例级别</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id11">用例管理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">用例执行</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id12">缺陷规范</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id13">缺陷内容</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id14">优先级</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id15">严重程度</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id16">状态流转</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">缺陷规范</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">缺陷内容</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">优先级</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">严重程度</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">状态流转</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id17">指标库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">指标库</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="002-100%E4%B8%AA%E6%B5%8B%E8%AF%95%E5%8F%82%E4%B8%8E%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E9%AB%98%E8%B4%A8%E9%87%8F%E5%AE%8C%E6%88%90.html">100个测试参与的项目如何高质量完成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="003-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%B0%88%E6%B5%8B%E8%AF%95%E9%87%91%E5%AD%97%E5%A1%94%E5%AE%9E%E8%B7%B5.html">软件开发工程师谈测试金字塔实践</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html">用例设计</a></li>
@@ -286,11 +288,17 @@
 <h3>用例管理<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p>一个产品/系统/项目只维护一份用例。迭代用例采用分支模型来管理，参照开发分支模型，在上线完成后，分支用例合入主干用例，合入时根据用例级别全部或部分合入。</p>
 </div>
-</div>
 <div class="section" id="id12">
-<h2>缺陷规范<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<h3>用例执行<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p><strong>按照从上往下顺序一条一条执行</strong>，对于未执行的用例/步骤，打上【标注】：</p>
+<p><img alt="image4" src="../_images/image-20220904150128899.png" /></p>
+<p>跟踪起来特别清晰：当前用例以上部分，除了打了标注的，都是已经执行过的；有bug的用例都记录了bug，所以不用标注；当前用例以下部分，都是没有执行的。</p>
+</div>
+</div>
 <div class="section" id="id13">
-<h3>缺陷内容<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<h2>缺陷规范<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h3>缺陷内容<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>缺陷描述：具体而详细的描述。</p>
 <p>重现步骤：重现的操作步骤或者接口出入参等。</p>
 <p>期望结果：无bug情况下的预期结果。</p>
@@ -298,15 +306,15 @@
 <p>原因定位：非必填，定位到原因可以描述下。</p>
 <p>修复建议：非必填，有建议可以描述下。</p>
 </div>
-<div class="section" id="id14">
-<h3>优先级<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h3>优先级<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <p>P0：阻塞性问题，必须马上解决，否则测试会停滞。</p>
 <p>P1：急需解决，需要尽快解决，否则会影响测试进度。</p>
 <p>P2：正常处理，计划解决即可。</p>
 <p>P3：低优先级，暂时不用解决。</p>
 </div>
-<div class="section" id="id15">
-<h3>严重程度<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h3>严重程度<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <p>致命
 Blocker：系统无法执行、崩溃或严重资源不足、应用模块无法启动或异常退出、无法测试、造成系统不稳定。</p>
 <p>严重
@@ -314,14 +322,14 @@ Critical：影响系统功能或操作，主要功能存在严重缺陷，但不
 <p>一般 Major：界面、性能缺陷、兼容性。</p>
 <p>轻微 Trivial：易用性及建议性问题。</p>
 </div>
-<div class="section" id="id16">
-<h3>状态流转<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>状态流转<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <p>新建、待处理、已解决、驳回、已关闭、重新开启。</p>
 </div>
 </div>
-<div class="section" id="id17">
-<h2>指标库<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
-<p><img alt="image4" src="../_images/指标.png" /></p>
+<div class="section" id="id18">
+<h2>指标库<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image5" src="../_images/指标.png" /></p>
 <blockquote>
 <div><p>参考资料：</p>
 <p>全面认识数据指标体系

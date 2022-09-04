@@ -1,0 +1,792 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>软件开发工程师谈测试金字塔实践 &mdash; 测试开发刚哥 latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="用例设计" href="../chapters/%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html" />
+    <link rel="prev" title="100个测试参与的项目如何高质量完成" href="002-100%E4%B8%AA%E6%B5%8B%E8%AF%95%E5%8F%82%E4%B8%8E%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E9%AB%98%E8%B4%A8%E9%87%8F%E5%AE%8C%E6%88%90.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> 测试开发刚哥
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D.html">自我介绍</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB.html">测试体系</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-%E3%80%90%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E3%80%91%E5%A4%A7%E5%8E%82%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E9%9A%9C%E6%B5%8B%E8%AF%95%E8%B4%A8%E9%87%8F%E7%9A%84.html">【持续更新】大厂是如何保障测试质量的</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002-100%E4%B8%AA%E6%B5%8B%E8%AF%95%E5%8F%82%E4%B8%8E%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E9%AB%98%E8%B4%A8%E9%87%8F%E5%AE%8C%E6%88%90.html">100个测试参与的项目如何高质量完成</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">软件开发工程师谈测试金字塔实践</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">自动化测试的重要性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">测试金字塔</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">实践使用的工具和库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">一个简单的应用</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">功能</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">整体结构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">内部结构</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">单元测试</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">什么是单元？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mockstub">Mock和Stub</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">测什么</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">测试结构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">实现单元测试</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">集成测试</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id15">实现数据库集成</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">实现独立服务集成</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">契约测试</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#consumer-test">Consumer Test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#provider-test">Provider Test</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ui">UI测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">端到端测试</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id19">UI端到端测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">接口端到端测试</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">验收测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">探索测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">不要执着于测试术语</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html">用例设计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.html">编程语言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8.html">接口自动</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95.html">白盒测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">单元测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95.html">精准测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83.html">测试环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html">测试框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">测试工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0.html">测试平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A.html">测试报告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%81%E9%87%8F%E5%9B%9E%E6%94%BE.html">流量回放</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html">性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6.html">开发框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E4%B8%AD%E9%97%B4%E8%BD%AF%E4%BB%B6.html">中间软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF.html">通用技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%9F%A5%E8%AF%86%E8%83%BD%E5%8A%9B.html">知识能力</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E9%9D%A2%E8%AF%95%E5%A4%87%E6%88%98.html">面试备战</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%80%BB%E7%BB%93%E6%84%9F%E6%83%B3.html">总结感想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90.html">网站推荐</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">测试开发刚哥</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB.html">测试体系</a> &raquo;</li>
+        
+      <li>软件开发工程师谈测试金字塔实践</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/测试体系/003-软件开发工程师谈测试金字塔实践.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>软件开发工程师谈测试金字塔实践<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang8.png" /></p>
+<p>测试金字塔是对测试的分层描述，在不同层次做不同类型的测试。测试金字塔如何运用到工程实践，是一件困难的事情。<strong>原文作者是一位德国Thoughtworks的软件开发工程师</strong>，本文将回顾传统的测试金字塔，并结合实例，进行一次有深度的探秘实践。</p>
+<p><img alt="image2" src="../_images/2022-08-30-12-39-24-image.png" /></p>
+<div class="section" id="id2">
+<h2>自动化测试的重要性<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>软件上线前都是要经过测试的，随着测试技术发展，相比于传统的手工测试，如今的自动化测试越来越重要，它能够将成天上周的测试工作缩减到分钟秒级，提高测试效率，更快发现缺陷。尤其是在敏捷开发、持续交付、DevOps文化中，自动化已经成为了对测试的基本要求。比如持续交付，使用build
+pipeline自动测试和部署，随时能发包到测试环境和生产环境。</p>
+<p><img alt="image3" src="../_images/2022-08-31-13-17-09-image.png" /></p>
+</div>
+<div class="section" id="id3">
+<h2>测试金字塔<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>测试金字塔是Mike Cohn在他的书籍《<em>Succeeding with
+Agile</em>》中提出的概念：</p>
+<p><img alt="image4" src="../_images/2022-08-30-19-48-59-image.png" /></p>
+<p>测试金字塔描绘了不同层次的测试，以及应该在各个层次投入多少测试。由底向上包括3层：</p>
+<ol class="arabic simple">
+<li><p>Unit Tests</p></li>
+<li><p>Service Tests</p></li>
+<li><p>User Interface Tests</p></li>
+</ol>
+<p>这是最原始的测试金字塔，从现代视角来看，这个金字塔显得过于简单了，并且可能造成误导。比如service
+test不太能定义清楚。比如在react, angular,
+ember.js等单页应用中，UI测试并不一定在最顶层，而是可以写单元测试来测试UI。</p>
+<p>但它有2点启示：</p>
+<ol class="arabic simple">
+<li><p>编写不同粒度的测试</p></li>
+<li><p>层次越高，测试投入越少</p></li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h2>实践使用的工具和库<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>JUnit：单元测试</p></li>
+<li><p>Mockito：mock依赖</p></li>
+<li><p>Wiremock：stub外部服务</p></li>
+<li><p>Pact：编写CDC测试</p></li>
+<li><p>Selenium：编写UI自动化</p></li>
+<li><p>REST-assured：编写REST接口自动化</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>一个简单的应用<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>作者在GitHub上传了开源项目(795star)：</p>
+<p><a class="reference external" href="https://github.com/hamvocke/spring-testing">https://github.com/hamvocke/spring-testing</a></p>
+<p>包含了遵循测试金字塔的分层测试的SpringBoot微服务应用。</p>
+<div class="section" id="id6">
+<h3>功能<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>它提供了3个接口：</p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/hello</span></code> 返回”Hello World“</p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/hello/{lastname}</span></code> 返回“Hello {Firstname} {Lastname}”</p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/weather</span></code> 返回德国柏林的天气（作者住在这）</p>
+</div>
+<div class="section" id="id7">
+<h3>整体结构<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image5" src="../_images/2022-08-31-11-34-30-image.png" /></p>
+<p>Spring
+Service从数据库取数据，对外提供API返回JSON数据，非常标准的简单应用。</p>
+</div>
+<div class="section" id="id8">
+<h3>内部结构<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image6" src="../_images/2022-08-31-12-17-26-image.png" /></p>
+<ul class="simple">
+<li><p>Controller提供REST接口，并处理HTTP请求和响应；</p></li>
+<li><p>Repository跟数据库交互，负责持久化存储的数据读写；</p></li>
+<li><p>Client访问外部API，比如这里访问了darksky.net的Weather API获取天气；</p></li>
+<li><p>Domain定义领域模型，比如请求响应的结构体，也叫做POJO；</p></li>
+</ul>
+<p>该应用支持CRUD，使用Spring
+Data访问数据库，数据库用的也是内存数据库，并且设计上省略掉了Service层，一切都为了简单，方便测试。</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>单元测试<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image7" src="../_images/2022-08-31-13-13-10-image.png" /></p>
+<div class="section" id="id10">
+<h3>什么是单元？<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>不同人对单元有不同理解，所谓单元，通常指某个函数，单元测试就是使用不同参数来调用函数，验证是否满足预期结果。在面向对象语言中，单元，可以是单个方法，也可以是整个类。</p>
+</div>
+<div class="section" id="mockstub">
+<h3>Mock和Stub<a class="headerlink" href="#mockstub" title="Permalink to this headline">¶</a></h3>
+<p>Test Double是“测试复制品“的意思，用来统称模拟真实对象的假对象：</p>
+<p><img alt="image8" src="../_images/2022-08-31-13-24-59-image.png" /></p>
+<p>Mock和Stub都是用来模拟的，它们的区别在于：</p>
+<p><img alt="image9" src="../_images/2022-08-31-13-29-48-image.png" /></p>
+<p>Stub只负责模拟，Mock还包括了验证。</p>
+<p>以上是晦涩难懂且无关紧要的理论概念。实际点的，拿本文用到的Mockito和WireMock来说，Mockito用于单元测试mock依赖，WireMock用于集成测试stub外部服务，本质上都是<strong>模拟</strong>。</p>
+</div>
+<div class="section" id="id11">
+<h3>测什么<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>单元测试什么都能测，这就是单元测试的好处。</p>
+<p>编写单元测试要遵循原则：一个production class对应一个test
+class。public要尽可能覆盖，private无法覆盖，protected或者package-private可覆盖可不覆盖，建议别覆盖。并且要保证分支覆盖，包括正常分支和边界场景。</p>
+<p>但是并不是所有的public都需要编写单元测试，而是要<strong>避免琐碎的测试</strong>，比如getters或setters就不要测了，比如一些没有任何逻辑条件的也不需要测。</p>
+</div>
+<div class="section" id="id12">
+<h3>测试结构<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>初始化测试数据；</p></li>
+<li><p>调用测试方法；</p></li>
+<li><p>断言预期结果；</p></li>
+</ol>
+<p>这是所有测试的良好结构设计，不只是单元测试。这三步还有其他叫法：“Arrange,
+Act, Assert”，或者“given”, “when”, “then”。</p>
+</div>
+<div class="section" id="id13">
+<h3>实现单元测试<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>对于以下ExampleController：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@RestController</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleController</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">PersonRepository</span> <span class="n">personRepo</span><span class="p">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="nf">ExampleController</span><span class="p">(</span><span class="kd">final</span> <span class="n">PersonRepository</span> <span class="n">personRepo</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">personRepo</span> <span class="o">=</span> <span class="n">personRepo</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/hello/{lastName}&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">hello</span><span class="p">(</span><span class="nd">@PathVariable</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">lastName</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">foundPerson</span> <span class="o">=</span> <span class="n">personRepo</span><span class="p">.</span><span class="na">findByLastName</span><span class="p">(</span><span class="n">lastName</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">foundPerson</span>
+                <span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">person</span> <span class="o">-&gt;</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;Hello %s %s!&quot;</span><span class="p">,</span>
+                        <span class="n">person</span><span class="p">.</span><span class="na">getFirstName</span><span class="p">(),</span>
+                        <span class="n">person</span><span class="p">.</span><span class="na">getLastName</span><span class="p">()))</span>
+                <span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;Who is this &#39;%s&#39; you&#39;re talking about?&quot;</span><span class="p">,</span>
+                        <span class="n">lastName</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>编写单元测试：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleControllerTest</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">ExampleController</span> <span class="n">subject</span><span class="p">;</span>
+
+    <span class="nd">@Mock</span>
+    <span class="kd">private</span> <span class="n">PersonRepository</span> <span class="n">personRepo</span><span class="p">;</span>
+
+    <span class="nd">@Before</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="n">initMocks</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="n">subject</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ExampleController</span><span class="p">(</span><span class="n">personRepo</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shouldReturnFullNameOfAPerson</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="n">Person</span> <span class="n">peter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">(</span><span class="s">&quot;Peter&quot;</span><span class="p">,</span> <span class="s">&quot;Pan&quot;</span><span class="p">);</span>
+        <span class="c1">// Mockito模拟输入输出</span>
+        <span class="n">given</span><span class="p">(</span><span class="n">personRepo</span><span class="p">.</span><span class="na">findByLastName</span><span class="p">(</span><span class="s">&quot;Pan&quot;</span><span class="p">))</span>
+            <span class="p">.</span><span class="na">willReturn</span><span class="p">(</span><span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">peter</span><span class="p">));</span>
+
+        <span class="n">String</span> <span class="n">greeting</span> <span class="o">=</span> <span class="n">subject</span><span class="p">.</span><span class="na">hello</span><span class="p">(</span><span class="s">&quot;Pan&quot;</span><span class="p">);</span>
+
+        <span class="n">assertThat</span><span class="p">(</span><span class="n">greeting</span><span class="p">,</span> <span class="n">is</span><span class="p">(</span><span class="s">&quot;Hello Peter Pan!&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shouldTellIfPersonIsUnknown</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="c1">// Mockito模拟输入输出</span>
+        <span class="n">given</span><span class="p">(</span><span class="n">personRepo</span><span class="p">.</span><span class="na">findByLastName</span><span class="p">(</span><span class="n">anyString</span><span class="p">()))</span>
+            <span class="p">.</span><span class="na">willReturn</span><span class="p">(</span><span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">());</span>
+
+        <span class="n">String</span> <span class="n">greeting</span> <span class="o">=</span> <span class="n">subject</span><span class="p">.</span><span class="na">hello</span><span class="p">(</span><span class="s">&quot;Pan&quot;</span><span class="p">);</span>
+
+        <span class="n">assertThat</span><span class="p">(</span><span class="n">greeting</span><span class="p">,</span> <span class="n">is</span><span class="p">(</span><span class="s">&quot;Who is this &#39;Pan&#39; you&#39;re talking about?&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>单元测试使用了JUnit，PersonRepository使用了Mockito模拟数据。第一个测试是验证入参存在的名字会返回Hello。第二个测试是验证入参不存在的名字会返回Who。</p>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>集成测试<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p>单元测试是模块内测试，针对模块之间，就要做集成测试。还有其他部分，比如数据库、文件系统、远程调用其他应用等，这些在单元测试中会忽略或者mock掉，也都需要做集成测试。集成测试也有多种理解，可以理解为全部集成的测试。而作者的想法是单独集成，一次只集成一个，比如集成测试数据库，那么其他部分仍然使用mock：</p>
+<p><img alt="image10" src="../_images/2022-08-31-17-27-10-image.png" /></p>
+<ol class="arabic simple">
+<li><p>启动数据库；</p></li>
+<li><p>应用连接数据库；</p></li>
+<li><p>调用方法往数据库写数据；</p></li>
+<li><p>从数据库读数据，验证数据是刚才写入的；</p></li>
+</ol>
+<p>比如集成测试其他服务：</p>
+<p><img alt="image11" src="../_images/2022-08-31-17-30-39-image.png" /></p>
+<ol class="arabic simple">
+<li><p>启动应用；</p></li>
+<li><p>启动其他服务的实例(或者模拟服务)；</p></li>
+<li><p>调用方法从其他服务的接口读数据；</p></li>
+<li><p>验证当前应用能正确解析响应结果；</p></li>
+</ol>
+<div class="section" id="id15">
+<h3>实现数据库集成<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>PersonRepository：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">PersonRepository</span> <span class="kd">extends</span> <span class="n">CrudRepository</span><span class="o">&lt;</span><span class="n">Person</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="nf">findByLastName</span><span class="p">(</span><span class="n">String</span> <span class="n">lastName</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>PersonRepository继承了CrudRepository，借助于Spring
+Data自动实现了增删改查，比如<code class="docutils literal notranslate"><span class="pre">findOne</span></code>, <code class="docutils literal notranslate"><span class="pre">findAll</span></code>, <code class="docutils literal notranslate"><span class="pre">save</span></code>, <code class="docutils literal notranslate"><span class="pre">update</span></code>, <code class="docutils literal notranslate"><span class="pre">delete</span></code>等方法，对于findByLastName方法，Spring
+Data也会根据返回类型、方法名称自动判断进行适配处理。</p>
+<p>示例，保存Person到数据库中，并根据lastName查询：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@RunWith</span><span class="p">(</span><span class="n">SpringRunner</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="nd">@DataJpaTest</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PersonRepositoryIntegrationTest</span> <span class="p">{</span>
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">PersonRepository</span> <span class="n">subject</span><span class="p">;</span>
+
+    <span class="nd">@After</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tearDown</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="c1">// 清理测试数据</span>
+        <span class="n">subject</span><span class="p">.</span><span class="na">deleteAll</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shouldSaveAndFetchPerson</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="n">Person</span> <span class="n">peter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">(</span><span class="s">&quot;Peter&quot;</span><span class="p">,</span> <span class="s">&quot;Pan&quot;</span><span class="p">);</span>
+        <span class="n">subject</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">peter</span><span class="p">);</span>
+
+        <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">maybePeter</span> <span class="o">=</span> <span class="n">subject</span><span class="p">.</span><span class="na">findByLastName</span><span class="p">(</span><span class="s">&quot;Pan&quot;</span><span class="p">);</span>
+
+        <span class="n">assertThat</span><span class="p">(</span><span class="n">maybePeter</span><span class="p">,</span> <span class="n">is</span><span class="p">(</span><span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">peter</span><span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id16">
+<h3>实现独立服务集成<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>使用Wiremock模拟darksky.net服务：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@RunWith</span><span class="p">(</span><span class="n">SpringRunner</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="nd">@SpringBootTest</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WeatherClientIntegrationTest</span> <span class="p">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">WeatherClient</span> <span class="n">subject</span><span class="p">;</span>
+
+    <span class="nd">@Rule</span>
+    <span class="kd">public</span> <span class="n">WireMockRule</span> <span class="n">wireMockRule</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WireMockRule</span><span class="p">(</span><span class="mi">8089</span><span class="p">);</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shouldCallWeatherService</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="n">wireMockRule</span><span class="p">.</span><span class="na">stubFor</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="n">urlPathEqualTo</span><span class="p">(</span><span class="s">&quot;/some-test-api-key/53.5511,9.9937&quot;</span><span class="p">))</span>
+                <span class="p">.</span><span class="na">willReturn</span><span class="p">(</span><span class="n">aResponse</span><span class="p">()</span>
+                        <span class="p">.</span><span class="na">withBody</span><span class="p">(</span><span class="n">FileLoader</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="s">&quot;classpath:weatherApiResponse.json&quot;</span><span class="p">))</span>
+                        <span class="p">.</span><span class="na">withHeader</span><span class="p">(</span><span class="n">CONTENT_TYPE</span><span class="p">,</span> <span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON_VALUE</span><span class="p">)</span>
+                        <span class="p">.</span><span class="na">withStatus</span><span class="p">(</span><span class="mi">200</span><span class="p">)));</span>
+
+        <span class="n">Optional</span><span class="o">&lt;</span><span class="n">WeatherResponse</span><span class="o">&gt;</span> <span class="n">weatherResponse</span> <span class="o">=</span> <span class="n">subject</span><span class="p">.</span><span class="na">fetchWeather</span><span class="p">();</span>
+
+        <span class="n">Optional</span><span class="o">&lt;</span><span class="n">WeatherResponse</span><span class="o">&gt;</span> <span class="n">expectedResponse</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="k">new</span> <span class="n">WeatherResponse</span><span class="p">(</span><span class="s">&quot;Rain&quot;</span><span class="p">));</span>
+        <span class="n">assertThat</span><span class="p">(</span><span class="n">weatherResponse</span><span class="p">,</span> <span class="n">is</span><span class="p">(</span><span class="n">expectedResponse</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>怎么才能访问mock的这个服务呢？答案是在application.properties文件中配置：</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">weather.url</span> <span class="o">=</span> <span class="s">http://localhost:8089</span>
+</pre></div>
+</div>
+<p>以及WeatherClient实现：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Autowired</span>
+<span class="kd">public</span> <span class="nf">WeatherClient</span><span class="p">(</span><span class="kd">final</span> <span class="n">RestTemplate</span> <span class="n">restTemplate</span><span class="p">,</span>
+                     <span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${weather.url}&quot;</span><span class="p">)</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">weatherServiceUrl</span><span class="p">,</span>
+                     <span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${weather.api_key}&quot;</span><span class="p">)</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">weatherServiceApiKey</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">restTemplate</span> <span class="o">=</span> <span class="n">restTemplate</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">weatherServiceUrl</span> <span class="o">=</span> <span class="n">weatherServiceUrl</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">weatherServiceApiKey</span> <span class="o">=</span> <span class="n">weatherServiceApiKey</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>在集成测试darksky.net服务时，采用的是Wiremock，mock了darksky.net服务，如何验证mock的服务和真实的服务之间有无差异呢，就要进行契约测试。</p>
+</div>
+</div>
+<div class="section" id="id17">
+<h2>契约测试<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<p>在微服务架构体系中，应用被拆分成了多个独立的松耦合的服务，彼此之间通过接口通信：</p>
+<ul class="simple">
+<li><p>HTTPS</p></li>
+<li><p>RPC</p></li>
+<li><p>消息队列</p></li>
+</ul>
+<p>每个接口包含2部分：provider和consumer：</p>
+<p><img alt="image12" src="../_images/2022-09-02-14-51-38-image.png" /></p>
+<p>比如在HTTPS中，provider提供接口，consumer调用接口；比如在消息队列中，provider发布消息，consumer订阅消息。</p>
+<p>所谓契约，就是接口之间相互约定好的定义。传统的契约过程是这样的：</p>
+<ol class="arabic simple">
+<li><p>编写详尽的接口定义(契约)；</p></li>
+<li><p>根据契约实现provider；</p></li>
+<li><p>把契约同步给consumer；</p></li>
+<li><p>consumer根据契约实现；</p></li>
+<li><p>运行起来手动验证契约是否达成一致；</p></li>
+<li><p>希望双方都不要随意变更契约；</p></li>
+</ol>
+<p>而在CDC（Consumer-Driven Contract
+tests）中，第5、6步已经被自动化测试取代：</p>
+<p><img alt="image13" src="../_images/2022-09-02-15-05-30-image.png" /></p>
+<p>consumer编写并发布契约测试，provider获取并执行契约测试，当provider把所有契约测试都实现以后，自然就满足consumer了。provider会把契约测试放入持续集成中，确保所有契约测试都能始终保持通过，假如consumer发布了新的契约，契约测试就会失败，从而提醒provider更新实现。</p>
+<div class="section" id="consumer-test">
+<h3>Consumer Test<a class="headerlink" href="#consumer-test" title="Permalink to this headline">¶</a></h3>
+<p>使用Pact工具实现契约测试。</p>
+<p> <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">testCompile</span><span class="p">(</span><span class="s1">&#39;au.com.dius:pact-jvm-consumer-junit_2.11:3.5.5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>WeatherClientConsumerTest：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@RunWith</span><span class="p">(</span><span class="n">SpringRunner</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="nd">@SpringBootTest</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WeatherClientConsumerTest</span> <span class="p">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">WeatherClient</span> <span class="n">weatherClient</span><span class="p">;</span>
+
+    <span class="nd">@Rule</span>
+    <span class="kd">public</span> <span class="n">PactProviderRuleMk2</span> <span class="n">weatherProvider</span> <span class="o">=</span>
+            <span class="k">new</span> <span class="n">PactProviderRuleMk2</span><span class="p">(</span><span class="s">&quot;weather_provider&quot;</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">8089</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+
+    <span class="nd">@Pact</span><span class="p">(</span><span class="n">consumer</span><span class="o">=</span><span class="s">&quot;test_consumer&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">RequestResponsePact</span> <span class="nf">createPact</span><span class="p">(</span><span class="n">PactDslWithProvider</span> <span class="n">builder</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">builder</span>
+                <span class="p">.</span><span class="na">given</span><span class="p">(</span><span class="s">&quot;weather forecast data&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">uponReceiving</span><span class="p">(</span><span class="s">&quot;a request for a weather request for Hamburg&quot;</span><span class="p">)</span>
+                    <span class="p">.</span><span class="na">path</span><span class="p">(</span><span class="s">&quot;/some-test-api-key/53.5511,9.9937&quot;</span><span class="p">)</span>
+                    <span class="p">.</span><span class="na">method</span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">willRespondWith</span><span class="p">()</span>
+                    <span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+                    <span class="p">.</span><span class="na">body</span><span class="p">(</span><span class="n">FileLoader</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="s">&quot;classpath:weatherApiResponse.json&quot;</span><span class="p">),</span>
+                            <span class="n">ContentType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">toPact</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@PactVerification</span><span class="p">(</span><span class="s">&quot;weather_provider&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shouldFetchWeatherInformation</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="n">Optional</span><span class="o">&lt;</span><span class="n">WeatherResponse</span><span class="o">&gt;</span> <span class="n">weatherResponse</span> <span class="o">=</span> <span class="n">weatherClient</span><span class="p">.</span><span class="na">fetchWeather</span><span class="p">();</span>
+        <span class="n">assertThat</span><span class="p">(</span><span class="n">weatherResponse</span><span class="p">.</span><span class="na">isPresent</span><span class="p">(),</span> <span class="n">is</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span>
+        <span class="n">assertThat</span><span class="p">(</span><span class="n">weatherResponse</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">getSummary</span><span class="p">(),</span> <span class="n">is</span><span class="p">(</span><span class="s">&quot;Rain&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>每次运行都会生成一个pact文件，<code class="docutils literal notranslate"><span class="pre">target/pacts/&amp;pact-name&gt;.json</span></code>，这个文件就可以拿给provider实现契约，通常做法是让provider在仓库中取最新版本文件。</p>
+</div>
+<div class="section" id="provider-test">
+<h3>Provider Test<a class="headerlink" href="#provider-test" title="Permalink to this headline">¶</a></h3>
+<p>provider加载pact文件并实现契约：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@RunWith</span><span class="p">(</span><span class="n">RestPactRunner</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="nd">@Provider</span><span class="p">(</span><span class="s">&quot;weather_provider&quot;</span><span class="p">)</span> <span class="c1">// same as the &quot;provider_name&quot; in our clientConsumerTest</span>
+<span class="nd">@PactFolder</span><span class="p">(</span><span class="s">&quot;target/pacts&quot;</span><span class="p">)</span> <span class="c1">// tells pact where to load the pact files from</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WeatherProviderTest</span> <span class="p">{</span>
+    <span class="nd">@InjectMocks</span>
+    <span class="kd">private</span> <span class="n">ForecastController</span> <span class="n">forecastController</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ForecastController</span><span class="p">();</span>
+
+    <span class="nd">@Mock</span>
+    <span class="kd">private</span> <span class="n">ForecastService</span> <span class="n">forecastService</span><span class="p">;</span>
+
+    <span class="nd">@TestTarget</span>
+    <span class="kd">public</span> <span class="kd">final</span> <span class="n">MockMvcTarget</span> <span class="n">target</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MockMvcTarget</span><span class="p">();</span>
+
+    <span class="nd">@Before</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">initMocks</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="n">target</span><span class="p">.</span><span class="na">setControllers</span><span class="p">(</span><span class="n">forecastController</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@State</span><span class="p">(</span><span class="s">&quot;weather forecast data&quot;</span><span class="p">)</span> <span class="c1">// same as the &quot;given()&quot; in our clientConsumerTest</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">weatherForecastData</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">when</span><span class="p">(</span><span class="n">forecastService</span><span class="p">.</span><span class="na">fetchForecastFor</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">),</span> <span class="n">any</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">)))</span>
+                <span class="p">.</span><span class="na">thenReturn</span><span class="p">(</span><span class="n">weatherForecast</span><span class="p">(</span><span class="s">&quot;Rain&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ui">
+<h2>UI测试<a class="headerlink" href="#ui" title="Permalink to this headline">¶</a></h2>
+<p>UI测试主要验证应用界面是否正确：</p>
+<p><img alt="image14" src="../_images/2022-09-02-15-49-23-image.png" /></p>
+<p>用户输入，触发程序，数据展示给用户，状态变更正确。</p>
+<p>UI自动化主要基于Selenium来做，由于前端变化大、控件识别难等问题，导致UI自动化失败率比较高，可以考虑采用截图的方式，把前后截图进行对比，来做断言，当然Selenium已经支持截图对比了。</p>
+</div>
+<div class="section" id="id18">
+<h2>端到端测试<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<p>端到端测试，通常是指从用户界面进行测试：</p>
+<p><img alt="image15" src="../_images/2022-09-02-17-40-33-image.png" /></p>
+<p>如果没有用户界面，也可以指对接口进行测试。</p>
+<div class="section" id="id19">
+<h3>UI端到端测试<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>使用Selenium和WebDriver实现：</p>
+<p>build.gradle</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">testCompile</span><span class="p">(</span><span class="s1">&#39;org.seleniumhq.selenium:selenium-chrome-driver:2.53.1&#39;</span><span class="p">)</span>
+<span class="n">testCompile</span><span class="p">(</span><span class="s1">&#39;io.github.bonigarcia:webdrivermanager:1.7.2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>HelloE2ESeleniumTest</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@RunWith</span><span class="p">(</span><span class="n">SpringRunner</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="nd">@SpringBootTest</span><span class="p">(</span><span class="n">webEnvironment</span> <span class="o">=</span> <span class="n">SpringBootTest</span><span class="p">.</span><span class="na">WebEnvironment</span><span class="p">.</span><span class="na">RANDOM_PORT</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloE2ESeleniumTest</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">WebDriver</span> <span class="n">driver</span><span class="p">;</span>
+
+    <span class="nd">@LocalServerPort</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">port</span><span class="p">;</span>
+
+    <span class="nd">@BeforeClass</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setUpClass</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="n">ChromeDriverManager</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">setup</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Before</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="n">driver</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ChromeDriver</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@After</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tearDown</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">driver</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">helloPageHasTextHelloWorld</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">driver</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;http://127.0.0.1:%s/hello&quot;</span><span class="p">,</span> <span class="n">port</span><span class="p">));</span>
+
+        <span class="n">assertThat</span><span class="p">(</span><span class="n">driver</span><span class="p">.</span><span class="na">findElement</span><span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="na">tagName</span><span class="p">(</span><span class="s">&quot;body&quot;</span><span class="p">)).</span><span class="na">getText</span><span class="p">(),</span> <span class="n">containsString</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id20">
+<h3>接口端到端测试<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<p>使用REST-assured实现：</p>
+<p>build.gradle</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">testCompile</span><span class="p">(</span><span class="s1">&#39;io.rest-assured:rest-assured:3.0.3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>HelloE2ERestTest</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@RunWith</span><span class="p">(</span><span class="n">SpringRunner</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="nd">@SpringBootTest</span><span class="p">(</span><span class="n">webEnvironment</span> <span class="o">=</span> <span class="n">SpringBootTest</span><span class="p">.</span><span class="na">WebEnvironment</span><span class="p">.</span><span class="na">RANDOM_PORT</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloE2ERestTest</span> <span class="p">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">PersonRepository</span> <span class="n">personRepository</span><span class="p">;</span>
+
+    <span class="nd">@LocalServerPort</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">port</span><span class="p">;</span>
+
+    <span class="nd">@After</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tearDown</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="n">personRepository</span><span class="p">.</span><span class="na">deleteAll</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shouldReturnGreeting</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="n">Person</span> <span class="n">peter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">(</span><span class="s">&quot;Peter&quot;</span><span class="p">,</span> <span class="s">&quot;Pan&quot;</span><span class="p">);</span>
+        <span class="n">personRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">peter</span><span class="p">);</span>
+
+        <span class="n">when</span><span class="p">()</span>
+                <span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;http://localhost:%s/hello/Pan&quot;</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
+        <span class="p">.</span><span class="na">then</span><span class="p">()</span>
+                <span class="p">.</span><span class="na">statusCode</span><span class="p">(</span><span class="n">is</span><span class="p">(</span><span class="mi">200</span><span class="p">))</span>
+                <span class="p">.</span><span class="na">body</span><span class="p">(</span><span class="n">containsString</span><span class="p">(</span><span class="s">&quot;Hello Peter Pan!&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id21">
+<h2>验收测试<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<p>在测试金字塔的位置越高，就越会站在用户角度进行测试。验收测试就是完全从用户角度出发，看系统是否能满足用户需求。</p>
+<p>简单示例：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_add_to_basket</span><span class="p">():</span>
+    <span class="c1"># given</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">a_user_with_empty_basket</span><span class="p">()</span>
+    <span class="n">user</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+    <span class="n">bicycle</span> <span class="o">=</span> <span class="n">article</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;bicycle&quot;</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="c1"># when</span>
+    <span class="n">article_page</span><span class="o">.</span><span class="n">add_to_</span><span class="o">.</span><span class="n">basket</span><span class="p">(</span><span class="n">bicycle</span><span class="p">)</span>
+
+    <span class="c1"># then</span>
+    <span class="k">assert</span> <span class="n">user</span><span class="o">.</span><span class="n">basket</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">bicycle</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id22">
+<h2>探索测试<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<p>探索测试是一种手工测试方法，充分发挥了测试人员的自由和创造力。</p>
+<p><img alt="image16" src="../_images/2022-09-02-19-28-38-image.png" /></p>
+<p>探索测试发现缺陷以后，可以补充到自动化测试中，以避免将来出现这个问题。</p>
+</div>
+<div class="section" id="id23">
+<h2>不要执着于测试术语<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
+<p>单元测试、集成测试、端到端测试、验收测试，每个人都有自己的不同理解，现在的软件测试行业，也没有统一的测试术语，将这些测试类型的边界明确区分开来。只要我们在公司内部、团队内部，能对术语达成一致，顺畅沟通就可以了。</p>
+<blockquote>
+<div><p>参考资料：</p>
+<p>Thoughtworks研发博客
+<a class="reference external" href="https://martinfowler.com/articles/practical-test-pyramid.html">https://martinfowler.com/articles/practical-test-pyramid.html</a></p>
+<p>Test Double <a class="reference external" href="http://xunitpatterns.com/Test%20Double.html">http://xunitpatterns.com/Test%20Double.html</a></p>
+<p>WireMock和Mockito区别
+<a class="reference external" href="https://geek-docs.com/mockito/mockito-ask-answer/wiremock-vs-mockito.html">https://geek-docs.com/mockito/mockito-ask-answer/wiremock-vs-mockito.html</a></p>
+<p>Pact官方文档 <a class="reference external" href="https://docs.pact.io/">https://docs.pact.io/</a></p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html" class="btn btn-neutral float-right" title="用例设计" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="002-100%E4%B8%AA%E6%B5%8B%E8%AF%95%E5%8F%82%E4%B8%8E%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E9%AB%98%E8%B4%A8%E9%87%8F%E5%AE%8C%E6%88%90.html" class="btn btn-neutral float-left" title="100个测试参与的项目如何高质量完成" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 测试开发刚哥
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
