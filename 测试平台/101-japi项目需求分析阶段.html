@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>japi项目需求分析阶段 &mdash; 测试开发刚哥 latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="测试报告" href="../chapters/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A.html" />
+    <link rel="prev" title="teprunner测试平台入门级部署手册发布啦" href="011-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E5%85%A5%E9%97%A8%E7%BA%A7%E9%83%A8%E7%BD%B2%E6%89%8B%E5%86%8C%E5%8F%91%E5%B8%83%E5%95%A6.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> 测试开发刚哥
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D.html">自我介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB.html">测试体系</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html">用例设计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.html">编程语言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8.html">接口自动</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95.html">白盒测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">单元测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95.html">精准测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83.html">测试环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html">测试框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">测试工具</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0.html">测试平台</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-pytest%E5%86%85%E6%A0%B8%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E8%90%BD%E5%9C%B0%E5%88%9D%E4%BD%93%E9%AA%8C.html">pytest内核测试平台落地初体验</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002-%E5%AD%A6%E4%B9%A0%E7%89%88pytest%E5%86%85%E6%A0%B8%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E4%B8%87%E5%AD%97%E9%95%BF%E6%96%87%E5%85%A5%E9%97%A8%E7%AF%87.html">学习版pytest内核测试平台开发万字长文入门篇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="003-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E9%83%A8%E7%BD%B2%E5%88%B0Linux%E7%B3%BB%E7%BB%9FDocker.html">teprunner测试平台部署到Linux系统Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E7%94%A8%E4%BE%8B%E5%89%8D%E7%BD%AE%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91.html">teprunner测试平台用例前置模块开发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E7%94%A8%E4%BE%8B%E7%AE%A1%E7%90%86%E4%B8%8D%E5%8F%AA%E6%9C%89%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5.html">teprunner测试平台开发用例管理不只有增删改查</a></li>
+<li class="toctree-l2"><a class="reference internal" href="006-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0Django%E5%BC%95%E5%85%A5pytest%E5%AE%8C%E6%95%B4%E6%BA%90%E7%A0%81.html">teprunner测试平台Django引入pytest完整源码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="007-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%89%B9%E9%87%8F%E8%BF%90%E8%A1%8C%E7%94%A8%E4%BE%8B.html">teprunner测试平台测试计划批量运行用例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="008-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E7%94%A8%E4%BE%8B%E7%BC%96%E5%86%99%E7%AD%89%E4%BD%93%E9%AA%8C%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8D%87%E7%BA%A7.html">teprunner测试平台用例编写等体验响应式升级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="009-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E8%BF%99%E6%AC%A1%E7%BB%88%E4%BA%8E%E7%A8%B3%E4%BA%86.html">teprunner测试平台定时任务这次终于稳了</a></li>
+<li class="toctree-l2"><a class="reference internal" href="010-teprunner%E9%87%8D%E7%A3%85%E6%9B%B4%E6%96%B0Git%E6%89%93%E9%80%9APyCharm%E4%B8%8E%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0.html">teprunner重磅更新Git打通PyCharm与测试平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E5%85%A5%E9%97%A8%E7%BA%A7%E9%83%A8%E7%BD%B2%E6%89%8B%E5%86%8C%E5%8F%91%E5%B8%83%E5%95%A6.html">teprunner测试平台入门级部署手册发布啦</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">japi项目需求分析阶段</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">项目简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">项目成员</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">项目计划</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">需求分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A.html">测试报告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%81%E9%87%8F%E5%9B%9E%E6%94%BE.html">流量回放</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html">性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6.html">开发框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E4%B8%AD%E9%97%B4%E8%BD%AF%E4%BB%B6.html">中间软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF.html">通用技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%9F%A5%E8%AF%86%E8%83%BD%E5%8A%9B.html">知识能力</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html">读书笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E9%9D%A2%E8%AF%95%E5%A4%87%E6%88%98.html">面试备战</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%80%BB%E7%BB%93%E6%84%9F%E6%83%B3.html">总结感想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90.html">网站推荐</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">测试开发刚哥</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0.html">测试平台</a> &raquo;</li>
+        
+      <li>japi项目需求分析阶段</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/测试平台/101-japi项目需求分析阶段.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="japi">
+<h1>japi项目需求分析阶段<a class="headerlink" href="#japi" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang11.png" /></p>
+<div class="section" id="id1">
+<h2>项目简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><strong>japi</strong>项目，是一个接口自动化平台开发项目，由【测试开发刚哥交流群】招人共建，基于JMeter，参考MeterSphere，以学习为目的，完成一个SpringBoot+Vue技术栈的纯粹的接口自动化平台开发。</p>
+</div>
+<div class="section" id="id2">
+<h2>项目成员<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>经过“填写人员分工表”以后，最终有38人参与了本次项目：</p>
+<p>刚哥、布鲁、嘉宥、守正、大刚、风雨、奉孝、大姚、畅月、渔夫、小禹、钰琪、天湖、迷龙、肥涵、胖子、局长、呼呼、明亮、安宁、木棉、番茄、玥玥、哈瑞、虚竹、十五、阿新、卡罗、大白、库昊、左右、小涌、古风、玉洁、小韩、小卷、千凝、昆明。</p>
+<p>随着项目进行，后续“提交学习总结”等环节层层递进，真正留下来的项目成员，会在GitHub的README中署名。</p>
+<p>在填表时收集了大家的历史经验，这里汇总整理了一下，供参考：</p>
+<p>“Vue+Django写过测试平台；SpringBoot写过后端应用；Python小工具开发；Python+Pytest+Requests搭建接口自动化框架；Python+Unittest或Pytest自动化测试框架搭建及脚本开发；各类开源自动化测试平台搭建，如：HttpRunnerManager、流马、Yapi、Sonic等；js+Django2实现UI自动化测试平台；使Testng框架进行接口测试；Vue+fastapi写过测试平台；python+selenium
+UI自动化；python+httprunner，接口文档解析自动生成字段校验用例；python+RobotFramework做过UI；Java做过单元测试，熟悉基础语法；学过JavaSE，JavaEE，实战经验不多；Python
+Pyqt GUI工具开发；Python
+接口自动化、APP自动化框架设计及编码；独立负责主导Python+Locust性能测试；三方库和标准库：unittest、pytest、appium、selenium、request、httprunner；画过简单的html、css；App
+UI自动化框架搭建：pytest+appium+allure+jenkins接口自动化框架搭建：pytest+request+allure+jenkins二次开发及维护过flask+vue接口测试平台；二次开发及维护过springboot+angularUI测试平台；Pytest+Playwright
+UI自动化脚本编写；”</p>
+<p><strong>我总结了几个关键字：Vue、Django、SpringBoot、Flask、FastAPI、ElementUI、RobotFramework、脚本开发、工具开发、平台开发、接口自动化、UI自动化、APP自动化。</strong></p>
+</div>
+<div class="section" id="id3">
+<h2>项目计划<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>招募，人员分工，需求分析，设计，编码，测试，上线。</p>
+<p>由于是以学习为目的，加上都是业余时间投入，也有其他事情要忙，所以该项目不会像真正项目那样，设置里程碑和交付节点，会给足够的学习时间，战线拉得比较长，过程大于结果。</p>
+</div>
+<div class="section" id="id4">
+<h2>需求分析<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>MeterSphere官方给出的功能列表，接口自动化相关的模块有接口定义和接口自动化。</p>
+<p><strong>接口定义包括以下功能：</strong></p>
+<p>在线添加并编辑接口定义; 以树状形式展示项目的模块及对应接口;
+支持HTTP、Dubbo、SQL、TCP类型接口请求; 支持通过MeterSphere
+Json、Postman、Swagger
+等多种格式文件快速导入接口，Swagger可通过URL定时同步; 支持接口快捷调试;
+根据接口定义快速配置HTTP、TCP协议Mock服务;
+API列表、CASE列表、文档模式多种模式灵活切换;
+接口页面API、TEST、CASE、MOCK多种操作灵活切换; 测试环境信息管理功能;
+单接口用例支持引用环境;
+支持正则匹配、jsonpath、xpath等多种类型的断言规则;
+支持正则匹配、jsonpath、xpath等多种类型的参数提取;
+支持BeanShell、Python、Groovy、JavaScript等多种语言的前后置脚本;
+支持前置SQL、后置SQL; 支持上传并引用自定义Jar包;
+支持查看接口及用例变更历史;
+手动执行、定时任务、Jenkins插件触发等多种执行方式; API、CASE一键复制;
+CASE一键创建性能测试; 接口定义依赖关系设置;</p>
+<p><strong>接口自动化包括以下功能：</strong></p>
+<p>创建多接口串联的场景化测试; 从接口列表中快速导入接口或接口用例;
+跨项目的场景引用功能; 客户端SSL证书认证配置; 场景用例支持引用环境;
+支持条件、循环、事务、等待等多种类型的控制器;
+支持正则匹配、jsonpath、xpath等多种类型的断言规则;
+支持正则匹配、jsonpath、xpath等多种类型的参数提取;
+支持BeanShell、Python、Groovy、JavaScript等多种语言的前后置脚本;
+场景变量提供多种类型; 提供Mock数据和JMeter变量表达式;
+环境配置增加区分模块、路径两种方式添加域名;
+增加全局前置脚本、全局后置脚本; 基于插件机制实现其他协议;
+支持上传并引用自定义Jar包; 支持查看场景用例变更历史;
+手动执行、定时任务、Jenkins插件触发等多种执行方式;
+串行、并行两种批量执行方式自由选择; 支持指定测试资源池远程执行;
+可多场景串行、并行执行; 场景一键创建性能测试; 场景一键复制;
+场景批量执行可自由选择独立报告或集合报告; 场景一键添加到测试计划；</p>
+<p><strong>除此之外还有：</strong></p>
+<p>支持消息通知(微信、钉钉、飞书、邮件)；</p>
+<p>本项目要做的，基本就是这些功能。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A.html" class="btn btn-neutral float-right" title="测试报告" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="011-teprunner%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E5%85%A5%E9%97%A8%E7%BA%A7%E9%83%A8%E7%BD%B2%E6%89%8B%E5%86%8C%E5%8F%91%E5%B8%83%E5%95%A6.html" class="btn btn-neutral float-left" title="teprunner测试平台入门级部署手册发布啦" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 测试开发刚哥
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
