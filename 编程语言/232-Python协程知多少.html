@@ -91,6 +91,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D.html">自我介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB.html">测试体系</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html">用例设计</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../chapters/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.html">编程语言</a><ul class="current">
@@ -227,7 +228,7 @@
             
   <div class="section" id="python">
 <h1>Python协程知多少<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
-<p><img alt="image1" src="../_images/wanggang19.png" /></p>
+<p><img alt="image1" src="../_images/wanggang20.png" /></p>
 <p>从概念上来说，我们都知道多进程和多线程，而协程其实是<strong>在单线程中实现多并发</strong>。从句法上看，协程与生成器类似，都是定义体中包含yield关键字的函数。区别在于协程的yield通常出现在表达式的右边：<code class="docutils literal notranslate"><span class="pre">datum</span> <span class="pre">=</span> <span class="pre">yield</span></code>。这一下就让初学者瞬间觉得yield关键字不香了，本来以为yield就是简简单单的暂停执行顺手返回个值，结果还能放右边？</p>
 <div class="section" id="id1">
 <h2>从生成器到协程<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>

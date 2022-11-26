@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>测试架构师应该做和不应该做的事情 &mdash; 测试开发刚哥 latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="面试备战" href="../chapters/%E9%9D%A2%E8%AF%95%E5%A4%87%E6%88%98.html" />
+    <link rel="prev" title="测试工程师的职业规划" href="002-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> 测试开发刚哥
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D.html">自我介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB.html">测试体系</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html">用例设计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.html">编程语言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8.html">接口自动</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95.html">白盒测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">单元测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95.html">精准测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83.html">测试环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html">测试框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">测试工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0.html">测试平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A.html">测试报告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%81%E9%87%8F%E5%9B%9E%E6%94%BE.html">流量回放</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html">性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6.html">开发框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E4%B8%AD%E9%97%B4%E8%BD%AF%E4%BB%B6.html">中间软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF.html">通用技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%9F%A5%E8%AF%86%E8%83%BD%E5%8A%9B.html">知识能力</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html">读书笔记</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E4%B8%89%E5%B9%B4%E4%B9%8B%E7%97%92.html">测试工程师的三年之痒</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92.html">测试工程师的职业规划</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">测试架构师应该做和不应该做的事情</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">内容大纲</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">原文解读</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E9%9D%A2%E8%AF%95%E5%A4%87%E6%88%98.html">面试备战</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%80%BB%E7%BB%93%E6%84%9F%E6%83%B3.html">总结感想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90.html">网站推荐</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">测试开发刚哥</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html">读书笔记</a> &raquo;</li>
+        
+      <li>测试架构师应该做和不应该做的事情</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/读书笔记/003-测试架构师应该做和不应该做的事情.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>测试架构师应该做和不应该做的事情<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang21.png" /></p>
+<div class="section" id="id2">
+<h2>内容大纲<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image2" src="../_images/f367f771e3530552811feb5bdfd04bc4d4f6230c.png" /></p>
+</div>
+<div class="section" id="id3">
+<h2>原文解读<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>测试架构师是产品测试专家，是测试团队的灵魂人物，也是测试工程师在软件测试技术上的一个重要发展方向。</p>
+<p>在需求分析阶段，<strong>首先要理解产品的商业目标和核心价值</strong>，了解我们的公司、客户及商务，比如公司中的营销人员和销售人员如何细分客户？每个细分市场的关键价值主张是什么？公司试图增长哪些细分市场？如何增长？每个市场是谁做出购买决策的？每个细分市场的主要竞争对手是谁？公司对此产品的策略主张是什么？产品是如何融入这一战略的？测试架构师要围绕这些内容展开测试活动：如何验证待测试的产品正确体现了市场价值？所做的测试策略是否和公司的财务、销售、营销目标一致？<strong>其次要梳理用户的使用场景</strong>，了解用户将会如何使用这个产品，比如产品有多少种用户？这些用户的业务是什么？他们如何从你的产品中获得价值？产品的竞争对手为用户提供了哪些有价值的解决方案？你们之间的差异是什么？产品所在领域有哪些基本的规范和要求？行业背景有哪些？用户的习惯是什么？<strong>最后要输出产品总体测试策略</strong>，它就好像测试的总纲，帮助整个测试团队明确测试的范围、目标，测试的重点和难点，测试的深度和广度，以及如何安排各种测试活动（及测试分层）。如果把测试需求分析、测试分析设计、测试执行、测试质量评估等测试活动比做珍珠，测试策略就是那根穿珍珠的线。</p>
+<p>在测试分析和设计阶段，确定“测试设计大纲”，以此来保证测试设计中测试的覆盖度（深度和广度）“刚刚好”。比如给测试用例划分等级，以此来保证测试执行时可以更有效地选择测试用例，确定自动化和回归测试策略。</p>
+<p>在测试执行阶段，<strong>一是要确定和计划的偏差</strong>，尤其是应对测试时间被压缩、工作阻塞和返工等情况保持版本节奏，可以：通过加班来补救；延长这个迭代计划时间；增加一个迭代计划用于测试；缩减后续迭代计划的范围。<strong>二是要选择合适的测试用例</strong>，包括接收测试用例、每个版本的执行测试用例和回归测试用例，也要考虑测试用例的最佳执行方式，是自动化测试还是手工测试、是否需要增加探索式测试等。<strong>三是跟踪测试过程</strong>，除了用例覆盖情况，还要着重关注缺陷趋势和处理机制。</p>
+<p>在测试质量评估阶段，测试架构师需要对产品的质量进行评估，比如测试覆盖度分析、测试过程分析、缺陷分析。</p>
+<p>测试架构师的工作是保证测试的正确性，制定测试策略，解决“测什么”和“怎么测”的问题，需要熟练掌握产品技术和测试技术，并有能力找到其中的平衡点。测试管理者的工作是保证落地和交付，制定测试计划，解决由“谁”在“何时”花费多长时间来执行测试，其项目管理方面的知识是核心，包括各种沟通与协调方法。</p>
+<blockquote>
+<div><p>参考资料：</p>
+<p>《测试架构师修炼之道》第2版第3章测试架构师应该做和不应该做的事情</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/%E9%9D%A2%E8%AF%95%E5%A4%87%E6%88%98.html" class="btn btn-neutral float-right" title="面试备战" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="002-%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92.html" class="btn btn-neutral float-left" title="测试工程师的职业规划" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 测试开发刚哥
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

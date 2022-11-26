@@ -91,6 +91,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D.html">自我介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tep.html">tep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB.html">测试体系</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html">用例设计</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.html">编程语言</a></li>
@@ -197,7 +198,7 @@
             
   <div class="section" id="httprunner3">
 <h1>HttpRunner3的变量是如何传递的<a class="headerlink" href="#httprunner3" title="Permalink to this headline">¶</a></h1>
-<p><img alt="image1" src="../_images/wanggang13.png" /></p>
+<p><img alt="image1" src="../_images/wanggang14.png" /></p>
 <p>HttpRunner3的变量可以在测试类的用例配置中通过<code class="docutils literal notranslate"><span class="pre">variables</span></code>添加，也可以在测试步骤中使用<code class="docutils literal notranslate"><span class="pre">extract()</span></code>、<code class="docutils literal notranslate"><span class="pre">with_jmespath()</span></code>提取出来放到变量<code class="docutils literal notranslate"><span class="pre">x</span></code>，再用<code class="docutils literal notranslate"><span class="pre">$x</span></code>传递给下一个接口使用，比如登录到下单流程的部分测试脚本如下：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">httprunner</span> <span class="kn">import</span> <span class="n">HttpRunner</span><span class="p">,</span> <span class="n">Config</span><span class="p">,</span> <span class="n">Step</span><span class="p">,</span> <span class="n">RunRequest</span>
 
