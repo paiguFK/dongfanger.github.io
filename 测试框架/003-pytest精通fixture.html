@@ -103,19 +103,16 @@
 <li class="toctree-l2"><a class="reference internal" href="001-pytest%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html">pytest快速入门</a></li>
 <li class="toctree-l2"><a class="reference internal" href="002-pytest132%E4%B8%AA%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E7%94%A8%E6%B3%95.html">pytest132个命令行参数用法</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">pytest精通fixture</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#fixture">精通fixture</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">fixture是什么</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#conftest-py">conftest.py</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">依赖注入</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">入门示例</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#fixture-scope-order">fixture scope &amp; order</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">fixture嵌套</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#testfixture">从test传值给fixture</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#fixture-setup-teardown">fixture setup / teardown</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5">fixture参数化</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">简要回顾</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#fixture">fixture是什么</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conftest-py">conftest.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">依赖注入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">入门示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixture-scope-order">fixture scope &amp; order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">fixture嵌套</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testfixture">从test传值给fixture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixture-setup-teardown">fixture setup / teardown</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">fixture参数化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">简要回顾</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="004-pytest%E5%86%85%E7%BD%AE%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89marker.html">pytest内置和自定义marker</a></li>
@@ -215,14 +212,7 @@
 <h1>pytest精通fixture<a class="headerlink" href="#pytestfixture" title="Permalink to this headline">¶</a></h1>
 <p><img alt="image1" src="../_images/wanggang14.png" /></p>
 <div class="section" id="fixture">
-<h2>精通fixture<a class="headerlink" href="#fixture" title="Permalink to this headline">¶</a></h2>
-<p><img alt="image2" src="../_images/wanggang14.png" /></p>
-<p>fixture是pytest最核心的技术。</p>
-<p>首先放一句“狠话”。</p>
-<p>如果你不会fixture，那么你最好别说自己会pytest。</p>
-<p>（只是为了烘托主题哈，手上的砖头可以放下了，手动滑稽）</p>
-<div class="section" id="id1">
-<h3>fixture是什么<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h2>fixture是什么<a class="headerlink" href="#fixture" title="Permalink to this headline">¶</a></h2>
 <p>看看源码</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fixture</span><span class="p">(</span>
     <span class="n">callable_or_scope</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -325,23 +315,23 @@
 </ul>
 </div>
 <div class="section" id="conftest-py">
-<h3>conftest.py<a class="headerlink" href="#conftest-py" title="Permalink to this headline">¶</a></h3>
+<h2>conftest.py<a class="headerlink" href="#conftest-py" title="Permalink to this headline">¶</a></h2>
 <p>我们常常会把fixture定义到conftest.py文件中。</p>
 <p>这是pytest固定的文件名，不能自定义。</p>
 <p>必须放在package下，也就是目录中有__init__.py。</p>
 <p>conftest.py中的fixture可以用在当前目录及其子目录，不需要import，pytest会自动找。</p>
 <p>可以创建多个conftest.py文件，同名fixture查找时会优先用最近的。</p>
 </div>
-<div class="section" id="id2">
-<h3>依赖注入<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h2>依赖注入<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>fixture实现了依赖注入。依赖注入是控制反转（IoC， Inversion of
 Control）的一种技术形式。</p>
 <p>简单理解一下什么是依赖注入和控制反转</p>
-<p><img alt="image3" src="../_images/image-20200918105551614.png" /></p>
+<p><img alt="image2" src="../_images/image-20200918105551614.png" /></p>
 <p>实在是妙啊！我们可以在不修改当前函数代码逻辑的情况下，通过fixture来额外添加一些处理。</p>
 </div>
-<div class="section" id="id3">
-<h3>入门示例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h2>入门示例<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## content of ./test_smtpsimple.py</span>
 <span class="kn">import</span> <span class="nn">smtplib</span>
 
@@ -371,7 +361,7 @@ Control）的一种技术形式。</p>
 </div>
 </div>
 <div class="section" id="fixture-scope-order">
-<h3>fixture scope &amp; order<a class="headerlink" href="#fixture-scope-order" title="Permalink to this headline">¶</a></h3>
+<h2>fixture scope &amp; order<a class="headerlink" href="#fixture-scope-order" title="Permalink to this headline">¶</a></h2>
 <p>既然到处都可以定义fixture，那多了岂不就乱了？</p>
 <p>pytest规定了fxture的运行范围和运行顺序。</p>
 <p>fixture的<strong>范围</strong>通过参数scope来指定</p>
@@ -442,8 +432,8 @@ autouse，默认function，后于session、module，先于function其他fixture<
 <li><p>f2 test_order()参数列表第3个</p></li>
 </ol>
 </div>
-<div class="section" id="id4">
-<h3>fixture嵌套<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h2>fixture嵌套<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>fixture装饰的是函数，那函数也有入参咯。</p>
 <p><strong>fixture装饰的函数入参，只能是其他fixture。</strong></p>
 <p>示例，f1依赖f3，如果不定义f3的话，执行会报错fixture ‘f3’ not found</p>
@@ -462,7 +452,7 @@ autouse，默认function，后于session、module，先于function其他fixture<
 </div>
 </div>
 <div class="section" id="testfixture">
-<h3>从test传值给fixture<a class="headerlink" href="#testfixture" title="Permalink to this headline">¶</a></h3>
+<h2>从test传值给fixture<a class="headerlink" href="#testfixture" title="Permalink to this headline">¶</a></h2>
 <p>借助request，可以把test中的值传递给fixture。</p>
 <p>示例1，smtp_connection可以使用module中的smtpserver</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## content of conftest.py</span>
@@ -511,7 +501,7 @@ autouse，默认function，后于session、module，先于function其他fixture<
 </div>
 </div>
 <div class="section" id="fixture-setup-teardown">
-<h3>fixture setup / teardown<a class="headerlink" href="#fixture-setup-teardown" title="Permalink to this headline">¶</a></h3>
+<h2>fixture setup / teardown<a class="headerlink" href="#fixture-setup-teardown" title="Permalink to this headline">¶</a></h2>
 <p>其他测试框架unittest/testng，都定义了setup和teardown函数/方法，用来测试前初始化和测试后清理。</p>
 <p>pytest也有，不过是兼容unittest等弄的，<strong>不推荐！</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">loguru</span> <span class="kn">import</span> <span class="n">logger</span>
@@ -623,23 +613,21 @@ autouse，默认function，后于session、module，先于function其他fixture<
 </pre></div>
 </div>
 </div>
-<div class="section" id="id5">
-<h3>fixture参数化<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h2>fixture参数化<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>后续会专门讲“pytest参数化”，这里就先跳过，请各位见谅啦。</p>
 <p>因为我觉得想用pytest做参数化，一定是先到参数化的文章里面找，而不是到fixture。</p>
 <p>把这部分放到参数化，更便于以后检索。</p>
 </div>
-<div class="section" id="id6">
-<h3>简要回顾<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h2>简要回顾<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>本文开头通过源码介绍了fixture是什么，并简单总结定义和用法。然后对依赖注入进行了解释，以更好理解fixture技术的原理。入门示例给出了官网的例子，以此展开讲了范围、顺序、嵌套、传值，以及初始化和清理的知识。</p>
-<p>如果遇到问题，欢迎沟通讨论。</p>
 <blockquote>
 <div><p><em>参考资料</em></p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Dependency_injection">https://en.wikipedia.org/wiki/Dependency_injection</a></p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Inversion_of_control">https://en.wikipedia.org/wiki/Inversion_of_control</a></p>
 <p><a class="reference external" href="https://docs.pytest.org/en/stable/contents.html#toc">https://docs.pytest.org/en/stable/contents.html#toc</a></p>
 </div></blockquote>
-</div>
 </div>
 </div>
 
