@@ -102,16 +102,12 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html">测试框架</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="001-pytest%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html">pytest快速入门</a></li>
 <li class="toctree-l2"><a class="reference internal" href="002-pytest132%E4%B8%AA%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E7%94%A8%E6%B3%95.html">pytest132个命令行参数用法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="003-pytest%E7%B2%BE%E9%80%9Afixture.html">pytest精通fixture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="004-pytest%E5%86%85%E7%BD%AE%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89marker.html">pytest内置和自定义marker</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">pytest参数化进阶</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">参数化进阶</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">语法</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">参数化误区</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">实践</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5">简要回顾</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">语法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参数化误区</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">实践</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">简要回顾</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="006-pytest%E6%96%AD%E8%A8%80%E6%8A%80%E5%B7%A7.html">pytest断言技巧</a></li>
@@ -208,12 +204,9 @@
   <div class="section" id="pytest">
 <h1>pytest参数化进阶<a class="headerlink" href="#pytest" title="Permalink to this headline">¶</a></h1>
 <p><img alt="image1" src="../_images/wanggang14.png" /></p>
-<div class="section" id="id1">
-<h2>参数化进阶<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><img alt="image2" src="../_images/wanggang14.png" /></p>
 <p>用过unittest的朋友，肯定知道可以借助DDT实现参数化。用过JMeter的朋友，肯定知道JMeter自带了4种参数化方式（见参考资料）。pytest同样支持参数化，而且很简单很实用。</p>
-<div class="section" id="id2">
-<h3>语法<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h2>语法<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>在《pytest封神之路第三步 精通fixture》和《pytest封神之路第四步
 内置和自定义marker》两篇文章中，都提到了pytest参数化。那么本文就趁着热乎，赶紧聊一聊pytest的参数化是怎么玩的。</p>
 <p><strong>&#64;pytest.mark.parametrize</strong></p>
@@ -309,8 +302,8 @@ hook》中，欢迎关注公众号dongfanger获取最新文章。</p>
 <li><p>多个metafunc.parametrize() 的参数名不能重复，否则会报错</p></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h3>参数化误区<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h2>参数化误区<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>在讲示例之前，先简单分享我的菜鸡行为。假设我们现在需要对50个接口测试，验证某一角色的用户访问这些接口会返回403。我的做法是，把接口请求全部参数化了，test函数里面只有断言，<strong>伪代码</strong>大致如下</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">api</span><span class="p">():</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">[]</span>
@@ -328,8 +321,8 @@ hook》中，欢迎关注公众号dongfanger获取最新文章。</p>
 </div>
 <p>这样参数化以后，会产生<strong>50个tests</strong>，如果断言失败了，会单独标记为failed，不影响其他test结果。咋一看还行，但是有个问题，在回归的时候，可能只需要验证其中部分接口，就没有办法灵活的调整，必须全部跑一遍才行。这是一个<strong>相对错误的示范</strong>，至于正确的应该怎么写，相信每个人心中都有一个答案，能解决问题就是ok的。我想表达的是，<strong>参数化要适当，不要滥用，最好只对测试数据做参数化</strong>。</p>
 </div>
-<div class="section" id="id4">
-<h3>实践<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h2>实践<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>本文的<strong>重点</strong>来了，参数化的语法比较简单，实际应用是关键。这部分通过11个例子，来实践一下。<strong>示例覆盖的知识点有点多，建议留大段时间细看。</strong></p>
 <p>1.使用hook添加命令行参数–all，“param1”是参数名，带–all参数时是range(5)
 == [0, 1, 2, 3, 4]，生成5个tests。不带参数时是range(2)。</p>
@@ -692,14 +685,13 @@ hook》中，欢迎关注公众号dongfanger获取最新文章。</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id5">
-<h3>简要回顾<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h2>简要回顾<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>本文先讲了参数化的语法，包括marker，fixture，hook方式，以及如何给参数添加marker，然后重点列举了几个实战示例。参数化用好了能节省编码，达到事半功倍的效果。</p>
 <blockquote>
 <div><p><em>参考资料</em></p>
 <p>docs-pytest-org-en-stable</p>
 </div></blockquote>
-</div>
 </div>
 </div>
 

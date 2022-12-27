@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="pytest参数化进阶" href="005-pytest%E5%8F%82%E6%95%B0%E5%8C%96%E8%BF%9B%E9%98%B6.html" />
-    <link rel="prev" title="pytest精通fixture" href="003-pytest%E7%B2%BE%E9%80%9Afixture.html" /> 
+    <link rel="prev" title="pytest132个命令行参数用法" href="002-pytest132%E4%B8%AA%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E7%94%A8%E6%B3%95.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -102,14 +102,17 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html">测试框架</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="001-pytest%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html">pytest快速入门</a></li>
 <li class="toctree-l2"><a class="reference internal" href="002-pytest132%E4%B8%AA%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E7%94%A8%E6%B3%95.html">pytest132个命令行参数用法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="003-pytest%E7%B2%BE%E9%80%9Afixture.html">pytest精通fixture</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">pytest内置和自定义marker</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#marker">内置和自定义marker</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">内置marker</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">自定义marker</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">简要回顾</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#marker">内置marker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usefixtures">usefixtures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filterwarnings">filterwarnings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#skip">skip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#skipif">skipif</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xfail">xfail</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">自定义marker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">简要回顾</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="005-pytest%E5%8F%82%E6%95%B0%E5%8C%96%E8%BF%9B%E9%98%B6.html">pytest参数化进阶</a></li>
@@ -207,20 +210,17 @@
   <div class="section" id="pytestmarker">
 <h1>pytest内置和自定义marker<a class="headerlink" href="#pytestmarker" title="Permalink to this headline">¶</a></h1>
 <p><img alt="image1" src="../_images/wanggang14.png" /></p>
-<div class="section" id="marker">
-<h2>内置和自定义marker<a class="headerlink" href="#marker" title="Permalink to this headline">¶</a></h2>
-<p><img alt="image2" src="../_images/wanggang14.png" /></p>
 <p>可以通过命令行查看所有marker，包括内置和自定义的</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pytest --markers
 </pre></div>
 </div>
-<div class="section" id="id1">
-<h3>内置marker<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="marker">
+<h2>内置marker<a class="headerlink" href="#marker" title="Permalink to this headline">¶</a></h2>
 <p>内置marker本文先讲usefixtures 、filterwarnings 、skip 、skipif
 、xfail这5个。参数化的marker我会写在《pytest参数化》中，hook的marker我会写在《pytest
 hook》中，插件的marker（pytest-ordering、allure等）我会写在《pytest插件》中。当前只需知道有以上这些分类的marker即可，更多内容请关注后续文章。</p>
 <div class="section" id="usefixtures">
-<h4>usefixtures<a class="headerlink" href="#usefixtures" title="Permalink to this headline">¶</a></h4>
+<h3>usefixtures<a class="headerlink" href="#usefixtures" title="Permalink to this headline">¶</a></h3>
 <p>如果我们只想把fixture注入到test中，test不直接访问fixture的时候，就需要用到usefixtures。</p>
 <p>示例，test需要一个临时目录，但是并不需要知道这个目录具体路径在哪</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## content of conftest.py</span>
@@ -277,7 +277,7 @@ hook》中，插件的marker（pytest-ordering、allure等）我会写在《pyte
 <p>不过需要注意的是fixture函数本身是不能用usefixtures的，如果想要嵌套fixture，只能通过在fixture修饰的函数中，添加参数这种方式。</p>
 </div>
 <div class="section" id="filterwarnings">
-<h4>filterwarnings<a class="headerlink" href="#filterwarnings" title="Permalink to this headline">¶</a></h4>
+<h3>filterwarnings<a class="headerlink" href="#filterwarnings" title="Permalink to this headline">¶</a></h3>
 <p>过滤警告信息。</p>
 <p>示例，api_v1()抛出了“api
 v1”的警告，test_one()函数使用filterwarnings过滤掉了</p>
@@ -297,7 +297,7 @@ v1”的警告，test_one()函数使用filterwarnings过滤掉了</p>
 <p>同样可以添加到pytestmark和pytest.ini中。</p>
 </div>
 <div class="section" id="skip">
-<h4>skip<a class="headerlink" href="#skip" title="Permalink to this headline">¶</a></h4>
+<h3>skip<a class="headerlink" href="#skip" title="Permalink to this headline">¶</a></h3>
 <p>跳过，不测试。</p>
 <p>示例，skip需要添加reason哦</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="n">reason</span><span class="o">=</span><span class="s2">&quot;no way of currently testing this&quot;</span><span class="p">)</span>
@@ -321,7 +321,7 @@ v1”的警告，test_one()函数使用filterwarnings过滤掉了</p>
 </div>
 </div>
 <div class="section" id="skipif">
-<h4>skipif<a class="headerlink" href="#skipif" title="Permalink to this headline">¶</a></h4>
+<h3>skipif<a class="headerlink" href="#skipif" title="Permalink to this headline">¶</a></h3>
 <p>if判断跳不跳，还可以用skipif。</p>
 <p>示例，如果Python版本小于3.6就跳过测试</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
@@ -363,7 +363,7 @@ v1”的警告，test_one()函数使用filterwarnings过滤掉了</p>
 <p>如果function有多个skipif作用，只要有一个为True，就会跳过。</p>
 </div>
 <div class="section" id="xfail">
-<h4>xfail<a class="headerlink" href="#xfail" title="Permalink to this headline">¶</a></h4>
+<h3>xfail<a class="headerlink" href="#xfail" title="Permalink to this headline">¶</a></h3>
 <p>明知失败，依然前行！不好意思跑偏了。xfail就是expected fail，预期失败</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">xfail</span>
 <span class="k">def</span> <span class="nf">test_function</span><span class="p">():</span>
@@ -428,8 +428,8 @@ marker，相当于没有添加这个标记的效果，该成功就成功，该�
 <p>再强势也不虚，恶灵退散，哈哈。</p>
 </div>
 </div>
-<div class="section" id="id2">
-<h3>自定义marker<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h2>自定义marker<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>通过注解自定义marker</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## content of test_server.py</span>
 <span class="kn">import</span> <span class="nn">pytest</span>
@@ -477,14 +477,13 @@ marker，相当于没有添加这个标记的效果，该成功就成功，该�
 </pre></div>
 </div>
 </div>
-<div class="section" id="id3">
-<h3>简要回顾<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h2>简要回顾<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>本文介绍了5个pytest内置的marker，接着介绍了如何自定义marker和注册marker。通过marker，可以让我们更灵活的执行用例。</p>
 <blockquote>
 <div><p><em>参考资料</em></p>
 <p>docs-pytest-org-en-stable</p>
 </div></blockquote>
-</div>
 </div>
 </div>
 
@@ -499,7 +498,7 @@ marker，相当于没有添加这个标记的效果，该成功就成功，该�
         <a href="005-pytest%E5%8F%82%E6%95%B0%E5%8C%96%E8%BF%9B%E9%98%B6.html" class="btn btn-neutral float-right" title="pytest参数化进阶" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="003-pytest%E7%B2%BE%E9%80%9Afixture.html" class="btn btn-neutral float-left" title="pytest精通fixture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="002-pytest132%E4%B8%AA%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E7%94%A8%E6%B3%95.html" class="btn btn-neutral float-left" title="pytest132个命令行参数用法" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

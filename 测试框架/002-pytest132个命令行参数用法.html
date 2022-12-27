@@ -39,7 +39,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pytest精通fixture" href="003-pytest%E7%B2%BE%E9%80%9Afixture.html" />
+    <link rel="next" title="pytest内置和自定义marker" href="004-pytest%E5%86%85%E7%BD%AE%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89marker.html" />
     <link rel="prev" title="pytest快速入门" href="001-pytest%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html" /> 
 </head>
 
@@ -102,22 +102,18 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html">测试框架</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="001-pytest%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html">pytest快速入门</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">pytest132个命令行参数用法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">132个命令行参数用法</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#positional-arguments">1.positional arguments</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#general">2.general</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#reporting">3.reporting</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#collection">4.collection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#test-session-debugging-and-configuration">5.test session debugging and configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pytest-warnings">6.pytest-warnings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#logging">7.logging</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#reporting-allure">8.reporting-allure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ini-options">9.ini-options</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#environment-variables">10.environment variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#positional-arguments">1.positional arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general">2.general</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reporting">3.reporting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collection">4.collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-session-debugging-and-configuration">5.test session debugging and configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytest-warnings">6.pytest-warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logging">7.logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reporting-allure">8.reporting-allure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ini-options">9.ini-options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-variables">10.environment variables</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="003-pytest%E7%B2%BE%E9%80%9Afixture.html">pytest精通fixture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="004-pytest%E5%86%85%E7%BD%AE%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89marker.html">pytest内置和自定义marker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="005-pytest%E5%8F%82%E6%95%B0%E5%8C%96%E8%BF%9B%E9%98%B6.html">pytest参数化进阶</a></li>
 <li class="toctree-l2"><a class="reference internal" href="006-pytest%E6%96%AD%E8%A8%80%E6%8A%80%E5%B7%A7.html">pytest断言技巧</a></li>
@@ -214,9 +210,6 @@
   <div class="section" id="pytest132">
 <h1>pytest132个命令行参数用法<a class="headerlink" href="#pytest132" title="Permalink to this headline">¶</a></h1>
 <p><img alt="image1" src="../_images/wanggang14.png" /></p>
-<div class="section" id="id1">
-<h2>132个命令行参数用法<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><img alt="image2" src="../_images/wanggang14.png" /></p>
 <p>在Shell执行<code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">-h</span></code>可以看到pytest的命令行参数有这10大类，共132个</p>
 <table class="docutils align-default">
 <colgroup>
@@ -294,7 +287,7 @@ variables</p></td>
 </tbody>
 </table>
 <div class="section" id="positional-arguments">
-<h3>1.positional arguments<a class="headerlink" href="#positional-arguments" title="Permalink to this headline">¶</a></h3>
+<h2>1.positional arguments<a class="headerlink" href="#positional-arguments" title="Permalink to this headline">¶</a></h2>
 <p>file_or_dir</p>
 <p>指定一个或多个文件/目录</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pytest <span class="o">[</span>file_or_dir<span class="o">]</span> <span class="o">[</span>file_or_dir<span class="o">]</span> <span class="o">[</span>...<span class="o">]</span>
@@ -302,7 +295,7 @@ variables</p></td>
 </div>
 </div>
 <div class="section" id="general">
-<h3>2.general<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
+<h2>2.general<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <p>-k EXPRESSION</p>
 <p>名字包含test_method或test_other的函数或类</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>-k <span class="s2">&quot;test_method or test_other&quot;</span>
@@ -551,7 +544,7 @@ module下的<code class="docutils literal notranslate"><span class="pre">Termina
 </div>
 </div>
 <div class="section" id="reporting">
-<h3>3.reporting<a class="headerlink" href="#reporting" title="Permalink to this headline">¶</a></h3>
+<h2>3.reporting<a class="headerlink" href="#reporting" title="Permalink to this headline">¶</a></h2>
 <p>–durations=N</p>
 <p>显示2个最慢的setup/test的耗时</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pytest --durations<span class="o">=</span><span class="m">2</span>
@@ -712,7 +705,7 @@ module下的<code class="docutils literal notranslate"><span class="pre">Termina
 </div>
 </div>
 <div class="section" id="collection">
-<h3>4.collection<a class="headerlink" href="#collection" title="Permalink to this headline">¶</a></h3>
+<h2>4.collection<a class="headerlink" href="#collection" title="Permalink to this headline">¶</a></h2>
 <p>–collect-only, –co</p>
 <p>只收集，不执行。<strong>可以用来统计写了多少条自动化用例</strong></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pytest --collect-only
@@ -789,7 +782,7 @@ module下的<code class="docutils literal notranslate"><span class="pre">Termina
 </div>
 </div>
 <div class="section" id="test-session-debugging-and-configuration">
-<h3>5.test session debugging and configuration<a class="headerlink" href="#test-session-debugging-and-configuration" title="Permalink to this headline">¶</a></h3>
+<h2>5.test session debugging and configuration<a class="headerlink" href="#test-session-debugging-and-configuration" title="Permalink to this headline">¶</a></h2>
 <p>–basetemp=dir</p>
 <p>test run的base临时目录（如果存在会先删除）</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pytest --basetemp<span class="o">=</span>dir
@@ -865,7 +858,7 @@ module下的<code class="docutils literal notranslate"><span class="pre">Termina
 </div>
 </div>
 <div class="section" id="pytest-warnings">
-<h3>6.pytest-warnings<a class="headerlink" href="#pytest-warnings" title="Permalink to this headline">¶</a></h3>
+<h2>6.pytest-warnings<a class="headerlink" href="#pytest-warnings" title="Permalink to this headline">¶</a></h2>
 <p>-W PYTHONWARNINGS, –pythonwarnings=PYTHONWARNINGS</p>
 <p>设置报告哪些warnings</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pytest -W PYTHONWARNINGS
@@ -876,7 +869,7 @@ module下的<code class="docutils literal notranslate"><span class="pre">Termina
 </div>
 </div>
 <div class="section" id="logging">
-<h3>7.logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
+<h2>7.logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h2>
 <p>推荐直接使用<strong>loguru</strong>第三方库。</p>
 <p>–log-level=LEVEL</p>
 <p>默认没有设置，依赖log handler</p>
@@ -937,7 +930,7 @@ module下的<code class="docutils literal notranslate"><span class="pre">Termina
 </div>
 </div>
 <div class="section" id="reporting-allure">
-<h3>8.reporting-allure<a class="headerlink" href="#reporting-allure" title="Permalink to this headline">¶</a></h3>
+<h2>8.reporting-allure<a class="headerlink" href="#reporting-allure" title="Permalink to this headline">¶</a></h2>
 <p>–alluredir=DIR</p>
 <p>allure数据生成目录，注意不是html哦，而是json文件，需要<code class="docutils literal notranslate"><span class="pre">allure</span> <span class="pre">generate</span> <span class="pre">data_dir</span> <span class="pre">-o</span> <span class="pre">html_dir</span></code>才能生成html</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pytest --alluredir<span class="o">=</span>DIR
@@ -955,7 +948,7 @@ module下的<code class="docutils literal notranslate"><span class="pre">Termina
 </div>
 </div>
 <div class="section" id="ini-options">
-<h3>9.ini-options<a class="headerlink" href="#ini-options" title="Permalink to this headline">¶</a></h3>
+<h2>9.ini-options<a class="headerlink" href="#ini-options" title="Permalink to this headline">¶</a></h2>
 <p>ini文件用例设置一些初始化默认值。</p>
 <p>部分内容其实质跟参数是一样用法。</p>
 <p>markers (linelist)</p>
@@ -1064,7 +1057,7 @@ module下的<code class="docutils literal notranslate"><span class="pre">Termina
 <p>必须的插件。</p>
 </div>
 <div class="section" id="environment-variables">
-<h3>10.environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h3>
+<h2>10.environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
 <p>PYTEST_ADDOPTS</p>
 <p>命令行选项</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PYTEST_ADDOPTS</span><span class="o">=</span>
@@ -1087,7 +1080,6 @@ module下的<code class="docutils literal notranslate"><span class="pre">Termina
 </div>
 </div>
 </div>
-</div>
 
 
            </div>
@@ -1097,7 +1089,7 @@ module下的<code class="docutils literal notranslate"><span class="pre">Termina
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="003-pytest%E7%B2%BE%E9%80%9Afixture.html" class="btn btn-neutral float-right" title="pytest精通fixture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="004-pytest%E5%86%85%E7%BD%AE%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89marker.html" class="btn btn-neutral float-right" title="pytest内置和自定义marker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="001-pytest%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html" class="btn btn-neutral float-left" title="pytest快速入门" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

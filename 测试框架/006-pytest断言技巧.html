@@ -102,16 +102,12 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html">测试框架</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="001-pytest%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html">pytest快速入门</a></li>
 <li class="toctree-l2"><a class="reference internal" href="002-pytest132%E4%B8%AA%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E7%94%A8%E6%B3%95.html">pytest132个命令行参数用法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="003-pytest%E7%B2%BE%E9%80%9Afixture.html">pytest精通fixture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="004-pytest%E5%86%85%E7%BD%AE%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89marker.html">pytest内置和自定义marker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="005-pytest%E5%8F%82%E6%95%B0%E5%8C%96%E8%BF%9B%E9%98%B6.html">pytest参数化进阶</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">pytest断言技巧</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">断言技巧</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#assert">assert基础</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pytest-raises">pytest.raises</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#failure">44个failure例子</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#assert">assert基础</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytest-raises">pytest.raises</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#failure">44个failure例子</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="007-pytest%E7%94%A8%E4%BE%8B%E6%9F%A5%E6%89%BE%E5%8E%9F%E7%90%86.html">pytest用例查找原理</a></li>
@@ -207,12 +203,9 @@
   <div class="section" id="pytest">
 <h1>pytest断言技巧<a class="headerlink" href="#pytest" title="Permalink to this headline">¶</a></h1>
 <p><img alt="image1" src="../_images/wanggang14.png" /></p>
-<div class="section" id="id1">
-<h2>断言技巧<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><img alt="image2" src="../_images/wanggang14.png" /></p>
 <p>pytest的断言把Python语言简洁的优点发挥的淋漓尽致，因为它用的就是Python的标准断言<strong>assert</strong>。</p>
 <div class="section" id="assert">
-<h3>assert基础<a class="headerlink" href="#assert" title="Permalink to this headline">¶</a></h3>
+<h2>assert基础<a class="headerlink" href="#assert" title="Permalink to this headline">¶</a></h2>
 <p>assert用法</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">assert_stmt</span> <span class="p">:</span><span class="o">:=</span>  <span class="s2">&quot;assert&quot;</span> <span class="n">expression1</span> <span class="p">[</span><span class="s2">&quot;,&quot;</span> <span class="n">expression2</span><span class="p">]</span>
 </pre></div>
@@ -265,7 +258,7 @@
 预期，错误信息。</strong>记住把<strong>预期放在右边</strong>。</p>
 </div>
 <div class="section" id="pytest-raises">
-<h3>pytest.raises<a class="headerlink" href="#pytest-raises" title="Permalink to this headline">¶</a></h3>
+<h2>pytest.raises<a class="headerlink" href="#pytest-raises" title="Permalink to this headline">¶</a></h2>
 <p>pytest.raises用于断言异常。</p>
 <p>示例，断言会抛出ZeroDivisionError，<strong>如果抛出了测试结果是pass，如果没抛出，测试结果是failed</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
@@ -305,7 +298,7 @@ recursion”</p>
 </div>
 </div>
 <div class="section" id="failure">
-<h3>44个failure例子<a class="headerlink" href="#failure" title="Permalink to this headline">¶</a></h3>
+<h2>44个failure例子<a class="headerlink" href="#failure" title="Permalink to this headline">¶</a></h2>
 <p>每个test用大横线做了分隔</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>assertion $ pytest failure_demo.py
 <span class="o">===========================</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">============================</span>
@@ -891,7 +884,6 @@ failure_demo.py:281: <span class="nv">AssertionError</span>
 
 <span class="o">============================</span> <span class="m">44</span> failed in <span class="m">0</span>.12s <span class="o">============================</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
