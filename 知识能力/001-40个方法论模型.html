@@ -1,0 +1,610 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>40个方法论模型 &mdash; 测试开发刚哥 latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/readmore.js"></script>
+        <script src="../_static/js/baidutongji.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="读书笔记" href="../chapters/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html" />
+    <link rel="prev" title="知识能力" href="../chapters/%E7%9F%A5%E8%AF%86%E8%83%BD%E5%8A%9B.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> 测试开发刚哥
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tep.html">tep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB.html">测试体系</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1.html">用例设计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.html">编程语言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95.html">接口测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95.html">白盒测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html">单元测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95.html">精准测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83.html">测试环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html">测试框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html">测试工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0.html">测试平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A.html">测试报告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%B5%81%E9%87%8F%E5%9B%9E%E6%94%BE.html">流量回放</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html">性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6.html">开发框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E4%B8%AD%E9%97%B4%E8%BD%AF%E4%BB%B6.html">中间软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF.html">通用技术</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapters/%E7%9F%A5%E8%AF%86%E8%83%BD%E5%8A%9B.html">知识能力</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">40个方法论模型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">概览</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">学习力</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">学习金字塔</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">费曼技巧</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">刻意练习</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ria">RIA阅读法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">二八定律</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">思考力</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">黄金圈法则</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#w1h">5W1H分析法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">思维导图</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#swot">SWOT分析</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">10/10/10法则</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">创造力</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13">六顶思考帽</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">头脑风暴</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">逆向思维</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">类比思维</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scamper">SCAMPER创新思维</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">设计力</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18">设计思维</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvp">最小可行性产品（MVP）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">峰终定律</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aarrr">AARRR漏斗模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hook">上瘾（HOOK）模型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">共情力</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id21">五大圈层模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22">高效倾听模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#abc">情绪ABC模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23">乔哈里视窗</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">冰山模型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">故事力</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id26">故事五要素</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scqa">SCQA模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#star">STAR模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#story">STORY模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id27">“英雄之旅”模型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">领导力</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id29">领导力梯队</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id30">情景领导力模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grow">GROW教练模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#c">管理4C模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#topic">TOPIC模型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id31">整合力</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id32">杠杆思维</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#poa">POA行动</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id33">系统思维</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id34">整合思维模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id35">多元思维模型</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html">读书笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E9%9D%A2%E8%AF%95%E5%A4%87%E6%88%98.html">面试备战</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/%E6%80%BB%E7%BB%93%E6%84%9F%E6%83%B3.html">总结感想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90.html">网站推荐</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D.html">自我介绍</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">测试开发刚哥</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../chapters/%E7%9F%A5%E8%AF%86%E8%83%BD%E5%8A%9B.html">知识能力</a> &raquo;</li>
+        
+      <li>40个方法论模型</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/知识能力/001-40个方法论模型.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>40个方法论模型<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image1" src="../_images/wanggang18.png" /></p>
+<p>方法论是一种以解决问题为目标的理论体系或系统，通常涉及对问题阶段、任务、工具、方法技巧的论述。方法论会对一系列具体的方法进行分析研究、系统总结并最终提出较为一般性的原则。</p>
+<div class="section" id="id2">
+<h2>概览<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>学习力</strong>：学习金字塔、费曼技巧、刻意练习、RIA阅读法、二八定律</p>
+<p><strong>思考力</strong>：黄金圈法则、5W1H分析法、思维导图、SWOT分析、10/10/10法则</p>
+<p><strong>创造力</strong>：六顶思考帽、头脑风暴、逆向思维、类比思维、SCAMPER创新思维</p>
+<p><strong>设计力</strong>：设计思维、最小可行性产品（MVP）、峰终定律、AARRR漏斗模型、上瘾（HOOK）模型</p>
+<p><strong>共情力</strong>：五大圈层模型、高效倾听模型、情绪ABC模型、乔哈里视窗、冰山模型</p>
+<p><strong>故事力</strong>：故事五要素、SCQA模型、SRAR模型、STORY模型、“英雄之旅”模型</p>
+<p><strong>领导力</strong>：领导力梯队、情景领导力模型、GROW教练模型、管理4C模型、TOPIC模型</p>
+<p><strong>整合力</strong>：杠杆思维、POA行动、系统思维、整合思维模型、多元思维模型</p>
+</div>
+<div class="section" id="id3">
+<h2>学习力<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>学习金字塔<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image2" src="../_images/image-20230114222131837.png" /></p>
+<p>学习效果在30%以下的，都是个人学习或被动学习；</p>
+<p>学习效果在30%以上的，都是团队学习、主动学习和参与式学习。</p>
+<blockquote>
+<div><p>添加<code class="docutils literal notranslate"><span class="pre">cekaigang</span></code>加入交流群一起学习。</p>
+</div></blockquote>
+</div>
+<div class="section" id="id5">
+<h3>费曼技巧<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image3" src="../_images/image-20230114222206282.png" /></p>
+<p>号称“史上最强学习方法”，通过教别人的方式让自己学会。</p>
+<blockquote>
+<div><p>推荐大家尝试写文章、做视频。</p>
+</div></blockquote>
+</div>
+<div class="section" id="id6">
+<h3>刻意练习<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image4" src="../_images/image-20230114222243770.png" /></p>
+<p>大量重复训练，精神高度集中，持续获得有效的反馈。</p>
+<p>举个栗子，小时候用字帖来练习写字。</p>
+</div>
+<div class="section" id="ria">
+<h3>RIA阅读法<a class="headerlink" href="#ria" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image5" src="../_images/image-20230114222331573.png" /></p>
+<p>RIA=阅读原文+重述原文+AI（联系经验）+A2规划运用。</p>
+</div>
+<div class="section" id="id7">
+<h3>二八定律<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image6" src="../_images/image-20230114222411465.png" /></p>
+<p>掌握20%的核心内容，能够解决80%的问题。当你想要快速掌握技能时，可把精力放在最关键的20%的核心内容上。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>思考力<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>黄金圈法则<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image7" src="../_images/image-20230114222439701.png" /></p>
+<p>最里层，Why：为什么做一件事，目标和信念</p>
+<p>中间层，How：怎么做，是实现目标的途径</p>
+<p>最外层，What：事情的表象，具体实施的动作</p>
+</div>
+<div class="section" id="w1h">
+<h3>5W1H分析法<a class="headerlink" href="#w1h" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image8" src="../_images/image-20230114222506718.png" /></p>
+<p>原因（why）、对象（what）、地点（where）、时间（when）、人员（who）、方法（how）。</p>
+</div>
+<div class="section" id="id10">
+<h3>思维导图<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image9" src="../_images/image-20230114222538642.png" /></p>
+<p>用一个中央关键词或想法以辐射线形连接所有的代表字词、想法、任务或其它关联项目的图解方式。</p>
+<p>把所有内容都画在一张纸上可以观全局，还能注意到信息之间的联系。</p>
+</div>
+<div class="section" id="swot">
+<h3>SWOT分析<a class="headerlink" href="#swot" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image10" src="../_images/image-20230114222637109.png" /></p>
+<p>盘点自身技能、优势劣势、外部环境的机会和威胁。在求职时可以使用。</p>
+</div>
+<div class="section" id="id11">
+<h3>10/10/10法则<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image11" src="../_images/image-20230114222708979.png" /></p>
+<p>来自股神巴菲特，它可以帮助我们用长远的目光做出明智的选择。</p>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>创造力<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id13">
+<h3>六顶思考帽<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image12" src="../_images/image-20230114222841986.png" /></p>
+<p>强调的是“能够成为什么”，而非“本身是什么”，是寻求一条向前发展的路，而不是争论谁对谁错。在开会时，可依次使用思考帽让会议更清晰。</p>
+</div>
+<div class="section" id="id14">
+<h3>头脑风暴<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image13" src="../_images/image-20230114222912658.png" /></p>
+<p>在正常融洽和不受任何限制的气氛中以会议形式进行讨论、座谈，打破常规，积极思考，畅所欲言，充分发表看法。</p>
+</div>
+<div class="section" id="id15">
+<h3>逆向思维<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image14" src="../_images/image-20230114222942244.png" /></p>
+<p>当你发现正向思考问题难以继续时，可不走寻常路，采用逆向思维。</p>
+</div>
+<div class="section" id="id16">
+<h3>类比思维<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image15" src="../_images/image-20230114223005472.png" /></p>
+<p>当你在思考新想法时，可以尝试用其他不相关领域的知识做类比，找到新灵感。</p>
+</div>
+<div class="section" id="scamper">
+<h3>SCAMPER创新思维<a class="headerlink" href="#scamper" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image16" src="../_images/image-20230114223029410.png" /></p>
+<p>通过7点有助于检验是否有更好的改进现状的新想法。在需要改进现有产品、服务或商业模式时使用。</p>
+</div>
+</div>
+<div class="section" id="id17">
+<h2>设计力<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id18">
+<h3>设计思维<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image17" src="../_images/image-20230115204731563.png" /></p>
+<p>一套以人为本的解决问题的方法论，从人的需求出发，多角度寻求创新解决方案，创造更多可能性。当在需要解决一个特定群体的问题时，可以使用设计思维，寻找创新的解决方案。</p>
+</div>
+<div class="section" id="mvp">
+<h3>最小可行性产品（MVP）<a class="headerlink" href="#mvp" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image18" src="../_images/image-20230115204831555.png" /></p>
+<p>MVP，Minimum Viable
+Product，最小可行产品。用最快、最简明的方式建立一个可用的产品原型，推向市场，测试用户是否喜欢这个产品，进而迭代完善细节。可以低成本试错，不断迭代单品。</p>
+</div>
+<div class="section" id="id19">
+<h3>峰终定律<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image19" src="../_images/image-20230115204854982.png" /></p>
+<p>人们对一段经历的感受取决于两个时刻：峰值（最好或最坏的时刻）和结尾。</p>
+</div>
+<div class="section" id="aarrr">
+<h3>AARRR漏斗模型<a class="headerlink" href="#aarrr" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image20" src="../_images/image-20230115205250374.png" /></p>
+<p>展示了用户全生命周期，也可以用于学习、个人成长等领域。</p>
+</div>
+<div class="section" id="hook">
+<h3>上瘾（HOOK）模型<a class="headerlink" href="#hook" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image21" src="../_images/image-20230115205315587.png" /></p>
+<p>触发：外部触发（付出型/人际型/回馈型/自住型），内部触发（情绪）</p>
+<p>行动：动机（追求快乐/希望/认同），能力（时间/金钱/体力/脑力/社会偏差/非常规性）</p>
+<p>多变的酬赏：社交酬赏（被认同/人际奖励）、猎物酬赏（追求资源/信息/金钱）、自我酬赏（操控感/成就感/信任感）</p>
+<p>投入：内容/数据资料/信誉/技能/关注者</p>
+<p>上瘾模型，本质是设计一套让用户连续循环的行为模型，让用户在不知不觉中对产品上瘾，从而成为忠实用户。</p>
+</div>
+</div>
+<div class="section" id="id20">
+<h2>共情力<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id21">
+<h3>五大圈层模型<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image22" src="../_images/image-20230115205355901.png" /></p>
+<p>感知层：外观、外貌</p>
+<p>角色框架层：Ta的职业和其他社会角色</p>
+<p>资源结构：包含财富、人脉和精神财富</p>
+<p>能力圈：一个人的能力</p>
+<p>存在感：一个人的内核，Ta对自己的存在是怎么感知的</p>
+</div>
+<div class="section" id="id22">
+<h3>高效倾听模型<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image23" src="../_images/image-20230115205423671.png" /></p>
+<p>当别人向你诉说时，让对方感受到你在认真倾听。</p>
+</div>
+<div class="section" id="abc">
+<h3>情绪ABC模型<a class="headerlink" href="#abc" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image24" src="../_images/image-20230115205446607.png" /></p>
+<p>A，Antecedent，指事情的前因。</p>
+<p>B，Bridge，桥梁，从前因到后果之间，一定会透过一座桥梁，它就是我们的信念和对情境的评价。</p>
+<p>C，Consequence，指事情的后果。</p>
+<p>不同的人的理念以及评价与解释不同，会得到不同结果。</p>
+<p>事物的本身并不能影响人，人们只受对事物看法的影响。当你被事情影响，产生负面情绪，察觉下，是否是信念出现问题？</p>
+</div>
+<div class="section" id="id23">
+<h3>乔哈里视窗<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image25" src="../_images/image-20230115205509997.png" /></p>
+<p>真正有效的沟通，只能在公开区进行，但往往沟通会陷入隐藏区，导致沟通效果差。当你与人沟通不顺时，当心是否已进入隐藏区，及时调整，回到公开区。</p>
+</div>
+<div class="section" id="id24">
+<h3>冰山模型<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image26" src="../_images/image-20230115205532237.png" /></p>
+<p>帮你更好的认识自己或他人。</p>
+</div>
+</div>
+<div class="section" id="id25">
+<h2>故事力<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id26">
+<h3>故事五要素<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image27" src="../_images/image-20230115205554016.png" /></p>
+<p>一个好的故事，需要包括：</p>
+<p>三个基本要素：冲突+行动+结局</p>
+<p>两个附加要素：情感+展示</p>
+<p>情感能建立跟观众的连接，展示能让他们身临其境。</p>
+</div>
+<div class="section" id="scqa">
+<h3>SCQA模型<a class="headerlink" href="#scqa" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image28" src="../_images/image-20230115205623075.png" /></p>
+<p>情景：由大家都熟悉的情景、事实引入</p>
+<p>冲突：实际情况往往和我们的要求有冲突</p>
+<p>疑问：怎么办</p>
+<p>回答：我们的解决方案是</p>
+<p>当被要求临场发言，需要快速组织语言内容时，可套用这个模型。</p>
+</div>
+<div class="section" id="star">
+<h3>STAR模型<a class="headerlink" href="#star" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image29" src="../_images/image-20230115205644570.png" /></p>
+<p>情景：事情是在什么情况下发生的</p>
+<p>任务：你具体有什么任务</p>
+<p>行动：针对这样的情况，你采用了什么行动方式</p>
+<p>结果：结果怎样，你学习到了什么</p>
+<p>当要讲故事时，可用STAR模型构思最简单的版本。</p>
+<p>在简历撰写和回答情景面试题时，STAR法则被广泛运用。</p>
+</div>
+<div class="section" id="story">
+<h3>STORY模型<a class="headerlink" href="#story" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image30" src="../_images/image-20230115205710204.png" /></p>
+<p>故事评价标准，好故事需要满足这五点：结构清晰、在约束时间内完成、有观点启发、情节真实、有情怀能够共鸣。</p>
+</div>
+<div class="section" id="id27">
+<h3>“英雄之旅”模型<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image31" src="../_images/image-20230115205735023.png" /></p>
+<p>包含：</p>
+<p>①一次旅程</p>
+<p>②两个世界：平凡和非凡</p>
+<p>③三幕剧：启程、启蒙、归来</p>
+<p>④十二个组成部分</p>
+<p>当想构思一个情节跌宕起伏的长故事时，可参考。</p>
+</div>
+</div>
+<div class="section" id="id28">
+<h2>领导力<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id29">
+<h3>领导力梯队<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image32" src="../_images/image-20230115205759313.png" /></p>
+<p>在大公司，从员工成为首席执行官，需要经历的六个领导力发展阶段。</p>
+</div>
+<div class="section" id="id30">
+<h3>情景领导力模型<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image33" src="../_images/image-20230115205821501.png" /></p>
+<p>员工的成长过程根据“信心”和“能力”的高低，可分为4个阶段，因此领导也应采用4种不同的领导模式，分别是指导式、教练式、支持式和授权式。</p>
+<p>情景领导有三大技巧：</p>
+<p>诊断：评估部属在发展阶段的需求；</p>
+<p>弹性：能轻松自在的使用不同的领导形态；</p>
+<p>约定领导形态：与部署建立伙伴关系，与部署协议他所需要的领导形态；</p>
+</div>
+<div class="section" id="grow">
+<h3>GROW教练模型<a class="headerlink" href="#grow" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image34" src="../_images/image-20230115205844586.png" /></p>
+<p>目标设定：确认员工业绩目标；也包含在日常工作生活中的单一事件性目标；</p>
+<p>现状分析：搞清楚目前的现状、客观事实是什么；寻找动因；</p>
+<p>发展路径：寻找解决方案；</p>
+<p>行动计划：制定行动计划和评审时间；</p>
+</div>
+<div class="section" id="c">
+<h3>管理4C模型<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image35" src="../_images/image-20230115205907664.png" /></p>
+<p>提升团队执行力时使用，包含四个行动：</p>
+<p>①布置任务要清晰（Clarity）：确保员工100%理解工作；</p>
+<p>②承诺工作要真心（Commitment）：发自内心的承诺；</p>
+<p>③胜任工作要到位（Competence）：不仅是能力，还有态度；</p>
+<p>④控制工作要全面（Control）：事前、事中、事后的控制；</p>
+</div>
+<div class="section" id="topic">
+<h3>TOPIC模型<a class="headerlink" href="#topic" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image36" src="../_images/image-20230115205929519.png" /></p>
+<p>团队管理的五大要素，想要管理好团队，必须重视每个要素的情况。</p>
+</div>
+</div>
+<div class="section" id="id31">
+<h2>整合力<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id32">
+<h3>杠杆思维<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image37" src="../_images/image-20230115210231532.png" /></p>
+<p>用极小的成本撬动极大的资源，从而做到收益最大化。</p>
+<p>最典型的例子是用30%的首付撬动100%的房产。</p>
+</div>
+<div class="section" id="poa">
+<h3>POA行动<a class="headerlink" href="#poa" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image38" src="../_images/image-20230115210255270.png" /></p>
+<p>提升团队行动力时使用：</p>
+<p>方法越有效，行动力就越强；</p>
+<p>伙伴越多，行动力就越快速；</p>
+<p>目标越小越聚焦，行动力就越强；</p>
+</div>
+<div class="section" id="id33">
+<h3>系统思维<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image39" src="../_images/image-20230115210321701.png" /></p>
+<p>对事情全面思考，不只就事论事。把想要达到结果、实现该结果的过程、过程优化以及对未来的影响等一系列的问题作为一个整体系统进行研究。</p>
+</div>
+<div class="section" id="id34">
+<h3>整合思维模型<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image40" src="../_images/image-20230115210341072.png" /></p>
+<p>当面对两种对立观点时，可以使用整合思维，各取所长，找到解决方案。</p>
+</div>
+<div class="section" id="id35">
+<h3>多元思维模型<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image41" src="../_images/image-20230115210402396.png" /></p>
+<p>思维模型是你大脑中做决策的工具箱。你的工具箱越多，你就越能做出最正确的决策。</p>
+<blockquote>
+<div><p>公众号后台回复【<strong>方法论</strong>】，获取原版PPT资源。</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chapters/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html" class="btn btn-neutral float-right" title="读书笔记" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../chapters/%E7%9F%A5%E8%AF%86%E8%83%BD%E5%8A%9B.html" class="btn btn-neutral float-left" title="知识能力" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 测试开发刚哥
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
